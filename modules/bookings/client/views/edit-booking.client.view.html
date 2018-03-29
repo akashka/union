@@ -1,0 +1,295 @@
+<section>
+  <div class="page-header">
+    <h1>'Edit Booking'</h1>
+  </div>
+  
+  <div class="col-md-12">
+    <form name="vm.bookingForm" class="form-horizontal" ng-submit="vm.save(vm.bookingForm.$valid)" novalidate>
+
+        <div ng-hide="vm.isError">
+            <div class="row">
+                <div class="col-sm-8 col-md-8">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label for="bill_date" class="col-sm-4 control-label">Bill Date:</label>
+                                <div class="col-sm-8">
+                                    <p class="input-group">
+                                        <input type="text" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" ng-model="vm.booking.bill_date" 
+                                            is-open="vm.dateset.bill_date.isOpened" datepicker-options="vm.dateOptions" ng-required="true"/>
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default" ng-click="vm.selectDate($event, 1)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label for="bill_no" class="col-sm-4 control-label">Bill Number:</label>
+                                <div class="col-sm-8">
+                                    <input id="bill_no" type="text" class="form-control" ng-model="vm.booking.bill_no" 
+                                        placeholder="Enter Bill Number" ng-required="true" ng-change="vm.onBillNumberChange()"/>
+                                    <div ng-messages="vm.bookingForm.bill_no.$error" ng-show="vm.bookingForm.bill_no.$dirty && vm.bookingForm.bill_no.$invalid" class="error-message">
+                                        <div ng-message="required">Bill Number is required</div>
+                                    </div> 
+                                    <div ng-show="vm.duplicateBillNumber" style="color: orange;">Bill Number already exists</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">                    
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label for="ref_date" class="col-sm-4 control-label">Ref Date:</label>
+                                <div class="col-sm-8">
+                                    <p class="input-group">
+                                        <input type="text" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" ng-model="vm.booking.ref_date" 
+                                            is-open="vm.dateset.ref_date.isOpened" datepicker-options="vm.dateOptions" ng-required="true"/>
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default" ng-click="vm.selectDate($event, 2)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label for="ref_no" class="col-sm-4 control-label">Ref Number:</label>
+                                <div class="col-sm-8">
+                                    <input id="ref_no" type="text" class="form-control" ng-model="vm.booking.ref_no" 
+                                        placeholder="Enter Ref Number" ng-required="true" ng-change="vm.onRefNumberChange()"/>
+                                    <div ng-messages="vm.bookingForm.ref_no.$error" ng-show="vm.bookingForm.ref_no.$dirty && vm.bookingForm.ref_no.$invalid" class="error-message">
+                                        <div ng-message="required">Ref Number is required</div>
+                                    </div> 
+                                    <div ng-show="vm.duplicateRefNumber" style="color: orange;">Ref Number already exists</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <label for="bill_to" class="col-sm-3 control-label">Bill To:</label>
+                        <div class="col-sm-9">
+                            <textarea rows="4" id="bill_to" class="form-control" ng-model="vm.booking.bill_to" placeholder="Enter Bill To Details"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- section - Consignor & Consignee Details  -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel-group">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" href="#collapse1">Consignor Details</a>
+                                </h4>
+                            </div>
+                            <div id="collapse1" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <label for="consignor_name" class="col-sm-4 control-label">Name:</label>
+                                            <div class="col-sm-8">
+                                                <input id="consignor_name" type="text" class="form-control" ng-model="vm.booking.consignor.name" 
+                                                    placeholder="Enter Consignor Name" ng-required="true" />
+                                                <div ng-messages="vm.bookingForm.consignor_name.$error" ng-show="vm.bookingForm.consignor_name.$dirty && vm.bookingForm.consignor_name.$invalid" class="error-message">
+                                                    <div ng-message="required">Consignor Name is required</div>
+                                                </div> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <label for="consignor_gstin_no" class="col-sm-4 control-label">GSTIN No:</label>
+                                            <div class="col-sm-8">
+                                                <input id="consignor_gstin_no" type="text" class="form-control" ng-model="vm.booking.consignor.gstin_no" 
+                                                    placeholder="Enter Consignor GSTIN No." />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="panel-group">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" href="#collapse2">Consignee Details</a>
+                                </h4>
+                            </div>
+                            <div id="collapse2" class="panel-collapse collapse in">                            
+                                <div class="panel-body">
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <label for="consignee_name" class="col-sm-4 control-label">Name:</label>
+                                            <div class="col-sm-8">
+                                                <input id="consignee_name" type="text" class="form-control" ng-model="vm.booking.consignee.name" 
+                                                    placeholder="Enter Consignee Name" ng-required="true" />
+                                                <div ng-messages="vm.bookingForm.consignee_name.$error" ng-show="vm.bookingForm.consignee_name.$dirty && vm.bookingForm.consignee_name.$invalid" class="error-message">
+                                                    <div ng-message="required">Consignee Name is required</div>
+                                                </div> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <label for="consignee_gstin_no" class="col-sm-4 control-label">GSTIN No:</label>
+                                            <div class="col-sm-8">
+                                                <input id="consignee_gstin_no" type="text" class="form-control" ng-model="vm.booking.consignee.gstin_no" 
+                                                    placeholder="Enter Consignee GSTIN No." />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- section - Multiple Bill Rows  -->            
+            <div class="row multi_row" ng-repeat="detail in vm.details">
+                <div class="row">
+                    <div class="col-sm-8 col-md-8">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <label for="gc_number" class="col-sm-4 control-label">GC Number:</label>
+                                    <div class="col-sm-8">
+                                        <input id="gc_number" type="text" class="form-control" ng-model="detail.gc_number" 
+                                            placeholder="Enter GC Number" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <label for="gc_date" class="col-sm-4 control-label">GC Date:</label>
+                                    <div class="col-sm-8">
+                                        <p class="input-group">
+                                            <input type="text" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" ng-model="detail.gc_date" 
+                                                is-open="vm.gc_date[$index].isOpened" datepicker-options="vm.dateOptions"/>
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default" ng-click="vm.selectRowDate($event, $index)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <label for="from" class="col-sm-4 control-label">From:</label>
+                                    <div class="col-sm-8">
+                                        <input id="from" type="text" class="form-control" ng-model="detail.from" 
+                                            placeholder="Enter From location" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <label for="to" class="col-sm-4 control-label">To:</label>
+                                    <div class="col-sm-8">
+                                        <input id="to" type="text" class="form-control" ng-model="detail.to" 
+                                            placeholder="Enter To location" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                        <div class="form-group">
+                            <label for="extra_info" class="col-sm-3 control-label">Remarks:</label>
+                            <div class="col-sm-9">
+                                <textarea rows="4" id="extra_info" class="form-control" ng-model="detail.extra_info" placeholder="Enter Remarks"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 col-md-4">
+                        <div class="form-group">
+                            <label for="package" class="col-sm-4 control-label">Package:</label>
+                            <div class="col-sm-8">
+                                <input id="package" type="text" class="form-control" ng-model="detail.package" 
+                                    placeholder="Enter Package" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                        <div class="form-group">
+                            <label for="weight" class="col-sm-4 control-label">Weight:</label>
+                            <div class="col-sm-8">
+                                <input id="weight" type="text" class="form-control" ng-model="detail.weight" 
+                                    placeholder="Enter Weight" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                        <div class="form-group">
+                            <label for="rate" class="col-sm-3 control-label">Rate:</label>
+                            <div class="col-sm-9">
+                                <input id="rate" type="text" class="form-control" ng-model="detail.rate" 
+                                    placeholder="Enter Rate" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 col-md-4">
+                        <div class="form-group">
+                            <label for="kms" class="col-sm-4 control-label">KMS:</label>
+                            <div class="col-sm-8">
+                                <input id="kms" type="text" class="form-control" ng-model="detail.kms" 
+                                    placeholder="Enter KMS" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                        <div class="form-group">
+                            <label for="amount" class="col-sm-4 control-label">Amount:</label>
+                            <div class="col-sm-8">
+                                <input id="amount" type="text" class="form-control" ng-model="detail.amount" 
+                                    placeholder="Enter Amount" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-1 col-md-1"></div>
+                    <div class="col-sm-2 col-md-2">
+                        <button type="button" class="btn btn-default spl_btn" ng-click="vm.addRow()">Add Row</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div ng-show="vm.isError">
+            <div class="error-message">
+                There was an error in making the request. 
+                Booking couldnot be done. Please try again. 
+                Possible instances of this error is there was no unique result found with the customer details.
+            </div>
+        </div>        
+
+        <div class="page-controls">
+            <div class="row text-right" role="toolbar" ng-hide="vm.isError">
+                <div class="loading-indicator" ng-show="vm.requestSubmitted && !vm.bookingCompleted"><img src="images/loader.gif" alt="loading" width="70" height="70" /></div>
+                <button type="button" class="btn btn-default" ng-disabled="vm.bookingForm.$invalid || vm.requestSubmitted" ng-hide="vm.bookingCompleted" ng-click="vm.save()">Save</button>
+                <button type="button" class="btn btn-default" ng-show="vm.bookingCompleted" ng-click="vm.gotoNewBooking()">New Order</button>
+            </div>
+            <div class="row text-right" role="toolbar" ng-show="vm.isError">
+                <button type="button" class="btn btn-default" ng-show="vm.bookingCompleted" ng-click="vm.gotoNewBooking()">New Order</button>
+            </div>
+            <br/>
+        </div>
+
+    </form>
+  </div>
+</section>

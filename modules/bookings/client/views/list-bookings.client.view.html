@@ -1,0 +1,86 @@
+<section>
+  <div class="page-header">
+    <h1>Bookings</h1>
+  </div>
+  <div class="row">
+        <div class="col-sm-4 col-md-4">
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Bill From:</label>
+                <div class="col-sm-7">
+                  <p class="input-group">
+                      <input type="text" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" ng-model="vm.search.bill_from" 
+                          is-open="vm.bill_from.isOpened" datepicker-options="vm.dateOptions"/>
+                      <span class="input-group-btn">
+                          <button type="button" class="btn btn-default" ng-click="vm.selectDate($event, 1)"><i class="glyphicon glyphicon-calendar"></i></button>
+                      </span>
+                  </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Bill To:</label>
+                <div class="col-sm-7">
+                    <p class="input-group">
+                      <input type="text" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" ng-model="vm.search.bill_to" 
+                          is-open="vm.bill_to.isOpened" datepicker-options="vm.dateOptions"/>
+                      <span class="input-group-btn">
+                          <button type="button" class="btn btn-default" ng-click="vm.selectDate($event, 2)"><i class="glyphicon glyphicon-calendar"></i></button>
+                      </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <div class="form-group">
+                <label for="bill_number" class="col-sm-5 control-label">Bill No:</label>
+                <div class="col-sm-7">
+                    <input id="bill_number" type="text" class="form-control" ng-model="vm.search.bill_number" 
+                        placeholder="Enter Bill Number"/>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="page-controls col-sm-12" style="text-align: center;">
+            <div class="row" role="toolbar">
+                <button type="button" class="btn btn-default" ng-click="vm.searches()">Search</button>
+                <button type="button" class="btn btn-default" ng-click="vm.reset()">Reset</button>
+                <button type="button" class="btn btn-default" ng-click="vm.gotoNewBooking()">New Order</button>
+            </div>
+        </div>
+  </div>
+  <br/><hr/>
+  <div class="list-group table-responsive">
+    <table class="table table-hover" id="myTable2">
+        <thead>
+          <tr>
+            <th> </th>
+             <th> </th> 
+            <th> </th>
+            <th ng-click="vm.sortTable(0)">Bill Date</th>
+            <th ng-click="vm.sortTable(1)">Bill No</th>
+            <th ng-click="vm.sortTable(2)">Ref No</th>
+            <th ng-click="vm.sortTable(3)">Ref Date</th>
+            <th ng-click="vm.sortTable(4)">Consignor</th>
+            <th ng-click="vm.sortTable(5)">Consignee</th>
+            <th ng-click="vm.sortTable(6)">Total Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="booking in vm.bookings">
+            <td> <a class="btn btn-primary" ui-sref="bookings.view({bookingId: booking._id})">VIEW</a> </td>
+             <td> <a class="btn btn-primary" ui-sref="bookings.edit({bookingId: booking._id})">EDIT</a> </td> 
+            <td> <div class="btn btn-primary" ng-click="vm.download(booking._id)">PRINT</div> </td>
+            <td>{{booking.bill_date | date:'dd/MMM/yyyy'}}</td>
+            <td>{{booking.bill_no}}</td>
+            <td>{{booking.ref_no}}</td>
+            <td>{{booking.ref_date | date:'dd/MMM/yyyy'}}</td>
+            <td>{{booking.consignor.name}}</td>
+            <td>{{booking.consignee.name}}</td>
+            <td>&#8377;  {{vm.calculateTotal(booking.details)}}</td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+  <uib-pagination boundary-links="true" max-size="5" items-per-page="vm.itemsPerPage" total-items="vm.filterLength" ng-model="vm.currentPage" ng-change="vm.pageChanged()"></uib-pagination>
+</section>

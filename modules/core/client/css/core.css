@@ -41,3 +41,29 @@ a:hover .header-profile-image {
 .has-error .help-inline.error-text {
   display: inline;
 }
+
+
+.panel-heading {
+    width: 15%;
+    height: 65px;
+    float: left;
+}
+
+.panel-body {
+  padding-bottom: 0;
+}
+
+.multi_row {
+    border-radius:4px;
+    box-shadow:0 1px 2px rgba(0, 0, 0, .05);
+    border:1px solid #ddd;
+    margin:0 0 10px 0;
+    padding-top:15px;
+    padding-right:15px;
+}
+
+.spl_btn {
+    background: #646464;
+    color: white;
+    border-radius: 15px;
+}
