@@ -37,6 +37,8 @@ RUN sudo apt-get install -yq nodejs \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+ RUN sudo apt-get install libcups2-dev
+
 # Install MEAN.JS Prerequisites
 RUN npm install --quiet -g gulp bower yo mocha karma-cli pm2 && npm cache clean
 
