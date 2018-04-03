@@ -8,6 +8,7 @@ var config = require('../config'),
   express = require('./express'),
   chalk = require('chalk'),
   seed = require('./mongo-seed');
+const argv = require('yargs').argv;
 
 function seedDB() {
   if (config.seedDB && config.seedDB.seed) {
@@ -36,8 +37,8 @@ module.exports.start = function start(callback) {
     // Start the app by listening on <port> at <host>
     app.listen(config.port, function () {
       // Create server URL
-      var port = config.port || 3000;
-      var server = (process.env.NODE_ENV === 'secure' ? 'https://' : 'http://') + "0.0.0.0" + ':' + config.port;
+      const port = argv.port || 8080;
+      var server = (process.env.NODE_ENV === 'secure' ? 'https://' : 'http://') + "0.0.0.0" + ':' + port;
       // Logging initialization
       console.log('--');
       console.log(chalk.green(config.app.title));
