@@ -12,6 +12,8 @@ var path = require('path'),
   moment = require('moment');
 var htmlToPdf = require('html-to-pdf');
 var conversion = require("phantom-html-to-pdf")();
+// var printJS = require('print-js');
+var printer = require("node-thermal-printer");
 // var Printer = require('node-printer');
 // var printer = require("printer");
 // var nodeThermalPrinter = require("node-thermal-printer");
@@ -139,6 +141,24 @@ var convertToWord = function(num) {
 }
 
 var printFile = function() {
+    printer.init({
+      type: 'epson',
+      interface: '/dev/usb/lp0'
+    });
+    printer.alignCenter();
+    printer.println("Hello world");
+    printer.printImage('./assets/olaii-logo-black.png', function(done){
+      printer.cut();
+      console.log("execute");
+      printer.execute(function(err){
+        console.log("Yes");
+        if (err) {
+          console.error("Print failed", err);
+        } else {
+        console.log("Print done");
+        }
+      });
+    });
         // var filename = './output.pdf';
         // var printername = 'Deskjet-1510-series';
         // filename = path.resolve(process.cwd(), filename);
