@@ -13,8 +13,7 @@ var path = require('path'),
 var htmlToPdf = require('html-to-pdf');
 var conversion = require("phantom-html-to-pdf")();
 // var Printer = require('node-printer');
-
-var printer = require("printer");
+// var printer = require("printer");
 // var nodeThermalPrinter = require("node-thermal-printer");
 
 /**
@@ -140,26 +139,26 @@ var convertToWord = function(num) {
 }
 
 var printFile = function() {
-        var filename = './output.pdf';
-        var printername = 'Deskjet-1510-series';
-        filename = path.resolve(process.cwd(), filename);
-        fs.readFile(filename, function(err, data){
-          if(err) {
-            console.error('err:' + err);
-            return;
-          }
-          console.log('data type is: '+typeof(data) + ', is buffer: ' + Buffer.isBuffer(data));
-            printer.printDirect({
-                data: data,
-                type: 'PDF',
-                success: function(id) {
-                    console.log('printed with id ' + id);
-                },
-                error: function(err) {
-                    console.error('error on printing: ' + err);
-                }
-            })
-        });
+        // var filename = './output.pdf';
+        // var printername = 'Deskjet-1510-series';
+        // filename = path.resolve(process.cwd(), filename);
+        // fs.readFile(filename, function(err, data){
+        //   if(err) {
+        //     console.error('err:' + err);
+        //     return;
+        //   }
+        //   console.log('data type is: '+typeof(data) + ', is buffer: ' + Buffer.isBuffer(data));
+        //     printer.printDirect({
+        //         data: data,
+        //         type: 'PDF',
+        //         success: function(id) {
+        //             console.log('printed with id ' + id);
+        //         },
+        //         error: function(err) {
+        //             console.error('error on printing: ' + err);
+        //         }
+        //     })
+        // });
 }
 
 exports.downloadByID = function (req, res) {
