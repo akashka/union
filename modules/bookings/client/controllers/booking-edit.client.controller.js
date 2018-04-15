@@ -87,9 +87,26 @@
           rate: "",
           kms: "",
           amount: "",
-          extra_info: ""
+          extra_info: "",
+          extras: []
       });
       vm.gc_date[vm.details.length-1] = { isOpened: false };
+    }
+
+    vm.deleteRow = function(ind) {
+      vm.details.splice(ind, 1);
+    }
+
+    vm.addExtra = function(index) {
+      if(vm.details[index].extras == undefined) vm.details[index].extras = [];
+      vm.details[index].extras.push({
+          extra_name: "",
+          extra_value: "0"
+      });
+    }
+
+    vm.removeExtra = function(index) {
+      vm.details[index].extras.splice(vm.details[index].extras.length-1, 1);
     }
 
     vm.duplicateBillNumber = false;

@@ -1,69 +1,43 @@
 <html>
-    <div style="width:22cm;height:13.5cm;">
+    <div style="width:22cm;height:13.5cm;font-size:18px;font-weight:bold;border:0;margin:0;padding:0;">
         
         <div style="width:100%;float:left;">
-            <div style="width:30%;padding-top:25px;padding-left:50px;float:left;">
+            <div style="width:40%;padding-top:18px;padding-left:40px;float:left;">
                 {{bill_no}}<br>
                 {{ref_no}}
             </div>
-            <div style="width:20%;padding-top:25px;float:left;">
+            <div style="width:20%;padding-top:18px;float:left;">
                 {{bill_date}}<br>
                 {{ref_date}}
             </div>
-            <div style="width:50%;padding-left:5px;padding-top:5px;float:left;">
+            <div style="width:40%;padding-left:0;padding-top:0px;margin-top:-15px;float:left;white-space:pre-wrap;">
                 {{bill_to}}
             </div>
         </div>
 
-        <div style="width:100%;float:left;">
-            <div style="width:60%;padding-top:25px;float:left;padding-left:100px;">
+        <div style="width:100%;float:left;height:85px;">
+            <div style="width:50%;padding-top:5px;float:left;padding-left:75px;">
                 {{consignor_name}} <br>
                 {{consignee_name}}
             </div>
-            <div style="width:40%;padding-top:25px;float:left;">
+            <div style="width:50%;padding-top:5px;float:left;">
                 GST NO: &nbsp; {{consignor_gst}} <br>
                 GST NO: &nbsp; {{consignee_gst}}
             </div>
         </div>
 
-        <div style="width:100%;float:left;height:75px;"></div>        
-
-        <div style="width:100%;float:left;">
-            <div style="width:10%;padding-left:2px;float:left;">
-                {{gc_no}}
-            </div>
-            <div style="width:15%;padding-left:2px;float:left;">
-                {{gc_date}}
-            </div>
-            <div style="width:10%;padding-left:2px;float:left;">
-                {{from}}
-            </div>
-            <div style="width:15%;padding-left:2px;float:left;">
-                {{to}}
-            </div>
-            <div style="width:10%;padding-left:2px;float:left;">
-                {{package}}
-            </div>
-            <div style="width:25%;padding-left:2px;float:left;">
-                {{weight}}   {{rate}}   {{kms}}
-            </div>
-            <div style="width:15%;padding-left:5px;float:left;">
-                {{amount}}
-            </div>
+        <div style="width:115%;float:right;white-space:pre-wrap;right:0;height:225px;margin-right:-15%;padding:1;display:block;">
+                {{row_to_print}}
         </div> 
-        <div style="width:100%;float:left;padding-top:5px;">
-            {{extra_info}}
-        </div>
 
-        <div style="width:100%;float:left;height:100px;"></div>        
         <div style="width:100%;float:left;padding-left:60px;">
             ( GST PAYABLE BY THE CUSTOMER UNDER CM)
         </div>
-        <div style="width:100%;float:left;padding-top:10px;">
-            <div style="width:85%;float:left;padding-left:100px;">
+        <div style="width:100%;float:left;padding-top:50px;">
+            <div style="width:95%;float:left;padding-left:50px;">
                 {{total_amount_words}}
             </div>
-            <div style="width:15%;float:left;">
+            <div style="width:5%;float:left;">
                 {{total_amount}}
             </div>
         </div>

@@ -45,7 +45,7 @@
                                 <div class="col-sm-8">
                                     <p class="input-group">
                                         <input type="text" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" ng-model="vm.booking.ref_date" 
-                                            is-open="vm.dateset.ref_date.isOpened" datepicker-options="vm.dateOptions" ng-required="true"/>
+                                            is-open="vm.dateset.ref_date.isOpened" datepicker-options="vm.dateOptions"/>
                                         <span class="input-group-btn">
                                             <button type="button" class="btn btn-default" ng-click="vm.selectDate($event, 2)"><i class="glyphicon glyphicon-calendar"></i></button>
                                         </span>
@@ -58,10 +58,7 @@
                                 <label for="ref_no" class="col-sm-4 control-label">Ref Number:</label>
                                 <div class="col-sm-8">
                                     <input id="ref_no" type="text" class="form-control" ng-model="vm.booking.ref_no" 
-                                        placeholder="Enter Ref Number" ng-required="true" ng-change="vm.onRefNumberChange()"/>
-                                    <div ng-messages="vm.bookingForm.ref_no.$error" ng-show="vm.bookingForm.ref_no.$dirty && vm.bookingForm.ref_no.$invalid" class="error-message">
-                                        <div ng-message="required">Ref Number is required</div>
-                                    </div> 
+                                        placeholder="Enter Ref Number" ng-change="vm.onRefNumberChange()"/>
                                     <div ng-show="vm.duplicateRefNumber" style="color: orange;">Ref Number already exists</div>
                                 </div>
                             </div>
@@ -261,9 +258,35 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-1 col-md-1"></div>
+                    <div class="col-sm-4 col-md-4">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-8 col-md-8">
+                        <div class="form-group">
+                            <label for="extras" class="col-sm-2 control-label">Extras:</label>
+                            <div class="col-sm-2 col-md-2">
+                                <button type="button" style="float:right;background-color:#3a993a;" class="btn btn-default spl_btn" ng-click="vm.addExtra($index)">+</button>
+                            </div>
+                            <div class="col-sm-2 col-md-2">
+                                <button type="button" style="background-color:#c02020;" class="btn btn-default spl_btn" ng-click="vm.removeExtra($index)" ng-show="detail.extras.length > 0">-</button>
+                            </div>
+                            <div class="col-sm-6" ng-repeat="ext in detail.extras">
+                                <div class="col-sm-6">
+                                    <input id="ext_name" type="text" class="form-control" ng-model="ext.extra_name" placeholder="Enter Extra Name" />
+                                </div>
+                                <div class="col-sm-6">
+                                    <input id="ext_value" type="text" class="form-control" ng-model="ext.extra_value" placeholder="Enter Extra Value" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-sm-2 col-md-2">
-                        <button type="button" class="btn btn-default spl_btn" ng-click="vm.addRow()">Add Row</button>
+                        <button type="button" style="float:right;background-color:#3a993a;" class="btn btn-default spl_btn" ng-click="vm.addRow()">Add Row</button>
+                    </div>
+                    <div class="col-sm-2 col-md-2">
+                        <button type="button" style="background-color:#c02020;" class="btn btn-default spl_btn" ng-click="vm.deleteRow($index)" ng-show="vm.details.length > 1">Delete Row</button>
                     </div>
                 </div>
             </div>

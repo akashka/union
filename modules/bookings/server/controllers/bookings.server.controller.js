@@ -17,6 +17,7 @@ var printer = require("node-thermal-printer");
 // var Printer = require('node-printer');
 // var printer = require("printer");
 // var nodeThermalPrinter = require("node-thermal-printer");
+var pdf2img = require('pdf2img');
 
 /**
  * Create a booking
@@ -136,18 +137,18 @@ var convertToWord = function(num) {
     str += (n[2] != 0) ? (a[Number(n[2])] || b[n[2][0]] + ' ' + a[n[2][1]]) + 'lakh ' : '';
     str += (n[3] != 0) ? (a[Number(n[3])] || b[n[3][0]] + ' ' + a[n[3][1]]) + 'thousand ' : '';
     str += (n[4] != 0) ? (a[Number(n[4])] || b[n[4][0]] + ' ' + a[n[4][1]]) + 'hundred ' : '';
-    str += (n[5] != 0) ? ((str != '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]]) + 'only ' : '';
-    return ("Rupees " + str + " Only");
+    str += (n[5] != 0) ? ((str != '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]]) + '' : '';
+    return (str + " Only");
 }
 
-var printFile = function() {
+var printFile = function(fileName) {
+    console.log(fileName);
     printer.init({
       type: 'epson',
       interface: '/dev/usb/lp0'
     });
     printer.alignCenter();
-    printer.println("Hello world");
-    printer.printImage('./assets/olaii-logo-black.png', function(done){
+    printer.printImage(fileName, function(done){
       printer.cut();
       console.log("execute");
       printer.execute(function(err){
@@ -181,6 +182,17 @@ var printFile = function() {
         // });
 }
 
+var findTotal = function(details) {
+  var sum = 0;
+  for(var i=0; i<details.length; i++) {
+    sum += Number(details[i].amount);
+    for(var p=0; p<details[i].extras.length; p++) {
+      sum += Number(details[i].extras[p].extra_value);
+    }
+  }
+  return sum;
+}
+
 exports.downloadByID = function (req, res) {
   var id = req.params.bookingId;
   if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -197,7 +209,7 @@ exports.downloadByID = function (req, res) {
         message: 'No booking with that identifier has been found'
       });
     }
-    
+
     var stringTemplate = fs.readFileSync(path.join(__dirname, '../controllers') + '/bill.html', "utf8");
     
     stringTemplate = stringTemplate.replace('{{bill_no}}', booking.bill_no);
@@ -209,27 +221,45 @@ exports.downloadByID = function (req, res) {
     stringTemplate = stringTemplate.replace('{{consignor_gst}}', booking.consignor.gstin_no);
     stringTemplate = stringTemplate.replace('{{consignee_name}}', booking.consignee.name);
     stringTemplate = stringTemplate.replace('{{consignee_gst}}', booking.consignee.gstin_no);
-    stringTemplate = stringTemplate.replace('{{gc_no}}', booking.details[0].gc_number);
-    stringTemplate = stringTemplate.replace('{{gc_date}}', moment(booking.details[0].gc_date).format('DD-MM-YYYY'));
-    stringTemplate = stringTemplate.replace('{{from}}', booking.details[0].from);
-    stringTemplate = stringTemplate.replace('{{to}}', booking.details[0].to);
-    stringTemplate = stringTemplate.replace('{{weight}}', booking.details[0].weight);
-    stringTemplate = stringTemplate.replace('{{rate}}', booking.details[0].rate);
-    stringTemplate = stringTemplate.replace('{{kms}}', booking.details[0].kms);
-    stringTemplate = stringTemplate.replace('{{amount}}', ("₹" + booking.details[0].amount));
-    stringTemplate = stringTemplate.replace('{{extra_info}}', booking.details[0].extra_info);
-    stringTemplate = stringTemplate.replace('{{total_amount_words}}', convertToWord(booking.details[0].amount));
-    stringTemplate = stringTemplate.replace('{{total_amount}}', ("₹" + booking.details[0].amount));
-    stringTemplate = stringTemplate.replace('{{package}}', booking.details[0].package);
+
+    var prntStrng = "";
+    for(var r=0; r<booking.details.length; r++) {
+        prntStrng += ("\n" + booking.details[r].gc_number + "&nbsp; &nbsp; &nbsp;" + moment(booking.details[r].gc_date).format('DD-MM-YYYY')
+            + "&nbsp; &nbsp;" + booking.details[r].from + "&nbsp; &nbsp; " + booking.details[r].to + "&nbsp; &nbsp; " + booking.details[r].package
+            + "&nbsp; &nbsp;" + booking.details[r].weight + "&nbsp; &nbsp; &nbsp;" + booking.details[r].rate + "&nbsp; &nbsp;" + booking.details[r].kms
+            + "&nbsp; &nbsp; &nbsp;" + booking.details[r].amount + ".00" + "\n");
+        if(booking.details[r].extra_info != "")
+          prntStrng += ("(" + booking.details[r].extra_info + ")" + "\n");
+        for(var m=0; m<booking.details[r].extras.length; m++) {
+          prntStrng += (booking.details[r].extras[m].extra_name + "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" + booking.details[r].extras[m].extra_value + "\n");
+        }
+    }
+
+    stringTemplate = stringTemplate.replace('{{row_to_print}}', prntStrng);   
+
+    stringTemplate = stringTemplate.replace('{{total_amount_words}}', convertToWord(findTotal(booking.details)));
+    stringTemplate = stringTemplate.replace('{{total_amount}}', (findTotal(booking.details) + ".00"));
 
     conversion({ html: stringTemplate }, function(err, pdf) {
-        var output = fs.createWriteStream('./output.pdf');
+        console.log('E');  
+        var output = fs.createWriteStream('./bill.pdf');
         pdf.stream.pipe(output);
         let filename = "invoice";
         filename = encodeURIComponent(filename) + '.pdf';
-        var file = fs.readFileSync('./output.pdf');   
+        var file = fs.readFileSync('./bill.pdf');   
         console.log("Getting in");
-        printFile();
+        pdf2img.setOptions({
+          type: 'png',                                // png or jpg, default jpg 
+          density: 600,                               // default 600 
+          outputname: 'test',                         // output file name, dafault null (if null given, then it will create image name same as input name) 
+          page: null                                  // convert selected page, default null (if null given, then it will convert all pages) 
+        });
+        
+        pdf2img.convert('./output.pdf', function(err, info) {
+          if (err) console.log(err)
+          else printFile(info.message[0].path);
+        });
+
         console.log("Getting out");        
         res.setHeader('Content-Type', 'application/pdf');
         res.setHeader('Content-disposition', 'attachment; filename="' + filename + '"');
