@@ -27,7 +27,11 @@ module.exports = {
         'public/lib/ng-file-upload/ng-file-upload.min.js',
         'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
         'public/lib/moment/moment.js',
-        'public/lib/angular-moment/angular-moment.js'
+        'public/lib/angular-moment/angular-moment.js',
+        'public/lib/lodash/lodash.js',
+        'public/lib/d3/d3.min.js',
+        'public/lib/c3/c3.min.js',
+        'public/lib/pathseg/pathseg.js'
         // endbower
       ]
     },

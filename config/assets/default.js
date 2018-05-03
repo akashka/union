@@ -28,7 +28,11 @@ module.exports = {
         'public/lib/angular-moment/angular-moment.js',
         'public/lib/pdfmake/build/pdfmake.min.js',
         'public/lib/pdfmake/build/vfs_fonts.js',
-        'public/lib/angular-typeahead/dist/angular-typeahead.js'
+        'public/lib/angular-typeahead/dist/angular-typeahead.js',
+        'public/lib/lodash/lodash.js',
+        'public/lib/d3/d3.min.js',
+        'public/lib/c3/c3.min.js',
+        'public/lib/pathseg/pathseg.js'
         // endbower
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']

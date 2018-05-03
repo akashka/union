@@ -67,3 +67,12 @@ a:hover .header-profile-image {
     color: white;
     border-radius: 15px;
 }
+
+.bg_img {
+    margin-left: -8.5%;
+    margin-top: -4.4%;
+    width: 115%;
+    min-height: 100vh;
+    background-image: url(../img/banner.jpg);
+    background-size: cover;
+}

@@ -138,7 +138,8 @@ var convertToWord = function(num) {
     str += (n[3] != 0) ? (a[Number(n[3])] || b[n[3][0]] + ' ' + a[n[3][1]]) + 'thousand ' : '';
     str += (n[4] != 0) ? (a[Number(n[4])] || b[n[4][0]] + ' ' + a[n[4][1]]) + 'hundred ' : '';
     str += (n[5] != 0) ? ((str != '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]]) + '' : '';
-    return (str + " Only");
+    str += "Only";
+    return str.toUpperCase();
 }
 
 var printFile = function(fileName) {
@@ -212,26 +213,26 @@ exports.downloadByID = function (req, res) {
 
     var stringTemplate = fs.readFileSync(path.join(__dirname, '../controllers') + '/bill.html', "utf8");
     
-    stringTemplate = stringTemplate.replace('{{bill_no}}', booking.bill_no);
-    stringTemplate = stringTemplate.replace('{{ref_no}}', booking.ref_no);
+    stringTemplate = stringTemplate.replace('{{bill_no}}', booking.bill_no.toUpperCase());
+    stringTemplate = stringTemplate.replace('{{ref_no}}', booking.ref_no.toUpperCase());
     stringTemplate = stringTemplate.replace('{{bill_date}}', moment(booking.bill_date).format('DD-MM-YYYY'));
     stringTemplate = stringTemplate.replace('{{ref_date}}', moment(booking.ref_date).format('DD-MM-YYYY'));
-    stringTemplate = stringTemplate.replace('{{bill_to}}', booking.bill_to);
-    stringTemplate = stringTemplate.replace('{{consignor_name}}', booking.consignor.name);
-    stringTemplate = stringTemplate.replace('{{consignor_gst}}', booking.consignor.gstin_no);
-    stringTemplate = stringTemplate.replace('{{consignee_name}}', booking.consignee.name);
-    stringTemplate = stringTemplate.replace('{{consignee_gst}}', booking.consignee.gstin_no);
+    stringTemplate = stringTemplate.replace('{{bill_to}}', booking.bill_to.toUpperCase());
+    stringTemplate = stringTemplate.replace('{{consignor_name}}', booking.consignor.name.toUpperCase());
+    stringTemplate = stringTemplate.replace('{{consignor_gst}}', booking.consignor.gstin_no.toUpperCase());
+    stringTemplate = stringTemplate.replace('{{consignee_name}}', booking.consignee.name.toUpperCase());
+    stringTemplate = stringTemplate.replace('{{consignee_gst}}', booking.consignee.gstin_no.toUpperCase());
 
     var prntStrng = "";
     for(var r=0; r<booking.details.length; r++) {
-        prntStrng += ("\n" + booking.details[r].gc_number + "&nbsp; &nbsp; &nbsp;" + moment(booking.details[r].gc_date).format('DD-MM-YYYY')
-            + "&nbsp; &nbsp;" + booking.details[r].from + "&nbsp; &nbsp; " + booking.details[r].to + "&nbsp; &nbsp; " + booking.details[r].package
-            + "&nbsp; &nbsp;" + booking.details[r].weight + "&nbsp; &nbsp; &nbsp;" + booking.details[r].rate + "&nbsp; &nbsp;" + booking.details[r].kms
-            + "&nbsp; &nbsp; &nbsp;" + booking.details[r].amount + ".00" + "\n");
+        prntStrng += ("\n" + booking.details[r].gc_number.toUpperCase() + "&nbsp; &nbsp; &nbsp;" + moment(booking.details[r].gc_date).format('DD-MM-YYYY')
+            + "&nbsp; &nbsp;" + booking.details[r].from.toUpperCase() + "&nbsp; &nbsp; " + booking.details[r].to.toUpperCase() + "&nbsp; &nbsp; " + booking.details[r].package.toUpperCase()
+            + "&nbsp; &nbsp;" + booking.details[r].weight.toUpperCase() + "&nbsp; &nbsp; &nbsp;" + booking.details[r].rate.toUpperCase() + "&nbsp; &nbsp;" + booking.details[r].kms.toUpperCase()
+            + "&nbsp; &nbsp; &nbsp;" + booking.details[r].amount.toUpperCase() + ".00" + "\n");
         if(booking.details[r].extra_info != "")
-          prntStrng += ("(" + booking.details[r].extra_info + ")" + "\n");
+          prntStrng += ("(" + booking.details[r].extra_info.toUpperCase() + ")" + "\n");
         for(var m=0; m<booking.details[r].extras.length; m++) {
-          prntStrng += (booking.details[r].extras[m].extra_name + "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" + booking.details[r].extras[m].extra_value + "\n");
+          prntStrng += (booking.details[r].extras[m].extra_name.toUpperCase() + "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" + booking.details[r].extras[m].extra_value + ".00" + "\n");
         }
     }
 
