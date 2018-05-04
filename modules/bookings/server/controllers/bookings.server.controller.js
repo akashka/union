@@ -12,11 +12,7 @@ var path = require('path'),
   moment = require('moment');
 var htmlToPdf = require('html-to-pdf');
 var conversion = require("phantom-html-to-pdf")();
-// var printJS = require('print-js');
 var printer = require("node-thermal-printer");
-// var Printer = require('node-printer');
-// var printer = require("printer");
-// var nodeThermalPrinter = require("node-thermal-printer");
 var pdf2img = require('pdf2img');
 
 /**
@@ -142,47 +138,6 @@ var convertToWord = function(num) {
     return str.toUpperCase();
 }
 
-var printFile = function(fileName) {
-    console.log(fileName);
-    printer.init({
-      type: 'epson',
-      interface: '/dev/usb/lp0'
-    });
-    printer.alignCenter();
-    printer.printImage(fileName, function(done){
-      printer.cut();
-      console.log("execute");
-      printer.execute(function(err){
-        console.log("Yes");
-        if (err) {
-          console.error("Print failed", err);
-        } else {
-        console.log("Print done");
-        }
-      });
-    });
-        // var filename = './output.pdf';
-        // var printername = 'Deskjet-1510-series';
-        // filename = path.resolve(process.cwd(), filename);
-        // fs.readFile(filename, function(err, data){
-        //   if(err) {
-        //     console.error('err:' + err);
-        //     return;
-        //   }
-        //   console.log('data type is: '+typeof(data) + ', is buffer: ' + Buffer.isBuffer(data));
-        //     printer.printDirect({
-        //         data: data,
-        //         type: 'PDF',
-        //         success: function(id) {
-        //             console.log('printed with id ' + id);
-        //         },
-        //         error: function(err) {
-        //             console.error('error on printing: ' + err);
-        //         }
-        //     })
-        // });
-}
-
 var findTotal = function(details) {
   var sum = 0;
   for(var i=0; i<details.length; i++) {
@@ -242,13 +197,11 @@ exports.downloadByID = function (req, res) {
     stringTemplate = stringTemplate.replace('{{total_amount}}', (findTotal(booking.details) + ".00"));
 
     conversion({ html: stringTemplate }, function(err, pdf) {
-        console.log('E');  
         var output = fs.createWriteStream('./bill.pdf');
         pdf.stream.pipe(output);
         let filename = "invoice";
         filename = encodeURIComponent(filename) + '.pdf';
         var file = fs.readFileSync('./bill.pdf');   
-        console.log("Getting in");
         pdf2img.setOptions({
           type: 'png',                                // png or jpg, default jpg 
           density: 600,                               // default 600 
@@ -258,10 +211,8 @@ exports.downloadByID = function (req, res) {
         
         pdf2img.convert('./output.pdf', function(err, info) {
           if (err) console.log(err)
-          else printFile(info.message[0].path);
         });
 
-        console.log("Getting out");        
         res.setHeader('Content-Type', 'application/pdf');
         res.setHeader('Content-disposition', 'attachment; filename="' + filename + '"');
         pdf.stream.pipe(res);

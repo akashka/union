@@ -45,8 +45,12 @@ a:hover .header-profile-image {
 
 .panel-heading {
     width: 15%;
-    height: 65px;
+    height: 85px;
     float: left;
+}
+
+.panel-title {
+  margin-top: 25px;
 }
 
 .panel-body {
