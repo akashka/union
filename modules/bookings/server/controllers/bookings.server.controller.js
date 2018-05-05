@@ -196,7 +196,14 @@ exports.downloadByID = function (req, res) {
     stringTemplate = stringTemplate.replace('{{total_amount_words}}', convertToWord(findTotal(booking.details)));
     stringTemplate = stringTemplate.replace('{{total_amount}}', (findTotal(booking.details) + ".00"));
 
-    conversion({ html: stringTemplate }, function(err, pdf) {
+    conversion({ 
+              html: stringTemplate,
+              paperSize: {
+                  format: 'url', 
+                  width: '10in',
+                  height: '6in'
+              },
+        }, function(err, pdf) {
         var output = fs.createWriteStream('./bill.pdf');
         pdf.stream.pipe(output);
         let filename = "invoice";
