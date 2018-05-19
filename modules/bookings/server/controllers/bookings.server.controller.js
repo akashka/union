@@ -187,8 +187,7 @@ exports.downloadByID = function (req, res) {
             ((booking.details[r].package != undefined) ? booking.details[r].package.toUpperCase() : " ") + "&nbsp; &nbsp;" + 
             ((booking.details[r].weight != undefined) ? booking.details[r].weight.toUpperCase() : " ") + "&nbsp; &nbsp; &nbsp;" + 
             ((booking.details[r].rate != undefined) ? booking.details[r].rate.toUpperCase() : " ") + "&nbsp; &nbsp;" + 
-            ((booking.details[r].kms != undefined) ? booking.details[r].kms.toUpperCase() : " ") + "&nbsp; &nbsp; &nbsp;" + 
-            booking.details[r].amount + ".00" + "\n");
+            ((booking.details[r].kms != undefined) ? booking.details[r].kms.toUpperCase() : " ") + "&nbsp; &nbsp; &nbsp;" + "\n");
         if(booking.details[r].extra_info != "" && booking.details[r].extra_info != undefined)
           prntStrng += ("(" + booking.details[r].extra_info.toUpperCase() + ")" + "\n");
         for(var m=0; m<booking.details[r].extras.length; m++) {
@@ -197,6 +196,13 @@ exports.downloadByID = function (req, res) {
     }
 
     stringTemplate = stringTemplate.replace('{{row_to_print}}', prntStrng);   
+
+    prntStrng = '';
+    for(var r=0; r<booking.details.length; r++) {
+        prntStrng += (booking.details[r].amount + ".00" + "\n");
+    }
+
+    stringTemplate = stringTemplate.replace('{{amount_to_print}}', prntStrng);      
 
     stringTemplate = stringTemplate.replace('{{total_amount_words}}', convertToWord(findTotal(booking.details)));
     stringTemplate = stringTemplate.replace('{{total_amount}}', (findTotal(booking.details) + ".00"));
