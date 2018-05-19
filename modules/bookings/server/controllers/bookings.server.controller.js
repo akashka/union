@@ -175,8 +175,8 @@ exports.downloadByID = function (req, res) {
     stringTemplate = stringTemplate.replace('{{bill_to}}', (booking.bill_to != undefined) ? booking.bill_to.toUpperCase() : "");
     stringTemplate = stringTemplate.replace('{{consignor_name}}', (booking.consignor.name != undefined) ? booking.consignor.name.toUpperCase() : "");
     stringTemplate = stringTemplate.replace('{{consignor_gst}}', (booking.consignor.gstin_no != undefined) ? ("GST NO:   " + booking.consignor.gstin_no.toUpperCase()) : "");
-    stringTemplate = stringTemplate.replace('{{consignee_name}}', (booking.consignee.name != undefined) ? ("GST NO:   " + booking.consignee.name.toUpperCase()) : "");
-    stringTemplate = stringTemplate.replace('{{consignee_gst}}', (booking.consignee.gstin_no != undefined) ? booking.consignee.gstin_no.toUpperCase() : "");
+    stringTemplate = stringTemplate.replace('{{consignee_name}}', (booking.consignee.name != undefined) ? (booking.consignee.name.toUpperCase()) : "");
+    stringTemplate = stringTemplate.replace('{{consignee_gst}}', (booking.consignee.gstin_no != undefined) ? ("GST NO:   " + booking.consignee.gstin_no.toUpperCase()) : "");
 
     var prntStrng = "";
     for(var r=0; r<booking.details.length; r++) {
