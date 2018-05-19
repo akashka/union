@@ -95,6 +95,7 @@
             // var file = new Blob([res], { type: 'application/pdf' });
             var fileurl = "/api/downloads/" + bookingId;
             window.open(fileurl, '_blank', '');
+            $window.open('localhost:xxx/api/document', '_blank');
             // Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Booking saved successfully!' });
         // })
         // .catch(function (res) {
