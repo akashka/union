@@ -122,6 +122,15 @@ exports.bookingByID = function (req, res, next, id) {
   });
 };
 
+var addCommas = function(x) {
+  x=x.toString();
+  var lastThree = x.substring(x.length-3);
+  var otherNumbers = x.substring(0,x.length-3);
+  if(otherNumbers != '') lastThree = ',' + lastThree;
+  var res = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+  return res;
+}
+
 var convertToWord = function(num) {
     var a = ['','one ','two ','three ','four ', 'five ','six ','seven ','eight ','nine ','ten ','eleven ','twelve ','thirteen ','fourteen ','fifteen ','sixteen ','seventeen ','eighteen ','nineteen '];
     var b = ['', '', 'twenty','thirty','forty','fifty', 'sixty','seventy','eighty','ninety'];
@@ -134,7 +143,7 @@ var convertToWord = function(num) {
     str += (n[3] != 0) ? (a[Number(n[3])] || b[n[3][0]] + ' ' + a[n[3][1]]) + 'thousand ' : '';
     str += (n[4] != 0) ? (a[Number(n[4])] || b[n[4][0]] + ' ' + a[n[4][1]]) + 'hundred ' : '';
     str += (n[5] != 0) ? ((str != '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]]) + '' : '';
-    str += "Only";
+    str += "Only / -";
     return str.toUpperCase();
 }
 
@@ -199,13 +208,13 @@ exports.downloadByID = function (req, res) {
 
     prntStrng = '';
     for(var r=0; r<booking.details.length; r++) {
-        prntStrng += (booking.details[r].amount + ".00" + "\n");
+        prntStrng += (addCommas(booking.details[r].amount) + ".00" + "\n");
     }
 
     stringTemplate = stringTemplate.replace('{{amount_to_print}}', prntStrng);      
 
     stringTemplate = stringTemplate.replace('{{total_amount_words}}', convertToWord(findTotal(booking.details)));
-    stringTemplate = stringTemplate.replace('{{total_amount}}', (findTotal(booking.details) + ".00"));
+    stringTemplate = stringTemplate.replace('{{total_amount}}', (addCommas(findTotal(booking.details)) + ".00"));
 
     conversion({ 
               html: stringTemplate,
