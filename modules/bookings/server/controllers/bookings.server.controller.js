@@ -178,9 +178,9 @@ exports.downloadByID = function (req, res) {
     var stringTemplate = fs.readFileSync(path.join(__dirname, '../controllers') + '/bill.html', "utf8");
     
     stringTemplate = stringTemplate.replace('{{bill_no}}', (booking.bill_no != undefined) ? booking.bill_no.toUpperCase() : "");
-    stringTemplate = stringTemplate.replace('{{ref_no}}', (booking.ref_no != undefined) ? booking.ref_no.toUpperCase() : "");
+    stringTemplate = stringTemplate.replace('{{ref_no}}', (booking.ref_no != undefined && booking.ref_no != '') ? booking.ref_no.toUpperCase() : "");
     stringTemplate = stringTemplate.replace('{{bill_date}}', (booking.bill_date != undefined) ? moment(booking.bill_date).format('DD-MM-YYYY') : "");
-    stringTemplate = stringTemplate.replace('{{ref_date}}', (booking.ref_no != undefined) ? moment(booking.ref_date).format('DD-MM-YYYY') : "");
+    stringTemplate = stringTemplate.replace('{{ref_date}}', (booking.ref_no != undefined && booking.ref_no != '') ? moment(booking.ref_date).format('DD-MM-YYYY') : "");
     stringTemplate = stringTemplate.replace('{{bill_to}}', (booking.bill_to != undefined) ? booking.bill_to.toUpperCase() : "");
     stringTemplate = stringTemplate.replace('{{consignor_name}}', (booking.consignor.name != undefined) ? booking.consignor.name.toUpperCase() : "");
     stringTemplate = stringTemplate.replace('{{consignor_gst}}', (booking.consignor.gstin_no != undefined) ? ("GST NO:   " + booking.consignor.gstin_no.toUpperCase()) : "");
@@ -200,7 +200,7 @@ exports.downloadByID = function (req, res) {
         if(booking.details[r].extra_info != "" && booking.details[r].extra_info != undefined)
           prntStrng += ("(" + booking.details[r].extra_info.toUpperCase() + ")" + "\n");
         for(var m=0; m<booking.details[r].extras.length; m++) {
-          prntStrng += (booking.details[r].extras[m].extra_name.toUpperCase() + "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" + booking.details[r].extras[m].extra_value + ".00" + "\n");
+          prntStrng += (booking.details[r].extras[m].extra_name.toUpperCase() + "\n");
         }
     }
 
@@ -209,6 +209,9 @@ exports.downloadByID = function (req, res) {
     prntStrng = '';
     for(var r=0; r<booking.details.length; r++) {
         prntStrng += (addCommas(booking.details[r].amount) + ".00" + "\n");
+        for(var m=0; m<booking.details[r].extras.length; m++) {
+          prntStrng += (addCommas(booking.details[r].extras[m].extra_value) + ".00" + "\n");
+        }
     }
 
     stringTemplate = stringTemplate.replace('{{amount_to_print}}', prntStrng);      

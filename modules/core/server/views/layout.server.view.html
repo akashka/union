@@ -69,6 +69,51 @@
   <!--Application JavaScript Files-->
     {{#each jsFiles}}<script type="text/javascript" src="/{{this}}"></script>{{/each}}
   
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script>
+
+  <script type="text/javascript">
+      $(function() {
+          $('input:text:first').focus();
+          var $inp = $('input:text');
+          $inp.bind('keydown', function(e) {
+              var key = e.which;
+              if (key == 13) {
+                  e.preventDefault();
+                  var nextIndex = $('input:text').index(this) + 1;
+                  var maxIndex = $('input:text').length;
+                  if (nextIndex < maxIndex) {
+                      $('input:text:eq(' + nextIndex+')').focus();
+                  }
+                  if  (nextIndex == maxIndex ) {
+                      $('textarea').focus();
+                  }
+              }         
+          });
+
+          $("textarea").keydown(function(e) {
+            if(e.keyCode === 13) { // tab was pressed
+                // get caret position/selection
+                var start = this.selectionStart;
+                var end = this.selectionEnd;
+
+                var $this = $(this);
+                var value = $this.val();
+
+                // set textarea value to: text before caret + tab + text after caret
+                $this.val(value.substring(0, start)
+                            + "\n"
+                            + value.substring(end));
+
+                // put caret at right position again (add one for the tab)
+                this.selectionStart = this.selectionEnd = start + 1;
+
+                // prevent the focus lose
+                e.preventDefault();
+            }
+          });
+      });
+  </script>
+
   <!--owasp config sync-->
   <script type="text/javascript">
     var sharedConfig = {{{ sharedConfig }}};

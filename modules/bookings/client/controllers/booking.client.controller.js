@@ -206,6 +206,8 @@
     vm.clients = [];
     vm.allsClients = [];
     vm.sclients = [];
+    vm.allBookingTos = [];
+    vm.bookingTos = [];
 
     $timeout(function () {
       for(var i=0; i<vm.allBookings.length; i++) {
@@ -219,6 +221,11 @@
           if(vm.allsClients[j].name.toUpperCase() == vm.allBookings[i].consignee.name.toUpperCase()) isFound = true;
         }
         if(!isFound) vm.allsClients.push(vm.allBookings[i].consignee);
+        var istFound = false;
+        for(var j=0; j<vm.allBookingTos.length; j++) {
+          if(vm.allBookingTos[j].toUpperCase() == vm.allBookings[i].bill_to.toUpperCase()) istFound = true;
+        }
+        if(!istFound) vm.allBookingTos.push(vm.allBookings[i].bill_to);
       }
     }, 500);
 
@@ -254,6 +261,21 @@
 			vm.bookingForm.consignee.name=string.name;
       vm.bookingForm.consignee.gstin_no=string.gstin_no;
       vm.sclients=[];
+    }
+
+    vm.tcomplete = function(selectedClient) {
+			var output=[];
+			angular.forEach(vm.allBookingTos,function(clts){
+				if(clts.toLowerCase().indexOf(selectedClient.toLowerCase())>=0){
+					output.push(clts);
+				}
+			});
+			vm.bookingTos=output;
+    }
+    
+		vm.tfillTextbox=function(string){
+			vm.bookingForm.bill_to=string;
+      vm.bookingTos=[];
     }
 
     if($state.params.bookingId) {

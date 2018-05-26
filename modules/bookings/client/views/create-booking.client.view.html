@@ -18,7 +18,7 @@
                                         <input type="text" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" ng-model="vm.bookingForm.bill_date" 
                                             is-open="vm.dateset.bill_date.isOpened" datepicker-options="vm.dateOptions" ng-required="true"/>
                                         <span class="input-group-btn">
-                                            <button type="button" class="btn btn-default" ng-click="vm.selectDate($event, 1)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                            <button type="button" class="btn btn-default" tabindex="-1" ng-click="vm.selectDate($event, 1)"><i class="glyphicon glyphicon-calendar"></i></button>
                                         </span>
                                     </p>
                                 </div>
@@ -47,7 +47,7 @@
                                         <input type="text" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" ng-model="vm.bookingForm.ref_date" 
                                             is-open="vm.dateset.ref_date.isOpened" datepicker-options="vm.dateOptions"/>
                                         <span class="input-group-btn">
-                                            <button type="button" class="btn btn-default" ng-click="vm.selectDate($event, 2)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                            <button type="button" class="btn btn-default" tabindex="-1" ng-click="vm.selectDate($event, 2)"><i class="glyphicon glyphicon-calendar"></i></button>
                                         </span>
                                     </p>
                                 </div>
@@ -69,7 +69,14 @@
                     <div class="form-group">
                         <label for="bill_to" class="col-sm-3 control-label">Bill To:</label>
                         <div class="col-sm-9">
-                            <textarea rows="4" id="bill_to" class="form-control" ng-model="vm.bookingForm.bill_to" placeholder="Enter Bill To Details"></textarea>
+                            <textarea rows="4" id="bill_to" class="form-control" ng-model="vm.bookingForm.bill_to" placeholder="Enter Bill To Details"
+                                    ng-required="true" ng-keyup="vm.tcomplete(vm.bookingForm.bill_to)"></textarea>
+                            <ul class="list-group">
+                                <li class="list-group-item" ng-repeat="bookingTo in vm.bookingTos" ng-click="vm.tfillTextbox(bookingTo)">{{bookingTo}}</li>
+                            </ul>
+                            <div ng-messages="vm.bookingForm.bill_to.$error" ng-show="vm.bookingForm.bill_to.$dirty && vm.bookingForm.bill_to.$invalid" class="error-message">
+                                <div ng-message="required">Bill To is required</div>
+                            </div> 
                         </div>
                     </div>
                 </div>
@@ -82,7 +89,7 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" href="#collapse1">Consignor Details</a>
+                                    <a data-toggle="collapse" tabindex="-1" href="#collapse1">Consignor Details</a>
                                 </h4>
                             </div>
                             <div id="collapse1" class="panel-collapse collapse in">
@@ -121,7 +128,7 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" href="#collapse2">Consignee Details</a>
+                                    <a data-toggle="collapse" tabindex="-1" href="#collapse2">Consignee Details</a>
                                 </h4>
                             </div>
                             <div id="collapse2" class="panel-collapse collapse in">                            
@@ -179,7 +186,7 @@
                                             <input type="text" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" ng-model="detail.gc_date" 
                                                 is-open="vm.gc_date[$index].isOpened" datepicker-options="vm.dateOptions"/>
                                             <span class="input-group-btn">
-                                                <button type="button" class="btn btn-default" ng-click="vm.selectRowDate($event, $index)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                                <button type="button" tabindex="-1" class="btn btn-default" ng-click="vm.selectRowDate($event, $index)"><i class="glyphicon glyphicon-calendar"></i></button>
                                             </span>
                                         </p>
                                     </div>

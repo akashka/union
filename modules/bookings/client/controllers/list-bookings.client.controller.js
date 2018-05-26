@@ -5,29 +5,42 @@
     .module('bookings')
     .controller('BookingsListController', BookingsListController);
 
-  BookingsListController.$inject = ['BookingsService', '$state', 'moment', '$http', 'Notification'];
+  BookingsListController.$inject = ['$scope', '$state', '$window', 'BookingsService', 'Authentication', 'Notification', '$timeout'];
 
-  function BookingsListController(BookingsService, $state, moment, pdfMake, $http, Notification) {
+  function BookingsListController($scope, $state, $window, BookingsService, Authentication, Notification, $timeout) {
     var vm = this;
 
     vm.bookings = BookingsService.query();
     vm.allBookings = BookingsService.query();
 
+    vm.allClients = [];
+    vm.allsClients = [];
+    vm.allBookingTos = [];
+
     vm.search = {
       bill_from: "",
       bill_to: "",
-      bill_number: ""
+      bill_number: "",
+      consignor: '',
+      consignee: '',
+      bill_to_address: ''
     }
 
     vm.searches = function() {
       vm.bookings = [];
       var bookings = vm.allBookings;
       for(var i = 0; i < bookings.length; i++) {
-             if(vm.search.bill_number != "" && vm.search.bill_number == bookings[i].bill_no)
+        if(vm.search.bill_number != "" && vm.search.bill_number == bookings[i].bill_no)
           vm.bookings.push(bookings[i]);
         else if(vm.search.bill_from != "" && moment(vm.search.bill_from) <= moment(bookings[i].bill_date))
           vm.bookings.push(bookings[i]);
         else if(vm.search.bill_to != undefined && moment(vm.search.bill_to) >= moment(bookings[i].bill_date))
+          vm.bookings.push(bookings[i]);
+        else if(vm.search.bill_to_address != '' && vm.search.bill_to_address == bookings[i].bill_to)
+          vm.bookings.push(bookings[i]);
+        else if(vm.search.consignee != '' && vm.search.consignee == bookings[i].consignee.name)
+          vm.bookings.push(bookings[i]);
+        else if(vm.search.consignor != '' && vm.search.consignor == bookings[i].consignor.name)
           vm.bookings.push(bookings[i]);
       }        
     }
@@ -37,7 +50,10 @@
       vm.search = {
         bill_from: "",
         bill_to: "",
-        bill_number: ""
+        bill_number: "",
+        consignor: '',
+        consignee: '',
+        bill_to_address: ''
       };
       vm.bill_from = {isOpened: false};
       vm.bill_to = {isOpened: false}; 
@@ -85,6 +101,9 @@
       var total = 0;
       for(var i = 0; i < book.length; i++) {
         total += vm.convertToFloat(book[i].amount);
+        for(var k=0; k<book[i].extras.length; k++) {
+          total += vm.convertToFloat(book[i].extras[k].extra_value);          
+        }
       }
       return total;
     }
@@ -157,6 +176,22 @@
             }
         }
     }
+
+    $timeout(function () {
+      for(var i=0; i<vm.allBookings.length; i++) {
+        var isFound = false;
+        var issFound = false;
+        var istFound = false;
+        for(var j=0; j<vm.allClients.length; j++) {
+          if(vm.allClients[j].name.toUpperCase() == vm.allBookings[i].consignor.name.toUpperCase()) isFound = true;
+          if(vm.allsClients[j].name.toUpperCase() == vm.allBookings[i].consignee.name.toUpperCase()) issFound = true;
+          if(vm.allBookingTos[j].toUpperCase() == vm.allBookings[i].bill_to.toUpperCase()) istFound = true;
+        }
+        if(!isFound) vm.allClients.push(vm.allBookings[i].consignor);
+        if(!issFound) vm.allsClients.push(vm.allBookings[i].consignee);
+        if(!istFound) vm.allBookingTos.push(vm.allBookings[i].bill_to);
+      }
+    }, 500);
 
   }
 }());
