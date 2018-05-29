@@ -177,6 +177,10 @@
         }
     }
 
+    vm.makeCopy= function(bookingId) {
+      
+    }
+
     $timeout(function () {
       for(var i=0; i<vm.allBookings.length; i++) {
         var isFound = false;

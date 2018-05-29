@@ -12,6 +12,7 @@
     vm.authentication = Authentication;
     vm.bookings = angular.toJson(booking);
     vm.allBookings = booking.query();
+    vm.isCoScreen = false;
 
     vm.convertToFloat = function(stri) {
       if(stri == null || stri == undefined) return 0;
@@ -139,6 +140,7 @@
                 consignee: bookingResolve[k].consignee,
                 details: bookingResolve[k].details,
                 ref_no: bookingResolve[k].ref_no,
+                co_copy: bookingResolve[k].co_copy,
                 ref_date: new Date(moment(bookingResolve[k].ref_date))
             };
             vm.details = bookingResolve[k].details;

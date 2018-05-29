@@ -45,6 +45,11 @@ var BookingSchema = new Schema({
     type: Date,
     default: Date.now
   },
+  co_copy: {
+      type: Boolean,
+      default: false,
+      required: true
+  },
   user: {
     type: Schema.ObjectId,
     ref: 'User'

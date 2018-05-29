@@ -44,6 +44,18 @@
           bookingResolve: getBooking
         }
       })
+      .state('bookings.co', {
+        url: '/:bookingId/co',
+        templateUrl: '/modules/bookings/client/views/edit-booking.client.view.html',
+        controller: 'BookingsAdminCoController',
+        controllerAs: 'vm',
+        data: {
+          pageTitle: 'CO Booking'
+        },
+        resolve: {
+          bookingResolve: getBooking
+        }
+      })
       .state('bookings.view', {
         url: '/:bookingId',
         templateUrl: '/modules/bookings/client/views/view-booking.client.view.html',

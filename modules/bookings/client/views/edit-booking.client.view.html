@@ -1,6 +1,7 @@
 <section>
   <div class="page-header">
-    <h1>'Edit Booking'</h1>
+    <h1 ng-if="!vm.isCoScreen">Edit Booking</h1>
+    <h1 ng-if="vm.isCoScreen">CO Copy</h1>
   </div>
   
   <div class="col-md-12">

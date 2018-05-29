@@ -67,6 +67,7 @@
         details: [],
         ref_no: "",
         ref_date: "",
+        co_copy: false,
         _id: null,
       };
 

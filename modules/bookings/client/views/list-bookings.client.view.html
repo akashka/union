@@ -1,6 +1,11 @@
 <section>
-  <div class="page-header">
-    <h1>Bookings</h1>
+  <div class="page-header row">
+    <div class="col-md-6"><h1>Bookings</h1></div>
+    <div class="col-md-6">
+        <!-- <label class="switch">
+            <input type="checkbox"><span class="slider round"></span>
+        </label> -->
+    </div> 
   </div>
   
     <div class="row">
@@ -100,6 +105,7 @@
             <th> </th>
              <th> </th> 
             <th> </th>
+            <th> </th>
             <th ng-click="vm.sortTable(0)">Bill Date</th>
             <th ng-click="vm.sortTable(1)">Bill No</th>
             <th ng-click="vm.sortTable(2)">Ref No</th>
@@ -110,10 +116,15 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="booking in vm.bookings">
+          <tr ng-repeat="booking in vm.bookings" ng-style="booking.co_copy && {'background-color':'#d6d6d6'}">
             <td> <a class="btn btn-primary" ui-sref="bookings.view({bookingId: booking._id})">VIEW</a> </td>
              <td> <a class="btn btn-primary" ui-sref="bookings.edit({bookingId: booking._id})">EDIT</a> </td> 
             <td> <div class="btn btn-primary" ng-click="vm.download(booking._id)">PRINT</div> </td>
+            <td> 
+                <div class="btn btn-primary" ui-sref="bookings.co({bookingId: booking._id})" ng-hide="booking.co_copy == true">
+                    CO COPY
+                </div> 
+            </td>
             <td>{{booking.bill_date | date:'dd/MMM/yyyy'}}</td>
             <td>{{booking.bill_no}}</td>
             <td>{{booking.ref_no}}</td>
