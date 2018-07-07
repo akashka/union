@@ -212,6 +212,7 @@ exports.downloadByID = function (req, res) {
         for(var m=0; m<booking.details[r].extras.length; m++) {
           prntStrng += (addCommas(booking.details[r].extras[m].extra_value) + ".00" + "\n");
         }
+        prntStrng += "\n \n";
     }
 
     stringTemplate = stringTemplate.replace('{{amount_to_print}}', prntStrng);      

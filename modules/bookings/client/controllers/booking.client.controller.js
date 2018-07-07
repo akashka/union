@@ -298,5 +298,12 @@
       // angular.element($()).val().trigger('change');
     }
 
+    $('input[type="text"]').keyup(function(e) {
+        if(e.keyCode == 13) {
+            $(this).next().focus();
+        }
+    });
+
+
   }
 }());
