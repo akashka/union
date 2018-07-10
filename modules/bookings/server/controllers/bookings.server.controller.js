@@ -190,7 +190,7 @@ exports.downloadByID = function (req, res) {
     var prntStrng = "";
     for(var r=0; r<booking.details.length; r++) {
         prntStrng += ("\n" + ((booking.details[r].gc_number != undefined) ? booking.details[r].gc_number.toUpperCase() : " ") + "&nbsp; &nbsp; &nbsp;" + 
-            ((booking.details[r].gc_date != undefined) ? moment(booking.details[r].gc_date).format('DD-MM-YYYY') : " ") + "&nbsp; &nbsp;" + 
+            ((booking.details[r].gc_date != undefined) ? moment(booking.details[r].gc_date).add(1, 'days').subtract(1, 'days').format('DD-MM-YYYY') : " ") + "&nbsp; &nbsp;" + 
             ((booking.details[r].from != undefined) ? booking.details[r].from.toUpperCase() : " ") + "&nbsp; &nbsp; " + 
             ((booking.details[r].to != undefined) ? booking.details[r].to.toUpperCase() : " ") + "&nbsp; &nbsp; " + 
             ((booking.details[r].package != undefined) ? booking.details[r].package.toUpperCase() : " ") + "&nbsp; &nbsp;" + 
