@@ -79,7 +79,7 @@
 
     $timeout(function () {
       vm.bookingForm.bill_no = Number(vm.allBookings[0].bill_no) + 1;
-    }, 500);
+    }, 1000);
       
     vm.reset();
 
@@ -228,7 +228,7 @@
         }
         if(!istFound) vm.allBookingTos.push(vm.allBookings[i].bill_to);
       }
-    }, 500);
+    }, 1000);
 
     vm.complete = function(selectedClient) {
       vm.clientbookings = [];
