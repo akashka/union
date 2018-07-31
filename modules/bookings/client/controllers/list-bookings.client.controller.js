@@ -195,7 +195,7 @@
         if(!issFound) vm.allsClients.push(vm.allBookings[i].consignee);
         if(!istFound) vm.allBookingTos.push(vm.allBookings[i].bill_to);
       }
-    }, 500);
+    }, 1000);
 
   }
 }());
