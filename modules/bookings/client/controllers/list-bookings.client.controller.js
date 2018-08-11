@@ -10,9 +10,28 @@
   function BookingsListController($scope, $state, $window, BookingsService, Authentication, Notification, $timeout) {
     var vm = this;
 
-    vm.bookings = BookingsService.query();
-    vm.allBookings = BookingsService.query();
+//     vm.bookings = BookingsService.query();
+//     vm.allBookings = BookingsService.query();
 
+    BookingsService.query().$promise.then(function(response){
+        vm.bookings = response;
+        vm.allBookings = response;
+        for(var i=0; i<vm.allBookings.length; i++) {
+          var isFound = false;
+          var issFound = false;
+          var istFound = false;
+          for(var j=0; j<vm.allClients.length; j++) {
+            if(vm.allClients[j].name.toUpperCase() == vm.allBookings[i].consignor.name.toUpperCase()) isFound = true;
+            if(vm.allsClients[j].name.toUpperCase() == vm.allBookings[i].consignee.name.toUpperCase()) issFound = true;
+            if(vm.allBookingTos[j].toUpperCase() == vm.allBookings[i].bill_to.toUpperCase()) istFound = true;
+          }
+          if(!isFound) vm.allClients.push(vm.allBookings[i].consignor);
+          if(!issFound) vm.allsClients.push(vm.allBookings[i].consignee);
+          if(!istFound) vm.allBookingTos.push(vm.allBookings[i].bill_to);
+        }
+        vm.buildPager();
+    });
+    
     vm.allClients = [];
     vm.allsClients = [];
     vm.allBookingTos = [];
@@ -90,7 +109,7 @@
       vm.figureOutItemsToDisplay();
     }
 
-    vm.buildPager();
+//     vm.buildPager();
 
     vm.convertToFloat = function(stri) {
       if(stri == null || stri == undefined) return 0;
@@ -181,21 +200,21 @@
       
     }
 
-    $timeout(function () {
-      for(var i=0; i<vm.allBookings.length; i++) {
-        var isFound = false;
-        var issFound = false;
-        var istFound = false;
-        for(var j=0; j<vm.allClients.length; j++) {
-          if(vm.allClients[j].name.toUpperCase() == vm.allBookings[i].consignor.name.toUpperCase()) isFound = true;
-          if(vm.allsClients[j].name.toUpperCase() == vm.allBookings[i].consignee.name.toUpperCase()) issFound = true;
-          if(vm.allBookingTos[j].toUpperCase() == vm.allBookings[i].bill_to.toUpperCase()) istFound = true;
-        }
-        if(!isFound) vm.allClients.push(vm.allBookings[i].consignor);
-        if(!issFound) vm.allsClients.push(vm.allBookings[i].consignee);
-        if(!istFound) vm.allBookingTos.push(vm.allBookings[i].bill_to);
-      }
-    }, 1000);
+//     $timeout(function () {
+//       for(var i=0; i<vm.allBookings.length; i++) {
+//         var isFound = false;
+//         var issFound = false;
+//         var istFound = false;
+//         for(var j=0; j<vm.allClients.length; j++) {
+//           if(vm.allClients[j].name.toUpperCase() == vm.allBookings[i].consignor.name.toUpperCase()) isFound = true;
+//           if(vm.allsClients[j].name.toUpperCase() == vm.allBookings[i].consignee.name.toUpperCase()) issFound = true;
+//           if(vm.allBookingTos[j].toUpperCase() == vm.allBookings[i].bill_to.toUpperCase()) istFound = true;
+//         }
+//         if(!isFound) vm.allClients.push(vm.allBookings[i].consignor);
+//         if(!issFound) vm.allsClients.push(vm.allBookings[i].consignee);
+//         if(!istFound) vm.allBookingTos.push(vm.allBookings[i].bill_to);
+//       }
+//     }, 1000);
 
   }
 }());
