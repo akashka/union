@@ -11,7 +11,29 @@
     var vm = this;
     vm.authentication = Authentication;
     vm.bookings = angular.toJson(booking);
-    vm.allBookings = booking.query();
+//     vm.allBookings = booking.query();
+	  
+    booking.query().$promise.then(function(response){
+      vm.allBookings = response;
+      vm.bookingForm.bill_no = Number(vm.allBookings[0].bill_no) + 1;
+      for(var i=0; i<vm.allBookings.length; i++) {
+        var isFound = false;
+        for(var j=0; j<vm.allClients.length; j++) {
+          if(vm.allClients[j].name.toUpperCase() == vm.allBookings[i].consignor.name.toUpperCase()) isFound = true;
+        }
+        if(!isFound) vm.allClients.push(vm.allBookings[i].consignor);
+        var issFound = false;
+        for(var j=0; j<vm.allsClients.length; j++) {
+          if(vm.allsClients[j].name.toUpperCase() == vm.allBookings[i].consignee.name.toUpperCase()) isFound = true;
+        }
+        if(!isFound) vm.allsClients.push(vm.allBookings[i].consignee);
+        var istFound = false;
+        for(var j=0; j<vm.allBookingTos.length; j++) {
+          if(vm.allBookingTos[j].toUpperCase() == vm.allBookings[i].bill_to.toUpperCase()) istFound = true;
+        }
+        if(!istFound) vm.allBookingTos.push(vm.allBookings[i].bill_to);
+      }
+    });
 
     vm.convertToFloat = function(stri) {
       if(stri == null || stri == undefined) return 0;
@@ -77,9 +99,9 @@
 
     };
 
-    $timeout(function () {
-      vm.bookingForm.bill_no = Number(vm.allBookings[0].bill_no) + 1;
-    }, 1000);
+//     $timeout(function () {
+//       vm.bookingForm.bill_no = Number(vm.allBookings[0].bill_no) + 1;
+//     }, 1000);
       
     vm.reset();
 
@@ -210,25 +232,25 @@
     vm.allBookingTos = [];
     vm.bookingTos = [];
 
-    $timeout(function () {
-      for(var i=0; i<vm.allBookings.length; i++) {
-        var isFound = false;
-        for(var j=0; j<vm.allClients.length; j++) {
-          if(vm.allClients[j].name.toUpperCase() == vm.allBookings[i].consignor.name.toUpperCase()) isFound = true;
-        }
-        if(!isFound) vm.allClients.push(vm.allBookings[i].consignor);
-        var issFound = false;
-        for(var j=0; j<vm.allsClients.length; j++) {
-          if(vm.allsClients[j].name.toUpperCase() == vm.allBookings[i].consignee.name.toUpperCase()) isFound = true;
-        }
-        if(!isFound) vm.allsClients.push(vm.allBookings[i].consignee);
-        var istFound = false;
-        for(var j=0; j<vm.allBookingTos.length; j++) {
-          if(vm.allBookingTos[j].toUpperCase() == vm.allBookings[i].bill_to.toUpperCase()) istFound = true;
-        }
-        if(!istFound) vm.allBookingTos.push(vm.allBookings[i].bill_to);
-      }
-    }, 1000);
+//     $timeout(function () {
+//       for(var i=0; i<vm.allBookings.length; i++) {
+//         var isFound = false;
+//         for(var j=0; j<vm.allClients.length; j++) {
+//           if(vm.allClients[j].name.toUpperCase() == vm.allBookings[i].consignor.name.toUpperCase()) isFound = true;
+//         }
+//         if(!isFound) vm.allClients.push(vm.allBookings[i].consignor);
+//         var issFound = false;
+//         for(var j=0; j<vm.allsClients.length; j++) {
+//           if(vm.allsClients[j].name.toUpperCase() == vm.allBookings[i].consignee.name.toUpperCase()) isFound = true;
+//         }
+//         if(!isFound) vm.allsClients.push(vm.allBookings[i].consignee);
+//         var istFound = false;
+//         for(var j=0; j<vm.allBookingTos.length; j++) {
+//           if(vm.allBookingTos[j].toUpperCase() == vm.allBookings[i].bill_to.toUpperCase()) istFound = true;
+//         }
+//         if(!istFound) vm.allBookingTos.push(vm.allBookings[i].bill_to);
+//       }
+//     }, 1000);
 
     vm.complete = function(selectedClient) {
       vm.clientbookings = [];
