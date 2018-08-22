@@ -11,37 +11,36 @@
     var vm = this;
     vm.authentication = Authentication;
     vm.bookings = angular.toJson(booking);
-//     vm.allBookings = booking.query();
-	  
-    booking.query().$promise.then(function(response){
+
+    booking.query().$promise.then(function (response) {
       vm.allBookings = response;
       vm.bookingForm.bill_no = Number(vm.allBookings[0].bill_no) + 1;
-      for(var i=0; i<vm.allBookings.length; i++) {
+      for (var i = 0; i < vm.allBookings.length; i++) {
         var isFound = false;
-        for(var j=0; j<vm.allClients.length; j++) {
-          if(vm.allClients[j].name.toUpperCase() == vm.allBookings[i].consignor.name.toUpperCase()) isFound = true;
+        for (var j = 0; j < vm.allClients.length; j++) {
+          if (vm.allClients[j].name.toUpperCase() == vm.allBookings[i].consignor.name.toUpperCase()) isFound = true;
         }
-        if(!isFound) vm.allClients.push(vm.allBookings[i].consignor);
+        if (!isFound) vm.allClients.push(vm.allBookings[i].consignor);
         var issFound = false;
-        for(var j=0; j<vm.allsClients.length; j++) {
-          if(vm.allsClients[j].name.toUpperCase() == vm.allBookings[i].consignee.name.toUpperCase()) isFound = true;
+        for (var j = 0; j < vm.allsClients.length; j++) {
+          if (vm.allsClients[j].name.toUpperCase() == vm.allBookings[i].consignee.name.toUpperCase()) isFound = true;
         }
-        if(!isFound) vm.allsClients.push(vm.allBookings[i].consignee);
+        if (!isFound) vm.allsClients.push(vm.allBookings[i].consignee);
         var istFound = false;
-        for(var j=0; j<vm.allBookingTos.length; j++) {
-          if(vm.allBookingTos[j].toUpperCase() == vm.allBookings[i].bill_to.toUpperCase()) istFound = true;
+        for (var j = 0; j < vm.allBookingTos.length; j++) {
+          if (vm.allBookingTos[j].toUpperCase() == vm.allBookings[i].bill_to.toUpperCase()) istFound = true;
         }
-        if(!istFound) vm.allBookingTos.push(vm.allBookings[i].bill_to);
+        if (!istFound) vm.allBookingTos.push(vm.allBookings[i].bill_to);
       }
     });
 
-    vm.convertToFloat = function(stri) {
-      if(stri == null || stri == undefined) return 0;
+    vm.convertToFloat = function (stri) {
+      if (stri == null || stri == undefined) return 0;
       return parseFloat(stri);
     }
 
     // Remove existing Booking
-    vm.remove = function() {
+    vm.remove = function () {
       if ($window.confirm('Are you sure you want to delete?')) {
         booking.$remove(function () {
           $state.go('admin.bookings.list');
@@ -51,7 +50,7 @@
     }
 
     // Save Bookiing
-    vm.save = function(isValid) {
+    vm.save = function (isValid) {
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'vm.form.bookingForm');
         return false;
@@ -73,7 +72,7 @@
       }
     }
 
-    vm.reset = function() {
+    vm.reset = function () {
       vm.bookingForm = {
         bill_date: "",
         bill_no: "",
@@ -92,30 +91,23 @@
         co_copy: false,
         _id: null,
       };
-
       vm.isError = false;
       vm.requestSubmitted = false;
       vm.bookingCompleted = false;
-
     };
-
-//     $timeout(function () {
-//       vm.bookingForm.bill_no = Number(vm.allBookings[0].bill_no) + 1;
-//     }, 1000);
-      
     vm.reset();
 
-    vm.gotoNewBooking = function() {
-         vm.reset();         
+    vm.gotoNewBooking = function () {
+      vm.reset();
     };
 
-    vm.selectDate = function($event, num) {
-      if(num == 1) { vm.dateset.bill_date.isOpened = true; }
-      if(num == 2) { vm.dateset.ref_date.isOpened = true; }
+    vm.selectDate = function ($event, num) {
+      if (num == 1) { vm.dateset.bill_date.isOpened = true; }
+      if (num == 2) { vm.dateset.ref_date.isOpened = true; }
     };
 
-    vm.selectRowDate = function($event, i) {
-       vm.gc_date[i].isOpened = true;
+    vm.selectRowDate = function ($event, i) {
+      vm.gc_date[i].isOpened = true;
     };
 
     vm.dateOptions = {
@@ -135,6 +127,22 @@
     };
 
     vm.details = [{
+      gc_number: "",
+      gc_date: "",
+      from: "",
+      to: "",
+      package: "",
+      weight: "",
+      rate: "",
+      kms: "",
+      amount: "",
+      extra_info: "",
+      extras: [],
+      total_amount: 0
+    }];
+
+    vm.addRow = function () {
+      vm.details.push({
         gc_number: "",
         gc_date: "",
         from: "",
@@ -147,82 +155,79 @@
         extra_info: "",
         extras: [],
         total_amount: 0
-    }];
-
-    vm.addRow = function() {
-      vm.details.push({
-          gc_number: "",
-          gc_date: "",
-          from: "",
-          to: "",
-          package: "",
-          weight: "",
-          rate: "",
-          kms: "",
-          amount: "",
-          extra_info: "",
-          extras: [],
-          total_amount: 0
       });
-      vm.gc_date[vm.details.length-1] = { isOpened: false };
+      vm.gc_date[vm.details.length - 1] = { isOpened: false };
     }
 
-    vm.deleteRow = function(ind) {
+    vm.deleteRow = function (ind) {
       vm.details.splice(ind, 1);
     }
 
-    vm.addExtra = function(index) {
-      if(vm.details[index].extras == undefined) vm.details[index].extras = [];
+    vm.addExtra = function (index) {
+      if (vm.details[index].extras == undefined) vm.details[index].extras = [];
       vm.details[index].extras.push({
-          extra_name: "",
-          extra_value: "0"
+        extra_name: "",
+        extra_value: "0"
       });
     }
 
-    vm.removeExtra = function(index) {
-      vm.details[index].extras.splice(vm.details[index].extras.length-1, 1);
+    vm.removeExtra = function (index) {
+      vm.details[index].extras.splice(vm.details[index].extras.length - 1, 1);
     }
 
     vm.duplicateBillNumber = false;
-    vm.onBillNumberChange = function() {
+    vm.onBillNumberChange = function () {
       vm.duplicateBillNumber = false;
-      for(var a = 0; a < vm.allBookings.length; a++) {
-        if(vm.allBookings[a].bill_no == vm.bookingForm.bill_no) vm.duplicateBillNumber = true;
+      for (var a = 0; a < vm.allBookings.length; a++) {
+        if (vm.allBookings[a].bill_no == vm.bookingForm.bill_no) vm.duplicateBillNumber = true;
+      }
+    }
+
+    vm.duplicateGcNumber = false;
+    vm.onGcNumberChange = function (gc_number) {
+      vm.duplicateGcNumber = false;
+      if(gc_number != ""){
+        for (var a = 0; a < vm.allBookings.length; a++) {
+          for(var b = 0; b < vm.allBookings[a].details.length; b++) {
+            if (vm.allBookings[a].details[b].gc_number == gc_number) 
+              vm.duplicateGcNumber = true;
+          }
+        }
       }
     }
 
     vm.duplicateRefNumber = false;
-    vm.onRefNumberChange = function() {
+    vm.onRefNumberChange = function () {
       vm.duplicateRefNumber = false;
-      for(var a = 0; a < vm.allBookings.length; a++) {
-        if(vm.allBookings[a].ref_no == vm.bookingForm.ref_no) vm.duplicateRefNumber = true;
+      for (var a = 0; a < vm.allBookings.length; a++) {
+        if (vm.allBookings[a].ref_no == vm.bookingForm.ref_no) vm.duplicateRefNumber = true;
       }
     }
 
-    vm.onConsignorNameChange = function(booking_name) {
-        var result = "";
-        for(var i=0; i<vm.allBookings.length; i++) {
-          if(vm.allBookings[i].consignor.name.toUpperCase() == booking_name.toUpperCase()) result = vm.allBookings[i].consignor.gstin_no;
+    vm.onConsignorNameChange = function (booking_name) {
+      var result = "";
+      for (var i = 0; i < vm.allBookings.length; i++) {
+        if (vm.allBookings[i].consignor.name.toUpperCase() == booking_name.toUpperCase()) result = vm.allBookings[i].consignor.gstin_no;
+      }
+      if (result == "") {
+        for (var i = 0; i < vm.allBookings.length; i++) {
+          if (vm.allBookings[i].consignee.name.toUpperCase() == booking_name.toUpperCase()) result = vm.allBookings[i].consignee.gstin_no;
         }
-        if(result == ""){
-          for(var i=0; i<vm.allBookings.length; i++) {
-            if(vm.allBookings[i].consignee.name.toUpperCase() == booking_name.toUpperCase()) result = vm.allBookings[i].consignee.gstin_no;
-          }
-        }
-        vm.bookingForm.consignor.gstin_no = result;
+      }
+      vm.bookingForm.consignor.gstin_no = result;
     }
 
-    vm.onConsigneeNameChange = function(booking_name) {
-        var result = "";
-        for(var i=0; i<vm.allBookings.length; i++) {
-          if(vm.allBookings[i].consignee.name.toUpperCase() == booking_name.toUpperCase()) result = vm.allBookings[i].consignee.gstin_no;
+    vm.onConsigneeNameChange = function (booking_name) {
+      var result = "";
+      for (var i = 0; i < vm.allBookings.length; i++) {
+        if (vm.allBookings[i].consignee.name.toUpperCase() == booking_name.toUpperCase()) result = vm.allBookings[i].consignee.gstin_no;
+      }
+      if (result == "") {
+        for (var i = 0; i < vm.allBookings.length; i++) {
+          if (vm.allBookings[i].consignor.name.toUpperCase() == booking_name.toUpperCase()) result = vm.allBookings[i].consignor.gstin_no;
         }
-        if(result == ""){
-          for(var i=0; i<vm.allBookings.length; i++) {
-            if(vm.allBookings[i].consignor.name.toUpperCase() == booking_name.toUpperCase()) result = vm.allBookings[i].consignor.gstin_no;
-          }
-        }
-        vm.bookingForm.consignee.gstin_no = result;
+      }
+      vm.bookingForm.consignee.gstin_no = result;
     }
 
     vm.allClients = [];
@@ -232,76 +237,56 @@
     vm.allBookingTos = [];
     vm.bookingTos = [];
 
-//     $timeout(function () {
-//       for(var i=0; i<vm.allBookings.length; i++) {
-//         var isFound = false;
-//         for(var j=0; j<vm.allClients.length; j++) {
-//           if(vm.allClients[j].name.toUpperCase() == vm.allBookings[i].consignor.name.toUpperCase()) isFound = true;
-//         }
-//         if(!isFound) vm.allClients.push(vm.allBookings[i].consignor);
-//         var issFound = false;
-//         for(var j=0; j<vm.allsClients.length; j++) {
-//           if(vm.allsClients[j].name.toUpperCase() == vm.allBookings[i].consignee.name.toUpperCase()) isFound = true;
-//         }
-//         if(!isFound) vm.allsClients.push(vm.allBookings[i].consignee);
-//         var istFound = false;
-//         for(var j=0; j<vm.allBookingTos.length; j++) {
-//           if(vm.allBookingTos[j].toUpperCase() == vm.allBookings[i].bill_to.toUpperCase()) istFound = true;
-//         }
-//         if(!istFound) vm.allBookingTos.push(vm.allBookings[i].bill_to);
-//       }
-//     }, 1000);
-
-    vm.complete = function(selectedClient) {
+    vm.complete = function (selectedClient) {
       vm.clientbookings = [];
-			var output=[];
-			angular.forEach(vm.allClients,function(clts){
-				if(clts.name.toLowerCase().indexOf(selectedClient.toLowerCase())>=0){
-					output.push(clts);
-				}
-			});
-			vm.clients=output;
-    }
-    
-		vm.fillTextbox=function(string){
-			vm.bookingForm.consignor.name=string.name;
-      vm.bookingForm.consignor.gstin_no=string.gstin_no;
-      vm.clients=[];
+      var output = [];
+      angular.forEach(vm.allClients, function (clts) {
+        if (clts.name.toLowerCase().indexOf(selectedClient.toLowerCase()) >= 0) {
+          output.push(clts);
+        }
+      });
+      vm.clients = output;
     }
 
-    vm.scomplete = function(selectedClient) {
+    vm.fillTextbox = function (string) {
+      vm.bookingForm.consignor.name = string.name;
+      vm.bookingForm.consignor.gstin_no = string.gstin_no;
+      vm.clients = [];
+    }
+
+    vm.scomplete = function (selectedClient) {
       vm.clientbookings = [];
-			var output=[];
-			angular.forEach(vm.allsClients,function(clts){
-				if(clts.name.toLowerCase().indexOf(selectedClient.toLowerCase())>=0){
-					output.push(clts);
-				}
-			});
-			vm.sclients=output;
-    }
-    
-		vm.sfillTextbox=function(string){
-			vm.bookingForm.consignee.name=string.name;
-      vm.bookingForm.consignee.gstin_no=string.gstin_no;
-      vm.sclients=[];
+      var output = [];
+      angular.forEach(vm.allsClients, function (clts) {
+        if (clts.name.toLowerCase().indexOf(selectedClient.toLowerCase()) >= 0) {
+          output.push(clts);
+        }
+      });
+      vm.sclients = output;
     }
 
-    vm.tcomplete = function(selectedClient) {
-			var output=[];
-			angular.forEach(vm.allBookingTos,function(clts){
-				if(clts.toLowerCase().indexOf(selectedClient.toLowerCase())>=0){
-					output.push(clts);
-				}
-			});
-			vm.bookingTos=output;
-    }
-    
-		vm.tfillTextbox=function(string){
-			vm.bookingForm.bill_to=string;
-      vm.bookingTos=[];
+    vm.sfillTextbox = function (string) {
+      vm.bookingForm.consignee.name = string.name;
+      vm.bookingForm.consignee.gstin_no = string.gstin_no;
+      vm.sclients = [];
     }
 
-    if($state.params.bookingId) {
+    vm.tcomplete = function (selectedClient) {
+      var output = [];
+      angular.forEach(vm.allBookingTos, function (clts) {
+        if (clts.toLowerCase().indexOf(selectedClient.toLowerCase()) >= 0) {
+          output.push(clts);
+        }
+      });
+      vm.bookingTos = output;
+    }
+
+    vm.tfillTextbox = function (string) {
+      vm.bookingForm.bill_to = string;
+      vm.bookingTos = [];
+    }
+
+    if ($state.params.bookingId) {
       vm.bookingForm = {
         _id: bookingResolve[0]._id,
         bill_date: bookingResolve[0].bill_date,
@@ -314,27 +299,22 @@
         ref_date: bookingResolve[0].ref_date
       };
       var abc = document.getElementById("bill_no");
-      console.log(bookingResolve[0].bill_no);
       angular.element(abc).val(bookingResolve[0].bill_no);
-      console.log(angular.element(abc));
-      // angular.element($()).val().trigger('change');
     }
 
-        $('input:text').bind("keydown", function(e) {
-          var n = $("input:text").length;
-          if (e.which == 13) 
-          { //Enter key
-            e.preventDefault(); //to skip default behavior of the enter key
-            var nextIndex = $('input:text').index(this) + 1;
-            if(nextIndex < n)
-              $('input:text')[nextIndex].focus();
-            else
-            {
-              $('input:text')[nextIndex-1].blur();
-              $('#btnSubmit').click();
-            }
-          }
-        });
+    $('input:text').bind("keydown", function (e) {
+      var n = $("input:text").length;
+      if (e.which == 13) { //Enter key
+        e.preventDefault(); //to skip default behavior of the enter key
+        var nextIndex = $('input:text').index(this) + 1;
+        if (nextIndex < n)
+          $('input:text')[nextIndex].focus();
+        else {
+          $('input:text')[nextIndex - 1].blur();
+          $('#btnSubmit').click();
+        }
+      }
+    });
 
   }
 }());

@@ -174,8 +174,9 @@
                                     <label for="gc_number" class="col-sm-4 control-label">GC Number:</label>
                                     <div class="col-sm-8">
                                         <input id="gc_number" type="text" class="form-control" ng-model="detail.gc_number" 
-                                            placeholder="Enter GC Number" />
+                                            placeholder="Enter GC Number" ng-change="vm.onGcNumberChange(detail.gc_number)"/>
                                     </div>
+                                    <div ng-show="vm.duplicateGcNumber" style="color: orange;"> &nbsp; &nbsp; &nbsp; GC Number already exists</div>                                    
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-6">
