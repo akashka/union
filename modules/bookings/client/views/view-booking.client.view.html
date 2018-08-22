@@ -195,5 +195,31 @@
         </div>
     </div>
 
+    <h3> PAYMENTS </h3>
+    <br/>
+    <div class="list-group table-responsive">
+        <table class="table table-hover" id="myTable2">
+            <thead>
+                <tr>
+                    <th> Date </th> 
+                    <th> Amount </th> 
+                    <th> Details </th> 
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="pay in vm.bookingForm.payments">
+                    <td> {{pay.dated | date:'dd/MMM/yyyy'}} </td>
+                    <td> Rs. {{pay.amount}} </td>
+                    <td> {{pay.details}} </td>
+                </tr>
+                <tr ng-if="vm.bookingForm.payments.length == undefined || vm.bookingForm.payments.length <= 0">
+                    <td style="text-align:center; font-weight: bold;"> NO PAYMENTS RECEIVED </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <br/><br/><br/><br/>
+
   </div>
 </section>

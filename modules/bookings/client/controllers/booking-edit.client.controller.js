@@ -141,6 +141,7 @@
                 details: bookingResolve[k].details,
                 ref_no: bookingResolve[k].ref_no,
                 co_copy: bookingResolve[k].co_copy,
+                payments: bookingResolve[k].payments,
                 ref_date: new Date(moment(bookingResolve[k].ref_date))
             };
             vm.details = bookingResolve[k].details;

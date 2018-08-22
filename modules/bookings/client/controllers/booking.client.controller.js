@@ -11,7 +11,27 @@
     var vm = this;
     vm.authentication = Authentication;
     vm.bookings = angular.toJson(booking);
-    vm.allBookings = booking.query();
+    booking.query().$promise.then(function(response){
+      vm.allBookings = response;
+      vm.bookingForm.bill_no = Number(vm.allBookings[0].bill_no) + 1;
+      for(var i=0; i<vm.allBookings.length; i++) {
+        var isFound = false;
+        for(var j=0; j<vm.allClients.length; j++) {
+          if(vm.allClients[j].name.toUpperCase() == vm.allBookings[i].consignor.name.toUpperCase()) isFound = true;
+        }
+        if(!isFound) vm.allClients.push(vm.allBookings[i].consignor);
+        var issFound = false;
+        for(var j=0; j<vm.allsClients.length; j++) {
+          if(vm.allsClients[j].name.toUpperCase() == vm.allBookings[i].consignee.name.toUpperCase()) isFound = true;
+        }
+        if(!isFound) vm.allsClients.push(vm.allBookings[i].consignee);
+        var istFound = false;
+        for(var j=0; j<vm.allBookingTos.length; j++) {
+          if(vm.allBookingTos[j].toUpperCase() == vm.allBookings[i].bill_to.toUpperCase()) istFound = true;
+        }
+        if(!istFound) vm.allBookingTos.push(vm.allBookings[i].bill_to);
+      }
+    });
 
     vm.convertToFloat = function(stri) {
       if(stri == null || stri == undefined) return 0;
@@ -69,6 +89,7 @@
         ref_date: "",
         co_copy: false,
         _id: null,
+        payments: []
       };
 
       vm.isError = false;
@@ -77,10 +98,6 @@
 
     };
 
-    $timeout(function () {
-      vm.bookingForm.bill_no = Number(vm.allBookings[0].bill_no) + 1;
-    }, 500);
-      
     vm.reset();
 
     vm.gotoNewBooking = function() {
@@ -210,26 +227,6 @@
     vm.allBookingTos = [];
     vm.bookingTos = [];
 
-    $timeout(function () {
-      for(var i=0; i<vm.allBookings.length; i++) {
-        var isFound = false;
-        for(var j=0; j<vm.allClients.length; j++) {
-          if(vm.allClients[j].name.toUpperCase() == vm.allBookings[i].consignor.name.toUpperCase()) isFound = true;
-        }
-        if(!isFound) vm.allClients.push(vm.allBookings[i].consignor);
-        var issFound = false;
-        for(var j=0; j<vm.allsClients.length; j++) {
-          if(vm.allsClients[j].name.toUpperCase() == vm.allBookings[i].consignee.name.toUpperCase()) isFound = true;
-        }
-        if(!isFound) vm.allsClients.push(vm.allBookings[i].consignee);
-        var istFound = false;
-        for(var j=0; j<vm.allBookingTos.length; j++) {
-          if(vm.allBookingTos[j].toUpperCase() == vm.allBookings[i].bill_to.toUpperCase()) istFound = true;
-        }
-        if(!istFound) vm.allBookingTos.push(vm.allBookings[i].bill_to);
-      }
-    }, 500);
-
     vm.complete = function(selectedClient) {
       vm.clientbookings = [];
 			var output=[];
@@ -289,13 +286,9 @@
         consignee: bookingResolve[0].consignee,
         details: bookingResolve[0].details,
         ref_no: bookingResolve[0].ref_no,
-        ref_date: bookingResolve[0].ref_date
+        ref_date: bookingResolve[0].ref_date,
+        payments: bookingResolve[0].payments
       };
-      var abc = document.getElementById("bill_no");
-      console.log(bookingResolve[0].bill_no);
-      angular.element(abc).val(bookingResolve[0].bill_no);
-      console.log(angular.element(abc));
-      // angular.element($()).val().trigger('change');
     }
 
         $('input:text').bind("keydown", function(e) {

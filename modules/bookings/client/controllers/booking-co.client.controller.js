@@ -141,6 +141,7 @@
                 consignee: bookingResolve[k].consignee,
                 details: bookingResolve[k].details,
                 ref_no: bookingResolve[k].ref_no,
+                payments: bookingResolve[k].payments,
                 co_copy: true,
                 ref_date: new Date(moment(bookingResolve[k].ref_date))
             };

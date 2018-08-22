@@ -187,10 +187,12 @@ exports.downloadByID = function (req, res) {
     stringTemplate = stringTemplate.replace('{{consignee_name}}', (booking.consignee.name != undefined) ? (booking.consignee.name.toUpperCase()) : "");
     stringTemplate = stringTemplate.replace('{{consignee_gst}}', (booking.consignee.gstin_no != undefined) ? ("GST NO:   " + booking.consignee.gstin_no.toUpperCase()) : "");
 
+    console.log(booking.details[0].gc_date);
+
     var prntStrng = "";
     for(var r=0; r<booking.details.length; r++) {
         prntStrng += ("\n" + ((booking.details[r].gc_number != undefined) ? booking.details[r].gc_number.toUpperCase() : " ") + "&nbsp; &nbsp; &nbsp;" + 
-            ((booking.details[r].gc_date != undefined) ? moment(booking.details[r].gc_date).format('DD-MM-YYYY') : " ") + "&nbsp; &nbsp;" + 
+            ((booking.details[r].gc_date != undefined) ? moment(booking.details[r].gc_date).add(1, 'days').subtract(1, 'days').format('DD-MM-YYYY') : " ") + "&nbsp; &nbsp;" + 
             ((booking.details[r].from != undefined) ? booking.details[r].from.toUpperCase() : " ") + "&nbsp; &nbsp; " + 
             ((booking.details[r].to != undefined) ? booking.details[r].to.toUpperCase() : " ") + "&nbsp; &nbsp; " + 
             ((booking.details[r].package != undefined) ? booking.details[r].package.toUpperCase() : " ") + "&nbsp; &nbsp;" + 

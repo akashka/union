@@ -37,6 +37,8 @@ var BookingSchema = new Schema({
   },
   details: {
   },
+  payments: {
+  },
   ref_no: {
     type: String,
     default: ''

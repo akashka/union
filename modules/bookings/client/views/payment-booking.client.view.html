@@ -1,0 +1,39 @@
+  <div class="col-md-12">
+    <form name="vm.paymentForm" class="form-horizontal" ng-submit="vm.save(vm.paymentForm.$valid)" novalidate>
+        
+        <div class="col-sm-12 col-md-12">
+            <div class="form-group">
+                <label for="amount" class="col-sm-6 control-label">Amount:</label>
+                <div class="col-sm-6">
+                    <input id="amount" type="text" class="form-control" ng-model="vm.paymentForm.amount" placeholder="Enter Amount" ng-required="true"/>
+                      <div ng-messages="vm.paymentForm.amount.$error" ng-show="vm.paymentForm.amount.$dirty && vm.paymentForm.amount.$invalid" class="error-message">
+                        <div ng-message="required">Amount is required</div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12">
+            <div class="form-group">
+                <label for="date_paid" class="col-sm-6 control-label">Date Received:</label>
+                <div class="col-sm-6">
+                    <p class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" ng-model="vm.paymentForm.dated" 
+                            is-open="vm.isOpened" datepicker-options="vm.dateOptions" ng-required="true"/>
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="vm.selectDate($event, 1)"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12">
+            <div class="form-group">
+                <label for="details" class="col-sm-6 control-label">Details:</label>
+                <div class="col-sm-6">
+                    <input id="details" type="text" class="form-control" ng-model="vm.paymentForm.details" placeholder="Enter Transaction Details" />
+                </div>
+            </div>
+        </div>
+
+    </form>
+  </div>

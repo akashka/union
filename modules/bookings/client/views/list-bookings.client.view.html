@@ -117,21 +117,25 @@
         </thead>
         <tbody>
           <tr ng-repeat="booking in vm.bookings" ng-style="booking.co_copy && {'background-color':'#d6d6d6'}">
-            <td> <a class="btn btn-primary" ui-sref="bookings.view({bookingId: booking._id})">VIEW</a> </td>
-             <td> <a class="btn btn-primary" ui-sref="bookings.edit({bookingId: booking._id})">EDIT</a> </td> 
+            <td> <a class="btn btn-danger" ui-sref="bookings.edit({bookingId: booking._id})">EDIT</a> </td> 
             <td> <div class="btn btn-primary" ng-click="vm.download(booking._id)">PRINT</div> </td>
             <td> 
-                <div class="btn btn-primary" ui-sref="bookings.co({bookingId: booking._id})" ng-hide="booking.co_copy == true">
+                <div class="btn btn-info" ui-sref="bookings.co({bookingId: booking._id})" ng-hide="booking.co_copy == true">
                     CO COPY
                 </div> 
             </td>
-            <td>{{booking.bill_date | date:'dd/MMM/yyyy'}}</td>
-            <td>{{booking.bill_no}}</td>
-            <td>{{booking.ref_no}}</td>
-            <td><span ng-if="booking.ref_no !=''">{{booking.ref_date | date:'dd/MMM/yyyy'}}</span></td>
-            <td>{{booking.consignor.name}}</td>
-            <td>{{booking.consignee.name}}</td>
-            <td>&#8377;  {{vm.calculateTotal(booking.details)}}</td>
+            <td> 
+                <a class="btn btn-success" ng-click="vm.payments(booking)" ng-show="vm.isPyamentReceived(booking)">
+                    PAYMENT
+                </a> 
+            </td>
+            <td ui-sref="bookings.view({bookingId: booking._id})">{{booking.bill_date | date:'dd/MMM/yyyy'}}</td>
+            <td ui-sref="bookings.view({bookingId: booking._id})">{{booking.bill_no}}</td>
+            <td ui-sref="bookings.view({bookingId: booking._id})">{{booking.ref_no}}</td>
+            <td ui-sref="bookings.view({bookingId: booking._id})"><span ng-if="booking.ref_no !=''">{{booking.ref_date | date:'dd/MMM/yyyy'}}</span></td>
+            <td ui-sref="bookings.view({bookingId: booking._id})">{{booking.consignor.name}}</td>
+            <td ui-sref="bookings.view({bookingId: booking._id})">{{booking.consignee.name}}</td>
+            <td ui-sref="bookings.view({bookingId: booking._id})">&#8377;  {{vm.calculateTotal(booking.details)}}</td>
           </tr>
         </tbody>
     </table>
