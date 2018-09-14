@@ -113,6 +113,7 @@
             <th ng-click="vm.sortTable(4)">Consignor</th>
             <th ng-click="vm.sortTable(5)">Consignee</th>
             <th ng-click="vm.sortTable(6)">Total Amount</th>
+            <th> </th>
           </tr>
         </thead>
         <tbody>
@@ -132,6 +133,11 @@
             <td>{{booking.consignor.name}}</td>
             <td>{{booking.consignee.name}}</td>
             <td>&#8377;  {{vm.calculateTotal(booking.details)}}</td>
+            <td> 
+                <i class="glyphicon glyphicon-trash" style="color:red;font-size:21px;cursor:pointer;" 
+                    ng-click="vm.deleteBooking(booking._id)"> 
+                </i> 
+            </td>
           </tr>
         </tbody>
     </table>
