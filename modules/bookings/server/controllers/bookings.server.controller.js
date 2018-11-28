@@ -188,8 +188,8 @@ exports.downloadByID = function (req, res) {
 
     stringTemplate = stringTemplate.replace('{{bill_no}}', (booking.bill_no != undefined) ? booking.bill_no.toUpperCase() : "");
     stringTemplate = stringTemplate.replace('{{ref_no}}', (booking.ref_no != undefined && booking.ref_no != '') ? booking.ref_no.toUpperCase() : ".");
-    stringTemplate = stringTemplate.replace('{{bill_date}}', (booking.bill_date != undefined) ? moment(booking.bill_date).add(1, 'days').format('DD-MM-YYYY') : "");
-    stringTemplate = stringTemplate.replace('{{ref_date}}', (booking.ref_no != undefined && booking.ref_no != '') ? moment(booking.ref_date).add(1, 'days').format('DD-MM-YYYY') : " &nbsp; ");
+    stringTemplate = stringTemplate.replace('{{bill_date}}', (booking.bill_date != undefined) ? moment(booking.bill_date).format('DD-MM-YYYY') : "");
+    stringTemplate = stringTemplate.replace('{{ref_date}}', (booking.ref_no != undefined && booking.ref_no != '') ? moment(booking.ref_date).format('DD-MM-YYYY') : " &nbsp; ");
     stringTemplate = stringTemplate.replace('{{bill_to}}', (booking.bill_to != undefined) ? booking.bill_to.toUpperCase() : "");
     stringTemplate = stringTemplate.replace('{{consignor_name}}', (booking.consignor.name != undefined) ? booking.consignor.name.toUpperCase() : "");
     stringTemplate = stringTemplate.replace('{{consignor_gst}}', (booking.consignor.gstin_no != undefined) ? ("GST NO:   " + booking.consignor.gstin_no.toUpperCase()) : "");
@@ -199,7 +199,7 @@ exports.downloadByID = function (req, res) {
     var prntStrng = "";
     for (var r = 0; r < booking.details.length; r++) {
       prntStrng += ("\n" + ((booking.details[r].gc_number != undefined) ? booking.details[r].gc_number.toUpperCase() : " ") + "&nbsp; &nbsp; &nbsp;" +
-        ((booking.details[r].gc_date != undefined) ? moment(booking.details[r].gc_date).add(1, 'days').format('DD-MM-YYYY') : " ") + "&nbsp; &nbsp;" +
+        ((booking.details[r].gc_date != undefined) ? moment(booking.details[r].gc_date).format('DD-MM-YYYY') : " ") + "&nbsp; &nbsp;" +
         ((booking.details[r].from != undefined) ? booking.details[r].from.toUpperCase() : " ") + "&nbsp; &nbsp; " +
         ((booking.details[r].to != undefined) ? booking.details[r].to.toUpperCase() : " ") + "&nbsp; &nbsp; " +
         ((booking.details[r].package != undefined) ? booking.details[r].package.toUpperCase() : " ") + "&nbsp; &nbsp;" +
