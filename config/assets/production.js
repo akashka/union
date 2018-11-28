@@ -31,7 +31,7 @@ module.exports = {
         'public/lib/lodash/lodash.js',
         'public/lib/d3/d3.min.js',
         'public/lib/c3/c3.min.js',
-        'public/lib/pathseg/pathseg.js'
+        'public/lib/pathseg/pathseg.js',
         // endbower
       ]
     },

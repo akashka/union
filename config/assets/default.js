@@ -9,7 +9,7 @@ module.exports = {
         // bower:css
         'public/lib/bootstrap/dist/css/bootstrap.css',
         'public/lib/bootstrap/dist/css/bootstrap-theme.css',
-        'public/lib/angular-ui-notification/dist/angular-ui-notification.css'
+        'public/lib/angular-ui-notification/dist/angular-ui-notification.css',
         // endbower
       ],
       js: [
@@ -32,7 +32,7 @@ module.exports = {
         'public/lib/lodash/lodash.js',
         'public/lib/d3/d3.min.js',
         'public/lib/c3/c3.min.js',
-        'public/lib/pathseg/pathseg.js'
+        'public/lib/pathseg/pathseg.js',
         // endbower
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']
