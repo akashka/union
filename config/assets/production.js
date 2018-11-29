@@ -10,6 +10,7 @@ module.exports = {
         'public/lib/angular-ui-notification/dist/angular-ui-notification.min.css',
         'public/lib/bootstrap/dist/css/bootstrap.min.css',
         'public/lib/bootstrap/dist/css/bootstrap-theme.min.css',
+        'public/lib/ng-table/dist/ng-table.min.css',
         // endbower
       ],
       js: [
@@ -32,6 +33,7 @@ module.exports = {
         'public/lib/d3/d3.min.js',
         'public/lib/c3/c3.min.js',
         'public/lib/pathseg/pathseg.js',
+        'public/lib/ng-table/dist/ng-table.min.js',
         // endbower
       ]
     },

@@ -1,12 +1,9 @@
-<section>
-  <div class="page-header row">
+<section style="margin-top:25px;">
+   <!-- <div class="page-header row">
     <div class="col-md-6"><h1>Bookings</h1></div>
     <div class="col-md-6">
-        <!-- <label class="switch">
-            <input type="checkbox"><span class="slider round"></span>
-        </label> -->
     </div> 
-  </div>
+  </div>  -->
   
     <div class="row">
         <div class="col-sm-4 col-md-4">
@@ -89,9 +86,9 @@
     <div class="row">
         <div class="page-controls col-sm-12" style="text-align: center;">
             <div class="row" role="toolbar">
-                <button type="button" class="btn btn-default" ng-click="vm.searches()">Search</button>
-                <button type="button" class="btn btn-default" ng-click="vm.reset()">Reset</button>
-                <button type="button" class="btn btn-default" ng-click="vm.gotoNewBooking()">New Order</button>
+                <button type="button" class="btn btn-secondary" ng-click="vm.searches()">Search</button>
+                <button type="button" class="btn btn-secondary" ng-click="vm.reset()">Reset</button>
+                <button type="button" class="btn btn-dark" ng-click="vm.gotoNewBooking()">New Booking</button>
             </div>
         </div>
     </div>
@@ -99,48 +96,56 @@
   <br/><hr/>
 
   <div class="list-group table-responsive">
-    <table class="table table-hover" id="myTable2">
-        <thead>
-          <tr>
-            <th> </th>
-             <th> </th> 
-            <th> </th>
-            <th> </th>
-            <th ng-click="vm.sortTable(0)">Bill Date</th>
-            <th ng-click="vm.sortTable(1)">Bill No</th>
-            <th ng-click="vm.sortTable(2)">Ref No</th>
-            <th ng-click="vm.sortTable(3)">Ref Date</th>
-            <th ng-click="vm.sortTable(4)">Consignor</th>
-            <th ng-click="vm.sortTable(5)">Consignee</th>
-            <th ng-click="vm.sortTable(6)">Total Amount</th>
-            <th> </th>
-          </tr>
-        </thead>
+
+    <table ng-table="vm.tableParams" class="table table-hover table-striped table-bordered" show-filter="true" id="myTable2">
+        <tr ng-repeat="booking in $data" ui-sref="bookings.view({bookingId: booking._id})" style="cursor:pointer;" data-toggle="tooltip" title="CLICK ANYWHERE TO VIEW">
+            <td title="'Bill Date'">
+                {{booking.bill_date | date:'dd/MMM/yyyy'}}
+            </td>
+            <td title="'Bill No'">
+                {{booking.bill_no}}
+            </td>
+            <td title="'Consignor Name'">
+                {{booking.consignor.name}}
+            </td>
+            <td title="'Consignee Name'">
+                {{booking.consignee.name}}
+            </td>
+            <td title="'Total'">
+                {{vm.calculateTotal(booking.details)}}
+            </td>
+            <td style="max-width:120px;">
+                <a class="btn btn-primary" ng-click="vm.download(booking._id)" data-toggle="tooltip" title="PRINT">
+                    <i class="glyphicon glyphicon-print" style="color:white;font-size:21px;cursor:pointer;"></i>
+                </a>  
+                <a class="btn btn-success" ui-sref="bookings.co({bookingId: booking._id})" ng-hide="booking.co_copy" data-toggle="tooltip" title="CO COPY">
+                    <i class="glyphicon glyphicon-copy" style="color:white;font-size:21px;cursor:pointer;"></i> 
+                </a>
+                <div class="btn" ng-hide="!booking.co_copy" style="width:47px;cursor:arrow;">
+                    &nbsp;
+                </div>  
+                <a class="btn btn-warning" ui-sref="bookings.edit({bookingId: booking._id})" data-toggle="tooltip" title="EDIT">
+                    <i class="glyphicon glyphicon-pencil" style="color:white;font-size:21px;cursor:pointer;"></i>
+                </a>
+                <a class="btn btn-danger" ng-click="vm.deleteBooking(booking._id)" data-toggle="tooltip" title="DELETE">
+                    <i class="glyphicon glyphicon-trash" style="color:white;font-size:21px;cursor:pointer;"></i> 
+                </a>
+            </td>
+        </tr>
+    </table>
+
+    <!-- <table class="table table-hover" id="myTable2">
         <tbody>
           <tr ng-repeat="booking in vm.bookings" ng-style="booking.co_copy && {'background-color':'#d6d6d6'}">
-            <td> <a class="btn btn-primary" ui-sref="bookings.view({bookingId: booking._id})">VIEW</a> </td>
-             <td> <a class="btn btn-primary" ui-sref="bookings.edit({bookingId: booking._id})">EDIT</a> </td> 
             <td> <div class="btn btn-primary" ng-click="vm.download(booking._id)">PRINT</div> </td>
             <td> 
                 <div class="btn btn-primary" ui-sref="bookings.co({bookingId: booking._id})" ng-hide="booking.co_copy == true">
                     CO COPY
                 </div> 
             </td>
-            <td>{{booking.bill_date | date:'dd/MMM/yyyy'}}</td>
-            <td>{{booking.bill_no}}</td>
-            <td>{{booking.ref_no}}</td>
-            <td><span ng-if="booking.ref_no !=''">{{booking.ref_date | date:'dd/MMM/yyyy'}}</span></td>
-            <td>{{booking.consignor.name}}</td>
-            <td>{{booking.consignee.name}}</td>
-            <td>&#8377;  {{vm.calculateTotal(booking.details)}}</td>
-            <td> 
-                <i class="glyphicon glyphicon-trash" style="color:red;font-size:21px;cursor:pointer;" 
-                    ng-click="vm.deleteBooking(booking._id)"> 
-                </i> 
-            </td>
           </tr>
         </tbody>
-    </table>
+    </table> -->
+  
   </div>
-  <uib-pagination boundary-links="true" max-size="5" items-per-page="vm.itemsPerPage" total-items="vm.filterLength" ng-model="vm.currentPage" ng-change="vm.pageChanged()"></uib-pagination>
 </section>

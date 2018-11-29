@@ -10,6 +10,8 @@ module.exports = {
         'public/lib/bootstrap/dist/css/bootstrap.css',
         'public/lib/bootstrap/dist/css/bootstrap-theme.css',
         'public/lib/angular-ui-notification/dist/angular-ui-notification.css',
+        'public/lib/angular-ui-notification/dist/angular-ui-notification.css',
+        'public/lib/ng-table/dist/ng-table.min.css',
         // endbower
       ],
       js: [
@@ -33,6 +35,7 @@ module.exports = {
         'public/lib/d3/d3.min.js',
         'public/lib/c3/c3.min.js',
         'public/lib/pathseg/pathseg.js',
+        'public/lib/ng-table/dist/ng-table.min.js',
         // endbower
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']

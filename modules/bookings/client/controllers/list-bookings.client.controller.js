@@ -5,17 +5,16 @@
     .module('bookings')
     .controller('BookingsListController', BookingsListController);
 
-  BookingsListController.$inject = ['$scope', '$state', '$window', 'BookingsService', 'Authentication', 'Notification', '$timeout', '$http'];
+  BookingsListController.$inject = ['$scope', '$state', '$window', 'BookingsService', 'Authentication', 'Notification', '$timeout', '$http', 'NgTableParams'];
 
-  function BookingsListController($scope, $state, $window, BookingsService, Authentication, Notification, $timeout, $http) {
+  function BookingsListController($scope, $state, $window, BookingsService, Authentication, Notification, $timeout, $http, NgTableParams) {
     var vm = this;
-
-    //     vm.bookings = BookingsService.query();
-    //     vm.allBookings = BookingsService.query();
+    var self = this;
 
     BookingsService.query().$promise.then(function (response) {
       vm.bookings = response;
       vm.allBookings = response;
+      self.tableParams = new NgTableParams({}, { dataset: vm.bookings});
       for (var i = 0; i < vm.allBookings.length; i++) {
         var isFound = false;
         var issFound = false;
@@ -62,6 +61,7 @@
         else if (vm.search.consignor != '' && vm.search.consignor == bookings[i].consignor.name)
           vm.bookings.push(bookings[i]);
       }
+      self.tableParams = new NgTableParams({}, { dataset: vm.bookings});      
     }
 
     vm.reset = function () {
@@ -76,6 +76,7 @@
       };
       vm.bill_from = { isOpened: false };
       vm.bill_to = { isOpened: false };
+      self.tableParams = new NgTableParams({}, { dataset: vm.bookings});            
     }
 
     vm.gotoNewBooking = function () {
