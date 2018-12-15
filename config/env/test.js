@@ -22,7 +22,7 @@ module.exports = {
     //   json: false
     // }
   },
-  port: process.env.PORT || 80,
+  port: process.env.PORT || 8000,
   app: {
     title: defaultEnvConfig.app.title + ' - Test Environment'
   },
