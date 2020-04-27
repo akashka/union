@@ -23,6 +23,30 @@
       download: {
         method: 'POST',
         url: '/api/downloads'
+      },
+      filteredBooking: {
+        method: 'POST',
+        url: '/api/filteredBookings'
+      },
+      getPrimaryDetail: {
+        method: 'GET',
+        url: '/api/getPrimaryDetails'
+      },
+      getHomePageDatas: {
+        method: 'GET',
+        url: '/api/getHomePageData'
+      },
+      getClientGraphDatas: {
+        method: 'GET',
+        url: '/api/getClientGraphData'
+      },
+      getMonthGraphDatas: {
+        method: 'GET',
+        url: '/api/getMonthGraphData'
+      },
+      getBookingDetail: {
+        method: 'POST',
+        url: '/api/getBookingDetails'
       }
     });
 
@@ -49,6 +73,27 @@
       downloads: function(bookingId) {
         var params = {"bookingId": bookingId};
         return this.download(params).$promise;
+      },
+      filteredBookings: function (params) {
+        return this.filteredBooking(params);
+      },
+      getPrimaryDetails: function() {
+        return this.getPrimaryDetail();
+      },
+      getHomePageData: function() {
+        return this.getHomePageDatas();
+      },
+      getClientGraphData: function() {
+        return this.getClientGraphDatas();
+      },
+      getMonthGraphData: function() {
+        return this.getMonthGraphDatas();
+      },
+      getBookingDetails: function(params) {
+        var body = {
+          params: params
+        };
+        return this.getBookingDetail(body);
       }
     });
 

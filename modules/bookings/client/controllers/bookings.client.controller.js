@@ -5,26 +5,17 @@
     .module('bookings')
     .controller('BookingsController', BookingsController);
 
-  BookingsController.$inject = ['$scope', 'BookingsService', 'Authentication', 'BookingsService', 'bookingResolve', '$state'];
+  BookingsController.$inject = ['$scope', 'BookingsService', 'Authentication', '$state'];
 
-  function BookingsController($scope, booking, Authentication, BookingsService, bookingResolve, $state) {
+  function BookingsController($scope, BookingsService, Authentication, $state) {
     var vm = this;
+    vm.isLoading = 0;
 
-    vm.booking = booking;
     vm.authentication = Authentication;
-    var bid = $state.params.bookingId;
-    for(var i = 0; i < bookingResolve.length; i++) {
-      if(bookingResolve[i]._id == bid)
-        vm.bookingForm = bookingResolve[i];
-    }
-
-    vm.edit = function() {
-
-    }
-
-    vm.gotoNewBooking = function() {
-
-    }
+    BookingsService.getBookingDetails($state.params.bookingId).$promise.then(function(response) {
+      vm.bookingForm = response;
+      vm.isLoading++;
+    });
 
     vm.convertToFloat = function(stri) {
       if(stri == null || stri == undefined) return 0;

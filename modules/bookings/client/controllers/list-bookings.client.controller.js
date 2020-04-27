@@ -1,137 +1,146 @@
-(function () {
-  'use strict';
+(function() {
+  "use strict";
 
   angular
-    .module('bookings')
-    .controller('BookingsListController', BookingsListController);
+    .module("bookings")
+    .controller("BookingsListController", BookingsListController);
 
-  BookingsListController.$inject = ['$scope', '$state', '$window', 'BookingsService', 'Authentication', 'Notification', '$timeout', '$http', 'NgTableParams'];
+  BookingsListController.$inject = [
+    "$scope",
+    "$state",
+    "$window",
+    "BookingsService",
+    "Authentication",
+    "Notification",
+    "$timeout",
+    "$http",
+    "NgTableParams"
+  ];
 
-  function BookingsListController($scope, $state, $window, BookingsService, Authentication, Notification, $timeout, $http, NgTableParams) {
+  function BookingsListController(
+    $scope,
+    $state,
+    $window,
+    BookingsService,
+    Authentication,
+    Notification,
+    $timeout,
+    $http,
+    NgTableParams
+  ) {
     var vm = this;
     var self = this;
+    vm.isLoading = 0;
 
-    BookingsService.query().$promise.then(function (response) {
-      vm.bookings = response;
-      vm.allBookings = response;
-      self.tableParams = new NgTableParams({}, { dataset: vm.bookings});
-      for (var i = 0; i < vm.allBookings.length; i++) {
-        var isFound = false;
-        var issFound = false;
-        var istFound = false;
-        for (var j = 0; j < vm.allClients.length; j++) {
-          if (vm.allClients[j].name.toUpperCase() == vm.allBookings[i].consignor.name.toUpperCase()) isFound = true;
-          if (vm.allsClients[j].name.toUpperCase() == vm.allBookings[i].consignee.name.toUpperCase()) issFound = true;
-          if (vm.allBookingTos[j].toUpperCase() == vm.allBookings[i].bill_to.toUpperCase()) istFound = true;
-        }
-        if (!isFound) vm.allClients.push(vm.allBookings[i].consignor);
-        if (!issFound) vm.allsClients.push(vm.allBookings[i].consignee);
-        if (!istFound) vm.allBookingTos.push(vm.allBookings[i].bill_to);
-      }
-      vm.buildPager();
+    BookingsService.getPrimaryDetails().$promise.then(function(response) {
+      vm.allClients = response.data.consignor;
+      vm.allsClients = response.data.consignee;
+      vm.allBookingTos = response.data.bill_to;
+      vm.isLoading++;
     });
 
-    vm.allClients = [];
-    vm.allsClients = [];
-    vm.allBookingTos = [];
+    vm.generateTable = function() {
+      self.tableParams = new NgTableParams(
+        {
+          page: vm.currentPage,
+          count: vm.itemsPerPage,
+          sorting: vm.sortBy,
+          isSortBy: vm.sortBy,
+          orderBy: vm.orderBy
+        },
+        {
+          total: 0,
+          getData: function($defer, params) {
+            var ob = $defer.orderBy();
+            var st = $defer.sorting();
+            var param = {
+              orderBy: ob.length > 1 ? vm.orderBy : ob[0].substring(1),
+              sortBy: (typeof st == 'string') ? st : st[Object.keys(st)[0]],
+              countFrom: ($defer.page() - 1) * $defer.count(),
+              paginationNumber: $defer.count(),
+              params: vm.search
+            };
+            return BookingsService.filteredBookings(param).$promise.then(
+              function(response) {
+                vm.bookings = response.data;
+                vm.totalCount = response.count;
+                $defer.total(vm.totalCount);
+                return vm.bookings;
+              }
+            );
+          }
+        }
+      );
+    };
 
-    vm.search = {
-      bill_from: "",
-      bill_to: "",
-      bill_number: "",
-      consignor: '',
-      consignee: '',
-      bill_to_address: ''
-    }
+    vm.searches = function() {
+      vm.generateTable();
+    };
 
-    vm.searches = function () {
-      vm.bookings = [];
-      var bookings = vm.allBookings;
-      for (var i = 0; i < bookings.length; i++) {
-        if (vm.search.bill_number != "" && vm.search.bill_number == bookings[i].bill_no)
-          vm.bookings.push(bookings[i]);
-        else if (vm.search.bill_from != "" && moment(vm.search.bill_from) <= moment(bookings[i].bill_date))
-          vm.bookings.push(bookings[i]);
-        else if (vm.search.bill_to != undefined && moment(vm.search.bill_to) >= moment(bookings[i].bill_date))
-          vm.bookings.push(bookings[i]);
-        else if (vm.search.bill_to_address != '' && vm.search.bill_to_address == bookings[i].bill_to)
-          vm.bookings.push(bookings[i]);
-        else if (vm.search.consignee != '' && vm.search.consignee == bookings[i].consignee.name)
-          vm.bookings.push(bookings[i]);
-        else if (vm.search.consignor != '' && vm.search.consignor == bookings[i].consignor.name)
-          vm.bookings.push(bookings[i]);
-      }
-      self.tableParams = new NgTableParams({}, { dataset: vm.bookings});      
-    }
-
-    vm.reset = function () {
-      vm.bookings = vm.allBookings;
+    vm.reset = function() {
       vm.search = {
         bill_from: "",
         bill_to: "",
         bill_number: "",
-        consignor: '',
-        consignee: '',
-        bill_to_address: ''
+        consignor: "",
+        consignee: "",
+        bill_to_address: ""
       };
       vm.bill_from = { isOpened: false };
       vm.bill_to = { isOpened: false };
-      self.tableParams = new NgTableParams({}, { dataset: vm.bookings});            
-    }
+      vm.pagedItems = [];
+      vm.itemsPerPage = 10;
+      vm.currentPage = 1;
+      vm.orderBy = "created";
+      vm.sortBy = "desc";
+      vm.generateTable();
+      vm.isLoading++;
+    };
+    vm.reset();
 
-    vm.gotoNewBooking = function () {
-      $state.go('bookings.create');
-    }
-
-    vm.bill_from = { isOpened: false };
-    vm.bill_to = { isOpened: false };
-
-    vm.selectDate = function ($event, num) {
-      if (num == 1) { vm.bill_from.isOpened = true; }
-      if (num == 2) { vm.bill_to.isOpened = true; }
+    vm.gotoNewBooking = function() {
+      $state.go("bookings.create");
     };
 
-    vm.buildPager = function () {
-      vm.pagedItems = [];
-      vm.itemsPerPage = 15;
-      vm.currentPage = 1;
-      vm.figureOutItemsToDisplay();
-    }
+    vm.selectDate = function($event, num) {
+      if (num == 1) {
+        vm.bill_from.isOpened = true;
+      }
+      if (num == 2) {
+        vm.bill_to.isOpened = true;
+      }
+    };
 
-    vm.figureOutItemsToDisplay = function () {
-      vm.filteredItems = vm.bookings;
-      vm.filterLength = vm.filteredItems.length;
-      var begin = ((vm.currentPage - 1) * vm.itemsPerPage);
-      var end = begin + vm.itemsPerPage;
-      vm.pagedItems = vm.filteredItems.slice(begin, end);
-    }
-
-    vm.pageChanged = function () {
-      vm.figureOutItemsToDisplay();
-    }
-
-    vm.deleteBooking = function (id) {
-      var r = confirm("Are you sure you want to delete this? This action cannot be undone!");
+    vm.deleteBooking = function(id) {
+      var r = confirm(
+        "Are you sure you want to delete this? This action cannot be undone!"
+      );
       if (r == true) {
-        $http.delete("/api/bookings/" + id)
-          .then(function (response) {
-            if (response.status == 200) {
-              Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Booking deleted successfully!' });
-              $state.reload();
-            } else {
-              Notification.error({ message: res.data.message, title: '<i class="glyphicon glyphicon-remove"></i> Booking deletion error!' });
-            }
-          });
+        $http.delete("/api/bookings/" + id).then(function(response) {
+          if (response.status == 200) {
+            Notification.success({
+              message:
+                '<i class="glyphicon glyphicon-ok"></i> Booking deleted successfully!'
+            });
+            $state.reload();
+          } else {
+            Notification.error({
+              message: res.data.message,
+              title:
+                '<i class="glyphicon glyphicon-remove"></i> Booking deletion error!'
+            });
+          }
+        });
       } else {
       }
-    }
+    };
 
-    vm.convertToFloat = function (stri) {
+    vm.convertToFloat = function(stri) {
       if (stri == null || stri == undefined) return 0;
       return parseFloat(stri);
-    }
+    };
 
-    vm.calculateTotal = function (book) {
+    vm.calculateTotal = function(book) {
       var total = 0;
       for (var i = 0; i < book.length; i++) {
         total += vm.convertToFloat(book[i].amount);
@@ -140,24 +149,32 @@
         }
       }
       return total;
-    }
+    };
 
-    vm.download = function (bookingId) {
+    vm.download = function(bookingId) {
       // BookingsService.downloads(bookingId)
       // .then(function (res) {
       // var file = new Blob([res], { type: 'application/pdf' });
       var fileurl = "/api/downloads/" + bookingId;
-      window.open(fileurl, '_blank', '');
-      $window.open('localhost:xxx/api/document', '_blank');
+      window.open(fileurl, "_blank", "");
+      $window.open("localhost:xxx/api/document", "_blank");
       // Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Booking saved successfully!' });
       // })
       // .catch(function (res) {
       // Notification.error({ message: res.data.message, title: '<i class="glyphicon glyphicon-remove"></i> Booking save error!' });
       // });
-    }
+    };
 
-    vm.sortTable = function (n) {
-      var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    vm.sortTable = function(n) {
+      var table,
+        rows,
+        switching,
+        i,
+        x,
+        y,
+        shouldSwitch,
+        dir,
+        switchcount = 0;
       table = document.getElementById("myTable2");
       switching = true;
       //Set the sorting direction to ascending:
@@ -170,7 +187,7 @@
         rows = table.getElementsByTagName("TR");
         /*Loop through all table rows (except the
         first, which contains table headers):*/
-        for (i = 1; i < (rows.length - 1); i++) {
+        for (i = 1; i < rows.length - 1; i++) {
           //start by saying there should be no switching:
           shouldSwitch = false;
           /*Get the two elements you want to compare,
@@ -209,27 +226,6 @@
           }
         }
       }
-    }
-
-    vm.makeCopy = function (bookingId) {
-
-    }
-
-    //     $timeout(function () {
-    //       for(var i=0; i<vm.allBookings.length; i++) {
-    //         var isFound = false;
-    //         var issFound = false;
-    //         var istFound = false;
-    //         for(var j=0; j<vm.allClients.length; j++) {
-    //           if(vm.allClients[j].name.toUpperCase() == vm.allBookings[i].consignor.name.toUpperCase()) isFound = true;
-    //           if(vm.allsClients[j].name.toUpperCase() == vm.allBookings[i].consignee.name.toUpperCase()) issFound = true;
-    //           if(vm.allBookingTos[j].toUpperCase() == vm.allBookings[i].bill_to.toUpperCase()) istFound = true;
-    //         }
-    //         if(!isFound) vm.allClients.push(vm.allBookings[i].consignor);
-    //         if(!issFound) vm.allsClients.push(vm.allBookings[i].consignee);
-    //         if(!istFound) vm.allBookingTos.push(vm.allBookings[i].bill_to);
-    //       }
-    //     }, 1000);
-
+    };
   }
-}());
+})();

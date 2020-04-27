@@ -1,68 +1,118 @@
-(function () {
-  'use strict';
+(function() {
+  "use strict";
 
   angular
-    .module('bookings')
-    .controller('BookingsAdminEditController', BookingsAdminEditController);
+    .module("bookings")
+    .controller("BookingsAdminEditController", BookingsAdminEditController);
 
-  BookingsAdminEditController.$inject = ['$scope', '$state', '$window', 'BookingsService', 'Authentication', 'Notification', 'bookingResolve'];
+  BookingsAdminEditController.$inject = [
+    "$scope",
+    "$state",
+    "$window",
+    "BookingsService",
+    "Authentication",
+    "Notification"
+  ];
 
-  function BookingsAdminEditController($scope, $state, $window, booking, Authentication, Notification, bookingResolve) {
+  function BookingsAdminEditController(
+    $scope,
+    $state,
+    $window,
+    BookingsService,
+    Authentication,
+    Notification
+  ) {
     var vm = this;
     vm.authentication = Authentication;
-    vm.bookings = angular.toJson(booking);
-    vm.allBookings = booking.query();
     vm.isCoScreen = false;
+    vm.isLoading = 0;
+
+    BookingsService.getBookingDetails($state.params.bookingId).$promise.then(
+      function(response) {
+        vm.booking = response;
+        vm.booking.bill_no = vm.booking.bill_no + "A";
+        vm.booking.co_copy = true;
+        vm.booking.bill_date = new Date(moment(vm.booking.bill_date));
+        vm.booking.ref_date = new Date(moment(vm.booking.ref_date));
+        for (var i = 0; i < vm.booking.details.length; i++) {
+          vm.booking.details[i].gc_date = new Date(
+            moment(vm.booking.details[i].gc_date)
+          );
+        }
+        vm.details = vm.booking.details;
+        vm.isLoading++;
+      }
+    );
+
+    BookingsService.getPrimaryDetails().$promise.then(function(response) {
+      vm.allBookings = response.data;
+      vm.isLoading++;
+    });
 
     vm.convertToFloat = function(stri) {
-      if(stri == null || stri == undefined) return 0;
+      if (stri == null || stri == undefined) return 0;
       return parseFloat(stri);
-    }
+    };
 
     // Remove existing Booking
     vm.remove = function() {
-      if ($window.confirm('Are you sure you want to delete?')) {
-        booking.$remove(function () {
-          $state.go('admin.bookings.list');
-          Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Booking deleted successfully!' });
+      if ($window.confirm("Are you sure you want to delete?")) {
+        booking.$remove(function() {
+          $state.go("admin.bookings.list");
+          Notification.success({
+            message:
+              '<i class="glyphicon glyphicon-ok"></i> Booking deleted successfully!'
+          });
         });
       }
-    }
+    };
 
     // Save Bookiing
     vm.save = function() {
       vm.booking.details = vm.details;
 
       // Create a new booking, or update the current instance
-      booking.createOrUpdate(vm.booking)
+      booking
+        .createOrUpdate(vm.booking)
         .then(successCallback)
         .catch(errorCallback);
 
       function successCallback(res) {
-        $state.go('bookings.list');
-        Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Booking saved successfully!' });
+        $state.go("bookings.list");
+        Notification.success({
+          message:
+            '<i class="glyphicon glyphicon-ok"></i> Booking saved successfully!'
+        });
       }
 
       function errorCallback(res) {
-        Notification.error({ message: res.data.message, title: '<i class="glyphicon glyphicon-remove"></i> Booking save error!' });
+        Notification.error({
+          message: res.data.message,
+          title:
+            '<i class="glyphicon glyphicon-remove"></i> Booking save error!'
+        });
       }
-    }
+    };
 
     vm.isError = false;
     vm.requestSubmitted = false;
     vm.bookingCompleted = false;
 
     vm.selectDate = function($event, num) {
-      if(num == 1) { vm.dateset.bill_date.isOpened = true; }
-      if(num == 2) { vm.dateset.ref_date.isOpened = true; }
+      if (num == 1) {
+        vm.dateset.bill_date.isOpened = true;
+      }
+      if (num == 2) {
+        vm.dateset.ref_date.isOpened = true;
+      }
     };
 
     vm.selectRowDate = function($event, i) {
-       vm.gc_date[i].isOpened = true;
+      vm.gc_date[i].isOpened = true;
     };
 
     vm.dateOptions = {
-      formatYear: 'yy',
+      formatYear: "yy",
       maxDate: new Date(2020, 5, 22),
       minDate: new Date(1920, 5, 22),
       startingDay: 1
@@ -79,91 +129,67 @@
 
     vm.addRow = function() {
       vm.details.push({
-          gc_number: "",
-          gc_date: "",
-          from: "",
-          to: "",
-          package: "",
-          weight: "",
-          rate: "",
-          kms: "",
-          amount: "",
-          extra_info: "",
-          extras: []
+        gc_number: "",
+        gc_date: "",
+        from: "",
+        to: "",
+        package: "",
+        weight: "",
+        rate: "",
+        kms: "",
+        amount: "",
+        extra_info: "",
+        extras: []
       });
-      vm.gc_date[vm.details.length-1] = { isOpened: false };
-    }
+      vm.gc_date[vm.details.length - 1] = { isOpened: false };
+    };
 
     vm.deleteRow = function(ind) {
       vm.details.splice(ind, 1);
-    }
+    };
 
     vm.addExtra = function(index) {
-      if(vm.details[index].extras == undefined) vm.details[index].extras = [];
+      if (vm.details[index].extras == undefined) vm.details[index].extras = [];
       vm.details[index].extras.push({
-          extra_name: "",
-          extra_value: "0"
+        extra_name: "",
+        extra_value: "0"
       });
-    }
+    };
 
     vm.removeExtra = function(index) {
-      vm.details[index].extras.splice(vm.details[index].extras.length-1, 1);
-    }
+      vm.details[index].extras.splice(vm.details[index].extras.length - 1, 1);
+    };
 
     vm.duplicateBillNumber = false;
     vm.onBillNumberChange = function() {
-      vm.duplicateBillNumber = false;
-      for(var a = 0; a < vm.allBookings.length; a++) {
-        if(vm.allBookings[a].bill_no == vm.booking.bill_no) vm.duplicateBillNumber = true;
+      if (vm.booking.bill_no != undefined && vm.booking.bill_no != "") {
+        vm.duplicateBillNumber = vm.allBookings.bill_no.includes(
+          vm.booking.bill_no.toString()
+        );
       }
-    }
+    };
 
     vm.duplicateRefNumber = false;
     vm.onRefNumberChange = function() {
-      vm.duplicateRefNumber = false;
-      for(var a = 0; a < vm.allBookings.length; a++) {
-        if(vm.allBookings[a].ref_no == vm.booking.ref_no) vm.duplicateRefNumber = true;
+      if (vm.booking.ref_no != undefined && vm.booking.ref_no != "") {
+        vm.duplicateRefNumber = vm.allBookings.ref_no.includes(
+          vm.booking.ref_no.toString()
+        );
       }
-    }
+    };
 
-    for(var k=0; k<bookingResolve.length; k++) {
-      if(bookingResolve[k]._id == $state.params.bookingId) {
-            for(var p=0; p<bookingResolve[k].details.length; p++) {
-              bookingResolve[k].details[p].gc_date = new Date(moment(bookingResolve[k].details[p].gc_date));
-            }
-            vm.booking = {
-                _id: bookingResolve[k]._id,
-                bill_date: new Date(moment(bookingResolve[k].bill_date)),
-                bill_no: bookingResolve[k].bill_no,
-                bill_to: bookingResolve[k].bill_to,
-                consignor: bookingResolve[k].consignor,
-                consignee: bookingResolve[k].consignee,
-                details: bookingResolve[k].details,
-                ref_no: bookingResolve[k].ref_no,
-                co_copy: bookingResolve[k].co_copy,
-                ref_date: new Date(moment(bookingResolve[k].ref_date))
-            };
-            vm.details = bookingResolve[k].details;
+    $("input:text").bind("keydown", function(e) {
+      var n = $("input:text").length;
+      if (e.which == 13) {
+        //Enter key
+        e.preventDefault(); //to skip default behavior of the enter key
+        var nextIndex = $("input:text").index(this) + 1;
+        if (nextIndex < n) $("input:text")[nextIndex].focus();
+        else {
+          $("input:text")[nextIndex - 1].blur();
+          $("#btnSubmit").click();
+        }
       }
-    }
-
-        $('input:text').bind("keydown", function(e) {
-          var n = $("input:text").length;
-          if (e.which == 13) 
-          { //Enter key
-            e.preventDefault(); //to skip default behavior of the enter key
-            var nextIndex = $('input:text').index(this) + 1;
-            if(nextIndex < n)
-              $('input:text')[nextIndex].focus();
-            else
-            {
-              $('input:text')[nextIndex-1].blur();
-              $('#btnSubmit').click();
-            }
-          }
-        });
-
-
-
+    });
   }
-}());
+})();

@@ -1,87 +1,78 @@
-(function () {
-  'use strict';
+(function() {
+  "use strict";
 
-  angular
-    .module('bookings.routes')
-    .config(routeConfig);
+  angular.module("bookings.routes").config(routeConfig);
 
-  routeConfig.$inject = ['$stateProvider'];
+  routeConfig.$inject = ["$stateProvider"];
 
   function routeConfig($stateProvider) {
     $stateProvider
-      .state('bookings', {
+      .state("bookings", {
         abstract: true,
-        url: '/bookings',
-        template: '<ui-view/>'
+        url: "/bookings",
+        template: "<ui-view/>"
       })
-      .state('bookings.list', {
-        url: '',
-        templateUrl: '/modules/bookings/client/views/list-bookings.client.view.html',
-        controller: 'BookingsListController',
-        controllerAs: 'vm'
+      .state("bookings.list", {
+        url: "",
+        templateUrl:
+          "/modules/bookings/client/views/list-bookings.client.view.html",
+        controller: "BookingsListController",
+        controllerAs: "vm"
       })
-      .state('bookings.create', {
-        url: '/create',
-        templateUrl: '/modules/bookings/client/views/create-booking.client.view.html',
-        controller: 'BookingsAdminController',
-        controllerAs: 'vm',
+      .state("bookings.create", {
+        url: "/create",
+        templateUrl:
+          "/modules/bookings/client/views/create-booking.client.view.html",
+        controller: "BookingsAdminController",
+        controllerAs: "vm",
         data: {
-          pageTitle: 'Create Booking'
+          pageTitle: "Create Booking"
         },
         resolve: {
           bookingResolve: newBooking
         }
       })
-      .state('bookings.edit', {
-        url: '/:bookingId/edit',
-        templateUrl: '/modules/bookings/client/views/edit-booking.client.view.html',
-        controller: 'BookingsAdminEditController',
-        controllerAs: 'vm',
+      .state("bookings.edit", {
+        url: "/:bookingId/edit",
+        templateUrl:
+          "/modules/bookings/client/views/edit-booking.client.view.html",
+        controller: "BookingsAdminEditController",
+        controllerAs: "vm",
         data: {
-          pageTitle: 'Edit Booking'
-        },
-        resolve: {
-          bookingResolve: getBooking
+          pageTitle: "Edit Booking"
         }
       })
-      .state('bookings.co', {
-        url: '/:bookingId/co',
-        templateUrl: '/modules/bookings/client/views/edit-booking.client.view.html',
-        controller: 'BookingsAdminCoController',
-        controllerAs: 'vm',
+      .state("bookings.co", {
+        url: "/:bookingId/co",
+        templateUrl:
+          "/modules/bookings/client/views/edit-booking.client.view.html",
+        controller: "BookingsAdminCoController",
+        controllerAs: "vm",
         data: {
-          pageTitle: 'CO Booking'
-        },
-        resolve: {
-          bookingResolve: getBooking
+          pageTitle: "CO Booking"
         }
       })
-      .state('bookings.view', {
-        url: '/:bookingId',
-        templateUrl: '/modules/bookings/client/views/view-booking.client.view.html',
-        controller: 'BookingsController',
-        controllerAs: 'vm',
-        resolve: {
-          bookingResolve: getBooking
-        },
+      .state("bookings.view", {
+        url: "/:bookingId",
+        templateUrl:
+          "/modules/bookings/client/views/view-booking.client.view.html",
+        controller: "BookingsController",
+        controllerAs: "vm",
         data: {
-          pageTitle: 'View Booking'
+          pageTitle: "View Booking"
         }
       });
   }
 
-  getBooking.$inject = ['$stateParams', 'BookingsService'];
+  getBooking.$inject = ["$stateParams", "BookingsService"];
 
   function getBooking($stateParams, BookingsService) {
-    return BookingsService.query(
-      {isArray: true}
-    ).$promise;
+    return BookingsService.query({ isArray: true }).$promise;
   }
 
-  newBooking.$inject = ['BookingsService'];
+  newBooking.$inject = ["BookingsService"];
 
   function newBooking(BookingsService) {
     return new BookingsService();
   }
-
-}());
+})();

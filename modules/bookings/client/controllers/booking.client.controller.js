@@ -1,95 +1,109 @@
-(function () {
-  'use strict';
+(function() {
+  "use strict";
 
   angular
-    .module('bookings')
-    .controller('BookingsAdminController', BookingsAdminController);
+    .module("bookings")
+    .controller("BookingsAdminController", BookingsAdminController);
 
-  BookingsAdminController.$inject = ['$scope', '$state', '$window', 'BookingsService', 'Authentication', 'Notification', 'bookingResolve', '$timeout'];
+  BookingsAdminController.$inject = [
+    "$scope",
+    "$state",
+    "$window",
+    "BookingsService",
+    "Authentication",
+    "Notification",
+    "bookingResolve",
+    "$timeout"
+  ];
 
-  function BookingsAdminController($scope, $state, $window, booking, Authentication, Notification, bookingResolve, $timeout) {
+  function BookingsAdminController(
+    $scope,
+    $state,
+    $window,
+    booking,
+    Authentication,
+    Notification,
+    bookingResolve,
+    $timeout
+  ) {
     var vm = this;
     vm.authentication = Authentication;
-    vm.bookings = angular.toJson(booking);
+    vm.isLoading = 0;
 
-    booking.query().$promise.then(function (response) {
-      vm.allBookings = response;
-      vm.bookingForm.bill_no = Number(vm.allBookings[0].bill_no) + 1;
-      for (var i = 0; i < vm.allBookings.length; i++) {
-        var isFound = false;
-        for (var j = 0; j < vm.allClients.length; j++) {
-          if (vm.allClients[j].name.toUpperCase() == vm.allBookings[i].consignor.name.toUpperCase()) isFound = true;
-        }
-        if (!isFound) vm.allClients.push(vm.allBookings[i].consignor);
-        var issFound = false;
-        for (var j = 0; j < vm.allsClients.length; j++) {
-          if (vm.allsClients[j].name.toUpperCase() == vm.allBookings[i].consignee.name.toUpperCase()) isFound = true;
-        }
-        if (!isFound) vm.allsClients.push(vm.allBookings[i].consignee);
-        var istFound = false;
-        for (var j = 0; j < vm.allBookingTos.length; j++) {
-          if (vm.allBookingTos[j].toUpperCase() == vm.allBookings[i].bill_to.toUpperCase()) istFound = true;
-        }
-        if (!istFound) vm.allBookingTos.push(vm.allBookings[i].bill_to);
-      }
+    booking.getPrimaryDetails().$promise.then(function(response) {
+      vm.isLoading++;
+      vm.allBookings = response.data;
+      vm.bookingForm.bill_no =
+        Number(vm.allBookings.bill_no[vm.allBookings.bill_no.length - 1]) + 1;
     });
 
-    vm.convertToFloat = function (stri) {
+    vm.convertToFloat = function(stri) {
       if (stri == null || stri == undefined) return 0;
       return parseFloat(stri);
-    }
+    };
 
     // Remove existing Booking
-    vm.remove = function () {
-      if ($window.confirm('Are you sure you want to delete?')) {
-        booking.$remove(function () {
-          $state.go('admin.bookings.list');
-          Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Booking deleted successfully!' });
+    vm.remove = function() {
+      if ($window.confirm("Are you sure you want to delete?")) {
+        booking.$remove(function() {
+          $state.go("admin.bookings.list");
+          Notification.success({
+            message:
+              '<i class="glyphicon glyphicon-ok"></i> Booking deleted successfully!'
+          });
         });
       }
-    }
+    };
 
     // Save Bookiing
-    vm.save = function (isValid) {
+    vm.save = function(isValid) {
       if (!isValid) {
-        $scope.$broadcast('show-errors-check-validity', 'vm.form.bookingForm');
+        $scope.$broadcast("show-errors-check-validity", "vm.form.bookingForm");
         return false;
       }
       vm.bookingForm.details = vm.details;
 
       // Create a new booking, or update the current instance
-      booking.createOrUpdate(vm.bookingForm)
+      booking
+        .createOrUpdate(vm.bookingForm)
         .then(successCallback)
         .catch(errorCallback);
 
       function successCallback(res) {
-        $state.go('bookings.list');
-        Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Booking saved successfully!' });
+        $state.go("bookings.list");
+        Notification.success({
+          message:
+            '<i class="glyphicon glyphicon-ok"></i> Booking saved successfully!'
+        });
       }
 
       function errorCallback(res) {
-        Notification.error({ message: res.data.message, title: '<i class="glyphicon glyphicon-remove"></i> Booking save error!' });
+        Notification.error({
+          message: res.data.message,
+          title:
+            '<i class="glyphicon glyphicon-remove"></i> Booking save error!'
+        });
       }
-    }
+    };
 
-    vm.reset = function () {
+    vm.reset = function() {
       vm.bookingForm = {
         bill_date: "",
         bill_no: "",
         bill_to: "",
         consignor: {
           name: "",
-          gstin_no: "",
+          gstin_no: ""
         },
         consignee: {
           name: "",
-          gstin_no: "",
+          gstin_no: ""
         },
         details: [],
         ref_no: "",
         ref_date: "",
         co_copy: false,
-        _id: null,
+        _id: null
       };
       vm.isError = false;
       vm.requestSubmitted = false;
@@ -97,21 +111,25 @@
     };
     vm.reset();
 
-    vm.gotoNewBooking = function () {
+    vm.gotoNewBooking = function() {
       vm.reset();
     };
 
-    vm.selectDate = function ($event, num) {
-      if (num == 1) { vm.dateset.bill_date.isOpened = true; }
-      if (num == 2) { vm.dateset.ref_date.isOpened = true; }
+    vm.selectDate = function($event, num) {
+      if (num == 1) {
+        vm.dateset.bill_date.isOpened = true;
+      }
+      if (num == 2) {
+        vm.dateset.ref_date.isOpened = true;
+      }
     };
 
-    vm.selectRowDate = function ($event, i) {
+    vm.selectRowDate = function($event, i) {
       vm.gc_date[i].isOpened = true;
     };
 
     vm.dateOptions = {
-      formatYear: 'yy',
+      formatYear: "yy",
       maxDate: new Date(2020, 5, 22),
       minDate: new Date(1920, 5, 22),
       startingDay: 1
@@ -126,22 +144,24 @@
       0: { isOpened: false }
     };
 
-    vm.details = [{
-      gc_number: "",
-      gc_date: "",
-      from: "",
-      to: "",
-      package: "",
-      weight: "",
-      rate: "",
-      kms: "",
-      amount: "",
-      extra_info: "",
-      extras: [],
-      total_amount: 0
-    }];
+    vm.details = [
+      {
+        gc_number: "",
+        gc_date: "",
+        from: "",
+        to: "",
+        package: "",
+        weight: "",
+        rate: "",
+        kms: "",
+        amount: "",
+        extra_info: "",
+        extras: [],
+        total_amount: 0
+      }
+    ];
 
-    vm.addRow = function () {
+    vm.addRow = function() {
       vm.details.push({
         gc_number: "",
         gc_date: "",
@@ -157,134 +177,169 @@
         total_amount: 0
       });
       vm.gc_date[vm.details.length - 1] = { isOpened: false };
-    }
+    };
 
-    vm.deleteRow = function (ind) {
+    vm.deleteRow = function(ind) {
       vm.details.splice(ind, 1);
-    }
+    };
 
-    vm.addExtra = function (index) {
+    vm.addExtra = function(index) {
       if (vm.details[index].extras == undefined) vm.details[index].extras = [];
       vm.details[index].extras.push({
         extra_name: "",
         extra_value: "0"
       });
-    }
+    };
 
-    vm.removeExtra = function (index) {
+    vm.removeExtra = function(index) {
       vm.details[index].extras.splice(vm.details[index].extras.length - 1, 1);
-    }
+    };
 
     vm.duplicateBillNumber = false;
-    vm.onBillNumberChange = function () {
-      vm.duplicateBillNumber = false;
-      for (var a = 0; a < vm.allBookings.length; a++) {
-        if (vm.allBookings[a].bill_no == vm.bookingForm.bill_no) vm.duplicateBillNumber = true;
+    vm.onBillNumberChange = function() {
+      if (vm.bookingForm.bill_no != undefined && vm.bookingForm.bill_no != "") {
+        vm.duplicateBillNumber = vm.allBookings.bill_no.includes(
+          vm.bookingForm.bill_no.toString()
+        );
       }
-    }
+    };
 
     vm.duplicateGcNumber = false;
-    vm.onGcNumberChange = function (gc_number) {
-      vm.duplicateGcNumber = false;
-      if(gc_number != ""){
-        for (var a = 0; a < vm.allBookings.length; a++) {
-          for(var b = 0; b < vm.allBookings[a].details.length; b++) {
-            if (vm.allBookings[a].details[b].gc_number == gc_number) 
-              vm.duplicateGcNumber = true;
-          }
-        }
+    vm.onGcNumberChange = function(gc_number) {
+      if (gc_number != "" && gc_number != undefined) {
+        vm.duplicateGcNumber = vm.allBookings.gc_number
+          .map(gcs => {
+            return gcs.includes(gc_number.toString());
+          })
+          .includes(true);
       }
-    }
+      console.log(vm.duplicateGcNumber);
+    };
 
     vm.duplicateRefNumber = false;
-    vm.onRefNumberChange = function () {
-      vm.duplicateRefNumber = false;
-      for (var a = 0; a < vm.allBookings.length; a++) {
-        if (vm.allBookings[a].ref_no == vm.bookingForm.ref_no) vm.duplicateRefNumber = true;
+    vm.onRefNumberChange = function() {
+      if (vm.bookingForm.ref_no != undefined && vm.bookingForm.ref_no != "") {
+        vm.duplicateRefNumber = vm.allBookings.ref_no.includes(
+          vm.bookingForm.ref_no.toString()
+        );
       }
-    }
+    };
 
-    vm.onConsignorNameChange = function (booking_name) {
+    vm.onConsignorNameChange = function(booking_name) {
       var result = "";
       for (var i = 0; i < vm.allBookings.length; i++) {
-        if (vm.allBookings[i].consignor.name.toUpperCase() == booking_name.toUpperCase()) result = vm.allBookings[i].consignor.gstin_no;
+        if (
+          vm.allBookings[i].consignor.name.toUpperCase() ==
+          booking_name.toUpperCase()
+        )
+          result = vm.allBookings[i].consignor.gstin_no;
       }
       if (result == "") {
         for (var i = 0; i < vm.allBookings.length; i++) {
-          if (vm.allBookings[i].consignee.name.toUpperCase() == booking_name.toUpperCase()) result = vm.allBookings[i].consignee.gstin_no;
+          if (
+            vm.allBookings[i].consignee.name.toUpperCase() ==
+            booking_name.toUpperCase()
+          )
+            result = vm.allBookings[i].consignee.gstin_no;
         }
       }
       vm.bookingForm.consignor.gstin_no = result;
-    }
+    };
 
-    vm.onConsigneeNameChange = function (booking_name) {
+    vm.onConsigneeNameChange = function(booking_name) {
       var result = "";
       for (var i = 0; i < vm.allBookings.length; i++) {
-        if (vm.allBookings[i].consignee.name.toUpperCase() == booking_name.toUpperCase()) result = vm.allBookings[i].consignee.gstin_no;
+        if (
+          vm.allBookings[i].consignee.name.toUpperCase() ==
+          booking_name.toUpperCase()
+        )
+          result = vm.allBookings[i].consignee.gstin_no;
       }
       if (result == "") {
         for (var i = 0; i < vm.allBookings.length; i++) {
-          if (vm.allBookings[i].consignor.name.toUpperCase() == booking_name.toUpperCase()) result = vm.allBookings[i].consignor.gstin_no;
+          if (
+            vm.allBookings[i].consignor.name.toUpperCase() ==
+            booking_name.toUpperCase()
+          )
+            result = vm.allBookings[i].consignor.gstin_no;
         }
       }
       vm.bookingForm.consignee.gstin_no = result;
-    }
+    };
 
-    vm.allClients = [];
     vm.clients = [];
     vm.allsClients = [];
     vm.sclients = [];
     vm.allBookingTos = [];
     vm.bookingTos = [];
 
-    vm.complete = function (selectedClient) {
-      vm.clientbookings = [];
+    vm.complete = function(selectedClient) {
       var output = [];
-      angular.forEach(vm.allClients, function (clts) {
-        if (clts.name.toLowerCase().indexOf(selectedClient.toLowerCase()) >= 0) {
+      vm.clients = [];
+      angular.forEach(vm.allBookings.consignor, function(clts) {
+        if (
+          clts.name.toLowerCase().indexOf(selectedClient.toLowerCase()) >= 0
+        ) {
           output.push(clts);
         }
       });
-      vm.clients = output;
-    }
+      angular.forEach(vm.allBookings.consignee, function(clts) {
+        if (
+          clts.name.toLowerCase().indexOf(selectedClient.toLowerCase()) >= 0
+        ) {
+          output.push(clts);
+        }
+      });
+      vm.clients = output.length > 10 ? output.splice(1, 10) : output;
+    };
 
-    vm.fillTextbox = function (string) {
+    vm.fillTextbox = function(string) {
       vm.bookingForm.consignor.name = string.name;
       vm.bookingForm.consignor.gstin_no = string.gstin_no;
       vm.clients = [];
-    }
+    };
 
-    vm.scomplete = function (selectedClient) {
-      vm.clientbookings = [];
+    vm.scomplete = function(selectedClient) {
+      vm.sclients = [];
       var output = [];
-      angular.forEach(vm.allsClients, function (clts) {
-        if (clts.name.toLowerCase().indexOf(selectedClient.toLowerCase()) >= 0) {
+      angular.forEach(vm.allBookings.consignor, function(clts) {
+        if (
+          clts.name.toLowerCase().indexOf(selectedClient.toLowerCase()) >= 0
+        ) {
           output.push(clts);
         }
       });
-      vm.sclients = output;
-    }
+      angular.forEach(vm.allBookings.consignee, function(clts) {
+        if (
+          clts.name.toLowerCase().indexOf(selectedClient.toLowerCase()) >= 0
+        ) {
+          output.push(clts);
+        }
+      });
+      vm.sclients = output.length > 10 ? output.splice(1, 10) : output;
+    };
 
-    vm.sfillTextbox = function (string) {
+    vm.sfillTextbox = function(string) {
       vm.bookingForm.consignee.name = string.name;
       vm.bookingForm.consignee.gstin_no = string.gstin_no;
       vm.sclients = [];
-    }
+    };
 
-    vm.tcomplete = function (selectedClient) {
+    vm.tcomplete = function(selectedClient) {
       var output = [];
-      angular.forEach(vm.allBookingTos, function (clts) {
+      vm.bookingTos = [];
+      angular.forEach(vm.allBookings.bill_to, function(clts) {
         if (clts.toLowerCase().indexOf(selectedClient.toLowerCase()) >= 0) {
           output.push(clts);
         }
       });
-      vm.bookingTos = output;
-    }
+      vm.bookingTos = output.length > 10 ? output.splice(1, 10) : output;
+    };
 
-    vm.tfillTextbox = function (string) {
+    vm.tfillTextbox = function(string) {
       vm.bookingForm.bill_to = string;
       vm.bookingTos = [];
-    }
+    };
 
     if ($state.params.bookingId) {
       vm.bookingForm = {
@@ -302,19 +357,18 @@
       angular.element(abc).val(bookingResolve[0].bill_no);
     }
 
-    $('input:text').bind("keydown", function (e) {
+    $("input:text").bind("keydown", function(e) {
       var n = $("input:text").length;
-      if (e.which == 13) { //Enter key
+      if (e.which == 13) {
+        //Enter key
         e.preventDefault(); //to skip default behavior of the enter key
-        var nextIndex = $('input:text').index(this) + 1;
-        if (nextIndex < n)
-          $('input:text')[nextIndex].focus();
+        var nextIndex = $("input:text").index(this) + 1;
+        if (nextIndex < n) $("input:text")[nextIndex].focus();
         else {
-          $('input:text')[nextIndex - 1].blur();
-          $('#btnSubmit').click();
+          $("input:text")[nextIndex - 1].blur();
+          $("#btnSubmit").click();
         }
       }
     });
-
   }
-}());
+})();

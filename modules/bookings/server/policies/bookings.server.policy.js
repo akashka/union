@@ -23,6 +23,24 @@ exports.invokeRolesPolicies = function () {
     }, {
       resources: '/api/downloads',
       permissions: '*'
+    }, {
+      resources: '/api/filteredBookings',
+      permissions: '*'
+    }, {
+      resources: '/api/getPrimaryDetails',
+      permissions: "*"
+    }, {
+      resources: '/api/getHomePageData',
+      permissions: "*"
+    }, {
+      resources: '/api/getClientGraphData',
+      permissions: "*"
+    }, {
+      resources: '/api/getMonthGraphData',
+      permissions: "*"
+    }, {
+      resources: '/api/getBookingDetails',
+      permissions: "*"
     }]
   }, {
     roles: ['user'],
@@ -35,6 +53,24 @@ exports.invokeRolesPolicies = function () {
     },{
       resources: '/api/downloads',
       permissions: '*'
+    }, {
+      resources: '/api/filteredBookings',
+      permissions: '*'
+    }, {
+      resources: '/api/getPrimaryDetails',
+      permissions: '*'
+    }, {
+      resources: '/api/getHomePageData',
+      permissions: "*"
+    }, {
+      resources: '/api/getClientGraphData',
+      permissions: "*"
+    }, {
+      resources: '/api/getMonthGraphData',
+      permissions: "*"
+    }, {
+      resources: '/api/getBookingDetails',
+      permissions: "*"
     }]
   }, {
     roles: ['guest'],
@@ -47,6 +83,24 @@ exports.invokeRolesPolicies = function () {
     }, {
       resources: '/api/downloads',
       permissions: '*'
+    }, {
+      resources: '/api/filteredBookings',
+      permissions: '*'
+    }, {
+      resources: '/api/getPrimaryDetails',
+      permissions: '*'
+    }, {
+      resources: '/api/getHomePageData',
+      permissions: "*"
+    }, {
+      resources: '/api/getClientGraphData',
+      permissions: "*"
+    }, {
+      resources: '/api/getMonthGraphData',
+      permissions: "*"
+    }, {
+      resources: '/api/getBookingDetails',
+      permissions: "*"
     }]
   }]);
 };

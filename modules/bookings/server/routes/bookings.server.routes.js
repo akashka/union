@@ -22,6 +22,24 @@ module.exports = function (app) {
     .put(bookings.update)
     .delete(bookings.delete);
 
-  // Finish by binding the booking middleware
+  app.route('/api/filteredBookings').all(bookingsPolicy.isAllowed)
+    .post(bookings.filteredBookings);
+
+  app.route('/api/getPrimaryDetails').all(bookingsPolicy.isAllowed)
+    .get(bookings.getPrimaryDetails);
+
+  app.route('/api/getHomePageData').all(bookingsPolicy.isAllowed)
+    .get(bookings.getHomePageData);
+
+  app.route('/api/getClientGraphData').all(bookingsPolicy.isAllowed)
+    .get(bookings.getClientGraphData);
+
+  app.route('/api/getMonthGraphData').all(bookingsPolicy.isAllowed)
+    .get(bookings.getMonthGraphData);
+
+  app.route('/api/getBookingDetails').all(bookingsPolicy.isAllowed)
+    .post(bookings.getBookingDetails)
+
+    // Finish by binding the booking middleware
   // app.param('bookingId', bookings.bookingByID);
 };
