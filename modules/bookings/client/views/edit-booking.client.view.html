@@ -1,6 +1,6 @@
 <section>
 
-    <div class="col-md-12" ng-if="vm.isLoading > 1">
+    <div class="col-md-12" ng-show="vm.isLoading > 1">
         <form name="vm.bookingForm" class="form-horizontal" ng-submit="vm.save(vm.bookingForm.$valid)" novalidate>
 
             <div ng-hide="vm.isError">
@@ -352,7 +352,7 @@
         </form>
     </div>
 
-    <div class="loader-wrapper" ng-if="vm.isLoading < 2">
+    <div class="loader-wrapper" ng-show="vm.isLoading < 2">
         <div class="truck-wrapper">
             <div class="truck">
                 <div class="truck-container"></div>

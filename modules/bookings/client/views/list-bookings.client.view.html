@@ -1,5 +1,5 @@
 <section style="margin-top:25px;">
-    <div ng-if="vm.isLoading >= 2">
+    <div ng-show="vm.isLoading >= 2">
         <div class="row">
             <div class="col-sm-4 col-md-4">
                 <div class="form-group">
@@ -147,7 +147,7 @@
         </div>
     </div>
 
-    <div ng-if="vm.isLoading < 2">
+    <div ng-show="vm.isLoading < 2">
         <div class="loader-wrapper" style="top: 50%;">
             <div class="TruckLoader">
                 <div class="TruckLoader-cab"></div>

@@ -30,8 +30,8 @@
     BookingsService.getBookingDetails($state.params.bookingId).$promise.then(
       function(response) {
         vm.booking = response;
-        vm.booking.bill_no = vm.booking.bill_no + "A";
-        vm.booking.co_copy = true;
+        vm.booking.bill_no = vm.booking.bill_no;
+        vm.booking.co_copy = false;
         vm.booking.bill_date = new Date(moment(vm.booking.bill_date));
         vm.booking.ref_date = new Date(moment(vm.booking.ref_date));
         for (var i = 0; i < vm.booking.details.length; i++) {
@@ -72,7 +72,7 @@
       vm.booking.details = vm.details;
 
       // Create a new booking, or update the current instance
-      booking
+      BookingsService
         .createOrUpdate(vm.booking)
         .then(successCallback)
         .catch(errorCallback);

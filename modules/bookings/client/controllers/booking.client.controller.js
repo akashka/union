@@ -33,8 +33,9 @@
     booking.getPrimaryDetails().$promise.then(function(response) {
       vm.isLoading++;
       vm.allBookings = response.data;
-      vm.bookingForm.bill_no =
-        Number(vm.allBookings.bill_no[vm.allBookings.bill_no.length - 1]) + 1;
+      vm.bookingForm.bill_no = (
+        Number(vm.allBookings.bill_no[vm.allBookings.bill_no.length - 1]) + 1
+      ).toString();
     });
 
     vm.convertToFloat = function(stri) {
