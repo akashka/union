@@ -80,7 +80,7 @@
     "html-to-pdf": "^0.1.11",
     "imagemin-pngquant": "~5.0.0",
     "jasmine-core": "~2.7.0",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.13",
     "lusca": "~1.5.1",
     "method-override": "^2.3.10",
     "moment": "^2.20.1",
