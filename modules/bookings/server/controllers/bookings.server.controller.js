@@ -60,6 +60,7 @@ exports.update = function(req, res) {
   var id = req.body._id;
   var booking = req.body;
   delete booking._id;
+  delete booking.__v;
 
   Booking.update({ _id: id }, booking, { upsert: true, new: true }, function(
     err
