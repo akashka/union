@@ -13,7 +13,10 @@ var path = require("path"),
   fs = require("fs"),
   moment = require("moment");
 var htmlToPdf = require("html-to-pdf");
-var conversion = require("phantom-html-to-pdf")();
+var conversion = require("phantom-html-to-pdf")({
+  numberOfWorkers: 10,
+  timeout: 50000
+});
 var printer = require("node-thermal-printer");
 var pdf2img = require("pdf2img");
 
