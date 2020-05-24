@@ -399,7 +399,17 @@ exports.downloadByID = function(req, res) {
             format: "url",
             width: "10in",
             height: "6in"
-          }
+          },
+          waitForJS: false,
+          waitForJSVarName: 'PHANTOM_HTML_TO_PDF_READY',
+          allowLocalFilesAccess: true,
+          settings: {
+            javascriptEnabled: true
+          },
+          format: {
+            quality: 100
+          },
+          phantomPath: require('phantomjs-prebuilt').path
         },
         function(err, pdf) {
           console.log('conversion err', err)
