@@ -73,7 +73,7 @@
       delete vm.booking._id;
 
       // Create a new booking, or update the current instance
-      booking
+      BookingsService
         .createOrUpdate(vm.booking)
         .then(successCallback)
         .catch(errorCallback);
