@@ -232,8 +232,10 @@ var findTotal = function(details) {
 };
 
 exports.downloadByID = function(req, res) {
+  console.log('req.params.bookingId', req.params.bookingId);
   var id = req.params.bookingId;
   if (!mongoose.Types.ObjectId.isValid(id)) {
+    console.log('Booking is invalid');
     return res.status(400).send({
       message: "Booking is invalid"
     });
@@ -254,6 +256,8 @@ exports.downloadByID = function(req, res) {
         path.join(__dirname, "../controllers") + "/bill.html",
         "utf8"
       );
+
+      console.log('File read');
 
       stringTemplate = stringTemplate.replace(
         "{{bill_no}}",
@@ -384,6 +388,7 @@ exports.downloadByID = function(req, res) {
         addCommas(findTotal(booking.details)) + ".00"
       );
 
+      console.log('conversion starteed');
       conversion(
         {
           html: stringTemplate,
@@ -394,11 +399,14 @@ exports.downloadByID = function(req, res) {
           }
         },
         function(err, pdf) {
+          console.log('conversion err', err)
           var output = fs.createWriteStream("./bill.pdf");
           pdf.stream.pipe(output);
           let filename = "invoice";
           filename = encodeURIComponent(filename) + ".pdf";
           var file = fs.readFileSync("./bill.pdf");
+
+          console.log('pdf 2 img');
           pdf2img.setOptions({
             type: "png", // png or jpg, default jpg
             density: 600, // default 600
