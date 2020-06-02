@@ -99,6 +99,9 @@
 
             <table ng-table="vm.tableParams" class="table table-hover table-striped table-bordered" id="myTable2">
                 <tr ng-repeat="booking in $data">
+                    <td data-title="'Created On'" sortable="'created'">
+                        {{booking.created | date:'dd/MMM/yyyy'}}
+                    </td>
                     <td data-title="'Bill Date'" sortable="'bill_date'">
                         {{booking.bill_date | date:'dd/MMM/yyyy'}}
                     </td>

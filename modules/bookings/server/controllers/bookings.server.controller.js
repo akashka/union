@@ -235,10 +235,8 @@ var findTotal = function(details) {
 };
 
 exports.downloadByID = function(req, res) {
-  console.log('req.params.bookingId', req.params.bookingId);
   var id = req.params.bookingId;
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    console.log('Booking is invalid');
     return res.status(400).send({
       message: "Booking is invalid"
     });
@@ -259,8 +257,6 @@ exports.downloadByID = function(req, res) {
         path.join(__dirname, "../controllers") + "/bill.html",
         "utf8"
       );
-
-      console.log('File read');
 
       stringTemplate = stringTemplate.replace(
         "{{bill_no}}",
@@ -391,7 +387,6 @@ exports.downloadByID = function(req, res) {
         addCommas(findTotal(booking.details)) + ".00"
       );
 
-      console.log('conversion starteed');
       conversion(
         {
           html: stringTemplate,
@@ -401,7 +396,7 @@ exports.downloadByID = function(req, res) {
             height: "6in"
           },
           waitForJS: false,
-          waitForJSVarName: 'PHANTOM_HTML_TO_PDF_READY',
+          waitForJSVarName: "PHANTOM_HTML_TO_PDF_READY",
           allowLocalFilesAccess: true,
           settings: {
             javascriptEnabled: true
@@ -409,20 +404,17 @@ exports.downloadByID = function(req, res) {
           format: {
             quality: 100
           },
-          phantomPath: require('phantomjs-prebuilt').path
+          phantomPath: require("phantomjs-prebuilt").path
         },
         function(err, pdf) {
-          console.log('conversion err', err)
           var output = fs.createWriteStream("./bill.pdf");
           pdf.stream.pipe(output);
           let filename = "invoice";
           filename = encodeURIComponent(filename) + ".pdf";
           var file = fs.readFileSync("./bill.pdf");
 
-          console.log('pdf 2 img');
           pdf2img.setOptions({
             type: "png", // png or jpg, default jpg
-            density: 600, // default 600
             outputname: "test", // output file name, dafault null (if null given, then it will create image name same as input name)
             page: null // convert selected page, default null (if null given, then it will convert all pages)
           });
@@ -462,7 +454,10 @@ exports.filteredBookings = function(req, res) {
     };
   }
 
-  if (req.body.params.bill_number !== "" && req.body.params.bill_number !== null) {
+  if (
+    req.body.params.bill_number !== "" &&
+    req.body.params.bill_number !== null
+  ) {
     params.bill_no = req.body.params.bill_number;
   }
 
@@ -474,7 +469,10 @@ exports.filteredBookings = function(req, res) {
     params.consignor = req.body.params.consignee;
   }
 
-  if (req.body.params.bill_to_address !== "" && req.body.params.bill_to_address !== null) {
+  if (
+    req.body.params.bill_to_address !== "" &&
+    req.body.params.bill_to_address !== null
+  ) {
     params.bill_to = req.body.params.bill_to_address;
   }
 
@@ -523,10 +521,20 @@ exports.getPrimaryDetails = function(req, res) {
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-      var resp = {
-        data: data[0]
-      };
-      res.json(resp);
+      Booking.find()
+        .sort([['_id', -1]])
+        .limit(1)
+        .exec(function(err, bookings) {
+          if (err) {
+            return res.status(422).send({
+              message: errorHandler.getErrorMessage(err)
+            });
+          } else {
+            data[0].latest_bill_no = bookings[0].bill_no;
+            var resp = { data: data[0] };
+            res.json(resp);
+          }
+        });
     }
   });
 };
@@ -546,7 +554,7 @@ exports.getHomePageData = function(req, res) {
           $addToSet: "$consignor"
         },
         amount: { $push: "$details.amount" },
-        extras: { $push: "$details.extras" },
+        extras: { $push: "$details.extras" }
       }
     }
   ]).exec(function(err, data) {
@@ -576,7 +584,7 @@ exports.getMonthGraphData = function(req, res) {
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-      res.json({data});
+      res.json({ data });
     }
   });
 };
@@ -597,7 +605,7 @@ exports.getClientGraphData = function(req, res) {
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-      res.json({data});
+      res.json({ data });
     }
   });
 };
@@ -625,4 +633,3 @@ exports.getBookingDetails = function(req, res) {
       res.json(booking);
     });
 };
-
