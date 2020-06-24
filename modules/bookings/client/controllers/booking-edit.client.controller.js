@@ -113,7 +113,7 @@
 
     vm.dateOptions = {
       formatYear: "yy",
-      maxDate: new Date(2020, 5, 22),
+      maxDate: new Date(2030, 5, 22),
       minDate: new Date(1920, 5, 22),
       startingDay: 1
     };
