@@ -1,0 +1,163 @@
+<section style="margin-top:25px;">
+    <div ng-show="vm.isLoading >= 2">
+        <div class="row">
+            <div class="col-sm-4 col-md-4">
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">Bill Date From:</label>
+                    <div class="col-sm-7">
+                        <p class="input-group">
+                            <input type="text" class="form-control" uib-datepicker-popup="dd-MMM-yyyy"
+                                ng-model="vm.search.bill_from" is-open="vm.bill_from.isOpened"
+                                datepicker-options="vm.dateOptions" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="vm.selectDate($event, 1)"><i
+                                        class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-4">
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">Bill Date To:</label>
+                    <div class="col-sm-7">
+                        <p class="input-group">
+                            <input type="text" class="form-control" uib-datepicker-popup="dd-MMM-yyyy"
+                                ng-model="vm.search.bill_to" is-open="vm.bill_to.isOpened"
+                                datepicker-options="vm.dateOptions" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="vm.selectDate($event, 2)"><i
+                                        class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-4">
+                <div class="form-group">
+                    <label for="bill_number" class="col-sm-5 control-label">Bill No:</label>
+                    <div class="col-sm-7">
+                        <input id="bill_number" type="text" class="form-control" ng-model="vm.search.bill_number"
+                            placeholder="Enter Bill Number" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-4 col-md-4">
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">Consignor: </label>
+                    <div class="col-sm-7">
+                        <select class="form-control" id="consignor" ng-model="vm.search.consignor"
+                            ng-options="item as item.name for item in vm.allClients track by item.name">
+                            <option disabled selected value="">Select Consignor</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-4">
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">Consignee:</label>
+                    <div class="col-sm-7">
+                        <select class="form-control" id="consignee" ng-model="vm.search.consignee"
+                            ng-options="item as item.name for item in vm.allsClients track by item.name">
+                            <option disabled selected value="">Select Consignee</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-4">
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">Bill To:</label>
+                    <div class="col-sm-7">
+                        <select class="form-control" id="consignee" ng-model="vm.search.bill_to_address"
+                            ng-options="item as item for item in vm.allConsignmentTos track by item">
+                            <option disabled selected value="">Select Bill To</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="page-controls col-sm-12" style="text-align: center;">
+                <div class="row" role="toolbar">
+                    <button type="button" class="btn btn-secondary" ng-click="vm.searches()">Search</button>
+                    <button type="button" class="btn btn-secondary" ng-click="vm.reset()">Reset</button>
+                    <button type="button" class="btn btn-dark" ng-click="vm.gotoNewConsignment()">New Consignment</button>
+                </div>
+            </div>
+        </div>
+
+        <br />
+        <hr />
+
+        <div class="list-group table-responsive">
+
+            <table ng-table="vm.tableParams" class="table table-hover table-striped table-bordered" id="myTable2">
+                <tr ng-repeat="consignment in $data">
+                    <td data-title="'Created On'" sortable="'created'">
+                        {{consignment.created | date:'dd/MMM/yyyy'}}
+                    </td>
+                    <td data-title="'Bill Date'" sortable="'bill_date'">
+                        {{consignment.bill_date | date:'dd/MMM/yyyy'}}
+                    </td>
+                    <td title="'Bill No'" sortable="'bill_no'">
+                        {{consignment.bill_no}}
+                    </td>
+                    <td title="'Consignor Name'" sortable="'consignor.name'">
+                        {{consignment.consignor.name}}
+                    </td>
+                    <td title="'Consignee Name'" sortable="'consignee.name'">
+                        {{consignment.consignee.name}}
+                    </td>
+                    <td title="'Total'">
+                        {{vm.calculateTotal(consignment.details)}}
+                    </td>
+                    <td style="width:280px;min-width:280px;max-width:280px;">
+                        <a class="btn btn-info" ui-sref="consignments.view({consignmentId: consignment._id})" data-toggle="tooltip"
+                            title="VIEW">
+                            <i class="glyphicon glyphicon-eye-open"
+                                style="color:white;font-size:21px;cursor:pointer;"></i>
+                        </a>
+                        <a class="btn btn-primary" ng-click="vm.download(consignment._id)" data-toggle="tooltip"
+                            title="PRINT">
+                            <i class="glyphicon glyphicon-print" style="color:white;font-size:21px;cursor:pointer;"></i>
+                        </a>
+                        <a class="btn btn-success" ui-sref="consignments.co({consignmentId: consignment._id})"
+                            ng-hide="consignment.co_copy" data-toggle="tooltip" title="CO COPY">
+                            <i class="glyphicon glyphicon-copy" style="color:white;font-size:21px;cursor:pointer;"></i>
+                        </a>
+                        <div class="btn" ng-hide="!consignment.co_copy" style="width:47px;cursor:arrow;">
+                            &nbsp;
+                        </div>
+                        <a class="btn btn-warning" ui-sref="consignments.edit({consignmentId: consignment._id})"
+                            data-toggle="tooltip" title="EDIT">
+                            <i class="glyphicon glyphicon-pencil"
+                                style="color:white;font-size:21px;cursor:pointer;"></i>
+                        </a>
+                        <a class="btn btn-danger" ng-click="vm.deleteConsignment(consignment._id)" data-toggle="tooltip"
+                            title="DELETE">
+                            <i class="glyphicon glyphicon-trash" style="color:white;font-size:21px;cursor:pointer;"></i>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+    <div ng-show="vm.isLoading < 2">
+        <div class="loader-wrapper" style="top: 50%;">
+            <div class="TruckLoader">
+                <div class="TruckLoader-cab"></div>
+                <div class="TruckLoader-smoke"></div>
+            </div>
+            <hr />
+        </div>
+    </div>
+
+</section>

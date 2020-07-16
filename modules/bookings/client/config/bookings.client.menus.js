@@ -1,24 +1,29 @@
-(function () {
-  'use strict';
+(function() {
+  "use strict";
 
-  angular
-    .module('bookings')
-    .run(menuConfig);
+  angular.module("bookings").run(menuConfig);
 
-  menuConfig.$inject = ['menuService'];
+  menuConfig.$inject = ["menuService"];
 
   function menuConfig(menuService) {
-    menuService.addMenuItem('topbar', {
-      title: 'Bookings',
-      state: 'bookings.list',
-      roles: ['admin','user']
+    menuService.addMenuItem("topbar", {
+      title: "Bookings",
+      state: "bookings",
+      type: "dropdown",
+      roles: ["*"],
+      position: 1
     });
 
-    menuService.addMenuItem('topbar', {
-      title: 'New Booking',
-      state: 'bookings.create',
-      roles: ['admin','user']
+    menuService.addSubMenuItem("topbar", "bookings", {
+      title: "List Bookings",
+      state: "bookings.list",
+      roles: ["*"]
     });
 
+    menuService.addSubMenuItem("topbar", "bookings", {
+      title: "New Booking",
+      state: "bookings.create",
+      roles: ["*"]
+    });
   }
-}());
+})();
