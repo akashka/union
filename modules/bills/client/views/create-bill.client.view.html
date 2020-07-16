@@ -1,0 +1,401 @@
+<section>
+    <div class="col-md-12" ng-show="vm.isLoading >= 1">
+        <form name="vm.billForm" class="form-horizontal" ng-submit="vm.save(vm.billForm.$valid)" novalidate>
+
+            <div ng-hide="vm.isError">
+                <div class="row">
+                    <div class="col-sm-8 col-md-8">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <label for="bill_date" class="col-sm-4 control-label">Bill Date:</label>
+                                    <div class="col-sm-8">
+                                        <p class="input-group">
+                                            <input type="text" class="form-control" uib-datepicker-popup="dd-MMM-yyyy"
+                                                ng-model="vm.billForm.bill_date"
+                                                is-open="vm.dateset.bill_date.isOpened"
+                                                datepicker-options="vm.dateOptions" ng-required="true" />
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default" tabindex="-1"
+                                                    ng-click="vm.selectDate($event, 1)"><i
+                                                        class="glyphicon glyphicon-calendar"></i></button>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <label for="bill_no" class="col-sm-4 control-label">Bill Number:</label>
+                                    <div class="col-sm-8">
+                                        <input id="bill_no" type="text" class="form-control"
+                                            ng-model="vm.billForm.bill_no" placeholder="Enter Bill Number"
+                                            ng-required="true" ng-change="vm.onBillNumberChange()" />
+                                        <div ng-messages="vm.billForm.bill_no.$error"
+                                            ng-show="vm.billForm.bill_no.$dirty && vm.billForm.bill_no.$invalid"
+                                            class="error-message">
+                                            <div ng-message="required">Bill Number is required</div>
+                                        </div>
+                                        <div ng-show="vm.duplicateBillNumber" style="color: orange;">Bill Number already
+                                            exists</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <label for="ref_date" class="col-sm-4 control-label">Ref Date:</label>
+                                    <div class="col-sm-8">
+                                        <p class="input-group">
+                                            <input type="text" class="form-control" uib-datepicker-popup="dd-MMM-yyyy"
+                                                ng-model="vm.billForm.ref_date"
+                                                is-open="vm.dateset.ref_date.isOpened"
+                                                datepicker-options="vm.dateOptions" />
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default" tabindex="-1"
+                                                    ng-click="vm.selectDate($event, 2)"><i
+                                                        class="glyphicon glyphicon-calendar"></i></button>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <label for="ref_no" class="col-sm-4 control-label">Ref Number:</label>
+                                    <div class="col-sm-8">
+                                        <input id="ref_no" type="text" class="form-control"
+                                            ng-model="vm.billForm.ref_no" placeholder="Enter Ref Number"
+                                            ng-change="vm.onRefNumberChange()" />
+                                        <div ng-show="vm.duplicateRefNumber" style="color: orange;">Ref Number already
+                                            exists</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                        <div class="form-group">
+                            <label for="bill_to" class="col-sm-3 control-label">Bill To:</label>
+                            <div class="col-sm-9">
+                                <textarea rows="4" id="bill_to" class="form-control" ng-model="vm.billForm.bill_to"
+                                    placeholder="Enter Bill To Details" ng-required="true"
+                                    ng-keyup="vm.tcomplete(vm.billForm.bill_to)"></textarea>
+                                <ul class="list-group">
+                                    <li class="list-group-item" ng-repeat="billTo in vm.billTos"
+                                        ng-click="vm.tfillTextbox(billTo)">{{billTo}}</li>
+                                </ul>
+                                <div ng-messages="vm.billForm.bill_to.$error"
+                                    ng-show="vm.billForm.bill_to.$dirty && vm.billForm.bill_to.$invalid"
+                                    class="error-message">
+                                    <div ng-message="required">Bill To is required</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- section - Consignor & Consignee Details  -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" tabindex="-1" href="#collapse1">Consignor Details</a>
+                                    </h4>
+                                </div>
+                                <div id="collapse1" class="panel-collapse collapse in">
+                                    <div class="panel-body">
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label for="consignor_name" class="col-sm-4 control-label">Name:</label>
+                                                <div class="col-sm-8">
+                                                    <input id="consignor_name" type="text" class="form-control"
+                                                        ng-model="vm.billForm.consignor.name"
+                                                        placeholder="Enter Consignor Name" ng-required="true"
+                                                        ng-keyup="vm.complete(vm.billForm.consignor.name)" />
+                                                    <ul class="list-group">
+                                                        <li class="list-group-item" ng-repeat="client in vm.clients"
+                                                            ng-click="vm.fillTextbox(client)">{{client.name}}
+                                                            ({{client.gstin_no}})</li>
+                                                    </ul>
+                                                    <div ng-messages="vm.billForm.consignor_name.$error"
+                                                        ng-show="vm.billForm.consignor_name.$dirty && vm.billForm.consignor_name.$invalid"
+                                                        class="error-message">
+                                                        <div ng-message="required">Consignor Name is required</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label for="consignor_gstin_no" class="col-sm-4 control-label">GSTIN
+                                                    No:</label>
+                                                <div class="col-sm-8">
+                                                    <input id="consignor_gstin_no" type="text" class="form-control"
+                                                        ng-model="vm.billForm.consignor.gstin_no"
+                                                        placeholder="Enter Consignor GSTIN No." />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" tabindex="-1" href="#collapse2">Consignee Details</a>
+                                    </h4>
+                                </div>
+                                <div id="collapse2" class="panel-collapse collapse in">
+                                    <div class="panel-body">
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label for="consignee_name" class="col-sm-4 control-label">Name:</label>
+                                                <div class="col-sm-8">
+                                                    <input id="consignee_name" type="text" class="form-control"
+                                                        ng-model="vm.billForm.consignee.name"
+                                                        placeholder="Enter Consignee Name" ng-required="true"
+                                                        ng-keyup="vm.scomplete(vm.billForm.consignee.name)" />
+                                                    <ul class="list-group">
+                                                        <li class="list-group-item" ng-repeat="client in vm.sclients"
+                                                            ng-click="vm.sfillTextbox(client)">{{client.name}}</li>
+                                                    </ul>
+                                                    <div ng-messages="vm.billForm.consignee_name.$error"
+                                                        ng-show="vm.billForm.consignee_name.$dirty && vm.billForm.consignee_name.$invalid"
+                                                        class="error-message">
+                                                        <div ng-message="required">Consignee Name is required</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label for="consignee_gstin_no" class="col-sm-4 control-label">GSTIN
+                                                    No:</label>
+                                                <div class="col-sm-8">
+                                                    <input id="consignee_gstin_no" type="text" class="form-control"
+                                                        ng-model="vm.billForm.consignee.gstin_no"
+                                                        placeholder="Enter Consignee GSTIN No." />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- section - Multiple Bill Rows  -->
+                <div class="row multi_row" ng-repeat="detail in vm.details">
+                    <div class="row">
+                        <div class="col-sm-8 col-md-8">
+                            <div class="row">
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <label for="gc_number" class="col-sm-4 control-label">GC Number:</label>
+                                        <div class="col-sm-8">
+                                            <input id="gc_number" type="text" class="form-control"
+                                                ng-model="detail.gc_number" placeholder="Enter GC Number"
+                                                ng-change="vm.onGcNumberChange(detail.gc_number)" />
+                                        </div>
+                                        <div ng-show="vm.duplicateGcNumber" style="color: orange;"> &nbsp; &nbsp; &nbsp;
+                                            GC Number already exists</div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <label for="gc_date" class="col-sm-4 control-label">GC Date:</label>
+                                        <div class="col-sm-8">
+                                            <p class="input-group">
+                                                <input type="text" class="form-control"
+                                                    uib-datepicker-popup="dd-MMM-yyyy" ng-model="detail.gc_date"
+                                                    is-open="vm.gc_date[$index].isOpened"
+                                                    datepicker-options="vm.dateOptions" />
+                                                <span class="input-group-btn">
+                                                    <button type="button" tabindex="-1" class="btn btn-default"
+                                                        ng-click="vm.selectRowDate($event, $index)"><i
+                                                            class="glyphicon glyphicon-calendar"></i></button>
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <label for="from" class="col-sm-4 control-label">From:</label>
+                                        <div class="col-sm-8">
+                                            <input id="from" type="text" class="form-control" ng-model="detail.from"
+                                                placeholder="Enter From location" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <label for="to" class="col-sm-4 control-label">To:</label>
+                                        <div class="col-sm-8">
+                                            <input id="to" type="text" class="form-control" ng-model="detail.to"
+                                                placeholder="Enter To location" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                            <div class="form-group">
+                                <label for="extra_info" class="col-sm-3 control-label">Remarks:</label>
+                                <div class="col-sm-9">
+                                    <textarea rows="4" id="extra_info" class="form-control" ng-model="detail.extra_info"
+                                        placeholder="Enter Remarks"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 col-md-4">
+                            <div class="form-group">
+                                <label for="package" class="col-sm-4 control-label">Package:</label>
+                                <div class="col-sm-8">
+                                    <input id="package" type="text" class="form-control" ng-model="detail.package"
+                                        placeholder="Enter Package" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                            <div class="form-group">
+                                <label for="weight" class="col-sm-4 control-label">Weight:</label>
+                                <div class="col-sm-8">
+                                    <input id="weight" type="text" class="form-control" ng-model="detail.weight"
+                                        placeholder="Enter Weight" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                            <div class="form-group">
+                                <label for="rate" class="col-sm-3 control-label">Rate:</label>
+                                <div class="col-sm-9">
+                                    <input id="rate" type="text" class="form-control" ng-model="detail.rate"
+                                        placeholder="Enter Rate" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 col-md-4">
+                            <div class="form-group">
+                                <label for="kms" class="col-sm-4 control-label">KMS:</label>
+                                <div class="col-sm-8">
+                                    <input id="kms" type="text" class="form-control" ng-model="detail.kms"
+                                        placeholder="Enter KMS" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                            <div class="form-group">
+                                <label for="amount" class="col-sm-4 control-label">Amount:</label>
+                                <div class="col-sm-8">
+                                    <input id="amount" type="text" class="form-control" ng-model="detail.amount"
+                                        placeholder="Enter Amount" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-8 col-md-8">
+                            <div class="form-group">
+                                <label for="extras" class="col-sm-2 control-label">Extras:</label>
+                                <div class="col-sm-2 col-md-2">
+                                    <button type="button" style="float:right;background-color:#3a993a;"
+                                        class="btn btn-default spl_btn" ng-click="vm.addExtra($index)">+</button>
+                                </div>
+                                <div class="col-sm-2 col-md-2">
+                                    <button type="button" style="background-color:#c02020;"
+                                        class="btn btn-default spl_btn" ng-click="vm.removeExtra($index)"
+                                        ng-show="detail.extras.length > 0">-</button>
+                                </div>
+                                <div class="col-sm-6" ng-repeat="ext in detail.extras">
+                                    <div class="col-sm-6">
+                                        <input id="ext_name" type="text" class="form-control" ng-model="ext.extra_name"
+                                            placeholder="Enter Extra Name" />
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input id="ext_value" type="text" class="form-control"
+                                            ng-model="ext.extra_value" placeholder="Enter Extra Value" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2 col-md-2">
+                            <button type="button" style="float:right;background-color:#3a993a;"
+                                class="btn btn-default spl_btn" ng-click="vm.addRow()">Add Row</button>
+                        </div>
+                        <div class="col-sm-2 col-md-2">
+                            <button type="button" style="background-color:#c02020;" class="btn btn-default spl_btn"
+                                ng-click="vm.deleteRow($index)" ng-show="vm.details.length > 1">Delete Row</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div ng-show="vm.isError">
+                <div class="error-message">
+                    There was an error in making the request.
+                    Bill couldnot be done. Please try again.
+                    Possible instances of this error is there was no unique result found with the customer details.
+                </div>
+            </div>
+
+            <div class="page-controls">
+                <div class="row text-right" role="toolbar" ng-hide="vm.isError">
+                    <div class="loading-indicator" ng-show="vm.requestSubmitted && !vm.billCompleted"><img
+                            src="images/loader.gif" alt="loading" width="70" height="70" /></div>
+                    <button type="button" class="btn btn-default"
+                        ng-disabled="vm.billForm.$invalid || vm.requestSubmitted" ng-hide="vm.billCompleted"
+                        ng-click="vm.save(vm.billForm.$valid)">Save</button>
+                    <button type="button" class="btn btn-default" ng-hide="vm.billCompleted"
+                        ng-click="vm.reset()">Reset</button>
+                    <button type="button" class="btn btn-default" ng-show="vm.billCompleted"
+                        ng-click="vm.gotoNewBill()">New Order</button>
+                </div>
+                <div class="row text-right" role="toolbar" ng-show="vm.isError">
+                    <button type="button" class="btn btn-default" ng-show="vm.billCompleted"
+                        ng-click="vm.gotoNewBill()">New Order</button>
+                </div>
+                <br />
+            </div>
+
+        </form>
+    </div>
+
+    <div class="loader-wrapper" ng-show="vm.isLoading < 1">
+        <div class="truck-wrapper">
+            <div class="truck">
+                <div class="truck-container"></div>
+                <div class="glases"></div>
+                <div class="bonet"></div>
+
+                <div class="base"></div>
+
+                <div class="base-aux"></div>
+                <div class="wheel-back"></div>
+                <div class="wheel-front"></div>
+
+                <div class="smoke"></div>
+            </div>
+        </div>
+    </div>
+
+</section>
