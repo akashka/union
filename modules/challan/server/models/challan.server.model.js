@@ -16,139 +16,141 @@ var ChallanSchema = new Schema({
   created: {
     type: Date,
     default: Date.now
-  },
+  }, 
   challanNo: {
-    type: Number
+    type: Number,
   },
-  ChallanDate: {
+  challanDate: {
     type: Date,
-    default: Date.now
+    default: 'Date.now',
   },
-  consignerName: {
-    type: String
-  },
-  consignerState: {
-    type: String
-  },
-  consignerGstNo: {
-    type: string
-  },
-  consigneeName: {
-    type: String
-  },
-  consigneeState: {
-    type: String
-  },
-  consigneeGstNo: {
-    type: string
-  },
-  invoiceNo: {
-    type: Number
+  mfNo: {
+    type: Number,
   },
   from: {
-    type: String
+    type: String,
   },
   to: {
-    type: String
+    type: String,
   },
-  noOfPkgs: {
-    type: Number
-  },
-  acWtInKgs: {
-    type: Number
-  },
-  baWtInKgs: {
-    type: Number
-  },
-  tobBal: {
-    type: Number
-  },
-  challanType: {
-    type: String
-  },
-  billingCode: {
-    type: Number
-  },
-  billingState: {
-    type: String
-  },
-  billerGstNo: {
-    type: Number
-  },
-  loadType: {
-    type: String
-  },
-  serviceTaxPayableBy: {
-    type: String
-  },
-  freight: {
-    type: Number
-  },
-  exCharges: {
-    type: Number
-  },
-  matValue: {
-    type: Number
+  weight: {
+    type: Number,
   },
   rate: {
-    type: Number
+    type: Number,
   },
+  lorryNo: {
+    type: Number,
+  },
+  payAt: {
+      type: String,
+  },
+  prGodown: {
+      type: String,
+  },
+  Kms: {
+     type: String,
+  },
+  Tonnes: {
+     type: String,
+  },
+  freight: {
+     type: Number,
+  },
+  Tds: {
+    type: Number,
+   },
+  balHire: {
+    type: String,
+   },
   remarks: {
-    type: String
+    type: String,
   },
-  wCnyN: {
-    type: String
+  Hamali: {
+    type: Number,
   },
-  Material: {
-    type: String
+  advance: {
+    type: Number,
   },
-  dcNo: {
-    type: Number
+ totalDeduction: {
+    type: Number,
   },
-  custCode: {
-    type: Number
+ Owner: {
+    type: String,
   },
-  totFrieght: {
-    type: Number
+ Detention: {
+    type:  String,
   },
-  serviceTax: {
-    type: Number
+  coolie: {
+     type: Number,
+   },
+  totalHire: {
+     type: String,
   },
-  educationCess: {
-    type: Number
+  ownerMobile: {
+     type: Number,
   },
-  BillNO: {
-    type: Number
+  Broker: {
+     Type: String,
+   },
+  panNo: {
+    type: String,
   },
-  billDate: {
+  mfNo: {
+    type: Number,
+  },
+ consignmentDate: {
     type: Date,
-    default: Date.now()
   },
-  toBill: {
-    type: String
+ consignmentWeight: {
+    type:  Number,
   },
-  toPay: {
-    type: String
+ consignmentFrieght: {
+    type: Number,
   },
-  Cbsbr: {
-    type: String
+ passMfcns: {
+    type: String,
   },
-  mrAmount: {
-    type: Number
+consignmentBranch: {
+    type: String,
   },
-  mrNo: {
-    type: Number
+From: {
+   type: String,
   },
-  cbsDate: {
-    type: Date
+Mpwt: {
+  type: String,
   },
-  Paid: {
-    type: Number
+cnprem: {
+   type: String,
   },
-  user: {
+ consignmentNo: {
+    type: Number,
+  },
+ to: {
+    type: String,
+  },
+mfFrt: {
+   type: Number,
+  },
+ movNo: {
+   type: Number,
+  },
+Pkgs: {
+    type: Number,
+  },
+from: {
+    type: String,
+  },
+to: {
+   type: String,
+  },
+Mfrem: {
+   type: String,
+  },
+ user: {
     type: Schema.ObjectId,
-    ref: "User"
-  }
+    ref: 'User'
+  },
 });
 
 ChallanSchema.statics.seed = seed;

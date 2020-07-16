@@ -16,139 +16,126 @@ var BillSchema = new Schema({
   created: {
     type: Date,
     default: Date.now
-  },
+  }, 
   billNo: {
-    type: Number
-  },
-  BillDate: {
-    type: Date,
-    default: Date.now
-  },
-  consignerName: {
-    type: String
-  },
-  consignerState: {
-    type: String
-  },
-  consignerGstNo: {
-    type: string
-  },
-  consigneeName: {
-    type: String
-  },
-  consigneeState: {
-    type: String
-  },
-  consigneeGstNo: {
-    type: string
-  },
-  invoiceNo: {
-    type: Number
-  },
-  from: {
-    type: String
-  },
-  to: {
-    type: String
-  },
-  noOfPkgs: {
-    type: Number
-  },
-  acWtInKgs: {
-    type: Number
-  },
-  baWtInKgs: {
-    type: Number
-  },
-  tobBal: {
-    type: Number
-  },
-  billType: {
-    type: String
-  },
-  billingCode: {
-    type: Number
-  },
-  billingState: {
-    type: String
-  },
-  billerGstNo: {
-    type: Number
-  },
-  loadType: {
-    type: String
-  },
-  serviceTaxPayableBy: {
-    type: String
-  },
-  freight: {
-    type: Number
-  },
-  exCharges: {
-    type: Number
-  },
-  matValue: {
-    type: Number
-  },
-  rate: {
-    type: Number
-  },
-  remarks: {
-    type: String
-  },
-  wCnyN: {
-    type: String
-  },
-  Material: {
-    type: String
-  },
-  dcNo: {
-    type: Number
-  },
-  custCode: {
-    type: Number
-  },
-  totFrieght: {
-    type: Number
-  },
-  serviceTax: {
-    type: Number
-  },
-  educationCess: {
-    type: Number
-  },
-  BillNO: {
-    type: Number
+    type: Number,
   },
   billDate: {
     type: Date,
-    default: Date.now()
+    default: Date.now
   },
-  toBill: {
+  party: {
+    type: String,
+  },
+  subCode: {
+    type: Number,
+  },
+  consignmentNo: {
+    type: Number,
+  },
+  From: {
+     Type: String,
+   },
+  to: {
+    type: String,
+  },
+  freight: {
+    type: Number,
+  },
+  hamali: {
+    type: Number,
+  },
+  Misc: {
+    type: Number,
+  },
+  Octroi: {
+    type: Number,
+   },
+  Oschal: {
+    type: Number,
+   },
+  demurge: {
     type: String
   },
-  toPay: {
-    type: String
+  challanPost: {
+    type: String,
+   },
+  Dent: {
+    type: String,
   },
-  Cbsbr: {
-    type: String
+ lcDc: {
+    type: String,
+   },
+billWeight: {
+    type: Number,
   },
-  mrAmount: {
-    type: Number
+localHire: {
+   type: Number
+  
+},
+bonus: {
+   type: Number,
   },
-  mrNo: {
-    type: Number
+Penalty: {
+   type: Number,
   },
-  cbsDate: {
-    type: Date
+serviceTax: {
+   type: Number,
+  },  
+  educationCess: {
+    type: Number,
   },
-  Paid: {
-    type: Number
+  exAmount: {
+    type: Number,
   },
-  user: {
+  StChar: {
+    type: Number, 
+  },
+  remarks: {
+      type: String,
+  },
+
+  SdEmd: {
+      type: String,
+  },
+  total: {
+     type: Number,
+  },
+  consignmentBranch: {
+     type: String,
+  },
+  consignmentNo: {
+     type: Number,
+  },
+  consignmentDate: {
+    type: Date,
+    default: Date
+   },
+  from: {
+    type: String,
+   },
+To: {
+  type: String,
+  },
+ kms: {
+   type: Number, 
+  },
+ frieght: {
+    type: Number,
+  },
+  weight: {
+    type: Number,
+  },
+ remarks: {
+    type: String,
+  },
+ withRem: {
+    type: String,
+  },
+ user: {
     type: Schema.ObjectId,
-    ref: "User"
-  }
+    ref: 'User'
+  },
 });
 
 BillSchema.statics.seed = seed;
