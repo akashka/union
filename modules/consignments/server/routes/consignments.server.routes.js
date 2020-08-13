@@ -23,6 +23,16 @@ module.exports = function(app) {
     .put(consignments.update)
     .delete(consignments.delete);
 
+  app
+    .route("/api/filteredConsignments")
+    .all(consignmentsPolicy.isAllowed)
+    .post(consignments.filteredConsignments);
+
+  app
+    .route("/api/getConsignmentDetails")
+    .all(consignmentsPolicy.isAllowed)
+    .post(consignments.getConsignmentDetails);
+
   // Finish by binding the consignment middleware
   // app.param('consignmentId', consignments.consignmentByID);
 };

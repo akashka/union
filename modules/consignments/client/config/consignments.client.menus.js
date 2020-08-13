@@ -10,20 +10,20 @@
       title: "Consignments",
       state: "consignments",
       type: "dropdown",
-      roles: ["*"],
-      position: 2
+      roles: ["admin", "user"],
+      position: 3
     });
 
     menuService.addSubMenuItem("topbar", "consignments", {
       title: "List Consignments",
       state: "consignments.list",
-      roles: ["*"]
+      roles: ["admin", "user"]
     });
 
     menuService.addSubMenuItem("topbar", "consignments", {
       title: "New Consignment",
       state: "consignments.create",
-      roles: ["*"]
+      roles: ["admin", "user"]
     });
   }
 })();

@@ -72,8 +72,7 @@
       vm.booking.details = vm.details;
 
       // Create a new booking, or update the current instance
-      BookingsService
-        .createOrUpdate(vm.booking)
+      BookingsService.createOrUpdate(vm.booking)
         .then(successCallback)
         .catch(errorCallback);
 

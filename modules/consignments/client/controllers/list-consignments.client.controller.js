@@ -32,10 +32,11 @@
     var self = this;
     vm.isLoading = 0;
 
-    ConsignmentsService.getPrimaryDetails().$promise.then(function(response) {
+    ConsignmentsService.filteredConsignments().$promise.then(function(
+      response
+    ) {
       vm.allClients = response.data.consignor;
       vm.allsClients = response.data.consignee;
-      vm.allConsignmentTos = response.data.bill_to;
       vm.isLoading++;
     });
 
@@ -55,19 +56,19 @@
             var st = $defer.sorting();
             var param = {
               orderBy: ob.length > 1 ? vm.orderBy : ob[0].substring(1),
-              sortBy: (typeof st == 'string') ? st : st[Object.keys(st)[0]],
+              sortBy: typeof st == "string" ? st : st[Object.keys(st)[0]],
               countFrom: ($defer.page() - 1) * $defer.count(),
               paginationNumber: $defer.count(),
               params: vm.search
             };
-            return ConsignmentsService.filteredConsignments(param).$promise.then(
-              function(response) {
-                vm.consignments = response.data;
-                vm.totalCount = response.count;
-                $defer.total(vm.totalCount);
-                return vm.consignments;
-              }
-            );
+            return ConsignmentsService.filteredConsignments(
+              param
+            ).$promise.then(function(response) {
+              vm.consignments = response.data;
+              vm.totalCount = response.count;
+              $defer.total(vm.totalCount);
+              return vm.consignments;
+            });
           }
         }
       );
@@ -79,15 +80,15 @@
 
     vm.reset = function() {
       vm.search = {
-        bill_from: "",
-        bill_to: "",
-        bill_number: "",
+        consignment_from: "",
+        consignment_to: "",
+        consignment_number: "",
         consignor: "",
         consignee: "",
-        bill_to_address: ""
+        invoice_number: ""
       };
-      vm.bill_from = { isOpened: false };
-      vm.bill_to = { isOpened: false };
+      vm.consigment_from = { isOpened: false };
+      vm.consignment_to = { isOpened: false };
       vm.pagedItems = [];
       vm.itemsPerPage = 10;
       vm.currentPage = 1;
@@ -104,10 +105,10 @@
 
     vm.selectDate = function($event, num) {
       if (num == 1) {
-        vm.bill_from.isOpened = true;
+        vm.consigment_from.isOpened = true;
       }
       if (num == 2) {
-        vm.bill_to.isOpened = true;
+        vm.consigment_to.isOpened = true;
       }
     };
 
@@ -149,20 +150,6 @@
         }
       }
       return total;
-    };
-
-    vm.download = function(consignmentId) {
-      // ConsignmentsService.downloads(consignmentId)
-      // .then(function (res) {
-      // var file = new Blob([res], { type: 'application/pdf' });
-      var fileurl = "/api/downloads/" + consignmentId;
-      window.open(fileurl, "_blank", "");
-      $window.open("localhost:xxx/api/document", "_blank");
-      // Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Consignment saved successfully!' });
-      // })
-      // .catch(function (res) {
-      // Notification.error({ message: res.data.message, title: '<i class="glyphicon glyphicon-remove"></i> Consignment save error!' });
-      // });
     };
 
     vm.sortTable = function(n) {

@@ -10,20 +10,20 @@
       title: "Challans",
       state: "challans",
       type: "dropdown",
-      roles: ["*"],
-      position: 2
+      roles: ["admin", "user"],
+      position: 4
     });
 
     menuService.addSubMenuItem("topbar", "challans", {
       title: "List Challans",
       state: "challans.list",
-      roles: ["*"]
+      roles: ["admin", "user"]
     });
 
     menuService.addSubMenuItem("topbar", "challans", {
       title: "New Challan",
       state: "challans.create",
-      roles: ["*"]
+      roles: ["admin", "user"]
     });
   }
 })();

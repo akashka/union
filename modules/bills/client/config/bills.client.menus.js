@@ -10,20 +10,20 @@
       title: "Bills",
       state: "bills",
       type: "dropdown",
-      roles: ["*"],
-      position: 2
+      roles: ["admin", "user"],
+      position: 5
     });
 
     menuService.addSubMenuItem("topbar", "bills", {
       title: "List Bills",
       state: "bills.list",
-      roles: ["*"]
+      roles: ["admin", "user"]
     });
 
     menuService.addSubMenuItem("topbar", "bills", {
       title: "New Bill",
       state: "bills.create",
-      roles: ["*"]
+      roles: ["admin", "user"]
     });
   }
 })();

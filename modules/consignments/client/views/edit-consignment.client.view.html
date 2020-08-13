@@ -1,22 +1,23 @@
 <section>
-
-    <div class="col-md-12" ng-show="vm.isLoading > 1">
-        <form name="vm.consignmentForm" class="form-horizontal" ng-submit="vm.save(vm.consignmentForm.$valid)" novalidate>
+    <div class="col-md-12" ng-show="vm.isLoading >= 1">
+        <form name="vm.consignmentForm" class="form-horizontal" ng-submit="vm.save(vm.consignmentForm.$valid)"
+            novalidate>
 
             <div ng-hide="vm.isError">
                 <div class="row">
-                    <div class="col-sm-8 col-md-8">
+                    <div class="col-sm-12 col-md-12">
                         <div class="row">
                             <div class="col-sm-6 col-md-6">
                                 <div class="form-group">
-                                    <label for="bill_date" class="col-sm-4 control-label">Bill Date:</label>
+                                    <label for="bill_date" class="col-sm-4 control-label">Consignment Date:</label>
                                     <div class="col-sm-8">
                                         <p class="input-group">
                                             <input type="text" class="form-control" uib-datepicker-popup="dd-MMM-yyyy"
-                                                ng-model="vm.consignment.bill_date" is-open="vm.dateset.bill_date.isOpened"
+                                                ng-model="vm.consignmentForm.consignmentDate"
+                                                is-open="vm.dateset.consignmentDate.isOpened"
                                                 datepicker-options="vm.dateOptions" ng-required="true" />
                                             <span class="input-group-btn">
-                                                <button type="button" class="btn btn-default"
+                                                <button type="button" class="btn btn-default" tabindex="-1"
                                                     ng-click="vm.selectDate($event, 1)"><i
                                                         class="glyphicon glyphicon-calendar"></i></button>
                                             </span>
@@ -26,82 +27,40 @@
                             </div>
                             <div class="col-sm-6 col-md-6">
                                 <div class="form-group">
-                                    <label for="bill_no" class="col-sm-4 control-label">Bill Number:</label>
+                                    <label for="bill_no" class="col-sm-4 control-label">Consignment Number:</label>
                                     <div class="col-sm-8">
                                         <input id="bill_no" type="text" class="form-control"
-                                            ng-model="vm.consignment.bill_no" placeholder="Enter Bill Number"
-                                            ng-required="true" ng-change="vm.onBillNumberChange()" />
-                                        <div ng-messages="vm.consignmentForm.bill_no.$error"
-                                            ng-show="vm.consignmentForm.bill_no.$dirty && vm.consignmentForm.bill_no.$invalid"
+                                            ng-model="vm.consignmentForm.consignmentNo"
+                                            placeholder="Enter Consignment Number" ng-required="true" />
+                                        <div ng-messages="vm.consignmentForm.consignmentNo.$error"
+                                            ng-show="vm.consignmentForm.consignmentNo.$dirty && vm.consignmentForm.consignmentNo.$invalid"
                                             class="error-message">
-                                            <div ng-message="required">Bill Number is required</div>
+                                            <div ng-message="required">Consignment Number is required</div>
                                         </div>
-                                        <div ng-show="vm.duplicateBillNumber" style="color: orange;">Bill Number already
-                                            exists</div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6 col-md-6">
-                                <div class="form-group">
-                                    <label for="ref_date" class="col-sm-4 control-label">Ref Date:</label>
-                                    <div class="col-sm-8">
-                                        <p class="input-group">
-                                            <input type="text" class="form-control" uib-datepicker-popup="dd-MMM-yyyy"
-                                                ng-model="vm.consignment.ref_date" is-open="vm.dateset.ref_date.isOpened"
-                                                datepicker-options="vm.dateOptions" />
-                                            <span class="input-group-btn">
-                                                <button type="button" class="btn btn-default"
-                                                    ng-click="vm.selectDate($event, 2)"><i
-                                                        class="glyphicon glyphicon-calendar"></i></button>
-                                            </span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-6">
-                                <div class="form-group">
-                                    <label for="ref_no" class="col-sm-4 control-label">Ref Number:</label>
-                                    <div class="col-sm-8">
-                                        <input id="ref_no" type="text" class="form-control" ng-model="vm.consignment.ref_no"
-                                            placeholder="Enter Ref Number" ng-change="vm.onRefNumberChange()" />
-                                        <div ng-show="vm.duplicateRefNumber" style="color: orange;">Ref Number already
-                                            exists</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4 col-md-4">
-                        <div class="form-group">
-                            <label for="bill_to" class="col-sm-3 control-label">Bill To:</label>
-                            <div class="col-sm-9">
-                                <textarea rows="4" id="bill_to" class="form-control" ng-model="vm.consignment.bill_to"
-                                    placeholder="Enter Bill To Details"></textarea>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- section - Consignor & Consignee Details  -->
                 <div class="row">
                     <div class="col-md-12">
                         <div class="panel-group">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
-                                        <a data-toggle="collapse" href="#collapse1">Consignor Details</a>
+                                        <a data-toggle="collapse" tabindex="-1" href="#collapse1">Consignor Details</a>
                                     </h4>
                                 </div>
                                 <div id="collapse1" class="panel-collapse collapse in">
                                     <div class="panel-body">
-                                        <div class="col-md-5">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="consignor_name" class="col-sm-4 control-label">Name:</label>
                                                 <div class="col-sm-8">
                                                     <input id="consignor_name" type="text" class="form-control"
-                                                        ng-model="vm.consignment.consignor.name"
+                                                        ng-model="vm.consignmentForm.consignor.name"
                                                         placeholder="Enter Consignor Name" ng-required="true" />
                                                     <div ng-messages="vm.consignmentForm.consignor_name.$error"
                                                         ng-show="vm.consignmentForm.consignor_name.$dirty && vm.consignmentForm.consignor_name.$invalid"
@@ -111,13 +70,64 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-5">
+                                        <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="consignor_gstin_no" class="col-sm-4 control-label">GSTIN
+                                                <label for="consignor_state"
+                                                    class="col-sm-4 control-label">State:</label>
+                                                <div class="col-sm-8">
+                                                    <select class="form-control" id="consignor_state"
+                                                        ng-model="vm.consignmentForm.consignor.state">
+                                                        <option disabled selected value="">Select State</option>
+                                                        <option value="Andaman and Nicobar Islands">Andaman and Nicobar
+                                                            Islands</option>
+                                                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                                        <option value="Assam">Assam</option>
+                                                        <option value="Bihar">Bihar</option>
+                                                        <option value="Chandigarh">Chandigarh</option>
+                                                        <option value="Chhattisgarh">Chhattisgarh</option>
+                                                        <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli
+                                                        </option>
+                                                        <option value="Daman and Diu">Daman and Diu</option>
+                                                        <option value="Delhi">Delhi</option>
+                                                        <option value="Goa">Goa</option>
+                                                        <option value="Gujarat">Gujarat</option>
+                                                        <option value="Haryana">Haryana</option>
+                                                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                                        <option value="Jharkhand">Jharkhand</option>
+                                                        <option value="Karnataka">Karnataka</option>
+                                                        <option value="Kerala">Kerala</option>
+                                                        <option value="Ladakh">Ladakh</option>
+                                                        <option value="Lakshadeep">Lakshadeep</option>
+                                                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                                        <option value="Maharashtra">Maharashtra</option>
+                                                        <option value="Manipur">Manipur</option>
+                                                        <option value="Meghalaya">Meghalaya</option>
+                                                        <option value="Mizoram">Mizoram</option>
+                                                        <option value="Nagaland">Nagaland</option>
+                                                        <option value="Orissa">Orissa</option>
+                                                        <option value="Puducherry">Puducherry</option>
+                                                        <option value="Punjab">Punjab</option>
+                                                        <option value="Rajasthan">Rajasthan</option>
+                                                        <option value="Sikkim">Sikkim</option>
+                                                        <option value="Tamil Nadu">Tamil Nadu</option>
+                                                        <option value="Telagana">Telagana</option>
+                                                        <option value="Tripura">Tripura</option>
+                                                        <option value="Uttarakhand">Uttarakhand</option>
+                                                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                                        <option value="West Bengal">West Bengal</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="consignor_gstno" class="col-sm-4 control-label">GSTIN
                                                     No:</label>
                                                 <div class="col-sm-8">
-                                                    <input id="consignor_gstin_no" type="text" class="form-control"
-                                                        ng-model="vm.consignment.consignor.gstin_no"
+                                                    <input id="consignor_gstno" type="text" class="form-control"
+                                                        ng-model="vm.consignmentForm.consignor.gstno"
                                                         placeholder="Enter Consignor GSTIN No." />
                                                 </div>
                                             </div>
@@ -132,17 +142,17 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
-                                        <a data-toggle="collapse" href="#collapse2">Consignee Details</a>
+                                        <a data-toggle="collapse" tabindex="-1" href="#collapse2">Consignee Details</a>
                                     </h4>
                                 </div>
                                 <div id="collapse2" class="panel-collapse collapse in">
                                     <div class="panel-body">
-                                        <div class="col-md-5">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="consignee_name" class="col-sm-4 control-label">Name:</label>
                                                 <div class="col-sm-8">
                                                     <input id="consignee_name" type="text" class="form-control"
-                                                        ng-model="vm.consignment.consignee.name"
+                                                        ng-model="vm.consignmentForm.consignee.name"
                                                         placeholder="Enter Consignee Name" ng-required="true" />
                                                     <div ng-messages="vm.consignmentForm.consignee_name.$error"
                                                         ng-show="vm.consignmentForm.consignee_name.$dirty && vm.consignmentForm.consignee_name.$invalid"
@@ -152,14 +162,156 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-5">
+                                        <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="consignee_gstin_no" class="col-sm-4 control-label">GSTIN
+                                                <label for="consignee_state"
+                                                    class="col-sm-4 control-label">State:</label>
+                                                <div class="col-sm-8">
+                                                    <select class="form-control" id="consignee_state"
+                                                        ng-model="vm.consignmentForm.consignee.state">
+                                                        <option disabled selected value="">Select State</option>
+                                                        <option value="Andaman and Nicobar Islands">Andaman and Nicobar
+                                                            Islands</option>
+                                                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                                        <option value="Assam">Assam</option>
+                                                        <option value="Bihar">Bihar</option>
+                                                        <option value="Chandigarh">Chandigarh</option>
+                                                        <option value="Chhattisgarh">Chhattisgarh</option>
+                                                        <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli
+                                                        </option>
+                                                        <option value="Daman and Diu">Daman and Diu</option>
+                                                        <option value="Delhi">Delhi</option>
+                                                        <option value="Goa">Goa</option>
+                                                        <option value="Gujarat">Gujarat</option>
+                                                        <option value="Haryana">Haryana</option>
+                                                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                                        <option value="Jharkhand">Jharkhand</option>
+                                                        <option value="Karnataka">Karnataka</option>
+                                                        <option value="Kerala">Kerala</option>
+                                                        <option value="Ladakh">Ladakh</option>
+                                                        <option value="Lakshadeep">Lakshadeep</option>
+                                                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                                        <option value="Maharashtra">Maharashtra</option>
+                                                        <option value="Manipur">Manipur</option>
+                                                        <option value="Meghalaya">Meghalaya</option>
+                                                        <option value="Mizoram">Mizoram</option>
+                                                        <option value="Nagaland">Nagaland</option>
+                                                        <option value="Orissa">Orissa</option>
+                                                        <option value="Puducherry">Puducherry</option>
+                                                        <option value="Punjab">Punjab</option>
+                                                        <option value="Rajasthan">Rajasthan</option>
+                                                        <option value="Sikkim">Sikkim</option>
+                                                        <option value="Tamil Nadu">Tamil Nadu</option>
+                                                        <option value="Telagana">Telagana</option>
+                                                        <option value="Tripura">Tripura</option>
+                                                        <option value="Uttarakhand">Uttarakhand</option>
+                                                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                                        <option value="West Bengal">West Bengal</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="consignee_gstno" class="col-sm-4 control-label">GSTIN
                                                     No:</label>
                                                 <div class="col-sm-8">
-                                                    <input id="consignee_gstin_no" type="text" class="form-control"
-                                                        ng-model="vm.consignment.consignee.gstin_no"
+                                                    <input id="consignee_gstno" type="text" class="form-control"
+                                                        ng-model="vm.consignmentForm.consignee.gstno"
                                                         placeholder="Enter Consignee GSTIN No." />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" tabindex="-1" href="#collapse2">Biller Details</a>
+                                    </h4>
+                                </div>
+                                <div id="collapse2" class="panel-collapse collapse in">
+                                    <div class="panel-body">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="billing_name" class="col-sm-4 control-label">Code:</label>
+                                                <div class="col-sm-8">
+                                                    <input id="billing_name" type="text" class="form-control"
+                                                        ng-model="vm.consignmentForm.billing.name"
+                                                        placeholder="Enter Billing Name" ng-required="true" />
+                                                    <div ng-messages="vm.consignmentForm.billing_name.$error"
+                                                        ng-show="vm.consignmentForm.billing_name.$dirty && vm.consignmentForm.billing_name.$invalid"
+                                                        class="error-message">
+                                                        <div ng-message="required">Billing Code is required</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="billing_state" class="col-sm-4 control-label">State:</label>
+                                                <div class="col-sm-8">
+                                                    <select class="form-control" id="billing_state"
+                                                        ng-model="vm.consignmentForm.billing.state">
+                                                        <option disabled selected value="">Select State</option>
+                                                        <option value="Andaman and Nicobar Islands">Andaman and Nicobar
+                                                            Islands</option>
+                                                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                                        <option value="Assam">Assam</option>
+                                                        <option value="Bihar">Bihar</option>
+                                                        <option value="Chandigarh">Chandigarh</option>
+                                                        <option value="Chhattisgarh">Chhattisgarh</option>
+                                                        <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli
+                                                        </option>
+                                                        <option value="Daman and Diu">Daman and Diu</option>
+                                                        <option value="Delhi">Delhi</option>
+                                                        <option value="Goa">Goa</option>
+                                                        <option value="Gujarat">Gujarat</option>
+                                                        <option value="Haryana">Haryana</option>
+                                                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                                        <option value="Jharkhand">Jharkhand</option>
+                                                        <option value="Karnataka">Karnataka</option>
+                                                        <option value="Kerala">Kerala</option>
+                                                        <option value="Ladakh">Ladakh</option>
+                                                        <option value="Lakshadeep">Lakshadeep</option>
+                                                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                                        <option value="Maharashtra">Maharashtra</option>
+                                                        <option value="Manipur">Manipur</option>
+                                                        <option value="Meghalaya">Meghalaya</option>
+                                                        <option value="Mizoram">Mizoram</option>
+                                                        <option value="Nagaland">Nagaland</option>
+                                                        <option value="Orissa">Orissa</option>
+                                                        <option value="Puducherry">Puducherry</option>
+                                                        <option value="Punjab">Punjab</option>
+                                                        <option value="Rajasthan">Rajasthan</option>
+                                                        <option value="Sikkim">Sikkim</option>
+                                                        <option value="Tamil Nadu">Tamil Nadu</option>
+                                                        <option value="Telagana">Telagana</option>
+                                                        <option value="Tripura">Tripura</option>
+                                                        <option value="Uttarakhand">Uttarakhand</option>
+                                                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                                        <option value="West Bengal">West Bengal</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="billing_gstno" class="col-sm-4 control-label">GSTIN
+                                                    No:</label>
+                                                <div class="col-sm-8">
+                                                    <input id="billing_gstno" type="text" class="form-control"
+                                                        ng-model="vm.consignmentForm.billing.gstno"
+                                                        placeholder="Enter Billing GSTIN No." />
                                                 </div>
                                             </div>
                                         </div>
@@ -170,158 +322,287 @@
                     </div>
                 </div>
 
-                <!-- section - Multiple Bill Rows  -->
-                <div class="row multi_row" ng-repeat="detail in vm.details">
-                    <div class="row">
-                        <div class="col-sm-8 col-md-8">
-                            <div class="row">
-                                <div class="col-sm-6 col-md-6">
-                                    <div class="form-group">
-                                        <label for="gc_number" class="col-sm-4 control-label">GC Number:</label>
-                                        <div class="col-sm-8">
-                                            <input id="gc_number" type="text" class="form-control"
-                                                ng-model="detail.gc_number" placeholder="Enter GC Number" />
-                                        </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <div class="row">
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="invoiceNo" class="col-sm-4 control-label">Invoice Number:</label>
+                                    <div class="col-sm-8">
+                                        <input id="invoiceNo" type="text" class="form-control"
+                                            ng-model="vm.consignmentForm.invoiceNo" placeholder="Enter Invoice Number"
+                                            ng-required="true" />
                                     </div>
                                 </div>
-                                <div class="col-sm-6 col-md-6">
-                                    <div class="form-group">
-                                        <label for="gc_date" class="col-sm-4 control-label">GC Date:</label>
-                                        <div class="col-sm-8">
-                                            <p class="input-group">
-                                                <input type="text" class="form-control"
-                                                    uib-datepicker-popup="dd-MMM-yyyy" ng-model="detail.gc_date"
-                                                    is-open="vm.gc_date[$index].isOpened"
-                                                    datepicker-options="vm.dateOptions" />
-                                                <span class="input-group-btn">
-                                                    <button type="button" class="btn btn-default"
-                                                        ng-click="vm.selectRowDate($event, $index)"><i
-                                                            class="glyphicon glyphicon-calendar"></i></button>
-                                                </span>
-                                            </p>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="from" class="col-sm-4 control-label">From:</label>
+                                    <div class="col-sm-8">
+                                        <input id="from" type="text" class="form-control"
+                                            ng-model="vm.consignmentForm.from" placeholder="Enter From Address"
+                                            ng-required="true" />
+                                        <div ng-messages="vm.consignmentForm.from.$error"
+                                            ng-show="vm.consignmentForm.from.$dirty && vm.consignmentForm.from.$invalid"
+                                            class="error-message">
+                                            <div ng-message="required">From Address is required</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-sm-6 col-md-6">
-                                    <div class="form-group">
-                                        <label for="from" class="col-sm-4 control-label">From:</label>
-                                        <div class="col-sm-8">
-                                            <input id="from" type="text" class="form-control" ng-model="detail.from"
-                                                placeholder="Enter From location" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-md-6">
-                                    <div class="form-group">
-                                        <label for="to" class="col-sm-4 control-label">To:</label>
-                                        <div class="col-sm-8">
-                                            <input id="to" type="text" class="form-control" ng-model="detail.to"
-                                                placeholder="Enter To location" />
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="to" class="col-sm-4 control-label">To:</label>
+                                    <div class="col-sm-8">
+                                        <input id="to" type="text" class="form-control" ng-model="vm.consignmentForm.to"
+                                            placeholder="Enter To Address" ng-required="true" />
+                                        <div ng-messages="vm.consignmentForm.to.$error"
+                                            ng-show="vm.consignmentForm.to.$dirty && vm.consignmentForm.to.$invalid"
+                                            class="error-message">
+                                            <div ng-message="required">To Address is required</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-sm-4 col-md-4">
-                            <div class="form-group">
-                                <label for="extra_info" class="col-sm-3 control-label">Remarks:</label>
-                                <div class="col-sm-9">
-                                    <textarea rows="4" id="extra_info" class="form-control" ng-model="detail.extra_info"
-                                        placeholder="Enter Remarks"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-4 col-md-4">
-                            <div class="form-group">
-                                <label for="package" class="col-sm-4 control-label">Package:</label>
-                                <div class="col-sm-8">
-                                    <input id="package" type="text" class="form-control" ng-model="detail.package"
-                                        placeholder="Enter Package" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4 col-md-4">
-                            <div class="form-group">
-                                <label for="weight" class="col-sm-4 control-label">Weight:</label>
-                                <div class="col-sm-8">
-                                    <input id="weight" type="text" class="form-control" ng-model="detail.weight"
-                                        placeholder="Enter Weight" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4 col-md-4">
-                            <div class="form-group">
-                                <label for="rate" class="col-sm-3 control-label">Rate:</label>
-                                <div class="col-sm-9">
-                                    <input id="rate" type="text" class="form-control" ng-model="detail.rate"
-                                        placeholder="Enter Rate" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-4 col-md-4">
-                            <div class="form-group">
-                                <label for="kms" class="col-sm-4 control-label">KMS:</label>
-                                <div class="col-sm-8">
-                                    <input id="kms" type="text" class="form-control" ng-model="detail.kms"
-                                        placeholder="Enter KMS" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4 col-md-4">
-                            <div class="form-group">
-                                <label for="amount" class="col-sm-4 control-label">Amount:</label>
-                                <div class="col-sm-8">
-                                    <input id="amount" type="text" class="form-control" ng-model="detail.amount"
-                                        placeholder="Enter Amount" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4 col-md-4">
-
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-8 col-md-8">
-                            <div class="form-group">
-                                <label for="extras" class="col-sm-2 control-label">Extras:</label>
-                                <div class="col-sm-2 col-md-2">
-                                    <button type="button" style="float:right;background-color:#3a993a;"
-                                        class="btn btn-default spl_btn" ng-click="vm.addExtra($index)">+</button>
-                                </div>
-                                <div class="col-sm-2 col-md-2">
-                                    <button type="button" style="background-color:#c02020;"
-                                        class="btn btn-default spl_btn" ng-click="vm.removeExtra($index)"
-                                        ng-show="detail.extras.length > 0">-</button>
-                                </div>
-                                <div class="col-sm-6" ng-repeat="ext in detail.extras">
-                                    <div class="col-sm-6">
-                                        <input id="ext_name" type="text" class="form-control" ng-model="ext.extra_name"
-                                            placeholder="Enter Extra Name" />
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input id="ext_value" type="text" class="form-control"
-                                            ng-model="ext.extra_value" placeholder="Enter Extra Value" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-2 col-md-2">
-                            <button type="button" style="float:right;background-color:#3a993a;"
-                                class="btn btn-default spl_btn" ng-click="vm.addRow()">Add Row</button>
-                        </div>
-                        <div class="col-sm-2 col-md-2">
-                            <button type="button" style="background-color:#c02020;" class="btn btn-default spl_btn"
-                                ng-click="vm.deleteRow($index)" ng-show="vm.details.length > 1">Delete Row</button>
                         </div>
                     </div>
                 </div>
 
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <div class="row">
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="noOfPkgs" class="col-sm-4 control-label">No. Of Pkgs:</label>
+                                    <div class="col-sm-8">
+                                        <input id="noOfPkgs" type="text" class="form-control"
+                                            ng-model="vm.consignmentForm.package" placeholder="Enter No. Of Package" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="tobBat" class="col-sm-4 control-label">To B Bat:</label>
+                                    <div class="col-sm-8">
+                                        <input id="tobBat" type="text" class="form-control"
+                                            ng-model="vm.consignmentForm.tobBat" placeholder="Enter To B Bat" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="consignmentType" class="col-sm-4 control-label">Consignment
+                                        Type:</label>
+                                    <div class="col-sm-8">
+                                        <input id="consignmentType" type="text" class="form-control"
+                                            ng-model="vm.consignmentForm.consignmentType"
+                                            placeholder="Enter Consignment Type" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <div class="row">
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="acWtInKgs" class="col-sm-4 control-label">AC. WT. In KGS.</label>
+                                    <div class="col-sm-8">
+                                        <input id="acWtInKgs" type="text" class="form-control"
+                                            ng-model="vm.consignmentForm.acWtInKgs"
+                                            placeholder="Enter AC. WT. In KGS." />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="chWtInKgs" class="col-sm-4 control-label">CH. WT. In KGS.</label>
+                                    <div class="col-sm-8">
+                                        <input id="chWtInKgs" type="text" class="form-control"
+                                            ng-model="vm.consignmentForm.chWtInKgs"
+                                            placeholder="Enter CH. WT. In KGS." />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="baWtInKgs" class="col-sm-4 control-label">
+                                        BA. WT. In KGS.</label>
+                                    <div class="col-sm-8">
+                                        <input id="baWtInKgs" type="text" class="form-control"
+                                            ng-model="vm.consignmentForm.baWtInKgs"
+                                            placeholder="Enter BA. WT. In KGS." />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <div class="row">
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="loadType" class="col-sm-4 control-label">Load Type:</label>
+                                    <div class="col-sm-8">
+                                        <input id="loadType" type="text" class="form-control"
+                                            ng-model="vm.consignmentForm.loadType" placeholder="Enter Load Type" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="serviceTaxPayableBy" class="col-sm-4 control-label">Service Tax Payable
+                                        By:</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="serviceTaxPayableBy"
+                                            ng-model="vm.consignmentForm.serviceTaxPayableBy">
+                                            <option disabled selected value="">Select Service Tax Payable By</option>
+                                            <option value="consignor">Consignor</option>
+                                            <option value="consignee">Consignee</option>
+                                            <option value="biller">Biller</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="freight" class="col-sm-4 control-label">Freight</label>
+                                    <div class="col-sm-8">
+                                        <input id="freight" type="text" class="form-control"
+                                            ng-model="vm.consignmentForm.freight" placeholder="Enter Freight" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <div class="row">
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="exCharges" class="col-sm-4 control-label">Ex. Charges:</label>
+                                    <div class="col-sm-8">
+                                        <input id="exCharges" type="text" class="form-control"
+                                            ng-model="vm.consignmentForm.exCharges" placeholder="Enter Ex. Charges" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="matValue" class="col-sm-4 control-label">Mat. Value:</label>
+                                    <div class="col-sm-8">
+                                        <input id="matValue" type="text" class="form-control"
+                                            ng-model="vm.consignmentForm.matValue" placeholder="Enter Mat. Value" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="wCnyN" class="col-sm-4 control-label">W. Cn.:</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="wCnyN" ng-model="vm.consignmentForm.wCnyN">
+                                            <option value="yes">Yes</option>
+                                            <option value="no">No</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <div class="row">
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="material" class="col-sm-4 control-label">Material:</label>
+                                    <div class="col-sm-8">
+                                        <input id="material" type="text" class="form-control"
+                                            ng-model="vm.consignmentForm.material" placeholder="Enter Material" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="dcNo" class="col-sm-4 control-label">DC No.</label>
+                                    <div class="col-sm-8">
+                                        <input id="dcNo" type="text" class="form-control"
+                                            ng-model="vm.consignmentForm.dcNo" placeholder="Enter DC. No." />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="custCode" class="col-sm-4 control-label">Cust. Code:</label>
+                                    <div class="col-sm-8">
+                                        <input id="custCode" type="text" class="form-control"
+                                            ng-model="vm.consignmentForm.custCode" placeholder="Enter Cust. Code" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-8 col-md-8">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <label for="totFrieght" class="col-sm-4 control-label">Total Frieght:</label>
+                                    <div class="col-sm-8">
+                                        <input id="totFrieght" type="text" class="form-control"
+                                            ng-model="vm.consignmentForm.totFrieght"
+                                            placeholder="Enter Total Frieght" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <label for="serviceTax" class="col-sm-4 control-label">Service Tax:</label>
+                                    <div class="col-sm-8">
+                                        <input id="serviceTax" type="text" class="form-control"
+                                            ng-model="vm.consignmentForm.serviceTax" placeholder="Enter Service Tax" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <label for="educationCess" class="col-sm-4 control-label">Education Cess:</label>
+                                    <div class="col-sm-8">
+                                        <input id="educationCess" type="text" class="form-control"
+                                            ng-model="vm.consignmentForm.educationCess"
+                                            placeholder="Enter Education Cess" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <label for="remarks" class="col-sm-4 control-label">Remarks:</label>
+                                    <div class="col-sm-8">
+                                        <textarea rows="4" id="remarks" class="form-control"
+                                            ng-model="vm.consignmentForm.remarks"
+                                            placeholder="Enter Remarks"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div ng-show="vm.isError">
@@ -337,8 +618,8 @@
                     <div class="loading-indicator" ng-show="vm.requestSubmitted && !vm.consignmentCompleted"><img
                             src="images/loader.gif" alt="loading" width="70" height="70" /></div>
                     <button type="button" class="btn btn-default"
-                        ng-disabled="vm.consignmentForm.$invalid || vm.requestSubmitted" ng-hide="vm.consignmentCompleted"
-                        ng-click="vm.save()">Save</button>
+                        ng-disabled="vm.consignmentForm.$invalid || vm.requestSubmitted"
+                        ng-hide="vm.consignmentCompleted" ng-click="vm.save(vm.consignmentForm.$valid)">Update</button>
                     <button type="button" class="btn btn-default" ng-show="vm.consignmentCompleted"
                         ng-click="vm.gotoNewConsignment()">New Order</button>
                 </div>
@@ -352,7 +633,7 @@
         </form>
     </div>
 
-    <div class="loader-wrapper" ng-show="vm.isLoading < 2">
+    <div class="loader-wrapper" ng-show="vm.isLoading < 1">
         <div class="truck-wrapper">
             <div class="truck">
                 <div class="truck-container"></div>
@@ -369,4 +650,5 @@
             </div>
         </div>
     </div>
+
 </section>

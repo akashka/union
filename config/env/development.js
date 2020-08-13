@@ -4,7 +4,8 @@ var defaultEnvConfig = require('./default');
 
 module.exports = {
   db: {
-    uri: 'mongodb://akash:Abcd123$0@ds127899.mlab.com:27899/heroku_3l8z6wp0',
+    uri: 'mongodb://localhost/union',
+    // uri: 'mongodb://akash:Abcd123$0@ds127899.mlab.com:27899/heroku_3l8z6wp0',
     // uri: process.env.MONGOHQ_URL || process.env.MONGODB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/union',
     options: {},
     // Enable mongoose debug mode

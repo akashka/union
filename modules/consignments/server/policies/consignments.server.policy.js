@@ -23,6 +23,14 @@ exports.invokeRolesPolicies = function() {
         {
           resources: "/api/consignments/:consignmentId",
           permissions: "*"
+        },
+        {
+          resources: "/api/getConsignmentDetails",
+          permissions: "*"
+        },
+        {
+          resources: "/api/filteredConsignments",
+          permissions: "*"
         }
       ]
     },
@@ -35,6 +43,14 @@ exports.invokeRolesPolicies = function() {
         },
         {
           resources: "/api/consignments/:consignmentId",
+          permissions: "*"
+        },
+        {
+          resources: "/api/getConsignmentDetails",
+          permissions: "*"
+        },
+        {
+          resources: "/api/filteredConsignments",
           permissions: "*"
         }
       ]
@@ -49,6 +65,14 @@ exports.invokeRolesPolicies = function() {
         {
           resources: "/api/consignments/:consignmentId",
           permissions: ["get"]
+        },
+        {
+          resources: "/api/getConsignmentDetails",
+          permissions: "*"
+        },
+        {
+          resources: "/api/filteredConsignments",
+          permissions: "*"
         }
       ]
     }

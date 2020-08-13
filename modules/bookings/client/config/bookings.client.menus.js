@@ -10,20 +10,20 @@
       title: "Bookings",
       state: "bookings",
       type: "dropdown",
-      roles: ["*"],
+      roles: ["admin", "user"],
       position: 1
     });
 
     menuService.addSubMenuItem("topbar", "bookings", {
       title: "List Bookings",
       state: "bookings.list",
-      roles: ["*"]
+      roles: ["admin", "user"]
     });
 
     menuService.addSubMenuItem("topbar", "bookings", {
       title: "New Booking",
       state: "bookings.create",
-      roles: ["*"]
+      roles: ["admin", "user"]
     });
   }
 })();

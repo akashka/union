@@ -18,32 +18,26 @@ var ConsignmentSchema = new Schema({
     default: Date.now
   },
   consignmentNo: {
-    type: Number
+    type: String
   },
-  ConsignmentDate: {
+  consignmentDate: { 
     type: Date,
     default: Date.now
   },
-  consignerName: {
-    type: String
+  consignor: {
+    type: Object
+    // name
+    // state
+    // gstno
   },
-  consignerState: {
-    type: String
-  },
-  consignerGstNo: {
-    type: string
-  },
-  consigneeName: {
-    type: String
-  },
-  consigneeState: {
-    type: String
-  },
-  consigneeGstNo: {
-    type: string
+  consignee: {
+    type: Object
+    // name
+    // state
+    // gstno
   },
   invoiceNo: {
-    type: Number
+    type: String
   },
   from: {
     type: String
@@ -54,26 +48,26 @@ var ConsignmentSchema = new Schema({
   noOfPkgs: {
     type: Number
   },
-  acWtInKgs: {
-    type: Number
-  },
-  baWtInKgs: {
-    type: Number
-  },
-  tobBal: {
+  tobBat: {
     type: Number
   },
   consignmentType: {
     type: String
   },
-  billingCode: {
+  acWtInKgs: {
     type: Number
   },
-  billingState: {
-    type: String
-  },
-  billerGstNo: {
+  chWtInKgs: {
     type: Number
+  },
+  baWtInKgs: {
+    type: Number
+  },
+  billing: {
+    type: Object
+    // code:
+    // state:
+    // gstNo:
   },
   loadType: {
     type: String
@@ -90,61 +84,58 @@ var ConsignmentSchema = new Schema({
   matValue: {
     type: Number
   },
-  rate: {
-    type: Number
+  wCnyN: {
+    type: String
+  },
+  material: {
+    type: String
+  },
+  dcNo: {
+    type: String
+  },
+  custCode: {
+    type: String
+  },
+  totFrieght: {
+    type: String
+  },
+  serviceTax: {
+    type: String
+  },
+  educationCess: {
+    type: String
   },
   remarks: {
     type: String
   },
-  wCnyN: {
-    type: String
-  },
-  Material: {
-    type: String
-  },
-  dcNo: {
-    type: Number
-  },
-  custCode: {
-    type: Number
-  },
-  totFrieght: {
-    type: Number
-  },
-  serviceTax: {
-    type: Number
-  },
-  educationCess: {
-    type: Number
-  },
-  BillNO: {
-    type: Number
-  },
-  billDate: {
-    type: Date,
-    default: Date.now()
-  },
-  toBill: {
-    type: String
-  },
-  toPay: {
-    type: String
-  },
-  Cbsbr: {
-    type: String
-  },
-  mrAmount: {
-    type: Number
-  },
-  mrNo: {
-    type: Number
-  },
-  cbsDate: {
-    type: Date
-  },
-  Paid: {
-    type: Number
-  },
+  // billNo: {
+  //   type: Number
+  // },
+  // billDate: {
+  //   type: Date,
+  //   default: Date.now()
+  // },
+  // toBill: {
+  //   type: String
+  // },
+  // toPay: {
+  //   type: String
+  // },
+  // cbsbr: {
+  //   type: String
+  // },
+  // mrAmount: {
+  //   type: Number
+  // },
+  // mrNo: {
+  //   type: Number
+  // },
+  // cbsDate: {
+  //   type: Date
+  // },
+  // paid: {
+  //   type: Number
+  // },
   user: {
     type: Schema.ObjectId,
     ref: "User"

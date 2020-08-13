@@ -1,197 +1,328 @@
 <section>
-    <div class="pull-right" ng-show="vm.isLoading >= 1">
-        <a ng-show="vm.consignment._id" class="btn btn-primary" ng-click="vm.edit()">
-            <i class="glyphicon glyphicon-trash"></i>
-        </a>
-    </div>
     <div class="col-md-12" ng-show="vm.isLoading >= 1">
-        <div class="row">
-            <div class="col-sm-8 col-md-8">
+        <form name="vm.consignmentForm" class="form-horizontal">
+
+            <div ng-hide="vm.isError">
                 <div class="row">
-                    <div class="col-sm-6 col-md-6">
-                        <div class="form-group">
-                            <label for="bill_date" class="col-sm-4 control-label">Bill Date:</label>
-                            <div class="col-sm-8">{{vm.consignmentForm.bill_date | date:'dd/MMM/yyyy'}}</div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6">
-                        <div class="form-group">
-                            <label for="bill_no" class="col-sm-4 control-label">Bill Number:</label>
-                            <div class="col-sm-8">{{vm.consignmentForm.bill_no}}</div>
+                    <div class="col-sm-12 col-md-12">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <label for="bill_date" class="col-sm-4 control-label">Consignment Date:</label>
+                                    <div class="col-sm-8">{{vm.consignmentForm.consignmentDate | date:'dd/MMM/yyyy'}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <label for="bill_no" class="col-sm-4 control-label">Consignment Number:</label>
+                                    <div class="col-sm-8">{{vm.consignmentForm.consignmentNo}}</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <br>
+
                 <div class="row">
-                    <div class="col-sm-6 col-md-6">
-                        <div class="form-group">
-                            <label for="ref_date" class="col-sm-4 control-label">Ref Date:</label>
-                            <div class="col-sm-8">{{vm.consignmentForm.ref_date | date:'dd/MMM/yyyy'}}</div>
+                    <div class="col-md-12">
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" tabindex="-1" href="#collapse1">Consignor Details</a>
+                                    </h4>
+                                </div>
+                                <div id="collapse1" class="panel-collapse collapse in">
+                                    <div class="panel-body">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="consignor_name" class="col-sm-4 control-label">Name:</label>
+                                                <div class="col-sm-8">{{vm.consignmentForm.consignor.name}}</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="consignor_state"
+                                                    class="col-sm-4 control-label">State:</label>
+                                                <div class="col-sm-8">{{vm.consignmentForm.consignor.state}}</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="consignor_gstin_no" class="col-sm-4 control-label">GSTIN
+                                                    No:</label>
+                                                <div class="col-sm-8">{{vm.consignmentForm.consignor.gstno}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-md-6">
-                        <div class="form-group">
-                            <label for="ref_no" class="col-sm-4 control-label">Ref Number:</label>
-                            <div class="col-sm-8">{{vm.consignmentForm.ref_no}}</div>
+                    <div class="col-md-12">
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" tabindex="-1" href="#collapse2">Consignee Details</a>
+                                    </h4>
+                                </div>
+                                <div id="collapse2" class="panel-collapse collapse in">
+                                    <div class="panel-body">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="consignee_name" class="col-sm-4 control-label">Name:</label>
+                                                <div class="col-sm-8">{{vm.consignmentForm.consignee.name}}</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="consignee_state"
+                                                    class="col-sm-4 control-label">State:</label>
+                                                <div class="col-sm-8">{{vm.consignmentForm.consignee.state}}</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="consignee_gstin_no" class="col-sm-4 control-label">GSTIN
+                                                    No:</label>
+                                                <div class="col-sm-8">{{vm.consignmentForm.consignee.getno}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" tabindex="-1" href="#collapse2">Biller Details</a>
+                                    </h4>
+                                </div>
+                                <div id="collapse2" class="panel-collapse collapse in">
+                                    <div class="panel-body">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="billing_name" class="col-sm-4 control-label">Code:</label>
+                                                <div class="col-sm-8">{{vm.consignmentForm.billing.name}}</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="billing_state" class="col-sm-4 control-label">State:</label>
+                                                <div class="col-sm-8">{{vm.consignmentForm.billing.state}}</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="billing_gstin_no" class="col-sm-4 control-label">GSTIN
+                                                    No:</label>
+                                                <div class="col-sm-8">{{vm.consignmentForm.consignee.gstno}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <br>
-            </div>
-            <div class="col-sm-4 col-md-4">
-                <div class="form-group">
-                    <label for="bill_to" class="col-sm-3 control-label">Bill To:</label>
-                    <div class="col-sm-9">{{vm.consignmentForm.bill_to}}</div>
-                </div>
-            </div>
-        </div>
 
-        <!-- section - Consignor & Consignee Details  -->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel-group">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" href="#collapse1">Consignor Details</a>
-                            </h4>
-                        </div>
-                        <div id="collapse1" class="panel-collapse collapse in">
-                            <div class="panel-body">
-                                <div class="col-md-5">
-                                    <div class="form-group">
-                                        <label for="consignor_name" class="col-sm-4 control-label">Name:</label>
-                                        <div class="col-sm-8">{{vm.consignmentForm.consignor.name}}</div>
-                                    </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <div class="row">
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="invoiceNo" class="col-sm-4 control-label">Invoice Number:</label>
+                                    <div class="col-sm-8">{{vm.consignmentForm.invoiceNo}}</div>
                                 </div>
-                                <div class="col-md-5">
-                                    <div class="form-group">
-                                        <label for="consignor_gstin_no" class="col-sm-4 control-label">GSTIN No:</label>
-                                        <div class="col-sm-8">{{vm.consignmentForm.consignor.gstin_no}}</div>
-                                    </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="from" class="col-sm-4 control-label">From:</label>
+                                    <div class="col-sm-8">{{vm.consignmentForm.from}}</div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="to" class="col-sm-4 control-label">To:</label>
+                                    <div class="col-sm-8">{{vm.consignmentForm.to}}</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-12">
-                <div class="panel-group">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" href="#collapse2">Consignee Details</a>
-                            </h4>
-                        </div>
-                        <div id="collapse2" class="panel-collapse collapse in">
-                            <div class="panel-body">
-                                <div class="col-md-5">
-                                    <div class="form-group">
-                                        <label for="consignee_name" class="col-sm-4 control-label">Name:</label>
-                                        <div class="col-sm-8">{{vm.consignmentForm.consignee.name}}</div>
-                                    </div>
-                                </div>
-                                <div class="col-md-5">
-                                    <div class="form-group">
-                                        <label for="consignee_gstin_no" class="col-sm-4 control-label">GSTIN No:</label>
-                                        <div class="col-sm-8">{{vm.consignmentForm.consignee.gstin_no}} </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <!-- section - Multiple Bill Rows  -->
-        <div class="row multi_row" ng-repeat="detail in vm.consignmentForm.details">
-            <div class="row">
-                <div class="col-sm-8 col-md-8">
-                    <div class="row">
-                        <div class="col-sm-6 col-md-6">
-                            <div class="form-group">
-                                <label for="gc_number" class="col-sm-4 control-label">GC Number:</label>
-                                <div class="col-sm-8">{{detail.gc_number}}</div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <div class="row">
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="noOfPkgs" class="col-sm-4 control-label">No. Of Pkgs:</label>
+                                    <div class="col-sm-8">{{vm.consignmentForm.package}}</div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6">
-                            <div class="form-group">
-                                <label for="gc_date" class="col-sm-4 control-label">GC Date:</label>
-                                <div class="col-sm-8">{{detail.gc_date}}</div>
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="tobBat" class="col-sm-4 control-label">To B Bat:</label>
+                                    <div class="col-sm-8">{{vm.consignmentForm.consignee.tobBat}}</div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-6 col-md-6">
-                            <div class="form-group">
-                                <label for="from" class="col-sm-4 control-label">From:</label>
-                                <div class="col-sm-8">{{detail.from}}</div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6">
-                            <div class="form-group">
-                                <label for="to" class="col-sm-4 control-label">To:</label>
-                                <div class="col-sm-8">{{detail.to}}</div>
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="consignmentType" class="col-sm-4 control-label">Consignment
+                                        Type:</label>
+                                    <div class="col-sm-8">{{vm.consignmentForm.consignmentType}}</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4 col-md-4">
-                    <div class="form-group">
-                        <label for="extra_info" class="col-sm-3 control-label">Remarks:</label>
-                        <div class="col-sm-9">{{detail.extra_info}}</div>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-sm-4 col-md-4">
-                    <div class="form-group">
-                        <label for="package" class="col-sm-4 control-label">Package:</label>
-                        <div class="col-sm-8">{{detail.package}}</div>
-                    </div>
-                </div>
-                <div class="col-sm-4 col-md-4">
-                    <div class="form-group">
-                        <label for="weight" class="col-sm-4 control-label">Weight:</label>
-                        <div class="col-sm-8">{{detail.weight}}</div>
-                    </div>
-                </div>
-                <div class="col-sm-4 col-md-4">
-                    <div class="form-group">
-                        <label for="rate" class="col-sm-3 control-label">Rate:</label>
-                        <div class="col-sm-9">{{detail.rate}}</div>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-sm-4 col-md-4">
-                    <div class="form-group">
-                        <label for="kms" class="col-sm-4 control-label">KMS:</label>
-                        <div class="col-sm-8">{{detail.kms}}</div>
-                    </div>
-                </div>
-                <div class="col-sm-4 col-md-4">
-                    <div class="form-group">
-                        <label for="amount" class="col-sm-4 control-label">Amount:</label>
-                        <div class="col-sm-8">{{detail.amount}}</div>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-sm-4 col-md-6" ng-repeat="ext in detail.extras">
-                    <div class="form-group">
-                        <label for="kms" class="col-sm-8 control-label">{{ext.extra_name}}:</label>
-                        <div class="col-sm-4">{{ext.extra_value}}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <div class="row">
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="acWtInKgs" class="col-sm-4 control-label">AC. WT. In KGS.</label>
+                                    <div class="col-sm-8">{{vm.consignmentForm.acWtInKgs}}</div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="chWtInKgs" class="col-sm-4 control-label">CH. WT. In KGS.</label>
+                                    <div class="col-sm-8">{{vm.consignmentForm.chWtInKgs}}</div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="baWtInKgs" class="col-sm-4 control-label">
+                                        BA. WT. In KGS.</label>
+                                    <div class="col-sm-8">{{vm.consignmentForm.baWtInKgs}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <div class="row">
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="loadType" class="col-sm-4 control-label">Load Type:</label>
+                                    <div class="col-sm-8">{{vm.consignmentForm.loadType}}</div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="serviceTaxPayableBy" class="col-sm-4 control-label">Service Tax Payable
+                                        By:</label>
+                                    <div class="col-sm-8">{{vm.consignmentForm.serviceTaxPayableBy}}</div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="freight" class="col-sm-4 control-label">Freight</label>
+                                    <div class="col-sm-8">{{vm.consignmentForm.freight}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <div class="row">
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="exCharges" class="col-sm-4 control-label">Ex. Charges:</label>
+                                    <div class="col-sm-8">{{vm.consignmentForm.exCharges}}</div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="matValue" class="col-sm-4 control-label">Mat. Value:</label>
+                                    <div class="col-sm-8">{{vm.consignmentForm.matValue}}</div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="wCnyN" class="col-sm-4 control-label">W. Cn.:</label>
+                                    <div class="col-sm-8">{{vm.consignmentForm.wCnyN}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <div class="row">
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="material" class="col-sm-4 control-label">Material:</label>
+                                    <div class="col-sm-8">{{vm.consignmentForm.material}}</div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="dcNo" class="col-sm-4 control-label">DC No.</label>
+                                    <div class="col-sm-8">{{vm.consignmentForm.dcNo}}</div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="custCode" class="col-sm-4 control-label">Cust. Code:</label>
+                                    <div class="col-sm-8">{{vm.consignmentForm.custCode}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <div class="row">
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="totFrieght" class="col-sm-4 control-label">Total Frieght:</label>
+                                    <div class="col-sm-8">{{vm.consignmentForm.totFrieght}}</div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="serviceTax" class="col-sm-4 control-label">Service Tax:</label>
+                                    <div class="col-sm-8">{{vm.consignmentForm.serviceTax}}</div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="educationCess" class="col-sm-4 control-label">Education Cess:</label>
+                                    <div class="col-sm-8">{{vm.consignmentForm.educationCess}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <label for="remarks" class="col-sm-4 control-label">Remarks:</label>
+                                    <div class="col-sm-8">{{vm.consignmentForm.remarks}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </form>
     </div>
 
     <div class="loader-wrapper" ng-show="vm.isLoading < 1">

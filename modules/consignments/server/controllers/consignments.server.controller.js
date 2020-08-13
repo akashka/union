@@ -149,3 +149,103 @@ exports.consignmentByID = function(req, res, next, id) {
       next();
     });
 };
+
+exports.filteredConsignments = function(req, res) {
+  var orderBy = req.body.orderBy || "consignmentNo";
+  var sortBy = req.body.sortBy || "desc";
+  var countFrom = parseInt(req.body.countFrom) || 0;
+  var paginationNumber = parseInt(req.body.paginationNumber) || 10;
+  var params = {};
+
+  console.log(req.body);
+  console.log(req.params);
+  if (req.body && req.body.params) {
+    if (
+      req.body.params.consignment_from !== "" &&
+      req.body.params.consignment_from !== null
+    ) {
+      params.consignmentDate = {
+        $gt: req.body.params.consignment_from
+      };
+    }
+
+    if (
+      req.body.params.consignment_to !== "" &&
+      req.body.params.consignment_to !== null
+    ) {
+      params.consignmentDate = {
+        $lt: req.body.params.consignment_to
+      };
+    }
+
+    if (
+      req.body.params.consignment_number !== "" &&
+      req.body.params.consignment_number !== null
+    ) {
+      params.consignmentNo = req.body.params.consignment_number;
+    }
+
+    if (
+      req.body.params.consignor !== "" &&
+      req.body.params.consignor !== null
+    ) {
+      params.consignor = req.body.params.consignor;
+    }
+
+    if (
+      req.body.params.consignee !== "" &&
+      req.body.params.consignee !== null
+    ) {
+      params.consignor = req.body.params.consignee;
+    }
+  }
+
+  var ordering = {};
+  ordering[orderBy] = sortBy == "asc" ? 1 : -1;
+
+  console.log(params);
+  Consignment.count().exec(function(err, counter) {
+    Consignment.find(params)
+      .sort(ordering)
+      .limit(paginationNumber)
+      .skip(countFrom)
+      .populate("user", "displayName")
+      .exec(function(err, consignments) {
+        if (err) {
+          return res.status(422).send({
+            message: errorHandler.getErrorMessage(err)
+          });
+        } else {
+          var resp = {
+            count: counter,
+            data: consignments
+          };
+          res.json(resp);
+        }
+      });
+  });
+};
+
+exports.getConsignmentDetails = function(req, res) {
+  var id = req.body.params;
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).send({
+      message: "Booking is invalid"
+    });
+  }
+
+  Consignment.findById(id)
+    .populate("user", "displayName")
+    .exec(function(err, consignment) {
+      if (err) {
+        return res.status(422).send({
+          message: errorHandler.getErrorMessage(err)
+        });
+      } else if (!consignment) {
+        return res.status(404).send({
+          message: "No consignment with that identifier has been found"
+        });
+      }
+      res.json(consignment);
+    });
+};

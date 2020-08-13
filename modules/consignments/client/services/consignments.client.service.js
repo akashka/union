@@ -23,6 +23,10 @@
           method: "POST",
           url: "/api/consignments"
         },
+        filteredConsignment: {
+          method: "POST",
+          url: "/api/filteredConsignments"
+        },
         getConsignmentDetail: {
           method: "POST",
           url: "/api/getConsignmentDetails"
@@ -49,6 +53,9 @@
         } else {
           return this.saveConsignment(consignment).$promise;
         }
+      },
+      filteredConsignments: function(params) {
+        return this.filteredConsignment(params);
       },
       getConsignmentDetails: function(params) {
         var body = {

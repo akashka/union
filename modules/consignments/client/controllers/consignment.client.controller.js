@@ -11,7 +11,7 @@
     "$window",
     "ConsignmentsService",
     "Authentication",
-    "Notification",
+    "Notification", 
     "consignmentResolve",
     "$timeout"
   ];
@@ -29,11 +29,19 @@
     var vm = this;
     vm.authentication = Authentication;
     vm.isLoading = 0;
+    vm.allStates = [
+      'Andaman and Nicobar Islands', 'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chandigarh', 
+      'Chhattisgarh', 'Dadra and Nagar Haveli', 'Daman and Diu', 'Delhi', 'Goa', 'Gujarat', 'Haryana', 
+      'Himachal Pradesh', 'Jammu and Kashmir', 'Jharkhand', 'Karnataka', 'Kerala', 'Ladakh', 'Lakshadeep', 
+      'Madhya Pradesh', 'Maharashtra', 'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland', 'Orissa', 'Puducherry', 
+      'Punjab', 'Rajasthan', 'Sikkim', 'Tamil Nadu', 'Telagana', 'Tripura', 'Uttarakhand', 'Uttar Pradesh', 
+      'West Bengal'
+    ];
 
-    consignment.getPrimaryDetails().$promise.then(function(response) {
+    consignment.getConsignmentDetails().$promise.then(function(response) {
       vm.isLoading++;
       vm.allConsignments = response.data;
-      vm.consignmentForm.bill_no = Number(vm.allConsignments.latest_bill_no) + 1;
+      // vm.consignmentForm.bill_no = Number(vm.allConsignments.latest_bill_no) + 1;
     });
 
     vm.convertToFloat = function(stri) {
@@ -60,7 +68,7 @@
         $scope.$broadcast("show-errors-check-validity", "vm.form.consignmentForm");
         return false;
       }
-      vm.consignmentForm.details = vm.details;
+      // vm.consignmentForm.details = vm.details;
 
       // Create a new consignment, or update the current instance
       consignment
@@ -87,21 +95,45 @@
 
     vm.reset = function() {
       vm.consignmentForm = {
-        bill_date: "",
-        bill_no: "",
-        bill_to: "",
+        consignmentNo: "",
+        consignmentDate: new Date(),
         consignor: {
-          name: "",
-          gstin_no: ""
+          name: '',
+          state: '',
+          gstno: ''
         },
         consignee: {
-          name: "",
-          gstin_no: ""
+          name: '',
+          state: '',
+          gstno: ''
         },
-        details: [],
-        ref_no: "",
-        ref_date: "",
-        co_copy: false,
+        invoiceNo: '',
+        from: '',
+        to: '',
+        noOfPkgs: '',
+        tobBat: '',
+        consignmentType: '',
+        acWtInKgs: '',
+        chWtInKgs: '',
+        baWtInKgs: '',
+        billing: {
+          code: '',
+          state: '',
+          gstNo: '',
+        },
+        loadType: '',
+        serviceTaxPayableBy: '',
+        freight: '',
+        exCharges: '',
+        matValue: '',
+        wCnyN: '',
+        material: '',
+        dcNo: '',
+        custCode: '',
+        totFrieght: '',
+        serviceTax: '',
+        educationCess: '',
+        remarks: '',
         _id: null
       };
       vm.isError = false;
@@ -114,19 +146,18 @@
       vm.reset();
     };
 
-    vm.selectDate = function($event, num) {
-      if (num == 1) {
-        vm.dateset.bill_date.isOpened = true;
-      }
-      if (num == 2) {
-        vm.dateset.ref_date.isOpened = true;
-      }
-    };
-
     vm.selectRowDate = function($event, i) {
       vm.gc_date[i].isOpened = true;
     };
 
+    // 
+    vm.selectDate = function($event, num) {
+      if (num == 1) {
+        vm.dateset.consignmentDate.isOpened = true;
+      }
+    };
+
+    // 
     vm.dateOptions = {
       formatYear: "yy",
       maxDate: new Date(2030, 5, 22),
@@ -134,141 +165,99 @@
       startingDay: 1
     };
 
+    // 
     vm.dateset = {
-      bill_date: { isOpened: false },
-      ref_date: { isOpened: false }
+      consignmentDate: { isOpened: false },
     };
 
     vm.gc_date = {
       0: { isOpened: false }
     };
 
-    vm.details = [
-      {
-        gc_number: "",
-        gc_date: "",
-        from: "",
-        to: "",
-        package: "",
-        weight: "",
-        rate: "",
-        kms: "",
-        amount: "",
-        extra_info: "",
-        extras: [],
-        total_amount: 0
-      }
-    ];
-
-    vm.addRow = function() {
-      vm.details.push({
-        gc_number: "",
-        gc_date: "",
-        from: "",
-        to: "",
-        package: "",
-        weight: "",
-        rate: "",
-        kms: "",
-        amount: "",
-        extra_info: "",
-        extras: [],
-        total_amount: 0
-      });
-      vm.gc_date[vm.details.length - 1] = { isOpened: false };
+    // 
+    vm.duplicateConsignmentNumber = false;
+    vm.onConsignmentNumberChange = function() {
+      // if (vm.consignmentForm.bill_no != undefined && vm.consignmentForm.bill_no != "") {
+      //   vm.duplicateBillNumber = vm.allConsignments.bill_no.includes(
+      //     vm.consignmentForm.bill_no.toString()
+      //   );
+      // }
     };
 
-    vm.deleteRow = function(ind) {
-      vm.details.splice(ind, 1);
-    };
+    vm.duplicateInvoiceNo = false;
+    vm.onInvoiceNoChange = function() {
 
-    vm.addExtra = function(index) {
-      if (vm.details[index].extras == undefined) vm.details[index].extras = [];
-      vm.details[index].extras.push({
-        extra_name: "",
-        extra_value: "0"
-      });
-    };
-
-    vm.removeExtra = function(index) {
-      vm.details[index].extras.splice(vm.details[index].extras.length - 1, 1);
-    };
-
-    vm.duplicateBillNumber = false;
-    vm.onBillNumberChange = function() {
-      if (vm.consignmentForm.bill_no != undefined && vm.consignmentForm.bill_no != "") {
-        vm.duplicateBillNumber = vm.allConsignments.bill_no.includes(
-          vm.consignmentForm.bill_no.toString()
-        );
-      }
-    };
-
-    vm.duplicateGcNumber = false;
-    vm.onGcNumberChange = function(gc_number) {
-      if (gc_number != "" && gc_number != undefined) {
-        vm.duplicateGcNumber = vm.allConsignments.gc_number
-          .map(gcs => {
-            return gcs.includes(gc_number.toString());
-          })
-          .includes(true);
-      }
-      console.log(vm.duplicateGcNumber);
-    };
-
-    vm.duplicateRefNumber = false;
-    vm.onRefNumberChange = function() {
-      if (vm.consignmentForm.ref_no != undefined && vm.consignmentForm.ref_no != "") {
-        vm.duplicateRefNumber = vm.allConsignments.ref_no.includes(
-          vm.consignmentForm.ref_no.toString()
-        );
-      }
-    };
+    }
 
     vm.onConsignorNameChange = function(consignment_name) {
       var result = "";
+      var result1 = "";
+      var isFound = false;
       for (var i = 0; i < vm.allConsignments.length; i++) {
         if (
           vm.allConsignments[i].consignor.name.toUpperCase() ==
           consignment_name.toUpperCase()
-        )
-          result = vm.allConsignments[i].consignor.gstin_no;
+        ) {
+          isFound = true;
+          result = vm.allConsignments[i].consignor.gstno;
+          result1 = vm.allConsignments[i].consignor.state;
+        }
       }
-      if (result == "") {
+      if (isFound == false) {
         for (var i = 0; i < vm.allConsignments.length; i++) {
           if (
             vm.allConsignments[i].consignee.name.toUpperCase() ==
             consignment_name.toUpperCase()
-          )
-            result = vm.allConsignments[i].consignee.gstin_no;
+          ) {
+            isFound = true;
+            result = vm.allConsignments[i].consignee.gstno;
+            result1 = vm.allConsignments[i].consignee.state;
+          }
         }
       }
-      vm.consignmentForm.consignor.gstin_no = result;
+      if (isFound) {
+        vm.consignmentForm.consignor.gstno = result;
+        vm.consignmentForm.consignor.state = result1;
+      }
     };
 
     vm.onConsigneeNameChange = function(consignment_name) {
       var result = "";
+      var result1 = "";
+      var isFound = false;
       for (var i = 0; i < vm.allConsignments.length; i++) {
         if (
           vm.allConsignments[i].consignee.name.toUpperCase() ==
           consignment_name.toUpperCase()
-        )
-          result = vm.allConsignments[i].consignee.gstin_no;
+        ) {
+          result = vm.allConsignments[i].consignee.gstno;
+          result1 = vm.allConsignments[i].consignee.state;
+          isFound = true;
+        }
       }
-      if (result == "") {
+      if (!isFound) {
         for (var i = 0; i < vm.allConsignments.length; i++) {
           if (
             vm.allConsignments[i].consignor.name.toUpperCase() ==
             consignment_name.toUpperCase()
-          )
-            result = vm.allConsignments[i].consignor.gstin_no;
+          ) {
+            result = vm.allConsignments[i].consignor.gstno;
+            result1 = vm.allConsignments[i].consignor.state;
+            isFound = true;
+          }
         }
       }
-      vm.consignmentForm.consignee.gstin_no = result;
+      if (isFound) {
+        vm.consignmentForm.consignee.gstno = result;
+        vm.consignmentForm.consignee.state = result1;
+      }
     };
 
     vm.clients = [];
     vm.allsClients = [];
+    vm.allqClients = [];
     vm.sclients = [];
+    vm.qclients = [];
     vm.allConsignmentTos = [];
     vm.consignmentTos = [];
 
@@ -294,7 +283,8 @@
 
     vm.fillTextbox = function(string) {
       vm.consignmentForm.consignor.name = string.name;
-      vm.consignmentForm.consignor.gstin_no = string.gstin_no;
+      vm.consignmentForm.consignor.gstno = string.gstno;
+      vm.consignmentForm.consignor.state = string.state;
       vm.clients = [];
     };
 
@@ -320,40 +310,78 @@
 
     vm.sfillTextbox = function(string) {
       vm.consignmentForm.consignee.name = string.name;
-      vm.consignmentForm.consignee.gstin_no = string.gstin_no;
+      vm.consignmentForm.consignee.gstno = string.gstno;
+      vm.consignmentForm.consignee.state = string.state;
       vm.sclients = [];
     };
-
-    vm.tcomplete = function(selectedClient) {
+    
+    vm.qcomplete = function(selectedClient) {
+      vm.qclients = [];
       var output = [];
-      vm.consignmentTos = [];
-      angular.forEach(vm.allConsignments.bill_to, function(clts) {
-        if (clts.toLowerCase().indexOf(selectedClient.toLowerCase()) >= 0) {
+      angular.forEach(vm.allConsignments.biller, function(clts) {
+        if (
+          clts.name.toLowerCase().indexOf(selectedClient.toLowerCase()) >= 0
+        ) {
           output.push(clts);
         }
       });
-      vm.consignmentTos = output.length > 10 ? output.splice(1, 10) : output;
+      vm.qclients = output.length > 10 ? output.splice(1, 10) : output;
     };
 
-    vm.tfillTextbox = function(string) {
-      vm.consignmentForm.bill_to = string;
-      vm.consignmentTos = [];
+    vm.qfillTextbox = function(string) {
+      vm.consignmentForm.biller.name = string.name;
+      vm.consignmentForm.biller.gstno = string.gstno;
+      vm.consignmentForm.biller.state = string.state;
+      vm.sclients = [];
     };
+
+    // vm.tcomplete = function(selectedClient) {
+    //   var output = [];
+    //   vm.consignmentTos = [];
+    //   angular.forEach(vm.allConsignments.bill_to, function(clts) {
+    //     if (clts.toLowerCase().indexOf(selectedClient.toLowerCase()) >= 0) {
+    //       output.push(clts);
+    //     }
+    //   });
+    //   vm.consignmentTos = output.length > 10 ? output.splice(1, 10) : output;
+    // };
+
+    // vm.tfillTextbox = function(string) {
+    //   vm.consignmentForm.bill_to = string;
+    //   vm.consignmentTos = [];
+    // };
 
     if ($state.params.consignmentId) {
       vm.consignmentForm = {
-        _id: consignmentResolve[0]._id,
-        bill_date: consignmentResolve[0].bill_date,
-        bill_no: consignmentResolve[0].bill_no,
-        bill_to: consignmentResolve[0].bill_to,
+        consignmentNo: consignmentResolve[0].consignmentNo,
+        consignmentDate: consignmentResolve[0].consignmentDate,
         consignor: consignmentResolve[0].consignor,
         consignee: consignmentResolve[0].consignee,
-        details: consignmentResolve[0].details,
-        ref_no: consignmentResolve[0].ref_no,
-        ref_date: consignmentResolve[0].ref_date
+        invoiceNo: consignmentResolve[0].invoiceNo,
+        from: consignmentResolve[0].from,
+        to: consignmentResolve[0].to,
+        noOfPkgs: consignmentResolve[0].noOfPkgs,
+        tobBat: consignmentResolve[0].tobBat,
+        consignmentType: consignmentResolve[0].consignmentType,
+        acWtInKgs: consignmentResolve[0].acWtInKgs,
+        chWtInKgs: consignmentResolve[0].chWtInKgs,
+        baWtInKgs: consignmentResolve[0].baWtInKgs,
+        billing: consignmentResolve[0].billing,
+        loadType: consignmentResolve[0].loadType,
+        serviceTaxPayableBy: consignmentResolve[0].serviceTaxPayableBy,
+        freight: consignmentResolve[0].freight,
+        exCharges: consignmentResolve[0].exCharges,
+        matValue: consignmentResolve[0].matValue,
+        wCnyN: consignmentResolve[0].wCnyN,
+        material: consignmentResolve[0].material,
+        dcNo: consignmentResolve[0].dcNo,
+        custCode: consignmentResolve[0].custCode,
+        totFrieght: consignmentResolve[0].totFrieght,
+        serviceTax: consignmentResolve[0].serviceTax,
+        educationCess: consignmentResolve[0].educationCess,
+        remarks: consignmentResolve[0].remarks,
+        _id: consignmentResolve[0]._id,        
       };
-      var abc = document.getElementById("bill_no");
-      angular.element(abc).val(consignmentResolve[0].bill_no);
     }
 
     $("input:text").bind("keydown", function(e) {
@@ -371,3 +399,4 @@
     });
   }
 })();
+
