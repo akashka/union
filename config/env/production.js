@@ -13,7 +13,8 @@ module.exports = {
   // Binding to 127.0.0.1 is safer in production.
   host: process.env.HOST || '0.0.0.0',
   db: {
-    uri: 'mongodb://akash:Abcd123$0@ds127899.mlab.com:27899/heroku_3l8z6wp0',
+    // uri: 'mongodb://akash:Abcd123$0@ds127899.mlab.com:27899/heroku_3l8z6wp0',
+    uri: 'mongodb+srv://akash:akash123@cluster-3l8z6wp0.umxq3.mongodb.net/heroku_3l8z6wp0?retryWrites=true&w=majority',
     // uri: process.env.MONGOHQ_URL || process.env.MONGODB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/mean',
     options: {
       /**
