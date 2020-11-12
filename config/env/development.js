@@ -4,7 +4,9 @@ var defaultEnvConfig = require('./default');
 
 module.exports = {
   db: {
-    uri: 'mongodb://akash:Abcd123$0@ds127899.mlab.com:27899/heroku_3l8z6wp0',
+    uri: 'mongodb://akash:akash123@cluster-3l8z6wp0-shard-00-00.umxq3.mongodb.net:27017,cluster-3l8z6wp0-shard-00-01.umxq3.mongodb.net:27017,cluster-3l8z6wp0-shard-00-02.umxq3.mongodb.net:27017/heroku_3l8z6wp0?ssl=true&replicaSet=atlas-jge9qi-shard-0&authSource=admin&retryWrites=true&w=majority',
+    // uri: 'mongodb+srv://akash:akash123@cluster-3l8z6wp0.umxq3.mongodb.net/heroku_3l8z6wp0?retryWrites=true&w=majority',
+    // uri: 'mongodb://akash:Abcd123$0@ds127899.mlab.com:27899/heroku_3l8z6wp0',
     // uri: process.env.MONGOHQ_URL || process.env.MONGODB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/union',
     options: {},
     // Enable mongoose debug mode
