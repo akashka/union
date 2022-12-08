@@ -12103,7 +12103,7 @@
       }
     },
     "rcloader": {
-      "version": "0.2.2",
+      "version": "^0.2.2",
       "resolved": "https://registry.npmjs.org/rcloader/-/rcloader-0.2.2.tgz",
       "integrity": "sha512-hSkFcFiLb5buT0X1fNI023M6tn0ywblKzF0hGzVCkTjEggT5tQUZI+fCG71utA7NiEyiBEc3trl/LDFFHzGIrw==",
       "requires": {
