@@ -15235,3 +15235,173 @@ Error: listen EACCES 0.0.0.0:90
 
 2018-12-15T14:17:18.381Z - info: [0mGET /api/bookings [32m200 [0m50820.842 ms - -[0m
 
+2022-12-08T15:19:45.791Z - info: [0mGET / [32m200[0m 47.642 ms - -[0m
+
+2022-12-08T15:19:45.820Z - info: [0mGET /lib/bootstrap/dist/css/bootstrap-theme.css [32m200[0m 13.064 ms - -[0m
+
+2022-12-08T15:19:45.821Z - info: [0mGET /lib/angular-ui-notification/dist/angular-ui-notification.css [32m200[0m 8.383 ms - -[0m
+
+2022-12-08T15:19:45.823Z - info: [0mGET /lib/ng-table/dist/ng-table.min.css [32m200[0m 8.591 ms - -[0m
+
+2022-12-08T15:19:45.828Z - info: [0mGET /modules/home/client/css/home.css [32m200[0m 10.412 ms - -[0m
+
+2022-12-08T15:19:45.828Z - info: [0mGET /modules/core/client/css/core.css [32m200[0m 11.498 ms - -[0m
+
+2022-12-08T15:19:45.833Z - info: [0mGET /modules/users/client/css/users.css [32m200[0m 8.282 ms - 510[0m
+
+2022-12-08T15:19:45.837Z - info: [0mGET /lib/bootstrap/dist/css/bootstrap.css [32m200[0m 17.137 ms - -[0m
+
+2022-12-08T15:19:45.848Z - info: [0mGET /lib/angular-messages/angular-messages.js [32m200[0m 7.886 ms - -[0m
+
+2022-12-08T15:19:45.852Z - info: [0mGET /lib/ng-file-upload/ng-file-upload.js [32m200[0m 5.544 ms - -[0m
+
+2022-12-08T15:19:45.857Z - info: [0mGET /lib/angular-mocks/angular-mocks.js [32m200[0m 6.466 ms - -[0m
+
+2022-12-08T15:19:45.860Z - info: [0mGET /lib/angular-ui-notification/dist/angular-ui-notification.js [32m200[0m 3.883 ms - -[0m
+
+2022-12-08T15:19:45.861Z - info: [0mGET /lib/angular-resource/angular-resource.js [32m200[0m 4.755 ms - -[0m
+
+2022-12-08T15:19:45.862Z - info: [0mGET /lib/angular-animate/angular-animate.js [32m200[0m 7.704 ms - -[0m
+
+2022-12-08T15:19:45.867Z - info: [0mGET /lib/owasp-password-strength-test/owasp-password-strength-test.js [32m200[0m 2.891 ms - -[0m
+
+2022-12-08T15:19:45.868Z - info: [0mGET /lib/angular-moment/angular-moment.js [32m200[0m 1.584 ms - -[0m
+
+2022-12-08T15:19:45.868Z - info: [0mGET /lib/angular-bootstrap/ui-bootstrap-tpls.js [32m200[0m 6.967 ms - -[0m
+
+2022-12-08T15:19:45.878Z - info: [0mGET /lib/angular-typeahead/dist/angular-typeahead.js [32m200[0m 3.020 ms - -[0m
+
+2022-12-08T15:19:45.885Z - info: [0mGET /lib/angular-ui-router/release/angular-ui-router.js [32m200[0m 4.805 ms - -[0m
+
+2022-12-08T15:19:45.888Z - info: [0mGET /lib/moment/moment.js [32m200[0m 2.098 ms - -[0m
+
+2022-12-08T15:19:45.934Z - info: [0mGET /lib/c3/c3.min.js [32m200[0m 8.152 ms - -[0m
+
+2022-12-08T15:19:45.936Z - info: [0mGET /lib/d3/d3.min.js [32m200[0m 1.009 ms - -[0m
+
+2022-12-08T15:19:45.945Z - info: [0mGET /lib/pathseg/pathseg.js [32m200[0m 2.209 ms - -[0m
+
+2022-12-08T15:19:45.946Z - info: [0mGET /lib/ng-table/dist/ng-table.min.js [32m200[0m 2.132 ms - -[0m
+
+2022-12-08T15:19:45.949Z - info: [0mGET /lib/lodash/lodash.js [32m200[0m 4.283 ms - -[0m
+
+2022-12-08T15:19:45.952Z - info: [0mGET /modules/core/client/app/init.js [32m200[0m 2.754 ms - -[0m
+
+2022-12-08T15:19:45.953Z - info: [0mGET /modules/core/client/app/config.js [32m200[0m 3.873 ms - -[0m
+
+2022-12-08T15:19:45.954Z - info: [0mGET /modules/bookings/client/bookings.client.module.js [32m200[0m 3.935 ms - 471[0m
+
+2022-12-08T15:19:45.958Z - info: [0mGET /modules/core/client/core.client.module.js [32m200[0m 3.504 ms - 251[0m
+
+2022-12-08T15:19:45.959Z - info: [0mGET /modules/home/client/home.client.module.js [32m200[0m 4.769 ms - 391[0m
+
+2022-12-08T15:19:45.961Z - info: [0mGET /modules/users/client/users.client.module.js [32m200[0m 5.279 ms - 385[0m
+
+2022-12-08T15:19:45.963Z - info: [0mGET /modules/bookings/client/config/bookings.client.menus.js [32m200[0m 2.755 ms - 450[0m
+
+2022-12-08T15:19:45.965Z - info: [0mGET /modules/bookings/client/config/bookings.client.routes.js [32m200[0m 2.720 ms - -[0m
+
+2022-12-08T15:19:45.965Z - info: [0mGET /modules/bookings/client/controllers/booking-co.client.controller.js [32m200[0m 2.073 ms - -[0m
+
+2022-12-08T15:19:45.967Z - info: [0mGET /lib/pdfmake/build/pdfmake.min.js [32m200[0m 0.749 ms - -[0m
+
+2022-12-08T15:19:45.969Z - info: [0mGET /modules/bookings/client/controllers/booking-edit.client.controller.js [32m200[0m 2.576 ms - -[0m
+
+2022-12-08T15:19:45.971Z - info: [0mGET /modules/bookings/client/controllers/bookings.client.controller.js [32m200[0m 4.332 ms - 685[0m
+
+2022-12-08T15:19:45.976Z - info: [0mGET /modules/bookings/client/controllers/booking.client.controller.js [32m200[0m 4.843 ms - -[0m
+
+2022-12-08T15:19:45.978Z - info: [0mGET /modules/bookings/client/controllers/list-bookings.client.controller.js [32m200[0m 4.145 ms - -[0m
+
+2022-12-08T15:19:45.979Z - info: [0mGET /modules/bookings/client/services/bookings.client.service.js [32m200[0m 6.028 ms - -[0m
+
+2022-12-08T15:19:45.979Z - info: [0mGET /modules/core/client/config/core-admin.client.menus.js [32m200[0m 6.390 ms - 336[0m
+
+2022-12-08T15:19:45.982Z - info: [0mGET /modules/core/client/config/core-admin.client.routes.js [32m200[0m 3.785 ms - 383[0m
+
+2022-12-08T15:19:45.984Z - info: [0mGET /modules/core/client/config/core.client.menus.js [32m200[0m 4.033 ms - 917[0m
+
+2022-12-08T15:19:45.987Z - info: [0mGET /modules/core/client/config/core.client.route-filter.js [32m200[0m 3.635 ms - -[0m
+
+2022-12-08T15:19:45.987Z - info: [0mGET /modules/core/client/config/core.client.routes.js [32m200[0m 3.526 ms - -[0m
+
+2022-12-08T15:19:45.988Z - info: [0mGET /modules/core/client/controllers/error.client.controller.js [32m200[0m 4.869 ms - 379[0m
+
+2022-12-08T15:19:45.989Z - info: [0mGET /lib/pdfmake/build/vfs_fonts.js [32m200[0m 2.748 ms - -[0m
+
+2022-12-08T15:19:45.991Z - info: [0mGET /modules/core/client/controllers/header.client.controller.js [32m200[0m 4.723 ms - 662[0m
+
+2022-12-08T15:19:45.992Z - info: [0mGET /modules/core/client/directives/auto-focus.client.directive.js [32m200[0m 4.384 ms - 683[0m
+
+2022-12-08T15:19:45.993Z - info: [0mGET /modules/core/client/controllers/home.client.controller.js [32m200[0m 3.847 ms - -[0m
+
+2022-12-08T15:19:45.993Z - info: [0mGET /modules/core/client/directives/ngConfirmClick.js [32m200[0m 3.315 ms - 709[0m
+
+2022-12-08T15:19:45.995Z - info: [0mGET /modules/core/client/directives/page-title.client.directive.js [32m200[0m 2.946 ms - -[0m
+
+2022-12-08T15:19:45.996Z - info: [0mGET /modules/core/client/directives/show-errors.client.directive.js [32m200[0m 2.870 ms - -[0m
+
+2022-12-08T15:19:45.998Z - info: [0mGET /modules/core/client/services/interceptors/auth-interceptor.client.service.js [32m200[0m 3.100 ms - -[0m
+
+2022-12-08T15:19:45.999Z - info: [0mGET /modules/home/client/config/home.client.menus.js [32m200[0m 1.696 ms - 313[0m
+
+2022-12-08T15:19:45.999Z - info: [0mGET /modules/core/client/services/menu.client.service.js [32m200[0m 3.123 ms - -[0m
+
+2022-12-08T15:19:46.000Z - info: [0mGET /modules/core/client/services/socket.io.client.service.js [32m200[0m 3.386 ms - -[0m
+
+2022-12-08T15:19:46.000Z - info: [0mGET /modules/home/client/config/home.client.routes.js [32m200[0m 2.932 ms - 467[0m
+
+2022-12-08T15:19:46.003Z - info: [0mGET /lib/angular/angular.js [32m200[0m 7.203 ms - -[0m
+
+2022-12-08T15:19:46.003Z - info: [0mGET /modules/users/client/config/users-admin.client.menus.js [32m200[0m 2.727 ms - 335[0m
+
+2022-12-08T15:19:46.004Z - info: [0mGET /modules/home/client/controllers/home.client.controller.js [32m200[0m 2.700 ms - -[0m
+
+2022-12-08T15:19:46.006Z - info: [0mGET /modules/users/client/config/users-admin.client.routes.js [32m200[0m 3.591 ms - -[0m
+
+2022-12-08T15:19:46.007Z - info: [0mGET /modules/users/client/config/users.client.routes.js [32m200[0m 3.555 ms - -[0m
+
+2022-12-08T15:19:46.007Z - info: [0mGET /modules/users/client/controllers/admin/list-users.client.controller.js [32m200[0m 3.556 ms - -[0m
+
+2022-12-08T15:19:46.009Z - info: [0mGET /modules/users/client/controllers/admin/user.client.controller.js [32m200[0m 2.953 ms - -[0m
+
+2022-12-08T15:19:46.010Z - info: [0mGET /modules/users/client/controllers/authentication.client.controller.js [32m200[0m 3.020 ms - -[0m
+
+2022-12-08T15:19:46.011Z - info: [0mGET /modules/users/client/controllers/password.client.controller.js [32m200[0m 3.760 ms - -[0m
+
+2022-12-08T15:19:46.018Z - info: [0mGET /modules/users/client/controllers/settings/change-password.client.controller.js [32m200[0m 4.169 ms - -[0m
+
+2022-12-08T15:19:46.018Z - info: [0mGET /modules/users/client/controllers/settings/change-profile-picture.client.controller.js [32m200[0m 4.071 ms - -[0m
+
+2022-12-08T15:19:46.019Z - info: [0mGET /modules/users/client/controllers/settings/edit-profile.client.controller.js [32m200[0m 5.947 ms - -[0m
+
+2022-12-08T15:19:46.020Z - info: [0mGET /modules/users/client/controllers/settings/settings.client.controller.js [32m200[0m 8.142 ms - 306[0m
+
+2022-12-08T15:19:46.021Z - info: [0mGET /modules/users/client/controllers/settings/manage-social-accounts.client.controller.js [32m200[0m 7.811 ms - -[0m
+
+2022-12-08T15:19:46.024Z - info: [0mGET /modules/users/client/directives/password-validator.client.directive.js [32m200[0m 7.362 ms - -[0m
+
+2022-12-08T15:19:46.024Z - info: [0mGET /modules/users/client/directives/password-verify.client.directive.js [32m200[0m 4.362 ms - 821[0m
+
+2022-12-08T15:19:46.024Z - info: [0mGET /modules/users/client/directives/users.client.directive.js [32m200[0m 4.493 ms - 507[0m
+
+2022-12-08T15:19:46.025Z - info: [0mGET /modules/users/client/services/authentication.client.service.js [32m200[0m 3.782 ms - 324[0m
+
+2022-12-08T15:19:46.026Z - info: [0mGET /modules/users/client/services/password-validator.client.service.js [32m200[0m 3.024 ms - 859[0m
+
+2022-12-08T15:19:46.027Z - info: [0mGET /modules/users/client/services/users.client.service.js [32m200[0m 3.294 ms - -[0m
+
+2022-12-08T15:19:46.121Z - info: [0mGET /modules/users/client/views/authentication/authentication.client.view.html [32m200[0m 0.913 ms - -[0m
+
+2022-12-08T15:19:46.121Z - info: [0mGET /modules/core/client/views/header.client.view.html [32m200[0m 2.075 ms - -[0m
+
+2022-12-08T15:19:46.322Z - info: [0mGET /modules/users/client/views/authentication/signin.client.view.html [32m200[0m 1.471 ms - -[0m
+
+2022-12-08T15:19:46.379Z - info: [0mGET /modules/core/client/img/banner.jpg [32m200[0m 1.476 ms - 467303[0m
+
+2022-12-08T15:19:46.388Z - info: [0mGET /manifest.json [32m200[0m 1.683 ms - 357[0m
+
+2022-12-08T15:19:46.389Z - info: [0mGET /modules/core/client/img/brand/favicon.ico [32m200[0m 2.281 ms - 32038[0m
+
+2022-12-08T15:19:46.394Z - info: [0mGET /modules/core/client/img/brand/favicon.ico [36m304[0m 1.811 ms - -[0m
+

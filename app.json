@@ -8,8 +8,7 @@
     "express",
     "angularjs",
     "node.js",
-    "mongoose",
-    "passport"
+    "mongoose"
   ],
   "addons": [
     {

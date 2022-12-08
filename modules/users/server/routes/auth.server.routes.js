@@ -3,8 +3,6 @@
 /**
  * Module dependencies
  */
-var passport = require('passport');
-
 module.exports = function (app) {
   // User Routes
   var users = require('../controllers/users.server.controller');
