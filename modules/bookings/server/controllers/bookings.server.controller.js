@@ -404,6 +404,8 @@ exports.downloadByID = function(req, res) {
           format: {
             quality: 100
           },
+          host: '127.0.0.1',
+          strategy: "phantom-server | dedicated-process",
           phantomPath: require("phantomjs-prebuilt").path
         },
         function(err, pdf) {
