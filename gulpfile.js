@@ -21,8 +21,7 @@ var _ = require('lodash'),
   wiredep = require('wiredep').stream,
   path = require('path'),
   endOfLine = require('os').EOL,
-  del = require('del'),
-  semver = require('semver');
+  del = require('del');
 
 // Local settings
 var changedTestFiles = [];
@@ -44,9 +43,6 @@ gulp.task('env:prod', function () {
 
 // Nodemon task
 gulp.task('nodemon', function () {
-
-  // Node.js v7 and newer use different debug argument
-  var debugArgument = semver.satisfies(process.versions.node, '>=7.0.0') ? '--inspect' : '--debug';
 
   return plugins.nodemon({
     script: 'server.js',
