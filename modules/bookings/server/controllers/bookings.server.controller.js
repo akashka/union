@@ -407,6 +407,8 @@ exports.downloadByID = function(req, res) {
           phantomPath: require("phantomjs-prebuilt").path
         },
         function(err, pdf) {
+          console.log('errrrr', err);
+          console.log('pdffff', pdf);
           var output = fs.createWriteStream("./bill.pdf");
           pdf.stream.pipe(output);
           let filename = "invoice";
