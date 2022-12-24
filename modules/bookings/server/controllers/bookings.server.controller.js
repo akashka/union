@@ -395,6 +395,8 @@ exports.downloadByID = function(req, res) {
             width: "10in",
             height: "6in"
           },
+          numberOfWorkers: 3,
+          timeout: 10000,
           waitForJS: false,
           waitForJSVarName: "PHANTOM_HTML_TO_PDF_READY",
           allowLocalFilesAccess: true,
@@ -404,8 +406,7 @@ exports.downloadByID = function(req, res) {
           format: {
             quality: 100
           },
-          host: 'accounts-union.herokuapp.com',
-          strategy: "phantom-server | dedicated-process",
+          phantomPath: require("phantomjs-prebuilt").path
         },
         function(err, pdf) {
           console.log('errrrr', err);

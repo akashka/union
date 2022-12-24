@@ -15405,3 +15405,782 @@ Error: listen EACCES 0.0.0.0:90
 
 2022-12-08T15:19:46.394Z - info: [0mGET /modules/core/client/img/brand/favicon.ico [36m304[0m 1.811 ms - -[0m
 
+2022-12-24T11:24:54.283Z - info: [0mGET / [36m304[0m 211.755 ms - -[0m
+
+2022-12-24T11:24:54.333Z - info: [0mGET /lib/angular-ui-notification/dist/angular-ui-notification.css [36m304[0m 2.441 ms - -[0m
+
+2022-12-24T11:24:54.390Z - info: [0mGET /lib/bootstrap/dist/css/bootstrap-theme.css [32m200[0m 20.937 ms - -[0m
+
+2022-12-24T11:24:54.393Z - info: [0mGET /modules/users/client/css/users.css [36m304[0m 8.417 ms - -[0m
+
+2022-12-24T11:24:54.394Z - info: [0mGET /lib/ng-table/dist/ng-table.min.css [32m200[0m 56.630 ms - -[0m
+
+2022-12-24T11:24:54.395Z - info: [0mGET /modules/core/client/css/core.css [32m200[0m 61.793 ms - -[0m
+
+2022-12-24T11:24:54.397Z - info: [0mGET /modules/home/client/css/home.css [32m200[0m 63.395 ms - -[0m
+
+2022-12-24T11:24:54.398Z - info: [0mGET /lib/bootstrap/dist/css/bootstrap.css [32m200[0m 58.147 ms - -[0m
+
+2022-12-24T11:24:54.407Z - info: [0mGET /lib/angular-messages/angular-messages.js [32m200[0m 3.050 ms - -[0m
+
+2022-12-24T11:24:54.440Z - info: [0mGET /lib/ng-file-upload/ng-file-upload.js [32m200[0m 3.850 ms - -[0m
+
+2022-12-24T11:24:54.444Z - info: [0mGET /lib/angular-resource/angular-resource.js [32m200[0m 13.177 ms - -[0m
+
+2022-12-24T11:24:54.448Z - info: [0mGET /lib/angular-ui-notification/dist/angular-ui-notification.js [36m304[0m 6.485 ms - -[0m
+
+2022-12-24T11:24:54.455Z - info: [0mGET /lib/angular-mocks/angular-mocks.js [32m200[0m 5.947 ms - -[0m
+
+2022-12-24T11:24:54.463Z - info: [0mGET /lib/angular-animate/angular-animate.js [32m200[0m 5.302 ms - -[0m
+
+2022-12-24T11:24:54.469Z - info: [0mGET /lib/angular-moment/angular-moment.js [32m200[0m 6.516 ms - -[0m
+
+2022-12-24T11:24:54.470Z - info: [0mGET /lib/angular-bootstrap/ui-bootstrap-tpls.js [32m200[0m 5.372 ms - -[0m
+
+2022-12-24T11:24:54.487Z - info: [0mGET /lib/moment/moment.js [32m200[0m 13.452 ms - -[0m
+
+2022-12-24T11:24:54.488Z - info: [0mGET /lib/angular-ui-router/release/angular-ui-router.js [32m200[0m 12.565 ms - -[0m
+
+2022-12-24T11:24:54.490Z - info: [0mGET /lib/owasp-password-strength-test/owasp-password-strength-test.js [36m304[0m 1.377 ms - -[0m
+
+2022-12-24T11:24:54.491Z - info: [0mGET /lib/angular-typeahead/dist/angular-typeahead.js [36m304[0m 1.429 ms - -[0m
+
+2022-12-24T11:24:54.518Z - info: [0mGET /lib/c3/c3.min.js [32m200[0m 4.940 ms - -[0m
+
+2022-12-24T11:24:54.530Z - info: [0mGET /lib/d3/d3.min.js [32m200[0m 5.022 ms - -[0m
+
+2022-12-24T11:24:54.530Z - info: [0mGET /lib/pathseg/pathseg.js [32m200[0m 6.214 ms - -[0m
+
+2022-12-24T11:24:54.537Z - info: [0mGET /modules/bookings/client/config/bookings.client.menus.js [36m304[0m 2.621 ms - -[0m
+
+2022-12-24T11:24:54.550Z - info: [0mGET /lib/ng-table/dist/ng-table.min.js [32m200[0m 5.641 ms - -[0m
+
+2022-12-24T11:24:54.550Z - info: [0mGET /modules/core/client/app/init.js [36m304[0m 7.517 ms - -[0m
+
+2022-12-24T11:24:54.555Z - info: [0mGET /modules/core/client/core.client.module.js [36m304[0m 2.618 ms - -[0m
+
+2022-12-24T11:24:54.558Z - info: [0mGET /lib/lodash/lodash.js [32m200[0m 6.951 ms - -[0m
+
+2022-12-24T11:24:54.568Z - info: [0mGET /modules/bookings/client/bookings.client.module.js [36m304[0m 9.365 ms - -[0m
+
+2022-12-24T11:24:54.571Z - info: [0mGET /modules/home/client/home.client.module.js [36m304[0m 5.397 ms - -[0m
+
+2022-12-24T11:24:54.572Z - info: [0mGET /modules/core/client/app/config.js [32m200[0m 13.868 ms - -[0m
+
+2022-12-24T11:24:54.574Z - info: [0mGET /modules/users/client/users.client.module.js [36m304[0m 2.463 ms - -[0m
+
+2022-12-24T11:24:54.582Z - info: [0mGET /modules/bookings/client/controllers/booking-co.client.controller.js [32m200[0m 5.743 ms - -[0m
+
+2022-12-24T11:24:54.587Z - info: [0mGET /modules/bookings/client/controllers/bookings.client.controller.js [32m200[0m 8.338 ms - 685[0m
+
+2022-12-24T11:24:54.593Z - info: [0mGET /modules/bookings/client/controllers/booking.client.controller.js [32m200[0m 8.934 ms - -[0m
+
+2022-12-24T11:24:54.601Z - info: [0mGET /modules/bookings/client/config/bookings.client.routes.js [32m200[0m 10.793 ms - -[0m
+
+2022-12-24T11:24:54.613Z - info: [0mGET /modules/bookings/client/controllers/booking-edit.client.controller.js [32m200[0m 10.104 ms - -[0m
+
+2022-12-24T11:24:54.615Z - info: [0mGET /modules/bookings/client/controllers/list-bookings.client.controller.js [32m200[0m 16.959 ms - -[0m
+
+2022-12-24T11:24:54.617Z - info: [0mGET /modules/core/client/config/core-admin.client.menus.js [36m304[0m 2.607 ms - -[0m
+
+2022-12-24T11:24:54.620Z - info: [0mGET /modules/core/client/config/core-admin.client.routes.js [36m304[0m 3.154 ms - -[0m
+
+2022-12-24T11:24:54.629Z - info: [0mGET /modules/core/client/config/core.client.route-filter.js [36m304[0m 8.122 ms - -[0m
+
+2022-12-24T11:24:54.631Z - info: [0mGET /modules/bookings/client/services/bookings.client.service.js [32m200[0m 8.316 ms - -[0m
+
+2022-12-24T11:24:54.632Z - info: [0mGET /modules/core/client/config/core.client.menus.js [36m304[0m 11.782 ms - -[0m
+
+2022-12-24T11:24:54.648Z - info: [0mGET /modules/core/client/config/core.client.routes.js [36m304[0m 10.287 ms - -[0m
+
+2022-12-24T11:24:54.649Z - info: [0mGET /lib/pdfmake/build/pdfmake.min.js [32m200[0m 9.998 ms - -[0m
+
+2022-12-24T11:24:54.650Z - info: [0mGET /modules/core/client/controllers/error.client.controller.js [36m304[0m 4.456 ms - -[0m
+
+2022-12-24T11:24:54.652Z - info: [0mGET /modules/core/client/directives/auto-focus.client.directive.js [36m304[0m 5.637 ms - -[0m
+
+2022-12-24T11:24:54.653Z - info: [0mGET /lib/angular/angular.js [32m200[0m 3.779 ms - -[0m
+
+2022-12-24T11:24:54.654Z - info: [0mGET /modules/core/client/controllers/header.client.controller.js [36m304[0m 3.700 ms - -[0m
+
+2022-12-24T11:24:54.656Z - info: [0mGET /modules/core/client/controllers/home.client.controller.js [36m304[0m 3.286 ms - -[0m
+
+2022-12-24T11:24:54.657Z - info: [0mGET /modules/core/client/directives/page-title.client.directive.js [36m304[0m 2.555 ms - -[0m
+
+2022-12-24T11:24:54.657Z - info: [0mGET /modules/core/client/directives/show-errors.client.directive.js [36m304[0m 2.436 ms - -[0m
+
+2022-12-24T11:24:54.657Z - info: [0mGET /modules/core/client/services/interceptors/auth-interceptor.client.service.js [36m304[0m 2.477 ms - -[0m
+
+2022-12-24T11:24:54.659Z - info: [0mGET /modules/core/client/directives/ngConfirmClick.js [32m200[0m 4.838 ms - 709[0m
+
+2022-12-24T11:24:54.661Z - info: [0mGET /modules/core/client/services/menu.client.service.js [36m304[0m 3.147 ms - -[0m
+
+2022-12-24T11:24:54.663Z - info: [0mGET /modules/core/client/services/socket.io.client.service.js [36m304[0m 2.380 ms - -[0m
+
+2022-12-24T11:24:54.664Z - info: [0mGET /modules/home/client/config/home.client.menus.js [36m304[0m 3.904 ms - -[0m
+
+2022-12-24T11:24:54.665Z - info: [0mGET /modules/home/client/config/home.client.routes.js [36m304[0m 4.197 ms - -[0m
+
+2022-12-24T11:24:54.668Z - info: [0mGET /modules/users/client/config/users-admin.client.menus.js [36m304[0m 1.433 ms - -[0m
+
+2022-12-24T11:24:54.669Z - info: [0mGET /modules/users/client/config/users.client.routes.js [36m304[0m 2.021 ms - -[0m
+
+2022-12-24T11:24:54.671Z - info: [0mGET /modules/users/client/controllers/admin/list-users.client.controller.js [36m304[0m 3.771 ms - -[0m
+
+2022-12-24T11:24:54.672Z - info: [0mGET /modules/users/client/controllers/admin/user.client.controller.js [36m304[0m 4.302 ms - -[0m
+
+2022-12-24T11:24:54.675Z - info: [0mGET /lib/pdfmake/build/vfs_fonts.js [32m200[0m 6.755 ms - -[0m
+
+2022-12-24T11:24:54.676Z - info: [0mGET /modules/home/client/controllers/home.client.controller.js [32m200[0m 5.704 ms - -[0m
+
+2022-12-24T11:24:54.685Z - info: [0mGET /modules/users/client/config/users-admin.client.routes.js [36m304[0m 10.848 ms - -[0m
+
+2022-12-24T11:24:54.686Z - info: [0mGET /modules/users/client/controllers/authentication.client.controller.js [36m304[0m 13.228 ms - -[0m
+
+2022-12-24T11:24:54.687Z - info: [0mGET /modules/users/client/controllers/password.client.controller.js [36m304[0m 13.542 ms - -[0m
+
+2022-12-24T11:24:54.691Z - info: [0mGET /modules/users/client/controllers/settings/change-password.client.controller.js [36m304[0m 9.917 ms - -[0m
+
+2022-12-24T11:24:54.692Z - info: [0mGET /modules/users/client/controllers/settings/change-profile-picture.client.controller.js [36m304[0m 3.503 ms - -[0m
+
+2022-12-24T11:24:54.693Z - info: [0mGET /modules/users/client/controllers/settings/edit-profile.client.controller.js [36m304[0m 3.239 ms - -[0m
+
+2022-12-24T11:24:54.693Z - info: [0mGET /modules/users/client/controllers/settings/settings.client.controller.js [36m304[0m 2.821 ms - -[0m
+
+2022-12-24T11:24:54.694Z - info: [0mGET /modules/users/client/directives/password-validator.client.directive.js [36m304[0m 3.071 ms - -[0m
+
+2022-12-24T11:24:54.695Z - info: [0mGET /modules/users/client/controllers/settings/manage-social-accounts.client.controller.js [36m304[0m 4.732 ms - -[0m
+
+2022-12-24T11:24:54.705Z - info: [0mGET /modules/users/client/directives/password-verify.client.directive.js [36m304[0m 12.974 ms - -[0m
+
+2022-12-24T11:24:54.709Z - info: [0mGET /modules/users/client/services/authentication.client.service.js [36m304[0m 4.677 ms - -[0m
+
+2022-12-24T11:24:54.710Z - info: [0mGET /modules/users/client/services/password-validator.client.service.js [36m304[0m 4.994 ms - -[0m
+
+2022-12-24T11:24:54.714Z - info: [0mGET /modules/users/client/services/users.client.service.js [36m304[0m 8.546 ms - -[0m
+
+2022-12-24T11:24:54.714Z - info: [0mGET /modules/users/client/directives/users.client.directive.js [36m304[0m 18.927 ms - -[0m
+
+2022-12-24T11:24:54.810Z - info: [0mGET /modules/users/client/views/authentication/authentication.client.view.html [36m304[0m 2.191 ms - -[0m
+
+2022-12-24T11:24:54.812Z - info: [0mGET /modules/core/client/views/header.client.view.html [36m304[0m 3.216 ms - -[0m
+
+2022-12-24T11:24:55.025Z - info: [0mGET /modules/users/client/views/authentication/signin.client.view.html [36m304[0m 4.420 ms - -[0m
+
+2022-12-24T11:24:55.092Z - info: [0mGET /modules/core/client/img/banner.jpg [32m200[0m 0.848 ms - 467303[0m
+
+2022-12-24T11:24:55.187Z - info: [0mGET /modules/core/client/img/brand/favicon.ico [32m200[0m 2.568 ms - 32038[0m
+
+2022-12-24T11:24:55.195Z - info: [0mGET /manifest.json [36m304[0m 0.410 ms - -[0m
+
+2022-12-24T11:25:21.439Z - info: [0mPOST /api/auth/signin [32m200[0m 780.929 ms - 446[0m
+
+2022-12-24T11:25:21.459Z - info: [0mGET /modules/home/client/views/home.client.view.html [32m200[0m 9.421 ms - -[0m
+
+2022-12-24T11:25:25.769Z - info: [0mGET /modules/bookings/client/views/list-bookings.client.view.html [32m200[0m 3.732 ms - -[0m
+
+2022-12-24T11:25:26.282Z - info: [0mGET /modules/users/client/img/profile/uploads/25e9af62c3620301f5d473a39bc97832 [33m404[0m 3429.735 ms - -[0m
+
+2022-12-24T11:25:26.551Z - info: [0mGET /api/users [32m200[0m 4827.630 ms - 759[0m
+
+2022-12-24T11:25:28.007Z - info: [0mPOST /api/filteredBookings [32m200[0m 1325.801 ms - -[0m
+
+2022-12-24T11:25:28.253Z - info: [0mGET /api/getClientGraphData [32m200[0m 6447.909 ms - -[0m
+
+2022-12-24T11:25:28.256Z - info: [0mGET /api/getHomePageData [32m200[0m 6476.562 ms - -[0m
+
+2022-12-24T11:25:28.890Z - info: [0mGET /api/getMonthGraphData [32m200[0m 7103.942 ms - -[0m
+
+2022-12-24T11:25:28.996Z - info: [0mGET /api/getPrimaryDetails [32m200[0m 2987.306 ms - -[0m
+
+2022-12-24T11:25:29.080Z - info: [0mGET /lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2 [32m200[0m 5.152 ms - -[0m
+
+2022-12-24T11:25:47.253Z - error: uncaughtException: Command failed: gm identify -format "%p " "./output.pdf"
+/bin/sh: gm: command not found
+ date=Sat Dec 24 2022 16:55:47 GMT+0530 (India Standard Time), pid=77431, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=58486784, heapTotal=46063616, heapUsed=39885320, external=19211012, loadavg=[1.64892578125, 1.5048828125, 1.52685546875], uptime=2987905
+Error: Command failed: gm identify -format "%p " "./output.pdf"
+/bin/sh: gm: command not found
+
+    at checkExecSyncError (child_process.js:639:11)
+    at execSync (child_process.js:676:15)
+    at /Users/ajmac1363/akash/union/node_modules/pdf2img/lib/pdf2img.js:72:23
+    at fn (/Users/ajmac1363/akash/union/node_modules/pdf2img/node_modules/async/lib/async.js:638:34)
+    at Immediate.<anonymous> (/Users/ajmac1363/akash/union/node_modules/pdf2img/node_modules/async/lib/async.js:554:34)
+    at processImmediate (internal/timers.js:443:21)
+    at process.topLevelDomainCallback (domain.js:136:23)
+2022-12-24T11:25:47.666Z - info: [0mGET /api/downloads/63a6debab1861a00260e2560 [32m200[0m 6391.133 ms - -[0m
+
+2022-12-24T11:27:16.949Z - error: uncaughtException: Command failed: gm identify -format "%p " "./output.pdf"
+/bin/sh: gm: command not found
+ date=Sat Dec 24 2022 16:57:16 GMT+0530 (India Standard Time), pid=77431, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=43646976, heapTotal=46063616, heapUsed=39366736, external=19213666, loadavg=[2.22900390625, 1.6611328125, 1.57666015625], uptime=2987994
+Error: Command failed: gm identify -format "%p " "./output.pdf"
+/bin/sh: gm: command not found
+
+    at checkExecSyncError (child_process.js:639:11)
+    at execSync (child_process.js:676:15)
+    at /Users/ajmac1363/akash/union/node_modules/pdf2img/lib/pdf2img.js:72:23
+    at fn (/Users/ajmac1363/akash/union/node_modules/pdf2img/node_modules/async/lib/async.js:638:34)
+    at Immediate.<anonymous> (/Users/ajmac1363/akash/union/node_modules/pdf2img/node_modules/async/lib/async.js:554:34)
+    at processImmediate (internal/timers.js:443:21)
+    at process.topLevelDomainCallback (domain.js:136:23)
+2022-12-24T11:27:17.227Z - info: [0mGET /api/downloads/63a6debab1861a00260e2560 [32m200[0m 1323.662 ms - -[0m
+
+2022-12-24T14:24:43.510Z - info: [0mGET / [32m200[0m 656.027 ms - -[0m
+
+2022-12-24T14:24:43.542Z - info: [0mGET /modules/core/client/css/core.css [36m304[0m 13.148 ms - -[0m
+
+2022-12-24T14:24:43.543Z - info: [0mGET /modules/home/client/css/home.css [36m304[0m 13.631 ms - -[0m
+
+2022-12-24T14:24:43.545Z - info: [0mGET /modules/users/client/css/users.css [36m304[0m 9.080 ms - -[0m
+
+2022-12-24T14:24:43.556Z - info: [0mGET /modules/core/client/app/config.js [36m304[0m 7.177 ms - -[0m
+
+2022-12-24T14:24:43.557Z - info: [0mGET /modules/core/client/app/init.js [36m304[0m 6.265 ms - -[0m
+
+2022-12-24T14:24:43.557Z - info: [0mGET /modules/bookings/client/bookings.client.module.js [36m304[0m 6.862 ms - -[0m
+
+2022-12-24T14:24:43.561Z - info: [0mGET /modules/core/client/core.client.module.js [36m304[0m 8.617 ms - -[0m
+
+2022-12-24T14:24:43.563Z - info: [0mGET /modules/home/client/home.client.module.js [36m304[0m 3.601 ms - -[0m
+
+2022-12-24T14:24:43.563Z - info: [0mGET /modules/users/client/users.client.module.js [36m304[0m 3.110 ms - -[0m
+
+2022-12-24T14:24:43.565Z - info: [0mGET /modules/bookings/client/config/bookings.client.routes.js [36m304[0m 3.224 ms - -[0m
+
+2022-12-24T14:24:43.566Z - info: [0mGET /modules/bookings/client/config/bookings.client.menus.js [36m304[0m 2.010 ms - -[0m
+
+2022-12-24T14:24:43.569Z - info: [0mGET /modules/bookings/client/controllers/booking-co.client.controller.js [36m304[0m 2.897 ms - -[0m
+
+2022-12-24T14:24:43.570Z - info: [0mGET /modules/bookings/client/controllers/booking-edit.client.controller.js [36m304[0m 4.437 ms - -[0m
+
+2022-12-24T14:24:43.571Z - info: [0mGET /modules/bookings/client/controllers/booking.client.controller.js [36m304[0m 4.111 ms - -[0m
+
+2022-12-24T14:24:43.571Z - info: [0mGET /modules/bookings/client/controllers/bookings.client.controller.js [36m304[0m 0.982 ms - -[0m
+
+2022-12-24T14:24:43.572Z - info: [0mGET /modules/bookings/client/controllers/list-bookings.client.controller.js [36m304[0m 0.589 ms - -[0m
+
+2022-12-24T14:24:43.576Z - info: [0mGET /modules/bookings/client/services/bookings.client.service.js [36m304[0m 2.569 ms - -[0m
+
+2022-12-24T14:24:43.576Z - info: [0mGET /modules/core/client/config/core-admin.client.menus.js [36m304[0m 2.390 ms - -[0m
+
+2022-12-24T14:24:43.576Z - info: [0mGET /modules/core/client/config/core-admin.client.routes.js [36m304[0m 1.994 ms - -[0m
+
+2022-12-24T14:24:43.577Z - info: [0mGET /modules/core/client/config/core.client.menus.js [36m304[0m 1.786 ms - -[0m
+
+2022-12-24T14:24:43.578Z - info: [0mGET /modules/core/client/config/core.client.route-filter.js [36m304[0m 1.436 ms - -[0m
+
+2022-12-24T14:24:43.579Z - info: [0mGET /modules/core/client/config/core.client.routes.js [36m304[0m 2.197 ms - -[0m
+
+2022-12-24T14:24:43.580Z - info: [0mGET /modules/core/client/controllers/error.client.controller.js [36m304[0m 2.667 ms - -[0m
+
+2022-12-24T14:24:43.583Z - info: [0mGET /modules/core/client/controllers/header.client.controller.js [36m304[0m 4.230 ms - -[0m
+
+2022-12-24T14:24:43.584Z - info: [0mGET /modules/core/client/controllers/home.client.controller.js [36m304[0m 2.325 ms - -[0m
+
+2022-12-24T14:24:43.584Z - info: [0mGET /modules/core/client/directives/auto-focus.client.directive.js [36m304[0m 1.550 ms - -[0m
+
+2022-12-24T14:24:43.584Z - info: [0mGET /modules/core/client/directives/ngConfirmClick.js [36m304[0m 1.161 ms - -[0m
+
+2022-12-24T14:24:43.588Z - info: [0mGET /modules/core/client/directives/page-title.client.directive.js [36m304[0m 2.404 ms - -[0m
+
+2022-12-24T14:24:43.591Z - info: [0mGET /modules/core/client/directives/show-errors.client.directive.js [36m304[0m 3.058 ms - -[0m
+
+2022-12-24T14:24:43.591Z - info: [0mGET /modules/core/client/services/interceptors/auth-interceptor.client.service.js [36m304[0m 3.365 ms - -[0m
+
+2022-12-24T14:24:43.592Z - info: [0mGET /modules/core/client/services/menu.client.service.js [36m304[0m 3.825 ms - -[0m
+
+2022-12-24T14:24:43.597Z - info: [0mGET /modules/core/client/services/socket.io.client.service.js [36m304[0m 3.992 ms - -[0m
+
+2022-12-24T14:24:43.598Z - info: [0mGET /modules/home/client/config/home.client.menus.js [36m304[0m 4.334 ms - -[0m
+
+2022-12-24T14:24:43.599Z - info: [0mGET /modules/home/client/config/home.client.routes.js [36m304[0m 1.569 ms - -[0m
+
+2022-12-24T14:24:43.600Z - info: [0mGET /modules/home/client/controllers/home.client.controller.js [36m304[0m 1.484 ms - -[0m
+
+2022-12-24T14:24:43.600Z - info: [0mGET /modules/users/client/config/users-admin.client.menus.js [36m304[0m 1.280 ms - -[0m
+
+2022-12-24T14:24:43.605Z - info: [0mGET /modules/users/client/config/users-admin.client.routes.js [36m304[0m 3.598 ms - -[0m
+
+2022-12-24T14:24:43.606Z - info: [0mGET /modules/users/client/config/users.client.routes.js [36m304[0m 3.552 ms - -[0m
+
+2022-12-24T14:24:43.606Z - info: [0mGET /modules/users/client/controllers/admin/list-users.client.controller.js [36m304[0m 2.854 ms - -[0m
+
+2022-12-24T14:24:43.606Z - info: [0mGET /modules/users/client/controllers/admin/user.client.controller.js [36m304[0m 2.908 ms - -[0m
+
+2022-12-24T14:24:43.608Z - info: [0mGET /modules/users/client/controllers/authentication.client.controller.js [36m304[0m 1.204 ms - -[0m
+
+2022-12-24T14:24:43.608Z - info: [0mGET /modules/users/client/controllers/password.client.controller.js [36m304[0m 1.169 ms - -[0m
+
+2022-12-24T14:24:43.609Z - info: [0mGET /modules/users/client/controllers/settings/change-password.client.controller.js [36m304[0m 1.170 ms - -[0m
+
+2022-12-24T14:24:43.609Z - info: [0mGET /modules/users/client/controllers/settings/change-profile-picture.client.controller.js [36m304[0m 1.069 ms - -[0m
+
+2022-12-24T14:24:43.610Z - info: [0mGET /modules/users/client/controllers/settings/edit-profile.client.controller.js [36m304[0m 0.327 ms - -[0m
+
+2022-12-24T14:24:43.614Z - info: [0mGET /modules/users/client/controllers/settings/manage-social-accounts.client.controller.js [36m304[0m 3.336 ms - -[0m
+
+2022-12-24T14:24:43.615Z - info: [0mGET /modules/users/client/controllers/settings/settings.client.controller.js [36m304[0m 2.881 ms - -[0m
+
+2022-12-24T14:24:43.615Z - info: [0mGET /modules/users/client/directives/password-validator.client.directive.js [36m304[0m 2.573 ms - -[0m
+
+2022-12-24T14:24:43.615Z - info: [0mGET /modules/users/client/directives/password-verify.client.directive.js [36m304[0m 2.224 ms - -[0m
+
+2022-12-24T14:24:43.618Z - info: [0mGET /modules/users/client/directives/users.client.directive.js [36m304[0m 2.220 ms - -[0m
+
+2022-12-24T14:24:43.618Z - info: [0mGET /modules/users/client/services/users.client.service.js [36m304[0m 1.016 ms - -[0m
+
+2022-12-24T14:24:43.619Z - info: [0mGET /modules/users/client/services/authentication.client.service.js [36m304[0m 0.998 ms - -[0m
+
+2022-12-24T14:24:43.620Z - info: [0mGET /modules/users/client/services/password-validator.client.service.js [36m304[0m 2.018 ms - -[0m
+
+2022-12-24T14:24:43.622Z - info: [0mGET /modules/users/client/css/users.css [36m304[0m 1.273 ms - -[0m
+
+2022-12-24T14:24:43.622Z - info: [0mGET /modules/core/client/css/core.css [36m304[0m 1.240 ms - -[0m
+
+2022-12-24T14:24:43.623Z - info: [0mGET /modules/home/client/css/home.css [36m304[0m 1.458 ms - -[0m
+
+2022-12-24T14:24:43.635Z - info: [0mGET /modules/core/client/app/config.js [36m304[0m 1.487 ms - -[0m
+
+2022-12-24T14:24:43.637Z - info: [0mGET /modules/core/client/app/init.js [36m304[0m 2.840 ms - -[0m
+
+2022-12-24T14:24:43.638Z - info: [0mGET /modules/bookings/client/bookings.client.module.js [36m304[0m 3.803 ms - -[0m
+
+2022-12-24T14:24:43.639Z - info: [0mGET /modules/core/client/core.client.module.js [36m304[0m 4.309 ms - -[0m
+
+2022-12-24T14:24:43.641Z - info: [0mGET /modules/home/client/home.client.module.js [36m304[0m 2.808 ms - -[0m
+
+2022-12-24T14:24:43.641Z - info: [0mGET /modules/users/client/users.client.module.js [36m304[0m 1.193 ms - -[0m
+
+2022-12-24T14:24:43.642Z - info: [0mGET /modules/bookings/client/config/bookings.client.menus.js [36m304[0m 1.118 ms - -[0m
+
+2022-12-24T14:24:43.643Z - info: [0mGET /modules/bookings/client/config/bookings.client.routes.js [36m304[0m 1.615 ms - -[0m
+
+2022-12-24T14:24:43.649Z - info: [0mGET /modules/bookings/client/controllers/booking-co.client.controller.js [36m304[0m 5.095 ms - -[0m
+
+2022-12-24T14:24:43.650Z - info: [0mGET /modules/bookings/client/controllers/booking.client.controller.js [36m304[0m 2.150 ms - -[0m
+
+2022-12-24T14:24:43.650Z - info: [0mGET /modules/bookings/client/controllers/bookings.client.controller.js [36m304[0m 2.237 ms - -[0m
+
+2022-12-24T14:24:43.651Z - info: [0mGET /modules/bookings/client/controllers/booking-edit.client.controller.js [36m304[0m 3.117 ms - -[0m
+
+2022-12-24T14:24:43.651Z - info: [0mGET /lib/pdfmake/build/pdfmake.min.js [32m200[0m 9.115 ms - -[0m
+
+2022-12-24T14:24:43.652Z - info: [0mGET /modules/bookings/client/controllers/list-bookings.client.controller.js [36m304[0m 0.406 ms - -[0m
+
+2022-12-24T14:24:43.659Z - info: [0mGET /modules/bookings/client/services/bookings.client.service.js [36m304[0m 4.827 ms - -[0m
+
+2022-12-24T14:24:43.659Z - info: [0mGET /modules/core/client/config/core-admin.client.menus.js [36m304[0m 4.744 ms - -[0m
+
+2022-12-24T14:24:43.659Z - info: [0mGET /modules/core/client/config/core-admin.client.routes.js [36m304[0m 1.786 ms - -[0m
+
+2022-12-24T14:24:43.661Z - info: [0mGET /modules/core/client/config/core.client.menus.js [36m304[0m 2.614 ms - -[0m
+
+2022-12-24T14:24:43.662Z - info: [0mGET /modules/core/client/config/core.client.route-filter.js [36m304[0m 2.990 ms - -[0m
+
+2022-12-24T14:24:43.666Z - info: [0mGET /modules/core/client/config/core.client.routes.js [36m304[0m 1.596 ms - -[0m
+
+2022-12-24T14:24:43.667Z - info: [0mGET /modules/core/client/controllers/error.client.controller.js [36m304[0m 1.250 ms - -[0m
+
+2022-12-24T14:24:43.667Z - info: [0mGET /modules/core/client/controllers/header.client.controller.js [36m304[0m 1.288 ms - -[0m
+
+2022-12-24T14:24:43.669Z - info: [0mGET /modules/core/client/controllers/home.client.controller.js [36m304[0m 1.071 ms - -[0m
+
+2022-12-24T14:24:43.670Z - info: [0mGET /modules/core/client/directives/auto-focus.client.directive.js [36m304[0m 1.561 ms - -[0m
+
+2022-12-24T14:24:43.674Z - info: [0mGET /modules/core/client/directives/ngConfirmClick.js [36m304[0m 3.556 ms - -[0m
+
+2022-12-24T14:24:43.675Z - info: [0mGET /modules/core/client/directives/page-title.client.directive.js [36m304[0m 4.588 ms - -[0m
+
+2022-12-24T14:24:43.676Z - info: [0mGET /lib/pdfmake/build/vfs_fonts.js [32m200[0m 10.819 ms - -[0m
+
+2022-12-24T14:24:43.676Z - info: [0mGET /modules/core/client/directives/show-errors.client.directive.js [36m304[0m 3.132 ms - -[0m
+
+2022-12-24T14:24:43.677Z - info: [0mGET /modules/core/client/services/interceptors/auth-interceptor.client.service.js [36m304[0m 2.176 ms - -[0m
+
+2022-12-24T14:24:43.678Z - info: [0mGET /modules/core/client/services/menu.client.service.js [36m304[0m 2.358 ms - -[0m
+
+2022-12-24T14:24:43.678Z - info: [0mGET /modules/core/client/services/socket.io.client.service.js [36m304[0m 0.769 ms - -[0m
+
+2022-12-24T14:24:43.681Z - info: [0mGET /modules/home/client/config/home.client.menus.js [36m304[0m 3.216 ms - -[0m
+
+2022-12-24T14:24:43.681Z - info: [0mGET /modules/home/client/config/home.client.routes.js [36m304[0m 2.742 ms - -[0m
+
+2022-12-24T14:24:43.682Z - info: [0mGET /modules/home/client/controllers/home.client.controller.js [36m304[0m 1.335 ms - -[0m
+
+2022-12-24T14:24:43.682Z - info: [0mGET /modules/users/client/config/users-admin.client.menus.js [36m304[0m 1.178 ms - -[0m
+
+2022-12-24T14:24:43.683Z - info: [0mGET /modules/users/client/config/users-admin.client.routes.js [36m304[0m 0.547 ms - -[0m
+
+2022-12-24T14:24:43.685Z - info: [0mGET /modules/users/client/config/users.client.routes.js [36m304[0m 0.474 ms - -[0m
+
+2022-12-24T14:24:43.689Z - info: [0mGET /modules/users/client/controllers/admin/list-users.client.controller.js [36m304[0m 2.161 ms - -[0m
+
+2022-12-24T14:24:43.690Z - info: [0mGET /modules/users/client/controllers/admin/user.client.controller.js [36m304[0m 2.158 ms - -[0m
+
+2022-12-24T14:24:43.690Z - info: [0mGET /modules/users/client/controllers/authentication.client.controller.js [36m304[0m 2.187 ms - -[0m
+
+2022-12-24T14:24:43.691Z - info: [0mGET /modules/users/client/controllers/password.client.controller.js [36m304[0m 2.440 ms - -[0m
+
+2022-12-24T14:24:43.691Z - info: [0mGET /modules/users/client/controllers/settings/change-password.client.controller.js [36m304[0m 2.429 ms - -[0m
+
+2022-12-24T14:24:43.692Z - info: [0mGET /modules/users/client/controllers/settings/change-profile-picture.client.controller.js [36m304[0m 0.355 ms - -[0m
+
+2022-12-24T14:24:43.692Z - info: [0mGET /modules/users/client/controllers/settings/edit-profile.client.controller.js [36m304[0m 0.357 ms - -[0m
+
+2022-12-24T14:24:43.695Z - info: [0mGET /modules/users/client/controllers/settings/manage-social-accounts.client.controller.js [36m304[0m 1.694 ms - -[0m
+
+2022-12-24T14:24:43.697Z - info: [0mGET /modules/users/client/controllers/settings/settings.client.controller.js [36m304[0m 3.249 ms - -[0m
+
+2022-12-24T14:24:43.698Z - info: [0mGET /modules/users/client/directives/password-verify.client.directive.js [36m304[0m 3.002 ms - -[0m
+
+2022-12-24T14:24:43.699Z - info: [0mGET /modules/users/client/directives/password-validator.client.directive.js [36m304[0m 3.096 ms - -[0m
+
+2022-12-24T14:24:43.699Z - info: [0mGET /modules/users/client/directives/users.client.directive.js [36m304[0m 3.299 ms - -[0m
+
+2022-12-24T14:24:43.700Z - info: [0mGET /modules/users/client/services/authentication.client.service.js [36m304[0m 3.153 ms - -[0m
+
+2022-12-24T14:24:43.702Z - info: [0mGET /modules/users/client/services/password-validator.client.service.js [36m304[0m 1.328 ms - -[0m
+
+2022-12-24T14:24:43.702Z - info: [0mGET /modules/users/client/services/users.client.service.js [36m304[0m 1.777 ms - -[0m
+
+2022-12-24T14:24:43.766Z - info: [0mGET /modules/core/client/views/header.client.view.html [36m304[0m 0.674 ms - -[0m
+
+2022-12-24T14:24:43.766Z - info: [0mGET /modules/home/client/views/home.client.view.html [36m304[0m 0.694 ms - -[0m
+
+2022-12-24T14:24:46.466Z - info: [0mGET /modules/bookings/client/views/list-bookings.client.view.html [36m304[0m 1.253 ms - -[0m
+
+2022-12-24T14:24:48.551Z - info: [0mGET /modules/users/client/img/profile/uploads/25e9af62c3620301f5d473a39bc97832 [33m404[0m 3262.480 ms - -[0m
+
+2022-12-24T14:24:48.745Z - info: [0mGET /api/users [36m304[0m 4551.934 ms - -[0m
+
+2022-12-24T14:24:50.117Z - info: [0mPOST /api/filteredBookings [32m200[0m 1317.475 ms - -[0m
+
+2022-12-24T14:24:50.557Z - info: [0mGET /api/getClientGraphData [32m200[0m 6346.250 ms - -[0m
+
+2022-12-24T14:24:50.560Z - info: [0mGET /api/getHomePageData [32m200[0m 6324.272 ms - -[0m
+
+2022-12-24T14:24:50.943Z - info: [0mGET /api/getMonthGraphData [32m200[0m 6742.091 ms - -[0m
+
+2022-12-24T14:24:51.144Z - info: [0mGET /api/getPrimaryDetails [32m200[0m 4438.755 ms - -[0m
+
+2022-12-24T14:24:53.919Z - error: uncaughtException: The "file" argument must be of type string. Received type object date=Sat Dec 24 2022 19:54:53 GMT+0530 (India Standard Time), pid=80657, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=126631936, heapTotal=90718208, heapUsed=66051512, external=23661063, loadavg=[2.81982421875, 2.19580078125, 2.2041015625], uptime=2998651
+TypeError [ERR_INVALID_ARG_TYPE]: The "file" argument must be of type string. Received type object
+    at validateString (internal/validators.js:125:11)
+    at normalizeSpawnArguments (child_process.js:416:3)
+    at spawn (child_process.js:555:16)
+    at Object.execFile (child_process.js:226:17)
+    at /Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:94:43
+    at Server.<anonymous> (/Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:18:9)
+    at Server.emit (events.js:193:13)
+    at Server.EventEmitter.emit (domain.js:481:20)
+    at emitCloseNT (net.js:1603:8)
+    at processTicksAndRejections (internal/process/task_queues.js:81:17)
+2022-12-24T14:24:53.924Z - error: uncaughtException: The "file" argument must be of type string. Received type object date=Sat Dec 24 2022 19:54:53 GMT+0530 (India Standard Time), pid=80657, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=127426560, heapTotal=90718208, heapUsed=66308096, external=23661119, loadavg=[2.81982421875, 2.19580078125, 2.2041015625], uptime=2998651
+TypeError [ERR_INVALID_ARG_TYPE]: The "file" argument must be of type string. Received type object
+    at validateString (internal/validators.js:125:11)
+    at normalizeSpawnArguments (child_process.js:416:3)
+    at spawn (child_process.js:555:16)
+    at Object.execFile (child_process.js:226:17)
+    at /Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:94:43
+    at Server.<anonymous> (/Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:18:9)
+    at Server.emit (events.js:193:13)
+    at Server.EventEmitter.emit (domain.js:481:20)
+    at emitCloseNT (net.js:1603:8)
+    at processTicksAndRejections (internal/process/task_queues.js:81:17)
+2022-12-24T14:24:53.926Z - error: uncaughtException: The "file" argument must be of type string. Received type object date=Sat Dec 24 2022 19:54:53 GMT+0530 (India Standard Time), pid=80657, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=127655936, heapTotal=90718208, heapUsed=66496144, external=23661119, loadavg=[2.81982421875, 2.19580078125, 2.2041015625], uptime=2998651
+TypeError [ERR_INVALID_ARG_TYPE]: The "file" argument must be of type string. Received type object
+    at validateString (internal/validators.js:125:11)
+    at normalizeSpawnArguments (child_process.js:416:3)
+    at spawn (child_process.js:555:16)
+    at Object.execFile (child_process.js:226:17)
+    at /Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:94:43
+    at Server.<anonymous> (/Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:18:9)
+    at Server.emit (events.js:193:13)
+    at Server.EventEmitter.emit (domain.js:481:20)
+    at emitCloseNT (net.js:1603:8)
+    at processTicksAndRejections (internal/process/task_queues.js:81:17)
+2022-12-24T14:24:53.928Z - error: uncaughtException: The "file" argument must be of type string. Received type object date=Sat Dec 24 2022 19:54:53 GMT+0530 (India Standard Time), pid=80657, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=127844352, heapTotal=90718208, heapUsed=66681360, external=23661119, loadavg=[2.81982421875, 2.19580078125, 2.2041015625], uptime=2998651
+TypeError [ERR_INVALID_ARG_TYPE]: The "file" argument must be of type string. Received type object
+    at validateString (internal/validators.js:125:11)
+    at normalizeSpawnArguments (child_process.js:416:3)
+    at spawn (child_process.js:555:16)
+    at Object.execFile (child_process.js:226:17)
+    at /Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:94:43
+    at Server.<anonymous> (/Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:18:9)
+    at Server.emit (events.js:193:13)
+    at Server.EventEmitter.emit (domain.js:481:20)
+    at emitCloseNT (net.js:1603:8)
+    at processTicksAndRejections (internal/process/task_queues.js:81:17)
+    at runNextTicks (internal/process/task_queues.js:56:3)
+    at processImmediate (internal/timers.js:416:9)
+    at process.topLevelDomainCallback (domain.js:136:23)
+2022-12-24T14:24:53.929Z - error: uncaughtException: The "file" argument must be of type string. Received type object date=Sat Dec 24 2022 19:54:53 GMT+0530 (India Standard Time), pid=80657, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=128057344, heapTotal=90718208, heapUsed=66889872, external=23661119, loadavg=[2.81982421875, 2.19580078125, 2.2041015625], uptime=2998651
+TypeError [ERR_INVALID_ARG_TYPE]: The "file" argument must be of type string. Received type object
+    at validateString (internal/validators.js:125:11)
+    at normalizeSpawnArguments (child_process.js:416:3)
+    at spawn (child_process.js:555:16)
+    at Object.execFile (child_process.js:226:17)
+    at /Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:94:43
+    at Server.<anonymous> (/Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:18:9)
+    at Server.emit (events.js:193:13)
+    at Server.EventEmitter.emit (domain.js:481:20)
+    at emitCloseNT (net.js:1603:8)
+    at processTicksAndRejections (internal/process/task_queues.js:81:17)
+2022-12-24T14:24:53.931Z - error: uncaughtException: The "file" argument must be of type string. Received type object date=Sat Dec 24 2022 19:54:53 GMT+0530 (India Standard Time), pid=80657, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=128237568, heapTotal=90718208, heapUsed=67074664, external=23669311, loadavg=[2.81982421875, 2.19580078125, 2.2041015625], uptime=2998651
+TypeError [ERR_INVALID_ARG_TYPE]: The "file" argument must be of type string. Received type object
+    at validateString (internal/validators.js:125:11)
+    at normalizeSpawnArguments (child_process.js:416:3)
+    at spawn (child_process.js:555:16)
+    at Object.execFile (child_process.js:226:17)
+    at /Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:94:43
+    at Server.<anonymous> (/Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:18:9)
+    at Server.emit (events.js:193:13)
+    at Server.EventEmitter.emit (domain.js:481:20)
+    at emitCloseNT (net.js:1603:8)
+    at processTicksAndRejections (internal/process/task_queues.js:81:17)
+2022-12-24T14:24:53.932Z - error: uncaughtException: The "file" argument must be of type string. Received type object date=Sat Dec 24 2022 19:54:53 GMT+0530 (India Standard Time), pid=80657, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=128425984, heapTotal=90718208, heapUsed=67259456, external=23669311, loadavg=[2.81982421875, 2.19580078125, 2.2041015625], uptime=2998651
+TypeError [ERR_INVALID_ARG_TYPE]: The "file" argument must be of type string. Received type object
+    at validateString (internal/validators.js:125:11)
+    at normalizeSpawnArguments (child_process.js:416:3)
+    at spawn (child_process.js:555:16)
+    at Object.execFile (child_process.js:226:17)
+    at /Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:94:43
+    at Server.<anonymous> (/Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:18:9)
+    at Server.emit (events.js:193:13)
+    at Server.EventEmitter.emit (domain.js:481:20)
+    at emitCloseNT (net.js:1603:8)
+    at processTicksAndRejections (internal/process/task_queues.js:81:17)
+    at runNextTicks (internal/process/task_queues.js:56:3)
+    at processImmediate (internal/timers.js:416:9)
+    at process.topLevelDomainCallback (domain.js:136:23)
+2022-12-24T14:24:53.939Z - error: uncaughtException: The "file" argument must be of type string. Received type object date=Sat Dec 24 2022 19:54:53 GMT+0530 (India Standard Time), pid=80657, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=128626688, heapTotal=90718208, heapUsed=67463424, external=23669311, loadavg=[2.81982421875, 2.19580078125, 2.2041015625], uptime=2998651
+TypeError [ERR_INVALID_ARG_TYPE]: The "file" argument must be of type string. Received type object
+    at validateString (internal/validators.js:125:11)
+    at normalizeSpawnArguments (child_process.js:416:3)
+    at spawn (child_process.js:555:16)
+    at Object.execFile (child_process.js:226:17)
+    at /Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:94:43
+    at Server.<anonymous> (/Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:18:9)
+    at Server.emit (events.js:193:13)
+    at Server.EventEmitter.emit (domain.js:481:20)
+    at emitCloseNT (net.js:1603:8)
+    at processTicksAndRejections (internal/process/task_queues.js:81:17)
+    at runNextTicks (internal/process/task_queues.js:56:3)
+    at processImmediate (internal/timers.js:416:9)
+    at process.topLevelDomainCallback (domain.js:136:23)
+2022-12-24T14:24:53.942Z - error: uncaughtException: The "file" argument must be of type string. Received type object date=Sat Dec 24 2022 19:54:53 GMT+0530 (India Standard Time), pid=80657, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=137916416, heapTotal=91242496, heapUsed=62112856, external=21007410, loadavg=[2.81982421875, 2.19580078125, 2.2041015625], uptime=2998651
+TypeError [ERR_INVALID_ARG_TYPE]: The "file" argument must be of type string. Received type object
+    at validateString (internal/validators.js:125:11)
+    at normalizeSpawnArguments (child_process.js:416:3)
+    at spawn (child_process.js:555:16)
+    at Object.execFile (child_process.js:226:17)
+    at /Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:94:43
+    at Server.<anonymous> (/Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:18:9)
+    at Server.emit (events.js:193:13)
+    at Server.EventEmitter.emit (domain.js:481:20)
+    at emitCloseNT (net.js:1603:8)
+    at processTicksAndRejections (internal/process/task_queues.js:81:17)
+2022-12-24T14:24:53.943Z - error: uncaughtException: The "file" argument must be of type string. Received type object date=Sat Dec 24 2022 19:54:53 GMT+0530 (India Standard Time), pid=80657, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=138162176, heapTotal=91242496, heapUsed=62297488, external=21007410, loadavg=[2.81982421875, 2.19580078125, 2.2041015625], uptime=2998651
+TypeError [ERR_INVALID_ARG_TYPE]: The "file" argument must be of type string. Received type object
+    at validateString (internal/validators.js:125:11)
+    at normalizeSpawnArguments (child_process.js:416:3)
+    at spawn (child_process.js:555:16)
+    at Object.execFile (child_process.js:226:17)
+    at /Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:94:43
+    at Server.<anonymous> (/Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:18:9)
+    at Server.emit (events.js:193:13)
+    at Server.EventEmitter.emit (domain.js:481:20)
+    at emitCloseNT (net.js:1603:8)
+    at processTicksAndRejections (internal/process/task_queues.js:81:17)
+2022-12-24T14:25:29.260Z - error: uncaughtException: The "file" argument must be of type string. Received type object date=Sat Dec 24 2022 19:55:29 GMT+0530 (India Standard Time), pid=80699, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=182018048, heapTotal=78569472, heapUsed=38661176, external=18851808, loadavg=[2.98291015625, 2.31298828125, 2.24609375], uptime=2998687
+TypeError [ERR_INVALID_ARG_TYPE]: The "file" argument must be of type string. Received type object
+    at validateString (internal/validators.js:125:11)
+    at normalizeSpawnArguments (child_process.js:416:3)
+    at spawn (child_process.js:555:16)
+    at Object.execFile (child_process.js:226:17)
+    at /Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:94:43
+    at Server.<anonymous> (/Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:18:9)
+    at Server.emit (events.js:193:13)
+    at Server.EventEmitter.emit (domain.js:481:20)
+    at emitCloseNT (net.js:1603:8)
+    at processTicksAndRejections (internal/process/task_queues.js:81:17)
+2022-12-24T14:25:29.271Z - error: uncaughtException: The "file" argument must be of type string. Received type object date=Sat Dec 24 2022 19:55:29 GMT+0530 (India Standard Time), pid=80699, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=182865920, heapTotal=78569472, heapUsed=38953912, external=18851864, loadavg=[2.98291015625, 2.31298828125, 2.24609375], uptime=2998687
+TypeError [ERR_INVALID_ARG_TYPE]: The "file" argument must be of type string. Received type object
+    at validateString (internal/validators.js:125:11)
+    at normalizeSpawnArguments (child_process.js:416:3)
+    at spawn (child_process.js:555:16)
+    at Object.execFile (child_process.js:226:17)
+    at /Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:94:43
+    at Server.<anonymous> (/Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:18:9)
+    at Server.emit (events.js:193:13)
+    at Server.EventEmitter.emit (domain.js:481:20)
+    at emitCloseNT (net.js:1603:8)
+    at processTicksAndRejections (internal/process/task_queues.js:81:17)
+2022-12-24T14:25:29.274Z - error: uncaughtException: The "file" argument must be of type string. Received type object date=Sat Dec 24 2022 19:55:29 GMT+0530 (India Standard Time), pid=80699, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=183033856, heapTotal=78569472, heapUsed=39167472, external=18851864, loadavg=[2.98291015625, 2.31298828125, 2.24609375], uptime=2998687
+TypeError [ERR_INVALID_ARG_TYPE]: The "file" argument must be of type string. Received type object
+    at validateString (internal/validators.js:125:11)
+    at normalizeSpawnArguments (child_process.js:416:3)
+    at spawn (child_process.js:555:16)
+    at Object.execFile (child_process.js:226:17)
+    at /Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:94:43
+    at Server.<anonymous> (/Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:18:9)
+    at Server.emit (events.js:193:13)
+    at Server.EventEmitter.emit (domain.js:481:20)
+    at emitCloseNT (net.js:1603:8)
+    at processTicksAndRejections (internal/process/task_queues.js:81:17)
+2022-12-24T14:25:29.275Z - error: uncaughtException: The "file" argument must be of type string. Received type object date=Sat Dec 24 2022 19:55:29 GMT+0530 (India Standard Time), pid=80699, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=183033856, heapTotal=78569472, heapUsed=39350632, external=18851864, loadavg=[2.98291015625, 2.31298828125, 2.24609375], uptime=2998687
+TypeError [ERR_INVALID_ARG_TYPE]: The "file" argument must be of type string. Received type object
+    at validateString (internal/validators.js:125:11)
+    at normalizeSpawnArguments (child_process.js:416:3)
+    at spawn (child_process.js:555:16)
+    at Object.execFile (child_process.js:226:17)
+    at /Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:94:43
+    at Server.<anonymous> (/Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:18:9)
+    at Server.emit (events.js:193:13)
+    at Server.EventEmitter.emit (domain.js:481:20)
+    at emitCloseNT (net.js:1603:8)
+    at processTicksAndRejections (internal/process/task_queues.js:81:17)
+    at runNextTicks (internal/process/task_queues.js:56:3)
+    at processImmediate (internal/timers.js:416:9)
+    at process.topLevelDomainCallback (domain.js:136:23)
+2022-12-24T14:25:29.277Z - error: uncaughtException: The "file" argument must be of type string. Received type object date=Sat Dec 24 2022 19:55:29 GMT+0530 (India Standard Time), pid=80699, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=183037952, heapTotal=78569472, heapUsed=39555960, external=18851864, loadavg=[2.98291015625, 2.31298828125, 2.24609375], uptime=2998687
+TypeError [ERR_INVALID_ARG_TYPE]: The "file" argument must be of type string. Received type object
+    at validateString (internal/validators.js:125:11)
+    at normalizeSpawnArguments (child_process.js:416:3)
+    at spawn (child_process.js:555:16)
+    at Object.execFile (child_process.js:226:17)
+    at /Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:94:43
+    at Server.<anonymous> (/Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:18:9)
+    at Server.emit (events.js:193:13)
+    at Server.EventEmitter.emit (domain.js:481:20)
+    at emitCloseNT (net.js:1603:8)
+    at processTicksAndRejections (internal/process/task_queues.js:81:17)
+2022-12-24T14:25:29.278Z - error: uncaughtException: The "file" argument must be of type string. Received type object date=Sat Dec 24 2022 19:55:29 GMT+0530 (India Standard Time), pid=80699, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=183037952, heapTotal=78569472, heapUsed=39738824, external=18851864, loadavg=[2.98291015625, 2.31298828125, 2.24609375], uptime=2998687
+TypeError [ERR_INVALID_ARG_TYPE]: The "file" argument must be of type string. Received type object
+    at validateString (internal/validators.js:125:11)
+    at normalizeSpawnArguments (child_process.js:416:3)
+    at spawn (child_process.js:555:16)
+    at Object.execFile (child_process.js:226:17)
+    at /Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:94:43
+    at Server.<anonymous> (/Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:18:9)
+    at Server.emit (events.js:193:13)
+    at Server.EventEmitter.emit (domain.js:481:20)
+    at emitCloseNT (net.js:1603:8)
+    at processTicksAndRejections (internal/process/task_queues.js:81:17)
+2022-12-24T14:25:29.279Z - error: uncaughtException: The "file" argument must be of type string. Received type object date=Sat Dec 24 2022 19:55:29 GMT+0530 (India Standard Time), pid=80699, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=183037952, heapTotal=78569472, heapUsed=39920552, external=18851864, loadavg=[2.98291015625, 2.31298828125, 2.24609375], uptime=2998687
+TypeError [ERR_INVALID_ARG_TYPE]: The "file" argument must be of type string. Received type object
+    at validateString (internal/validators.js:125:11)
+    at normalizeSpawnArguments (child_process.js:416:3)
+    at spawn (child_process.js:555:16)
+    at Object.execFile (child_process.js:226:17)
+    at /Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:94:43
+    at Server.<anonymous> (/Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:18:9)
+    at Server.emit (events.js:193:13)
+    at Server.EventEmitter.emit (domain.js:481:20)
+    at emitCloseNT (net.js:1603:8)
+    at processTicksAndRejections (internal/process/task_queues.js:81:17)
+    at runNextTicks (internal/process/task_queues.js:56:3)
+    at processImmediate (internal/timers.js:416:9)
+    at process.topLevelDomainCallback (domain.js:136:23)
+2022-12-24T14:25:29.281Z - error: uncaughtException: The "file" argument must be of type string. Received type object date=Sat Dec 24 2022 19:55:29 GMT+0530 (India Standard Time), pid=80699, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=183037952, heapTotal=78569472, heapUsed=40121200, external=18851864, loadavg=[2.98291015625, 2.31298828125, 2.24609375], uptime=2998687
+TypeError [ERR_INVALID_ARG_TYPE]: The "file" argument must be of type string. Received type object
+    at validateString (internal/validators.js:125:11)
+    at normalizeSpawnArguments (child_process.js:416:3)
+    at spawn (child_process.js:555:16)
+    at Object.execFile (child_process.js:226:17)
+    at /Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:94:43
+    at Server.<anonymous> (/Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:18:9)
+    at Server.emit (events.js:193:13)
+    at Server.EventEmitter.emit (domain.js:481:20)
+    at emitCloseNT (net.js:1603:8)
+    at processTicksAndRejections (internal/process/task_queues.js:81:17)
+    at runNextTicks (internal/process/task_queues.js:56:3)
+    at processImmediate (internal/timers.js:416:9)
+    at process.topLevelDomainCallback (domain.js:136:23)
+2022-12-24T14:25:29.282Z - error: uncaughtException: The "file" argument must be of type string. Received type object date=Sat Dec 24 2022 19:55:29 GMT+0530 (India Standard Time), pid=80699, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=183037952, heapTotal=78569472, heapUsed=40321168, external=18851864, loadavg=[2.98291015625, 2.31298828125, 2.24609375], uptime=2998687
+TypeError [ERR_INVALID_ARG_TYPE]: The "file" argument must be of type string. Received type object
+    at validateString (internal/validators.js:125:11)
+    at normalizeSpawnArguments (child_process.js:416:3)
+    at spawn (child_process.js:555:16)
+    at Object.execFile (child_process.js:226:17)
+    at /Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:94:43
+    at Server.<anonymous> (/Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:18:9)
+    at Server.emit (events.js:193:13)
+    at Server.EventEmitter.emit (domain.js:481:20)
+    at emitCloseNT (net.js:1603:8)
+    at processTicksAndRejections (internal/process/task_queues.js:81:17)
+2022-12-24T14:25:29.285Z - error: uncaughtException: The "file" argument must be of type string. Received type object date=Sat Dec 24 2022 19:55:29 GMT+0530 (India Standard Time), pid=80699, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=183037952, heapTotal=78569472, heapUsed=40502808, external=18851864, loadavg=[2.98291015625, 2.31298828125, 2.24609375], uptime=2998687
+TypeError [ERR_INVALID_ARG_TYPE]: The "file" argument must be of type string. Received type object
+    at validateString (internal/validators.js:125:11)
+    at normalizeSpawnArguments (child_process.js:416:3)
+    at spawn (child_process.js:555:16)
+    at Object.execFile (child_process.js:226:17)
+    at /Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:94:43
+    at Server.<anonymous> (/Users/ajmac1363/akash/union/node_modules/phantom-workers/lib/phantomWorker.js:18:9)
+    at Server.emit (events.js:193:13)
+    at Server.EventEmitter.emit (domain.js:481:20)
+    at emitCloseNT (net.js:1603:8)
+    at processTicksAndRejections (internal/process/task_queues.js:81:17)
+    at runNextTicks (internal/process/task_queues.js:56:3)
+    at processImmediate (internal/timers.js:416:9)
+    at process.topLevelDomainCallback (domain.js:136:23)
+2022-12-24T14:26:06.400Z - error: uncaughtException: Command failed: gm identify -format "%p " "./output.pdf"
+/bin/sh: gm: command not found
+ date=Sat Dec 24 2022 19:56:06 GMT+0530 (India Standard Time), pid=80751, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=119877632, heapTotal=80154624, heapUsed=42218504, external=19012436, loadavg=[2.580078125, 2.291015625, 2.24072265625], uptime=2998724
+Error: Command failed: gm identify -format "%p " "./output.pdf"
+/bin/sh: gm: command not found
+
+    at checkExecSyncError (child_process.js:639:11)
+    at execSync (child_process.js:676:15)
+    at /Users/ajmac1363/akash/union/node_modules/pdf2img/lib/pdf2img.js:72:23
+    at fn (/Users/ajmac1363/akash/union/node_modules/pdf2img/node_modules/async/lib/async.js:638:34)
+    at Immediate.<anonymous> (/Users/ajmac1363/akash/union/node_modules/pdf2img/node_modules/async/lib/async.js:554:34)
+    at processImmediate (internal/timers.js:443:21)
+    at process.topLevelDomainCallback (domain.js:136:23)
+2022-12-24T14:26:06.837Z - info: [0mGET /api/downloads/6387299f1de091002308f831 [32m200[0m 6171.931 ms - -[0m
+
+2022-12-24T14:26:37.804Z - error: uncaughtException: Command failed: gm identify -format "%p " "./output.pdf"
+/bin/sh: gm: command not found
+ date=Sat Dec 24 2022 19:56:37 GMT+0530 (India Standard Time), pid=80751, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=81051648, heapTotal=46063616, heapUsed=37898464, external=18921748, loadavg=[2.38037109375, 2.2763671875, 2.23681640625], uptime=2998755
+Error: Command failed: gm identify -format "%p " "./output.pdf"
+/bin/sh: gm: command not found
+
+    at checkExecSyncError (child_process.js:639:11)
+    at execSync (child_process.js:676:15)
+    at /Users/ajmac1363/akash/union/node_modules/pdf2img/lib/pdf2img.js:72:23
+    at fn (/Users/ajmac1363/akash/union/node_modules/pdf2img/node_modules/async/lib/async.js:638:34)
+    at Immediate.<anonymous> (/Users/ajmac1363/akash/union/node_modules/pdf2img/node_modules/async/lib/async.js:554:34)
+    at processImmediate (internal/timers.js:443:21)
+    at process.topLevelDomainCallback (domain.js:136:23)
+2022-12-24T14:26:38.030Z - info: [0mGET /api/downloads/6387299f1de091002308f831 [32m200[0m 1369.845 ms - -[0m
+
+2022-12-24T14:27:39.213Z - error: uncaughtException: Command failed: gm identify -format "%p " "./output.pdf"
+/bin/sh: gm: command not found
+ date=Sat Dec 24 2022 19:57:39 GMT+0530 (India Standard Time), pid=80751, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=51040256, heapTotal=46063616, heapUsed=38802720, external=18947418, loadavg=[2.26416015625, 2.23828125, 2.2236328125], uptime=2998817
+Error: Command failed: gm identify -format "%p " "./output.pdf"
+/bin/sh: gm: command not found
+
+    at checkExecSyncError (child_process.js:639:11)
+    at execSync (child_process.js:676:15)
+    at /Users/ajmac1363/akash/union/node_modules/pdf2img/lib/pdf2img.js:72:23
+    at fn (/Users/ajmac1363/akash/union/node_modules/pdf2img/node_modules/async/lib/async.js:638:34)
+    at Immediate.<anonymous> (/Users/ajmac1363/akash/union/node_modules/pdf2img/node_modules/async/lib/async.js:554:34)
+    at processImmediate (internal/timers.js:443:21)
+    at process.topLevelDomainCallback (domain.js:136:23)
+2022-12-24T14:27:39.451Z - info: [0mGET /api/downloads/6387299f1de091002308f831 [32m200[0m 1385.524 ms - -[0m
+
+2022-12-24T14:27:50.518Z - error: uncaughtException: Command failed: gm identify -format "%p " "./output.pdf"
+/bin/sh: gm: command not found
+ date=Sat Dec 24 2022 19:57:50 GMT+0530 (India Standard Time), pid=80751, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=50511872, heapTotal=46063616, heapUsed=38805072, external=18953371, loadavg=[2.3095703125, 2.24658203125, 2.2265625], uptime=2998828
+Error: Command failed: gm identify -format "%p " "./output.pdf"
+/bin/sh: gm: command not found
+
+    at checkExecSyncError (child_process.js:639:11)
+    at execSync (child_process.js:676:15)
+    at /Users/ajmac1363/akash/union/node_modules/pdf2img/lib/pdf2img.js:72:23
+    at fn (/Users/ajmac1363/akash/union/node_modules/pdf2img/node_modules/async/lib/async.js:638:34)
+    at Immediate.<anonymous> (/Users/ajmac1363/akash/union/node_modules/pdf2img/node_modules/async/lib/async.js:554:34)
+    at processImmediate (internal/timers.js:443:21)
+    at process.topLevelDomainCallback (domain.js:136:23)
+2022-12-24T14:27:50.754Z - info: [0mGET /api/downloads/6385b5a624be460023a425c9 [32m200[0m 1319.873 ms - -[0m
+
