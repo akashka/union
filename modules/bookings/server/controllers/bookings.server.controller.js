@@ -406,7 +406,6 @@ exports.downloadByID = function(req, res) {
           },
           host: 'accounts-union.herokuapp.com',
           strategy: "phantom-server | dedicated-process",
-          phantomPath: require("phantomjs-prebuilt").path
         },
         function(err, pdf) {
           console.log('errrrr', err);
