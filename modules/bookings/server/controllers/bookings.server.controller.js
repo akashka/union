@@ -16,8 +16,8 @@ var htmlToPdf = require("html-to-pdf");
 var conversion = require("phantom-html-to-pdf")({
   numberOfWorkers: 10,
   timeout: 50000,
-  portLeftBoundary: 1000,
-  portRightBoundary: 2000,
+  portLeftBoundary: 8000,
+  portRightBoundary: 8000,
   host: '0.0.0.0',
   phantomPath: require("phantomjs-prebuilt").path
 });
