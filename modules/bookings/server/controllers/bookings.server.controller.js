@@ -395,8 +395,6 @@ exports.downloadByID = function(req, res) {
             width: "10in",
             height: "6in"
           },
-          numberOfWorkers: 3,
-          timeout: 10000,
           waitForJS: false,
           waitForJSVarName: "PHANTOM_HTML_TO_PDF_READY",
           allowLocalFilesAccess: true,
@@ -406,6 +404,9 @@ exports.downloadByID = function(req, res) {
           format: {
             quality: 100
           },
+          portLeftBoundary: 1000,
+          portRightBoundary: 2000,
+        	host: '0.0.0.0',
           phantomPath: require("phantomjs-prebuilt").path
         },
         function(err, pdf) {

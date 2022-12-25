@@ -98,6 +98,7 @@
     "pdf2img": "^0.5.0",
     "pdfmake": "^0.1.35",
     "phantom-html-to-pdf": "^0.5.5",
+    "phantom-workers": "^0.6.0",
     "phantomjs-prebuilt": "^2.1.4",
     "print-js": "^1.0.37",
     "run-sequence": "~2.1.0",

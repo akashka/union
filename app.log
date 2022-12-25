@@ -16184,3 +16184,398 @@ Error: Command failed: gm identify -format "%p " "./output.pdf"
     at process.topLevelDomainCallback (domain.js:136:23)
 2022-12-24T14:27:50.754Z - info: [0mGET /api/downloads/6385b5a624be460023a425c9 [32m200[0m 1319.873 ms - -[0m
 
+2022-12-24T15:16:28.728Z - info: [0mGET / [36m304[0m 670.357 ms - -[0m
+
+2022-12-24T15:16:28.806Z - info: [0mGET /modules/core/client/css/core.css [36m304[0m 10.768 ms - -[0m
+
+2022-12-24T15:16:28.807Z - info: [0mGET /modules/home/client/css/home.css [36m304[0m 9.754 ms - -[0m
+
+2022-12-24T15:16:28.808Z - info: [0mGET /modules/users/client/css/users.css [36m304[0m 10.753 ms - -[0m
+
+2022-12-24T15:16:28.812Z - info: [0mGET /modules/core/client/app/config.js [36m304[0m 3.942 ms - -[0m
+
+2022-12-24T15:16:28.814Z - info: [0mGET /modules/core/client/app/init.js [36m304[0m 5.403 ms - -[0m
+
+2022-12-24T15:16:28.814Z - info: [0mGET /modules/bookings/client/bookings.client.module.js [36m304[0m 3.704 ms - -[0m
+
+2022-12-24T15:16:28.815Z - info: [0mGET /modules/core/client/core.client.module.js [36m304[0m 3.960 ms - -[0m
+
+2022-12-24T15:16:28.815Z - info: [0mGET /modules/home/client/home.client.module.js [36m304[0m 2.845 ms - -[0m
+
+2022-12-24T15:16:28.817Z - info: [0mGET /modules/users/client/users.client.module.js [36m304[0m 4.353 ms - -[0m
+
+2022-12-24T15:16:28.818Z - info: [0mGET /modules/bookings/client/config/bookings.client.menus.js [36m304[0m 2.626 ms - -[0m
+
+2022-12-24T15:16:28.821Z - info: [0mGET /modules/bookings/client/config/bookings.client.routes.js [36m304[0m 5.077 ms - -[0m
+
+2022-12-24T15:16:28.822Z - info: [0mGET /modules/bookings/client/controllers/booking-co.client.controller.js [36m304[0m 5.516 ms - -[0m
+
+2022-12-24T15:16:28.822Z - info: [0mGET /modules/bookings/client/controllers/booking.client.controller.js [36m304[0m 5.143 ms - -[0m
+
+2022-12-24T15:16:28.822Z - info: [0mGET /modules/bookings/client/controllers/booking-edit.client.controller.js [36m304[0m 6.181 ms - -[0m
+
+2022-12-24T15:16:28.827Z - info: [0mGET /modules/bookings/client/controllers/bookings.client.controller.js [36m304[0m 6.572 ms - -[0m
+
+2022-12-24T15:16:28.827Z - info: [0mGET /modules/bookings/client/controllers/list-bookings.client.controller.js [36m304[0m 6.200 ms - -[0m
+
+2022-12-24T15:16:28.828Z - info: [0mGET /modules/bookings/client/services/bookings.client.service.js [36m304[0m 3.392 ms - -[0m
+
+2022-12-24T15:16:28.829Z - info: [0mGET /modules/core/client/config/core-admin.client.routes.js [36m304[0m 3.474 ms - -[0m
+
+2022-12-24T15:16:28.829Z - info: [0mGET /modules/core/client/config/core-admin.client.menus.js [36m304[0m 4.021 ms - -[0m
+
+2022-12-24T15:16:28.829Z - info: [0mGET /modules/core/client/config/core.client.menus.js [36m304[0m 2.970 ms - -[0m
+
+2022-12-24T15:16:28.832Z - info: [0mGET /modules/core/client/config/core.client.route-filter.js [36m304[0m 3.733 ms - -[0m
+
+2022-12-24T15:16:28.833Z - info: [0mGET /modules/core/client/config/core.client.routes.js [36m304[0m 3.129 ms - -[0m
+
+2022-12-24T15:16:28.833Z - info: [0mGET /modules/core/client/controllers/error.client.controller.js [36m304[0m 2.136 ms - -[0m
+
+2022-12-24T15:16:28.834Z - info: [0mGET /modules/core/client/controllers/header.client.controller.js [36m304[0m 2.476 ms - -[0m
+
+2022-12-24T15:16:28.834Z - info: [0mGET /modules/core/client/controllers/home.client.controller.js [36m304[0m 1.773 ms - -[0m
+
+2022-12-24T15:16:28.834Z - info: [0mGET /modules/core/client/directives/auto-focus.client.directive.js [36m304[0m 1.835 ms - -[0m
+
+2022-12-24T15:16:28.835Z - info: [0mGET /modules/core/client/directives/ngConfirmClick.js [36m304[0m 1.225 ms - -[0m
+
+2022-12-24T15:16:28.839Z - info: [0mGET /modules/core/client/directives/page-title.client.directive.js [36m304[0m 4.130 ms - -[0m
+
+2022-12-24T15:16:28.839Z - info: [0mGET /modules/core/client/directives/show-errors.client.directive.js [36m304[0m 3.974 ms - -[0m
+
+2022-12-24T15:16:28.840Z - info: [0mGET /modules/core/client/services/interceptors/auth-interceptor.client.service.js [36m304[0m 3.545 ms - -[0m
+
+2022-12-24T15:16:28.840Z - info: [0mGET /modules/core/client/services/menu.client.service.js [36m304[0m 3.497 ms - -[0m
+
+2022-12-24T15:16:28.844Z - info: [0mGET /modules/core/client/services/socket.io.client.service.js [36m304[0m 6.031 ms - -[0m
+
+2022-12-24T15:16:28.848Z - info: [0mGET /modules/home/client/config/home.client.menus.js [36m304[0m 9.828 ms - -[0m
+
+2022-12-24T15:16:28.852Z - info: [0mGET /modules/home/client/config/home.client.routes.js [36m304[0m 4.123 ms - -[0m
+
+2022-12-24T15:16:28.852Z - info: [0mGET /modules/home/client/controllers/home.client.controller.js [36m304[0m 4.480 ms - -[0m
+
+2022-12-24T15:16:28.853Z - info: [0mGET /modules/users/client/config/users-admin.client.menus.js [36m304[0m 4.882 ms - -[0m
+
+2022-12-24T15:16:28.853Z - info: [0mGET /modules/users/client/config/users-admin.client.routes.js [36m304[0m 4.945 ms - -[0m
+
+2022-12-24T15:16:28.855Z - info: [0mGET /modules/users/client/config/users.client.routes.js [36m304[0m 4.187 ms - -[0m
+
+2022-12-24T15:16:28.857Z - info: [0mGET /modules/users/client/controllers/admin/list-users.client.controller.js [36m304[0m 3.385 ms - -[0m
+
+2022-12-24T15:16:28.858Z - info: [0mGET /modules/users/client/controllers/password.client.controller.js [36m304[0m 2.924 ms - -[0m
+
+2022-12-24T15:16:28.858Z - info: [0mGET /modules/users/client/controllers/admin/user.client.controller.js [36m304[0m 4.047 ms - -[0m
+
+2022-12-24T15:16:28.858Z - info: [0mGET /modules/users/client/controllers/authentication.client.controller.js [36m304[0m 3.918 ms - -[0m
+
+2022-12-24T15:16:28.858Z - info: [0mGET /modules/users/client/controllers/settings/change-password.client.controller.js [36m304[0m 3.678 ms - -[0m
+
+2022-12-24T15:16:28.859Z - info: [0mGET /modules/users/client/controllers/settings/change-profile-picture.client.controller.js [36m304[0m 2.092 ms - -[0m
+
+2022-12-24T15:16:28.861Z - info: [0mGET /modules/users/client/controllers/settings/edit-profile.client.controller.js [36m304[0m 2.056 ms - -[0m
+
+2022-12-24T15:16:28.861Z - info: [0mGET /modules/users/client/controllers/settings/manage-social-accounts.client.controller.js [36m304[0m 1.395 ms - -[0m
+
+2022-12-24T15:16:28.861Z - info: [0mGET /modules/users/client/controllers/settings/settings.client.controller.js [36m304[0m 1.396 ms - -[0m
+
+2022-12-24T15:16:28.862Z - info: [0mGET /modules/users/client/directives/password-validator.client.directive.js [36m304[0m 1.401 ms - -[0m
+
+2022-12-24T15:16:28.862Z - info: [0mGET /modules/users/client/directives/password-verify.client.directive.js [36m304[0m 1.405 ms - -[0m
+
+2022-12-24T15:16:28.863Z - info: [0mGET /modules/users/client/directives/users.client.directive.js [36m304[0m 2.437 ms - -[0m
+
+2022-12-24T15:16:28.864Z - info: [0mGET /modules/users/client/services/authentication.client.service.js [36m304[0m 2.033 ms - -[0m
+
+2022-12-24T15:16:28.865Z - info: [0mGET /modules/users/client/services/password-validator.client.service.js [36m304[0m 2.048 ms - -[0m
+
+2022-12-24T15:16:28.865Z - info: [0mGET /modules/users/client/services/users.client.service.js [36m304[0m 2.711 ms - -[0m
+
+2022-12-24T15:16:28.866Z - info: [0mGET /modules/core/client/css/core.css [36m304[0m 2.573 ms - -[0m
+
+2022-12-24T15:16:28.866Z - info: [0mGET /modules/home/client/css/home.css [36m304[0m 2.049 ms - -[0m
+
+2022-12-24T15:16:28.867Z - info: [0mGET /modules/users/client/css/users.css [36m304[0m 0.966 ms - -[0m
+
+2022-12-24T15:16:28.868Z - info: [0mGET /modules/core/client/app/config.js [36m304[0m 1.506 ms - -[0m
+
+2022-12-24T15:16:28.869Z - info: [0mGET /modules/core/client/app/init.js [36m304[0m 1.646 ms - -[0m
+
+2022-12-24T15:16:28.869Z - info: [0mGET /modules/bookings/client/bookings.client.module.js [36m304[0m 2.293 ms - -[0m
+
+2022-12-24T15:16:28.870Z - info: [0mGET /modules/core/client/core.client.module.js [36m304[0m 2.698 ms - -[0m
+
+2022-12-24T15:16:28.871Z - info: [0mGET /modules/home/client/home.client.module.js [36m304[0m 0.957 ms - -[0m
+
+2022-12-24T15:16:28.871Z - info: [0mGET /modules/users/client/users.client.module.js [36m304[0m 0.601 ms - -[0m
+
+2022-12-24T15:16:28.874Z - info: [0mGET /modules/bookings/client/config/bookings.client.menus.js [36m304[0m 1.295 ms - -[0m
+
+2022-12-24T15:16:28.875Z - info: [0mGET /modules/bookings/client/config/bookings.client.routes.js [36m304[0m 1.279 ms - -[0m
+
+2022-12-24T15:16:28.876Z - info: [0mGET /modules/bookings/client/controllers/booking-edit.client.controller.js [36m304[0m 1.938 ms - -[0m
+
+2022-12-24T15:16:28.876Z - info: [0mGET /modules/bookings/client/controllers/booking-co.client.controller.js [36m304[0m 1.973 ms - -[0m
+
+2022-12-24T15:16:28.878Z - info: [0mGET /modules/bookings/client/controllers/booking.client.controller.js [36m304[0m 2.666 ms - -[0m
+
+2022-12-24T15:16:28.879Z - info: [0mGET /modules/bookings/client/controllers/bookings.client.controller.js [36m304[0m 3.401 ms - -[0m
+
+2022-12-24T15:16:28.880Z - info: [0mGET /modules/bookings/client/controllers/list-bookings.client.controller.js [36m304[0m 2.741 ms - -[0m
+
+2022-12-24T15:16:28.880Z - info: [0mGET /modules/bookings/client/services/bookings.client.service.js [36m304[0m 1.981 ms - -[0m
+
+2022-12-24T15:16:28.881Z - info: [0mGET /modules/core/client/config/core-admin.client.menus.js [36m304[0m 2.308 ms - -[0m
+
+2022-12-24T15:16:28.881Z - info: [0mGET /modules/core/client/config/core-admin.client.routes.js [36m304[0m 1.377 ms - -[0m
+
+2022-12-24T15:16:28.889Z - info: [0mGET /modules/core/client/config/core.client.menus.js [36m304[0m 6.141 ms - -[0m
+
+2022-12-24T15:16:28.890Z - info: [0mGET /modules/core/client/config/core.client.route-filter.js [36m304[0m 4.694 ms - -[0m
+
+2022-12-24T15:16:28.890Z - info: [0mGET /modules/core/client/config/core.client.routes.js [36m304[0m 4.710 ms - -[0m
+
+2022-12-24T15:16:28.890Z - info: [0mGET /modules/core/client/controllers/error.client.controller.js [36m304[0m 4.698 ms - -[0m
+
+2022-12-24T15:16:28.891Z - info: [0mGET /modules/core/client/controllers/header.client.controller.js [36m304[0m 4.691 ms - -[0m
+
+2022-12-24T15:16:28.891Z - info: [0mGET /modules/core/client/controllers/home.client.controller.js [36m304[0m 4.694 ms - -[0m
+
+2022-12-24T15:16:28.902Z - info: [0mGET /modules/core/client/directives/auto-focus.client.directive.js [36m304[0m 2.546 ms - -[0m
+
+2022-12-24T15:16:28.902Z - info: [0mGET /modules/core/client/directives/ngConfirmClick.js [36m304[0m 2.472 ms - -[0m
+
+2022-12-24T15:16:28.903Z - info: [0mGET /modules/core/client/directives/page-title.client.directive.js [36m304[0m 2.249 ms - -[0m
+
+2022-12-24T15:16:28.906Z - info: [0mGET /modules/core/client/directives/show-errors.client.directive.js [36m304[0m 2.912 ms - -[0m
+
+2022-12-24T15:16:28.907Z - info: [0mGET /modules/core/client/services/interceptors/auth-interceptor.client.service.js [36m304[0m 5.166 ms - -[0m
+
+2022-12-24T15:16:28.907Z - info: [0mGET /modules/core/client/services/menu.client.service.js [36m304[0m 5.215 ms - -[0m
+
+2022-12-24T15:16:28.914Z - info: [0mGET /modules/core/client/services/socket.io.client.service.js [36m304[0m 4.794 ms - -[0m
+
+2022-12-24T15:16:28.914Z - info: [0mGET /modules/home/client/config/home.client.routes.js [36m304[0m 3.810 ms - -[0m
+
+2022-12-24T15:16:28.916Z - info: [0mGET /modules/home/client/config/home.client.menus.js [36m304[0m 4.805 ms - -[0m
+
+2022-12-24T15:16:28.916Z - info: [0mGET /modules/home/client/controllers/home.client.controller.js [36m304[0m 5.580 ms - -[0m
+
+2022-12-24T15:16:28.920Z - info: [0mGET /modules/users/client/config/users-admin.client.menus.js [36m304[0m 7.092 ms - -[0m
+
+2022-12-24T15:16:28.920Z - info: [0mGET /modules/users/client/config/users-admin.client.routes.js [36m304[0m 7.589 ms - -[0m
+
+2022-12-24T15:16:28.924Z - info: [0mGET /modules/users/client/config/users.client.routes.js [36m304[0m 2.290 ms - -[0m
+
+2022-12-24T15:16:28.924Z - info: [0mGET /modules/users/client/controllers/admin/list-users.client.controller.js [36m304[0m 2.504 ms - -[0m
+
+2022-12-24T15:16:28.924Z - info: [0mGET /modules/users/client/controllers/admin/user.client.controller.js [36m304[0m 2.517 ms - -[0m
+
+2022-12-24T15:16:28.925Z - info: [0mGET /modules/users/client/controllers/authentication.client.controller.js [36m304[0m 2.680 ms - -[0m
+
+2022-12-24T15:16:28.926Z - info: [0mGET /modules/users/client/controllers/password.client.controller.js [36m304[0m 2.911 ms - -[0m
+
+2022-12-24T15:16:28.926Z - info: [0mGET /modules/users/client/controllers/settings/change-password.client.controller.js [36m304[0m 2.510 ms - -[0m
+
+2022-12-24T15:16:28.927Z - info: [0mGET /modules/users/client/controllers/settings/change-profile-picture.client.controller.js [36m304[0m 0.403 ms - -[0m
+
+2022-12-24T15:16:28.936Z - info: [0mGET /modules/users/client/controllers/settings/edit-profile.client.controller.js [36m304[0m 1.166 ms - -[0m
+
+2022-12-24T15:16:28.943Z - info: [0mGET /modules/users/client/controllers/settings/manage-social-accounts.client.controller.js [36m304[0m 5.551 ms - -[0m
+
+2022-12-24T15:16:28.944Z - info: [0mGET /modules/users/client/directives/password-validator.client.directive.js [36m304[0m 5.947 ms - -[0m
+
+2022-12-24T15:16:28.944Z - info: [0mGET /modules/users/client/controllers/settings/settings.client.controller.js [36m304[0m 5.685 ms - -[0m
+
+2022-12-24T15:16:28.946Z - info: [0mGET /modules/users/client/directives/password-verify.client.directive.js [36m304[0m 3.868 ms - -[0m
+
+2022-12-24T15:16:28.947Z - info: [0mGET /modules/users/client/directives/users.client.directive.js [36m304[0m 1.984 ms - -[0m
+
+2022-12-24T15:16:28.947Z - info: [0mGET /modules/users/client/services/authentication.client.service.js [36m304[0m 1.897 ms - -[0m
+
+2022-12-24T15:16:28.948Z - info: [0mGET /modules/users/client/services/password-validator.client.service.js [36m304[0m 1.479 ms - -[0m
+
+2022-12-24T15:16:28.950Z - info: [0mGET /modules/users/client/services/users.client.service.js [36m304[0m 0.484 ms - -[0m
+
+2022-12-24T15:16:28.970Z - info: [0mGET /modules/core/client/views/header.client.view.html [36m304[0m 0.990 ms - -[0m
+
+2022-12-24T15:16:28.970Z - info: [0mGET /modules/home/client/views/home.client.view.html [36m304[0m 0.838 ms - -[0m
+
+2022-12-24T15:16:32.653Z - info: [0mGET /modules/bookings/client/views/list-bookings.client.view.html [36m304[0m 5.012 ms - -[0m
+
+2022-12-24T15:16:33.923Z - info: [0mGET /modules/users/client/img/profile/uploads/25e9af62c3620301f5d473a39bc97832 [33m404[0m 3543.642 ms - -[0m
+
+2022-12-24T15:16:34.148Z - info: [0mGET /api/users [36m304[0m 4736.480 ms - -[0m
+
+2022-12-24T15:16:35.904Z - info: [0mPOST /api/filteredBookings [32m200[0m 1747.410 ms - -[0m
+
+2022-12-24T15:16:36.324Z - info: [0mGET /api/getMonthGraphData [32m200[0m 6902.700 ms - -[0m
+
+2022-12-24T15:16:36.356Z - info: [0mGET /api/getClientGraphData [32m200[0m 6939.081 ms - -[0m
+
+2022-12-24T15:16:37.455Z - info: [0mGET /api/getHomePageData [32m200[0m 8031.224 ms - -[0m
+
+2022-12-24T15:16:37.486Z - info: [0mGET /api/getPrimaryDetails [32m200[0m 4591.043 ms - -[0m
+
+2022-12-24T15:16:39.434Z - info: [0mGET /modules/bookings/client/views/edit-booking.client.view.html [32m200[0m 14.458 ms - -[0m
+
+2022-12-24T15:16:40.181Z - info: [0mGET /bookings/6387299f1de091002308f831/images/loader.gif [32m200[0m 476.031 ms - -[0m
+
+2022-12-24T15:16:40.612Z - info: [0mPOST /api/getBookingDetails [32m200[0m 925.490 ms - 737[0m
+
+2022-12-24T15:16:42.779Z - info: [0mGET /api/getPrimaryDetails [32m200[0m 3093.685 ms - -[0m
+
+2022-12-24T15:16:42.855Z - info: [0mPOST /api/filteredBookings [32m200[0m 1184.164 ms - -[0m
+
+2022-12-24T15:16:46.004Z - info: [0mGET /api/getPrimaryDetails [32m200[0m 3208.511 ms - -[0m
+
+2022-12-24T15:16:49.152Z - error: uncaughtException: spawn Unknown system error -86 date=Sat Dec 24 2022 20:46:49 GMT+0530 (India Standard Time), pid=82072, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=168267776, heapTotal=89759744, heapUsed=51559960, external=24258851, loadavg=[2.0029296875, 1.93212890625, 1.802734375], uptime=3001767
+Error: spawn Unknown system error -86
+    at ChildProcess.spawn (internal/child_process.js:371:11)
+    at spawn (child_process.js:561:9)
+    at Object.execFile (child_process.js:226:17)
+    at /Users/ajmac1363/akash/union/node_modules/phantom-html-to-pdf/node_modules/phantom-workers/lib/phantomWorker.js:94:43
+    at Server.<anonymous> (/Users/ajmac1363/akash/union/node_modules/phantom-html-to-pdf/node_modules/phantom-workers/lib/phantomWorker.js:18:9)
+    at Server.emit (events.js:193:13)
+    at Server.EventEmitter.emit (domain.js:481:20)
+    at emitCloseNT (net.js:1603:8)
+    at processTicksAndRejections (internal/process/task_queues.js:81:17)
+2022-12-24T15:16:49.181Z - error: uncaughtException: spawn Unknown system error -86 date=Sat Dec 24 2022 20:46:49 GMT+0530 (India Standard Time), pid=82072, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=168431616, heapTotal=89759744, heapUsed=51864832, external=24258907, loadavg=[2.0029296875, 1.93212890625, 1.802734375], uptime=3001767
+Error: spawn Unknown system error -86
+    at ChildProcess.spawn (internal/child_process.js:371:11)
+    at spawn (child_process.js:561:9)
+    at Object.execFile (child_process.js:226:17)
+    at /Users/ajmac1363/akash/union/node_modules/phantom-html-to-pdf/node_modules/phantom-workers/lib/phantomWorker.js:94:43
+    at Server.<anonymous> (/Users/ajmac1363/akash/union/node_modules/phantom-html-to-pdf/node_modules/phantom-workers/lib/phantomWorker.js:18:9)
+    at Server.emit (events.js:193:13)
+    at Server.EventEmitter.emit (domain.js:481:20)
+    at emitCloseNT (net.js:1603:8)
+    at processTicksAndRejections (internal/process/task_queues.js:81:17)
+2022-12-24T15:16:49.234Z - error: uncaughtException: spawn Unknown system error -86 date=Sat Dec 24 2022 20:46:49 GMT+0530 (India Standard Time), pid=82072, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=164032512, heapTotal=89759744, heapUsed=52097176, external=24258907, loadavg=[2.0029296875, 1.93212890625, 1.802734375], uptime=3001767
+Error: spawn Unknown system error -86
+    at ChildProcess.spawn (internal/child_process.js:371:11)
+    at spawn (child_process.js:561:9)
+    at Object.execFile (child_process.js:226:17)
+    at /Users/ajmac1363/akash/union/node_modules/phantom-html-to-pdf/node_modules/phantom-workers/lib/phantomWorker.js:94:43
+    at Server.<anonymous> (/Users/ajmac1363/akash/union/node_modules/phantom-html-to-pdf/node_modules/phantom-workers/lib/phantomWorker.js:18:9)
+    at Server.emit (events.js:193:13)
+    at Server.EventEmitter.emit (domain.js:481:20)
+    at emitCloseNT (net.js:1603:8)
+    at processTicksAndRejections (internal/process/task_queues.js:81:17)
+2022-12-24T15:16:49.262Z - error: uncaughtException: spawn Unknown system error -86 date=Sat Dec 24 2022 20:46:49 GMT+0530 (India Standard Time), pid=82072, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=164065280, heapTotal=89759744, heapUsed=52327456, external=24258907, loadavg=[2.0029296875, 1.93212890625, 1.802734375], uptime=3001767
+Error: spawn Unknown system error -86
+    at ChildProcess.spawn (internal/child_process.js:371:11)
+    at spawn (child_process.js:561:9)
+    at Object.execFile (child_process.js:226:17)
+    at /Users/ajmac1363/akash/union/node_modules/phantom-html-to-pdf/node_modules/phantom-workers/lib/phantomWorker.js:94:43
+    at Server.<anonymous> (/Users/ajmac1363/akash/union/node_modules/phantom-html-to-pdf/node_modules/phantom-workers/lib/phantomWorker.js:18:9)
+    at Server.emit (events.js:193:13)
+    at Server.EventEmitter.emit (domain.js:481:20)
+    at emitCloseNT (net.js:1603:8)
+    at processTicksAndRejections (internal/process/task_queues.js:81:17)
+    at runNextTicks (internal/process/task_queues.js:56:3)
+    at processImmediate (internal/timers.js:416:9)
+    at process.topLevelDomainCallback (domain.js:136:23)
+2022-12-24T15:16:49.287Z - error: uncaughtException: spawn Unknown system error -86 date=Sat Dec 24 2022 20:46:49 GMT+0530 (India Standard Time), pid=82072, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=164077568, heapTotal=89759744, heapUsed=52581856, external=24258907, loadavg=[2.0029296875, 1.93212890625, 1.802734375], uptime=3001767
+Error: spawn Unknown system error -86
+    at ChildProcess.spawn (internal/child_process.js:371:11)
+    at spawn (child_process.js:561:9)
+    at Object.execFile (child_process.js:226:17)
+    at /Users/ajmac1363/akash/union/node_modules/phantom-html-to-pdf/node_modules/phantom-workers/lib/phantomWorker.js:94:43
+    at Server.<anonymous> (/Users/ajmac1363/akash/union/node_modules/phantom-html-to-pdf/node_modules/phantom-workers/lib/phantomWorker.js:18:9)
+    at Server.emit (events.js:193:13)
+    at Server.EventEmitter.emit (domain.js:481:20)
+    at emitCloseNT (net.js:1603:8)
+    at processTicksAndRejections (internal/process/task_queues.js:81:17)
+2022-12-24T15:16:49.308Z - error: uncaughtException: spawn Unknown system error -86 date=Sat Dec 24 2022 20:46:49 GMT+0530 (India Standard Time), pid=82072, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=164020224, heapTotal=89759744, heapUsed=52811272, external=24267099, loadavg=[2.0029296875, 1.93212890625, 1.802734375], uptime=3001767
+Error: spawn Unknown system error -86
+    at ChildProcess.spawn (internal/child_process.js:371:11)
+    at spawn (child_process.js:561:9)
+    at Object.execFile (child_process.js:226:17)
+    at /Users/ajmac1363/akash/union/node_modules/phantom-html-to-pdf/node_modules/phantom-workers/lib/phantomWorker.js:94:43
+    at Server.<anonymous> (/Users/ajmac1363/akash/union/node_modules/phantom-html-to-pdf/node_modules/phantom-workers/lib/phantomWorker.js:18:9)
+    at Server.emit (events.js:193:13)
+    at Server.EventEmitter.emit (domain.js:481:20)
+    at emitCloseNT (net.js:1603:8)
+    at processTicksAndRejections (internal/process/task_queues.js:81:17)
+2022-12-24T15:16:49.334Z - error: uncaughtException: spawn Unknown system error -86 date=Sat Dec 24 2022 20:46:49 GMT+0530 (India Standard Time), pid=82072, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=164052992, heapTotal=89759744, heapUsed=53041312, external=24267099, loadavg=[2.0029296875, 1.93212890625, 1.802734375], uptime=3001767
+Error: spawn Unknown system error -86
+    at ChildProcess.spawn (internal/child_process.js:371:11)
+    at spawn (child_process.js:561:9)
+    at Object.execFile (child_process.js:226:17)
+    at /Users/ajmac1363/akash/union/node_modules/phantom-html-to-pdf/node_modules/phantom-workers/lib/phantomWorker.js:94:43
+    at Server.<anonymous> (/Users/ajmac1363/akash/union/node_modules/phantom-html-to-pdf/node_modules/phantom-workers/lib/phantomWorker.js:18:9)
+    at Server.emit (events.js:193:13)
+    at Server.EventEmitter.emit (domain.js:481:20)
+    at emitCloseNT (net.js:1603:8)
+    at processTicksAndRejections (internal/process/task_queues.js:81:17)
+    at runNextTicks (internal/process/task_queues.js:56:3)
+    at processImmediate (internal/timers.js:416:9)
+    at process.topLevelDomainCallback (domain.js:136:23)
+2022-12-24T15:16:49.354Z - error: uncaughtException: spawn Unknown system error -86 date=Sat Dec 24 2022 20:46:49 GMT+0530 (India Standard Time), pid=82072, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=164065280, heapTotal=89759744, heapUsed=53292168, external=24267099, loadavg=[2.0029296875, 1.93212890625, 1.802734375], uptime=3001767
+Error: spawn Unknown system error -86
+    at ChildProcess.spawn (internal/child_process.js:371:11)
+    at spawn (child_process.js:561:9)
+    at Object.execFile (child_process.js:226:17)
+    at /Users/ajmac1363/akash/union/node_modules/phantom-html-to-pdf/node_modules/phantom-workers/lib/phantomWorker.js:94:43
+    at Server.<anonymous> (/Users/ajmac1363/akash/union/node_modules/phantom-html-to-pdf/node_modules/phantom-workers/lib/phantomWorker.js:18:9)
+    at Server.emit (events.js:193:13)
+    at Server.EventEmitter.emit (domain.js:481:20)
+    at emitCloseNT (net.js:1603:8)
+    at processTicksAndRejections (internal/process/task_queues.js:81:17)
+    at runNextTicks (internal/process/task_queues.js:56:3)
+    at processImmediate (internal/timers.js:416:9)
+    at process.topLevelDomainCallback (domain.js:136:23)
+2022-12-24T15:16:49.379Z - error: uncaughtException: spawn Unknown system error -86 date=Sat Dec 24 2022 20:46:49 GMT+0530 (India Standard Time), pid=82072, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=164069376, heapTotal=89759744, heapUsed=53541496, external=24267099, loadavg=[2.0029296875, 1.93212890625, 1.802734375], uptime=3001767
+Error: spawn Unknown system error -86
+    at ChildProcess.spawn (internal/child_process.js:371:11)
+    at spawn (child_process.js:561:9)
+    at Object.execFile (child_process.js:226:17)
+    at /Users/ajmac1363/akash/union/node_modules/phantom-html-to-pdf/node_modules/phantom-workers/lib/phantomWorker.js:94:43
+    at Server.<anonymous> (/Users/ajmac1363/akash/union/node_modules/phantom-html-to-pdf/node_modules/phantom-workers/lib/phantomWorker.js:18:9)
+    at Server.emit (events.js:193:13)
+    at Server.EventEmitter.emit (domain.js:481:20)
+    at emitCloseNT (net.js:1603:8)
+    at processTicksAndRejections (internal/process/task_queues.js:81:17)
+2022-12-24T15:16:49.401Z - error: uncaughtException: spawn Unknown system error -86 date=Sat Dec 24 2022 20:46:49 GMT+0530 (India Standard Time), pid=82072, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=164102144, heapTotal=89759744, heapUsed=53770744, external=24267099, loadavg=[2.0029296875, 1.93212890625, 1.802734375], uptime=3001767
+Error: spawn Unknown system error -86
+    at ChildProcess.spawn (internal/child_process.js:371:11)
+    at spawn (child_process.js:561:9)
+    at Object.execFile (child_process.js:226:17)
+    at /Users/ajmac1363/akash/union/node_modules/phantom-html-to-pdf/node_modules/phantom-workers/lib/phantomWorker.js:94:43
+    at Server.<anonymous> (/Users/ajmac1363/akash/union/node_modules/phantom-html-to-pdf/node_modules/phantom-workers/lib/phantomWorker.js:18:9)
+    at Server.emit (events.js:193:13)
+    at Server.EventEmitter.emit (domain.js:481:20)
+    at emitCloseNT (net.js:1603:8)
+    at processTicksAndRejections (internal/process/task_queues.js:81:17)
+2022-12-24T15:17:43.654Z - error: uncaughtException: Command failed: gm identify -format "%p " "./output.pdf"
+/bin/sh: gm: command not found
+ date=Sat Dec 24 2022 20:47:43 GMT+0530 (India Standard Time), pid=82154, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=109883392, heapTotal=79630336, heapUsed=42314160, external=19012620, loadavg=[2.6396484375, 2.07470703125, 1.85986328125], uptime=3001821
+Error: Command failed: gm identify -format "%p " "./output.pdf"
+/bin/sh: gm: command not found
+
+    at checkExecSyncError (child_process.js:639:11)
+    at execSync (child_process.js:676:15)
+    at /Users/ajmac1363/akash/union/node_modules/pdf2img/lib/pdf2img.js:72:23
+    at fn (/Users/ajmac1363/akash/union/node_modules/pdf2img/node_modules/async/lib/async.js:638:34)
+    at Immediate.<anonymous> (/Users/ajmac1363/akash/union/node_modules/pdf2img/node_modules/async/lib/async.js:554:34)
+    at processImmediate (internal/timers.js:443:21)
+    at process.topLevelDomainCallback (domain.js:136:23)
+2022-12-24T15:17:44.065Z - info: [0mGET /api/downloads/63872bbb1de091002308f832 [32m200[0m 4812.429 ms - -[0m
+
+2022-12-24T15:18:14.924Z - error: uncaughtException: Command failed: gm identify -format "%p " "./output.pdf"
+/bin/sh: gm: command not found
+ date=Sat Dec 24 2022 20:48:14 GMT+0530 (India Standard Time), pid=82154, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v11.15.0, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=88432640, heapTotal=45539328, heapUsed=38772760, external=18940474, loadavg=[2.08251953125, 1.98779296875, 1.833984375], uptime=3001852
+Error: Command failed: gm identify -format "%p " "./output.pdf"
+/bin/sh: gm: command not found
+
+    at checkExecSyncError (child_process.js:639:11)
+    at execSync (child_process.js:676:15)
+    at /Users/ajmac1363/akash/union/node_modules/pdf2img/lib/pdf2img.js:72:23
+    at fn (/Users/ajmac1363/akash/union/node_modules/pdf2img/node_modules/async/lib/async.js:638:34)
+    at Immediate.<anonymous> (/Users/ajmac1363/akash/union/node_modules/pdf2img/node_modules/async/lib/async.js:554:34)
+    at processImmediate (internal/timers.js:443:21)
+    at process.topLevelDomainCallback (domain.js:136:23)
+2022-12-24T15:18:15.147Z - info: [0mGET /api/downloads/63872bbb1de091002308f832 [32m200[0m 1239.196 ms - -[0m
+
