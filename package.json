@@ -11,8 +11,9 @@
     "url": "https://github.com/meanjs/mean.git"
   },
   "engines": {
-    "node": "11.15.0",
-    "npm": "6.7.0"
+    "node": "8.2.1",
+    "npm": "5.3.0",
+    "yarn": "0.27.5"
   },
   "scripts": {
     "update": "npm update && npm prune && npm run bower",

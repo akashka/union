@@ -14,12 +14,9 @@ var path = require("path"),
   moment = require("moment");
 var htmlToPdf = require("html-to-pdf");
 var conversion = require("phantom-html-to-pdf")({
-  numberOfWorkers: 10,
-  timeout: 50000,
-  portLeftBoundary: 8000,
-  portRightBoundary: 8000,
-  host: '0.0.0.0',
-  phantomPath: require("phantomjs-prebuilt").path
+  numberOfWorkers: 3,
+  timeout: 10000,
+  tmpDir: __dirname + "/tmp/"
 });
 var printer = require("node-thermal-printer");
 var pdf2img = require("pdf2img");
