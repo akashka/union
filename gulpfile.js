@@ -23,7 +23,7 @@ var _ = require('lodash'),
   endOfLine = require('os').EOL,
   del = require('del');
 
-// Local settings
+  // Local settings
 var changedTestFiles = [];
 
 // Set NODE_ENV to 'test'
@@ -71,9 +71,9 @@ gulp.task('watch', function () {
   gulp.watch(defaultAssets.server.views).on('change', plugins.refresh.changed);
   // gulp.watch(defaultAssets.server.allJS, ['eslint']).on('change', plugins.refresh.changed);
   // gulp.watch(defaultAssets.client.js, ['eslint']).on('change', plugins.refresh.changed);
-  gulp.watch(defaultAssets.client.css, ['csslint']).on('change', plugins.refresh.changed);
-  gulp.watch(defaultAssets.client.sass, ['sass', 'csslint']).on('change', plugins.refresh.changed);
-  gulp.watch(defaultAssets.client.less, ['less', 'csslint']).on('change', plugins.refresh.changed);
+  gulp.watch(defaultAssets.client.css, gulp.series('csslint')).on('change', plugins.refresh.changed);
+  gulp.watch(defaultAssets.client.sass, gulp.series('sass', 'csslint')).on('change', plugins.refresh.changed);
+  gulp.watch(defaultAssets.client.less, gulp.series('less', 'csslint')).on('change', plugins.refresh.changed);
 
   if (process.env.NODE_ENV === 'production') {
     // gulp.watch(defaultAssets.server.gulpConfig, ['templatecache', 'eslint']);
@@ -233,15 +233,16 @@ gulp.task('wiredep:prod', function () {
 
 // Copy local development environment config example
 gulp.task('copyLocalEnvConfig', function () {
-  var src = [];
-  var renameTo = 'local-development.js';
+  var src = '.';
+  var renameTo = 'local-developments.js';
 
   // only add the copy source if our destination file doesn't already exist
   if (!fs.existsSync('config/env/' + renameTo)) {
+    if (src === '.') src = [];
     src.push('config/env/local.example.js');
   }
 
-  return gulp.src(src)
+  return gulp.src(src, {allowEmpty: true})
     .pipe(plugins.rename(renameTo))
     .pipe(gulp.dest('config/env'));
 });
@@ -313,14 +314,14 @@ gulp.task('pre-test', function () {
 });
 
 // Run istanbul test and write report
-gulp.task('mocha:coverage', ['pre-test', 'mocha'], function () {
+gulp.task('mocha:coverage', gulp.series('pre-test', 'mocha', function () {
   var testSuites = changedTestFiles.length ? changedTestFiles : testAssets.tests.server;
 
   return gulp.src(testSuites)
     .pipe(plugins.istanbul.writeReports({
       reportOpts: { dir: './coverage/server' }
     }));
-});
+}));
 
 // Karma test runner task
 gulp.task('karma', function (done) {
@@ -422,7 +423,7 @@ gulp.task('webdriver_standalone', function (done) {
 });
 
 // Protractor test runner task
-gulp.task('protractor', ['webdriver_update'], function () {
+gulp.task('protractor', gulp.series('webdriver_update', function () {
   var protractor = require('gulp-protractor').protractor;
   gulp.src([])
     .pipe(protractor({
@@ -438,12 +439,16 @@ gulp.task('protractor', ['webdriver_update'], function () {
       console.error(err);
       process.exit(1);
     });
-});
+}));
 
 // Lint CSS and JavaScript files.
-gulp.task('lint', function (done) {
-  runSequence('less', 'sass', ['csslint'], done);
-});
+// gulp.task('lint', function (done) {
+//   runSequence('less', 'sass', ['csslint'], done);
+// });
+
+gulp.task('lint', gulp.series('less', 'sass', ['csslint'], function (done) {
+  done();
+}));
 
 // Lint project files and minify them into two production files.
 gulp.task('build', function (done) {
@@ -477,9 +482,13 @@ gulp.task('test:coverage', function (done) {
 });
 
 // Run the project in development mode with node debugger enabled
-gulp.task('default', function (done) {
-  runSequence('env:dev', ['copyLocalEnvConfig', 'makeUploadsDir'], 'lint', ['nodemon', 'watch'], done);
-});
+// gulp.task('default', function (done) {
+//   runSequence('env:dev', ['copyLocalEnvConfig', 'makeUploadsDir'], 'lint', ['nodemon', 'watch'], done);
+// });
+
+gulp.task('default', gulp.parallel('env:dev', ['copyLocalEnvConfig', 'makeUploadsDir'], 'lint', ['nodemon', 'watch'], async function (done) {
+  done();
+}));
 
 // Run the project in production mode
 gulp.task('prod', function (done) {

@@ -16579,3 +16579,283 @@ Error: Command failed: gm identify -format "%p " "./output.pdf"
     at process.topLevelDomainCallback (domain.js:136:23)
 2022-12-24T15:18:15.147Z - info: [0mGET /api/downloads/63872bbb1de091002308f832 [32m200[0m 1239.196 ms - -[0m
 
+2023-01-10T19:25:44.406Z - info: [0mGET / [32m200[0m 46.476 ms - -[0m
+
+2023-01-10T19:25:44.432Z - info: [0mGET /lib/bootstrap/dist/css/bootstrap-theme.css [32m200[0m 14.966 ms - -[0m
+
+2023-01-10T19:25:44.434Z - info: [0mGET /lib/angular-ui-notification/dist/angular-ui-notification.css [32m200[0m 9.236 ms - -[0m
+
+2023-01-10T19:25:44.436Z - info: [0mGET /lib/ng-table/dist/ng-table.min.css [32m200[0m 10.509 ms - -[0m
+
+2023-01-10T19:25:44.439Z - info: [0mGET /modules/core/client/css/core.css [32m200[0m 11.618 ms - -[0m
+
+2023-01-10T19:25:44.440Z - info: [0mGET /modules/home/client/css/home.css [32m200[0m 10.993 ms - -[0m
+
+2023-01-10T19:25:44.443Z - info: [0mGET /lib/bootstrap/dist/css/bootstrap.css [32m200[0m 15.557 ms - -[0m
+
+2023-01-10T19:25:44.445Z - info: [0mGET /modules/users/client/css/users.css [32m200[0m 7.338 ms - 510[0m
+
+2023-01-10T19:25:44.458Z - info: [0mGET /lib/angular-messages/angular-messages.js [32m200[0m 6.459 ms - -[0m
+
+2023-01-10T19:25:44.463Z - info: [0mGET /lib/ng-file-upload/ng-file-upload.js [32m200[0m 3.785 ms - -[0m
+
+2023-01-10T19:25:44.469Z - info: [0mGET /lib/angular-resource/angular-resource.js [32m200[0m 4.386 ms - -[0m
+
+2023-01-10T19:25:44.469Z - info: [0mGET /lib/angular-mocks/angular-mocks.js [32m200[0m 7.484 ms - -[0m
+
+2023-01-10T19:25:44.471Z - info: [0mGET /lib/angular-ui-notification/dist/angular-ui-notification.js [32m200[0m 5.081 ms - -[0m
+
+2023-01-10T19:25:44.473Z - info: [0mGET /lib/angular-animate/angular-animate.js [32m200[0m 4.395 ms - -[0m
+
+2023-01-10T19:25:44.474Z - info: [0mGET /lib/owasp-password-strength-test/owasp-password-strength-test.js [32m200[0m 1.242 ms - -[0m
+
+2023-01-10T19:25:44.481Z - info: [0mGET /lib/angular-moment/angular-moment.js [32m200[0m 1.813 ms - -[0m
+
+2023-01-10T19:25:44.489Z - info: [0mGET /lib/angular-bootstrap/ui-bootstrap-tpls.js [32m200[0m 4.316 ms - -[0m
+
+2023-01-10T19:25:44.493Z - info: [0mGET /lib/angular-ui-router/release/angular-ui-router.js [32m200[0m 1.833 ms - -[0m
+
+2023-01-10T19:25:44.496Z - info: [0mGET /lib/angular-typeahead/dist/angular-typeahead.js [32m200[0m 2.360 ms - -[0m
+
+2023-01-10T19:25:44.497Z - info: [0mGET /lib/moment/moment.js [32m200[0m 2.252 ms - -[0m
+
+2023-01-10T19:25:44.514Z - info: [0mGET /lib/c3/c3.min.js [32m200[0m 3.109 ms - -[0m
+
+2023-01-10T19:25:44.522Z - info: [0mGET /lib/pathseg/pathseg.js [32m200[0m 3.330 ms - -[0m
+
+2023-01-10T19:25:44.522Z - info: [0mGET /lib/d3/d3.min.js [32m200[0m 2.748 ms - -[0m
+
+2023-01-10T19:25:44.528Z - info: [0mGET /lib/ng-table/dist/ng-table.min.js [32m200[0m 2.019 ms - -[0m
+
+2023-01-10T19:25:44.530Z - info: [0mGET /modules/core/client/app/config.js [32m200[0m 2.154 ms - -[0m
+
+2023-01-10T19:25:44.535Z - info: [0mGET /modules/bookings/client/bookings.client.module.js [32m200[0m 3.456 ms - 471[0m
+
+2023-01-10T19:25:44.536Z - info: [0mGET /modules/core/client/app/init.js [32m200[0m 3.507 ms - -[0m
+
+2023-01-10T19:25:44.540Z - info: [0mGET /modules/core/client/core.client.module.js [32m200[0m 1.709 ms - 251[0m
+
+2023-01-10T19:25:44.540Z - info: [0mGET /modules/home/client/home.client.module.js [32m200[0m 1.883 ms - 391[0m
+
+2023-01-10T19:25:44.545Z - info: [0mGET /modules/users/client/users.client.module.js [32m200[0m 2.124 ms - 385[0m
+
+2023-01-10T19:25:44.545Z - info: [0mGET /modules/bookings/client/config/bookings.client.menus.js [32m200[0m 3.207 ms - 450[0m
+
+2023-01-10T19:25:44.550Z - info: [0mGET /modules/bookings/client/config/bookings.client.routes.js [32m200[0m 2.157 ms - -[0m
+
+2023-01-10T19:25:44.550Z - info: [0mGET /modules/bookings/client/controllers/booking-co.client.controller.js [32m200[0m 1.779 ms - -[0m
+
+2023-01-10T19:25:44.553Z - info: [0mGET /lib/lodash/lodash.js [32m200[0m 1.409 ms - -[0m
+
+2023-01-10T19:25:44.555Z - info: [0mGET /lib/pdfmake/build/pdfmake.min.js [32m200[0m 2.609 ms - -[0m
+
+2023-01-10T19:25:44.555Z - info: [0mGET /modules/bookings/client/controllers/bookings.client.controller.js [32m200[0m 1.294 ms - 685[0m
+
+2023-01-10T19:25:44.556Z - info: [0mGET /modules/bookings/client/controllers/booking-edit.client.controller.js [32m200[0m 2.175 ms - -[0m
+
+2023-01-10T19:25:44.557Z - info: [0mGET /modules/bookings/client/controllers/booking.client.controller.js [32m200[0m 1.272 ms - -[0m
+
+2023-01-10T19:25:44.559Z - info: [0mGET /modules/core/client/config/core-admin.client.menus.js [32m200[0m 1.194 ms - 336[0m
+
+2023-01-10T19:25:44.560Z - info: [0mGET /modules/core/client/config/core-admin.client.routes.js [32m200[0m 1.291 ms - 383[0m
+
+2023-01-10T19:25:44.560Z - info: [0mGET /modules/bookings/client/controllers/list-bookings.client.controller.js [32m200[0m 1.539 ms - -[0m
+
+2023-01-10T19:25:44.560Z - info: [0mGET /modules/bookings/client/services/bookings.client.service.js [32m200[0m 1.302 ms - -[0m
+
+2023-01-10T19:25:44.563Z - info: [0mGET /modules/core/client/config/core.client.menus.js [32m200[0m 1.992 ms - 917[0m
+
+2023-01-10T19:25:44.566Z - info: [0mGET /modules/core/client/controllers/error.client.controller.js [32m200[0m 3.617 ms - 379[0m
+
+2023-01-10T19:25:44.566Z - info: [0mGET /modules/core/client/config/core.client.route-filter.js [32m200[0m 2.089 ms - -[0m
+
+2023-01-10T19:25:44.568Z - info: [0mGET /modules/core/client/config/core.client.routes.js [32m200[0m 3.395 ms - -[0m
+
+2023-01-10T19:25:44.569Z - info: [0mGET /modules/core/client/controllers/header.client.controller.js [32m200[0m 4.344 ms - 662[0m
+
+2023-01-10T19:25:44.572Z - info: [0mGET /modules/core/client/directives/auto-focus.client.directive.js [32m200[0m 3.236 ms - 683[0m
+
+2023-01-10T19:25:44.573Z - info: [0mGET /modules/core/client/directives/ngConfirmClick.js [32m200[0m 2.753 ms - 709[0m
+
+2023-01-10T19:25:44.575Z - info: [0mGET /modules/core/client/controllers/home.client.controller.js [32m200[0m 3.194 ms - -[0m
+
+2023-01-10T19:25:44.576Z - info: [0mGET /modules/core/client/directives/page-title.client.directive.js [32m200[0m 4.102 ms - -[0m
+
+2023-01-10T19:25:44.579Z - info: [0mGET /modules/core/client/directives/show-errors.client.directive.js [32m200[0m 2.930 ms - -[0m
+
+2023-01-10T19:25:44.579Z - info: [0mGET /modules/core/client/services/interceptors/auth-interceptor.client.service.js [32m200[0m 3.088 ms - -[0m
+
+2023-01-10T19:25:44.580Z - info: [0mGET /modules/core/client/services/menu.client.service.js [32m200[0m 2.860 ms - -[0m
+
+2023-01-10T19:25:44.581Z - info: [0mGET /modules/core/client/services/socket.io.client.service.js [32m200[0m 2.106 ms - -[0m
+
+2023-01-10T19:25:44.584Z - info: [0mGET /modules/home/client/config/home.client.menus.js [32m200[0m 3.411 ms - 313[0m
+
+2023-01-10T19:25:44.584Z - info: [0mGET /modules/home/client/config/home.client.routes.js [32m200[0m 3.474 ms - 467[0m
+
+2023-01-10T19:25:44.585Z - info: [0mGET /modules/users/client/config/users-admin.client.menus.js [32m200[0m 1.434 ms - 335[0m
+
+2023-01-10T19:25:44.587Z - info: [0mGET /lib/pdfmake/build/vfs_fonts.js [32m200[0m 3.780 ms - -[0m
+
+2023-01-10T19:25:44.588Z - info: [0mGET /modules/home/client/controllers/home.client.controller.js [32m200[0m 3.199 ms - -[0m
+
+2023-01-10T19:25:44.590Z - info: [0mGET /modules/users/client/config/users-admin.client.routes.js [32m200[0m 3.085 ms - -[0m
+
+2023-01-10T19:25:44.590Z - info: [0mGET /modules/users/client/config/users.client.routes.js [32m200[0m 2.461 ms - -[0m
+
+2023-01-10T19:25:44.590Z - info: [0mGET /modules/users/client/controllers/admin/list-users.client.controller.js [32m200[0m 1.936 ms - -[0m
+
+2023-01-10T19:25:44.591Z - info: [0mGET /modules/users/client/controllers/admin/user.client.controller.js [32m200[0m 1.750 ms - -[0m
+
+2023-01-10T19:25:44.592Z - info: [0mGET /modules/users/client/controllers/authentication.client.controller.js [32m200[0m 1.974 ms - -[0m
+
+2023-01-10T19:25:44.595Z - info: [0mGET /modules/users/client/controllers/password.client.controller.js [32m200[0m 2.311 ms - -[0m
+
+2023-01-10T19:25:44.595Z - info: [0mGET /modules/users/client/controllers/settings/change-password.client.controller.js [32m200[0m 2.060 ms - -[0m
+
+2023-01-10T19:25:44.596Z - info: [0mGET /lib/angular/angular.js [32m200[0m 5.998 ms - -[0m
+
+2023-01-10T19:25:44.597Z - info: [0mGET /modules/users/client/controllers/settings/change-profile-picture.client.controller.js [32m200[0m 1.493 ms - -[0m
+
+2023-01-10T19:25:44.597Z - info: [0mGET /modules/users/client/controllers/settings/edit-profile.client.controller.js [32m200[0m 1.335 ms - -[0m
+
+2023-01-10T19:25:44.599Z - info: [0mGET /modules/users/client/controllers/settings/manage-social-accounts.client.controller.js [32m200[0m 1.789 ms - -[0m
+
+2023-01-10T19:25:44.603Z - info: [0mGET /modules/users/client/controllers/settings/settings.client.controller.js [32m200[0m 3.872 ms - 306[0m
+
+2023-01-10T19:25:44.604Z - info: [0mGET /modules/users/client/directives/password-verify.client.directive.js [32m200[0m 5.511 ms - 821[0m
+
+2023-01-10T19:25:44.605Z - info: [0mGET /modules/users/client/directives/users.client.directive.js [32m200[0m 5.151 ms - 507[0m
+
+2023-01-10T19:25:44.606Z - info: [0mGET /modules/users/client/services/authentication.client.service.js [32m200[0m 5.228 ms - 324[0m
+
+2023-01-10T19:25:44.607Z - info: [0mGET /modules/users/client/directives/password-validator.client.directive.js [32m200[0m 5.280 ms - -[0m
+
+2023-01-10T19:25:44.607Z - info: [0mGET /modules/users/client/services/password-validator.client.service.js [32m200[0m 5.925 ms - 859[0m
+
+2023-01-10T19:25:44.609Z - info: [0mGET /modules/users/client/services/users.client.service.js [32m200[0m 1.094 ms - -[0m
+
+2023-01-10T19:25:44.695Z - info: [0mGET /modules/core/client/views/header.client.view.html [32m200[0m 2.199 ms - -[0m
+
+2023-01-10T19:25:44.695Z - info: [0mGET /modules/users/client/views/authentication/authentication.client.view.html [32m200[0m 1.215 ms - -[0m
+
+2023-01-10T19:25:44.876Z - info: [0mGET /modules/users/client/views/authentication/signin.client.view.html [32m200[0m 2.245 ms - -[0m
+
+2023-01-10T19:25:44.900Z - info: [0mGET /modules/core/client/img/banner.jpg [32m200[0m 1.181 ms - 467303[0m
+
+2023-01-10T19:25:44.917Z - info: [0mGET /manifest.json [32m200[0m 1.675 ms - 357[0m
+
+2023-01-10T19:25:44.918Z - info: [0mGET /modules/core/client/img/brand/favicon.ico [32m200[0m 1.885 ms - 32038[0m
+
+2023-01-10T19:25:44.926Z - info: [0mGET /modules/core/client/img/brand/favicon.ico [36m304[0m 3.878 ms - -[0m
+
+2023-01-10T19:25:55.228Z - info: [0mPOST /api/auth/signin [33m422[0m 689.746 ms - 56[0m
+
+2023-01-10T19:25:55.252Z - info: [0mGET /lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2 [32m200[0m 2.484 ms - -[0m
+
+2023-01-10T19:25:57.791Z - info: [0mPOST /api/auth/signin [32m200[0m 512.182 ms - 446[0m
+
+2023-01-10T19:25:57.803Z - info: [0mGET /modules/home/client/views/home.client.view.html [32m200[0m 2.198 ms - -[0m
+
+2023-01-10T19:25:59.637Z - info: [0mGET /modules/bookings/client/views/list-bookings.client.view.html [32m200[0m 5.755 ms - -[0m
+
+2023-01-10T19:26:01.664Z - info: [0mGET /modules/users/client/img/profile/uploads/25e9af62c3620301f5d473a39bc97832 [33m404[0m 2728.441 ms - -[0m
+
+2023-01-10T19:26:01.927Z - info: [0mGET /api/users [32m200[0m 3827.427 ms - 759[0m
+
+2023-01-10T19:26:03.109Z - info: [0mPOST /api/filteredBookings [32m200[0m 1211.580 ms - -[0m
+
+2023-01-10T19:26:03.744Z - info: [0mGET /api/getHomePageData [32m200[0m 5677.997 ms - -[0m
+
+2023-01-10T19:26:03.746Z - info: [0mGET /api/getClientGraphData [32m200[0m 5643.564 ms - -[0m
+
+2023-01-10T19:26:04.051Z - info: [0mGET /api/getMonthGraphData [32m200[0m 5985.919 ms - -[0m
+
+2023-01-10T19:26:04.446Z - info: [0mGET /api/getPrimaryDetails [32m200[0m 4547.614 ms - -[0m
+
+2023-01-10T19:26:07.567Z - error: uncaughtException: Cannot read property 'stream' of undefined date=Wed Jan 11 2023 00:56:07 GMT+0530 (India Standard Time), pid=5292, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v12.22.5, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=149618688, heapTotal=76828672, heapUsed=60003536, external=23750136, arrayBuffers=22226175, loadavg=[1.451171875, 1.48046875, 1.73486328125], uptime=4523
+TypeError: Cannot read property 'stream' of undefined
+    at /Users/ajmac1363/akash/union/modules/bookings/server/controllers/bookings.server.controller.js:413:15
+    at /Users/ajmac1363/akash/union/node_modules/phantom-html-to-pdf/lib/conversion.js:60:20
+    at /Users/ajmac1363/akash/union/node_modules/phantom-html-to-pdf/lib/conversion.js:20:20
+    at fs.js:1365:7
+    at FSReqCallback.oncomplete (fs.js:156:23)
+2023-01-10T19:26:18.887Z - info: [0mGET /api/downloads/63a6debab1861a00260e2560 [0m-[0m - ms - -[0m
+
+2023-01-10T19:26:21.516Z - error: uncaughtException: Cannot read property 'stream' of undefined date=Wed Jan 11 2023 00:56:21 GMT+0530 (India Standard Time), pid=5292, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v12.22.5, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=114302976, heapTotal=39002112, heapUsed=35435360, external=19893527, arrayBuffers=18369526, loadavg=[2.021484375, 1.603515625, 1.77392578125], uptime=4537
+TypeError: Cannot read property 'stream' of undefined
+    at /Users/ajmac1363/akash/union/modules/bookings/server/controllers/bookings.server.controller.js:413:15
+    at /Users/ajmac1363/akash/union/node_modules/phantom-html-to-pdf/lib/conversion.js:60:20
+    at /Users/ajmac1363/akash/union/node_modules/phantom-html-to-pdf/lib/conversion.js:20:20
+    at fs.js:1365:7
+    at FSReqCallback.oncomplete (fs.js:156:23)
+2023-01-10T19:26:40.391Z - info: [0mGET /api/downloads/6385b5a624be460023a425c9 [0m-[0m - ms - -[0m
+
+2023-01-10T19:27:39.281Z - error: uncaughtException: The "file" argument must be of type string. Received null date=Wed Jan 11 2023 00:57:39 GMT+0530 (India Standard Time), pid=5371, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v12.22.5, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=128802816, heapTotal=74915840, heapUsed=38389208, external=19923210, arrayBuffers=18400886, loadavg=[1.62744140625, 1.5576171875, 1.7392578125], uptime=4615
+TypeError [ERR_INVALID_ARG_TYPE]: The "file" argument must be of type string. Received null
+    at validateString (internal/validators.js:120:11)
+    at normalizeSpawnArguments (child_process.js:411:3)
+    at spawn (child_process.js:547:16)
+    at Object.execFile (child_process.js:237:17)
+    at /Users/ajmac1363/akash/union/node_modules/phantom-html-to-pdf/node_modules/phantom-workers/lib/phantomWorker.js:94:43
+    at Server.<anonymous> (/Users/ajmac1363/akash/union/node_modules/phantom-html-to-pdf/node_modules/phantom-workers/lib/phantomWorker.js:18:9)
+    at Server.emit (events.js:314:20)
+    at Server.EventEmitter.emit (domain.js:483:12)
+    at emitCloseNT (net.js:1657:8)
+    at processTicksAndRejections (internal/process/task_queues.js:83:21)
+2023-01-10T19:27:39.285Z - error: uncaughtException: The "file" argument must be of type string. Received null date=Wed Jan 11 2023 00:57:39 GMT+0530 (India Standard Time), pid=5371, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v12.22.5, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=128880640, heapTotal=74915840, heapUsed=38598472, external=19923274, arrayBuffers=18400910, loadavg=[1.62744140625, 1.5576171875, 1.7392578125], uptime=4615
+TypeError [ERR_INVALID_ARG_TYPE]: The "file" argument must be of type string. Received null
+    at validateString (internal/validators.js:120:11)
+    at normalizeSpawnArguments (child_process.js:411:3)
+    at spawn (child_process.js:547:16)
+    at Object.execFile (child_process.js:237:17)
+    at /Users/ajmac1363/akash/union/node_modules/phantom-html-to-pdf/node_modules/phantom-workers/lib/phantomWorker.js:94:43
+    at Server.<anonymous> (/Users/ajmac1363/akash/union/node_modules/phantom-html-to-pdf/node_modules/phantom-workers/lib/phantomWorker.js:18:9)
+    at Server.emit (events.js:314:20)
+    at Server.EventEmitter.emit (domain.js:483:12)
+    at emitCloseNT (net.js:1657:8)
+    at processTicksAndRejections (internal/process/task_queues.js:83:21)
+2023-01-10T19:27:39.287Z - error: uncaughtException: The "file" argument must be of type string. Received null date=Wed Jan 11 2023 00:57:39 GMT+0530 (India Standard Time), pid=5371, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v12.22.5, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=128905216, heapTotal=74915840, heapUsed=38762544, external=19923274, arrayBuffers=18400910, loadavg=[1.62744140625, 1.5576171875, 1.7392578125], uptime=4615
+TypeError [ERR_INVALID_ARG_TYPE]: The "file" argument must be of type string. Received null
+    at validateString (internal/validators.js:120:11)
+    at normalizeSpawnArguments (child_process.js:411:3)
+    at spawn (child_process.js:547:16)
+    at Object.execFile (child_process.js:237:17)
+    at /Users/ajmac1363/akash/union/node_modules/phantom-html-to-pdf/node_modules/phantom-workers/lib/phantomWorker.js:94:43
+    at Server.<anonymous> (/Users/ajmac1363/akash/union/node_modules/phantom-html-to-pdf/node_modules/phantom-workers/lib/phantomWorker.js:18:9)
+    at Server.emit (events.js:314:20)
+    at Server.EventEmitter.emit (domain.js:483:12)
+    at emitCloseNT (net.js:1657:8)
+    at processTicksAndRejections (internal/process/task_queues.js:83:21)
+    at runNextTicks (internal/process/task_queues.js:66:3)
+    at processImmediate (internal/timers.js:434:9)
+2023-01-10T19:28:09.126Z - error: uncaughtException: Cannot read property 'stream' of undefined date=Wed Jan 11 2023 00:58:09 GMT+0530 (India Standard Time), pid=5383, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v12.22.5, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=133304320, heapTotal=74653696, heapUsed=37425552, external=19809736, arrayBuffers=18287412, loadavg=[1.56982421875, 1.55029296875, 1.73046875], uptime=4645
+TypeError: Cannot read property 'stream' of undefined
+    at /Users/ajmac1363/akash/union/modules/bookings/server/controllers/bookings.server.controller.js:413:15
+    at /Users/ajmac1363/akash/union/node_modules/phantom-html-to-pdf/lib/conversion.js:60:20
+    at /Users/ajmac1363/akash/union/node_modules/phantom-html-to-pdf/lib/conversion.js:20:20
+    at fs.js:1365:7
+    at FSReqCallback.oncomplete (fs.js:156:23)
+2023-01-10T19:30:08.050Z - info: [0mGET /api/downloads/6387299f1de091002308f831 [0m-[0m - ms - -[0m
+
+2023-01-10T19:30:09.017Z - error: uncaughtException: Cannot read property 'stream' of undefined date=Wed Jan 11 2023 01:00:09 GMT+0530 (India Standard Time), pid=5383, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v12.22.5, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=101318656, heapTotal=38477824, heapUsed=35366288, external=19800248, arrayBuffers=18279172, loadavg=[1.88916015625, 1.7001953125, 1.76416015625], uptime=4765
+TypeError: Cannot read property 'stream' of undefined
+    at /Users/ajmac1363/akash/union/modules/bookings/server/controllers/bookings.server.controller.js:413:15
+    at /Users/ajmac1363/akash/union/node_modules/phantom-html-to-pdf/lib/conversion.js:60:20
+    at /Users/ajmac1363/akash/union/node_modules/phantom-html-to-pdf/lib/conversion.js:20:20
+    at fs.js:1365:7
+    at FSReqCallback.oncomplete (fs.js:156:23)
+2023-01-10T19:31:05.064Z - error: uncaughtException: Command failed: gm identify -format "%p " "./output.pdf"
+/bin/sh: gm: command not found
+ date=Wed Jan 11 2023 01:01:05 GMT+0530 (India Standard Time), pid=5439, uid=501, gid=20, cwd=/Users/ajmac1363/akash/union, execPath=/usr/local/bin/node, version=v12.22.5, argv=[/usr/local/bin/node, /Users/ajmac1363/akash/union/server.js], rss=98951168, heapTotal=42672128, heapUsed=36460048, external=19808085, arrayBuffers=18287049, loadavg=[1.6611328125, 1.68310546875, 1.75146484375], uptime=4821
+Error: Command failed: gm identify -format "%p " "./output.pdf"
+/bin/sh: gm: command not found
+
+    at checkExecSyncError (child_process.js:635:11)
+    at execSync (child_process.js:671:15)
+    at /Users/ajmac1363/akash/union/node_modules/pdf2img/lib/pdf2img.js:72:23
+    at fn (/Users/ajmac1363/akash/union/node_modules/pdf2img/node_modules/async/lib/async.js:638:34)
+    at Immediate.<anonymous> (/Users/ajmac1363/akash/union/node_modules/pdf2img/node_modules/async/lib/async.js:554:34)
+    at processImmediate (internal/timers.js:461:21)
+2023-01-10T19:31:05.544Z - info: [0mGET /api/downloads/6387299f1de091002308f831 [32m200[0m 5476.632 ms - -[0m
+
