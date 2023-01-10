@@ -1,5 +1,4 @@
 "use strict";
-
 /**
  * Module dependencies
  */
@@ -14,20 +13,17 @@ var path = require("path"),
   moment = require("moment");
 var htmlToPdf = require("html-to-pdf");
 var conversion = require("phantom-html-to-pdf")({
-  numberOfWorkers: 3,
-  timeout: 10000,
-  tmpDir: __dirname + "/tmp/"
+  numberOfWorkers: 10,
+  timeout: 50000
 });
 var printer = require("node-thermal-printer");
 var pdf2img = require("pdf2img");
-
 /**
  * Create a booking
  */
 exports.create = function(req, res) {
   var booking = new Booking(req.body);
   booking.user = req.user;
-
   booking.save(function(err) {
     if (err) {
       return res.status(422).send({
@@ -38,14 +34,12 @@ exports.create = function(req, res) {
     }
   });
 };
-
 /**
  * Show the current booking
  */
 exports.read = function(req, res) {
   // convert mongoose document to JSON
   var booking = req.booking ? req.booking.toJSON() : {};
-
   // Add a custom field to the Booking, for determining if the current User is the "owner".
   // NOTE: This field is NOT persisted to the database, since it doesn't exist in the Booking model.
   booking.isCurrentUserOwner = !!(
@@ -53,10 +47,8 @@ exports.read = function(req, res) {
     booking.user &&
     booking.user._id.toString() === req.user._id.toString()
   );
-
   res.json(booking);
 };
-
 /**
  * Update an booking
  */
@@ -65,7 +57,6 @@ exports.update = function(req, res) {
   var booking = req.body;
   delete booking._id;
   delete booking.__v;
-
   Booking.update({ _id: id }, booking, { upsert: true, new: true }, function(
     err
   ) {
@@ -78,7 +69,6 @@ exports.update = function(req, res) {
     }
   });
 };
-
 /**
  * Delete an booking
  */
@@ -104,7 +94,6 @@ exports.delete = function(req, res) {
     }
   });
 };
-
 /**
  * List of bookings
  */
@@ -122,7 +111,6 @@ exports.list = function(req, res) {
       }
     });
 };
-
 /**
  * Booking middleware
  */
@@ -132,7 +120,6 @@ exports.bookingByID = function(req, res, next, id) {
       message: "Booking is invalid"
     });
   }
-
   Booking.findById(id)
     .populate("user", "displayName")
     .exec(function(err, booking) {
@@ -147,7 +134,6 @@ exports.bookingByID = function(req, res, next, id) {
       next();
     });
 };
-
 var addCommas = function(x) {
   x = x.toString();
   var lastThree = x.substring(x.length - 3);
@@ -156,7 +142,6 @@ var addCommas = function(x) {
   var res = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
   return res;
 };
-
 var convertToWord = function(num) {
   var a = [
     "",
@@ -223,7 +208,6 @@ var convertToWord = function(num) {
   str += "Only / -";
   return str.toUpperCase();
 };
-
 var findTotal = function(details) {
   var sum = 0;
   for (var i = 0; i < details.length; i++) {
@@ -234,7 +218,6 @@ var findTotal = function(details) {
   }
   return sum;
 };
-
 exports.downloadByID = function(req, res) {
   var id = req.params.bookingId;
   if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -242,7 +225,6 @@ exports.downloadByID = function(req, res) {
       message: "Booking is invalid"
     });
   }
-
   Booking.findById(id)
     .populate("user", "displayName")
     .exec(function(err, booking) {
@@ -253,12 +235,10 @@ exports.downloadByID = function(req, res) {
           message: "No booking with that identifier has been found"
         });
       }
-
       var stringTemplate = fs.readFileSync(
         path.join(__dirname, "../controllers") + "/bill.html",
         "utf8"
       );
-
       stringTemplate = stringTemplate.replace(
         "{{bill_no}}",
         booking.bill_no != undefined ? booking.bill_no.toUpperCase() : ""
@@ -313,7 +293,6 @@ exports.downloadByID = function(req, res) {
           ? "GST NO:   " + booking.consignee.gstin_no.toUpperCase()
           : ""
       );
-
       var prntStrng = "";
       for (var r = 0; r < booking.details.length; r++) {
         prntStrng +=
@@ -364,9 +343,7 @@ exports.downloadByID = function(req, res) {
             booking.details[r].extras[m].extra_name.toUpperCase() + "\n";
         }
       }
-
       stringTemplate = stringTemplate.replace("{{row_to_print}}", prntStrng);
-
       prntStrng = "";
       for (var r = 0; r < booking.details.length; r++) {
         prntStrng += addCommas(booking.details[r].amount) + ".00" + "\n";
@@ -376,9 +353,7 @@ exports.downloadByID = function(req, res) {
         }
         prntStrng += "\n \n";
       }
-
       stringTemplate = stringTemplate.replace("{{amount_to_print}}", prntStrng);
-
       stringTemplate = stringTemplate.replace(
         "{{total_amount_words}}",
         convertToWord(findTotal(booking.details))
@@ -387,7 +362,6 @@ exports.downloadByID = function(req, res) {
         "{{total_amount}}",
         addCommas(findTotal(booking.details)) + ".00"
       );
-
       conversion(
         {
           html: stringTemplate,
@@ -404,7 +378,8 @@ exports.downloadByID = function(req, res) {
           },
           format: {
             quality: 100
-          }
+          },
+          phantomPath: require("phantomjs-prebuilt").path
         },
         function(err, pdf) {
           console.log('errrrr', err);
@@ -412,19 +387,26 @@ exports.downloadByID = function(req, res) {
           var output = fs.createWriteStream("./bill.pdf");
           pdf.stream.pipe(output);
           let filename = "invoice";
+
+    
+          
+            
+    
+
+          
+    
+    
+  
           filename = encodeURIComponent(filename) + ".pdf";
           var file = fs.readFileSync("./bill.pdf");
-
           pdf2img.setOptions({
             type: "png", // png or jpg, default jpg
             outputname: "test", // output file name, dafault null (if null given, then it will create image name same as input name)
             page: null // convert selected page, default null (if null given, then it will convert all pages)
           });
-
           pdf2img.convert("./output.pdf", function(err, info) {
             if (err) console.log(err);
           });
-
           res.setHeader("Content-Type", "application/pdf");
           res.setHeader(
             "Content-disposition",
@@ -435,7 +417,6 @@ exports.downloadByID = function(req, res) {
       );
     });
 };
-
 exports.filteredBookings = function(req, res) {
   console.log(req.body);
   var orderBy = req.body.orderBy || "bill_no";
@@ -443,44 +424,36 @@ exports.filteredBookings = function(req, res) {
   var countFrom = parseInt(req.body.countFrom) || 0;
   var paginationNumber = parseInt(req.body.paginationNumber) || 10;
   var params = {};
-
   if (req.body.params.bill_from !== "" && req.body.params.bill_from !== null) {
     params.bill_date = {
       $gt: req.body.params.bill_from
     };
   }
-
   if (req.body.params.bill_to !== "" && req.body.params.bill_to !== null) {
     params.bill_date = {
       $lt: req.body.params.bill_to
     };
   }
-
   if (
     req.body.params.bill_number !== "" &&
     req.body.params.bill_number !== null
   ) {
     params.bill_no = req.body.params.bill_number;
   }
-
   if (req.body.params.consignor !== "" && req.body.params.consignor !== null) {
     params.consignor = req.body.params.consignor;
   }
-
   if (req.body.params.consignee !== "" && req.body.params.consignee !== null) {
     params.consignor = req.body.params.consignee;
   }
-
   if (
     req.body.params.bill_to_address !== "" &&
     req.body.params.bill_to_address !== null
   ) {
     params.bill_to = req.body.params.bill_to_address;
   }
-
   var ordering = {};
   ordering[orderBy] = sortBy == "asc" ? 1 : -1;
-
   console.log(params);
   Booking.count().exec(function(err, counter) {
     Booking.find(params)
@@ -503,7 +476,6 @@ exports.filteredBookings = function(req, res) {
       });
   });
 };
-
 exports.getPrimaryDetails = function(req, res) {
   Booking.aggregate([
     {
@@ -540,7 +512,6 @@ exports.getPrimaryDetails = function(req, res) {
     }
   });
 };
-
 exports.getHomePageData = function(req, res) {
   Booking.aggregate([
     {
@@ -569,7 +540,6 @@ exports.getHomePageData = function(req, res) {
     }
   });
 };
-
 exports.getMonthGraphData = function(req, res) {
   Booking.aggregate([
     {
@@ -590,7 +560,6 @@ exports.getMonthGraphData = function(req, res) {
     }
   });
 };
-
 exports.getClientGraphData = function(req, res) {
   Booking.aggregate([
     {
@@ -611,7 +580,6 @@ exports.getClientGraphData = function(req, res) {
     }
   });
 };
-
 exports.getBookingDetails = function(req, res) {
   var id = req.body.params;
   if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -619,7 +587,6 @@ exports.getBookingDetails = function(req, res) {
       message: "Booking is invalid"
     });
   }
-
   Booking.findById(id)
     .populate("user", "displayName")
     .exec(function(err, booking) {
