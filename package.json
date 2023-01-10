@@ -12,7 +12,8 @@
   },
   "engines": {
     "node": "12.22.5",
-    "npm": "6.14.14"
+    "npm": "6.14.14",
+    "gulp": "4.0.2"
   },
   "scripts": {
     "update": "npm update && npm prune && npm run bower",
