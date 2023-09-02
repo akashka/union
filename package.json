@@ -112,7 +112,7 @@
   },
   "devDependencies": {
     "coveralls": "~2.13.0",
-    "electron": "^1.8.4",
+    "electron": "^18.3.7",
     "eslint-config-vue": "^2.0.2",
     "eslint-plugin-vue": "^4.4.0",
     "gulp-istanbul": "~1.1.1",
